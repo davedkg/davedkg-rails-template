@@ -1,4 +1,10 @@
 - if flash[:notice] || notice
-  .alert.alert-success= (flash[:notice] || notice)
+  .alert.alert-success
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+    = (flash[:notice] || notice)
 - if flash[:error] || alert
-  .alert.alert-danger= (flash[:error] || alert)
+  .alert.alert-danger
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+    = (flash[:error] || alert)
