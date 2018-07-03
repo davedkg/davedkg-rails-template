@@ -1,0 +1,19 @@
+%aside.sidebar
+  .scrollbar-inner
+    .user
+      .user__info{"data-toggle" => "dropdown"}
+        %img.user__img{:alt => "", :src => image_path('tmp/8.jpg')}/
+        %div
+          .user__name= current_user.name
+          .user__email= current_user.email
+      .dropdown-menu
+        = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item"
+    %ul.navigation
+      %li{ class: active_class_for_controller(:dashboard)}
+        = link_to root_path do
+          %i.fa.fa-tachometer
+          Dashboard
+      %li{ class: active_class_for_controller(:users)}
+        = link_to users_path do
+          %i.fa.fa-users
+          Users

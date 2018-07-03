@@ -1,0 +1,22 @@
+%header.content__title
+  %h1 Users
+  .actions
+    = link_to "", new_user_path, class: 'actions__item zmdi zmdi-plus'
+    
+.card
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th &nbsp;
+    %tbody
+      - @users.each do |user|
+        %tr
+          %td= user.name || 'n/a'
+          %td= user.email
+          %td.right
+            - if nil == user.invitation_accepted_at
+              = link_to "Resend Invitation", resend_invitation_user_path(user), method: :post, class:"btn btn-outline-primary btn-sm"
+            - if user.id != current_user.id
+              = link_to "Destroy", user_path(user), method: :delete, class: "btn btn-outline-danger btn-sm", data: { confirm: 'Are you sure?' }

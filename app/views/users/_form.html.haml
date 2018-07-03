@@ -1,0 +1,5 @@
+= simple_form_for @user do |f|
+  = f.error_notification
+  = f.input :email
+  = f.submit "Invite User", class: 'btn btn-primary'
+  = link_to "Cancel", users_path, class: 'btn btn-default'

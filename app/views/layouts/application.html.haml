@@ -1,0 +1,19 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    = render 'application/page_title'
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+  %body{"data-ma-theme" => "blue"}
+    %main.main
+      = render 'application/header'
+      = render 'application/sidebar'
+      %section.content
+        = render 'application/breadcrumbs'
+        = render 'application/flash_alerts'
+        = yield
+    = javascript_include_tag 'application'
+    = yield :javascript

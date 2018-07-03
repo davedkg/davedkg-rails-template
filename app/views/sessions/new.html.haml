@@ -1,0 +1,19 @@
+.login
+  .login__block.active
+    .login__block__header
+      %i.zmdi.zmdi-account-circle
+      Sign In
+      .actions.actions--inverse.login__block__actions
+        .dropdown
+          %i.zmdi.zmdi-more-vert.actions__item{"aria-expanded" => "false", "data-toggle" => "dropdown"}
+          .dropdown-menu.dropdown-menu-right{:style => "position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-123px, 30px, 0px);", "x-placement" => "bottom-end"}
+            = link_to "Forgot Password?", new_user_password_path, class: "dropdown-item"
+    .login__block__body
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name), wrapper: :centered_form) do |f|
+        = render 'application/flash_alerts'
+        = f.input :email, required: false, autofocus: true
+        = f.input :password, required: false
+        = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+        = f.button :button, type: :submit, class: 'btn btn--icon login__block__btn' do
+          %i.zmdi.zmdi-long-arrow-right
+          

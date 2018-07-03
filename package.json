@@ -1,0 +1,11 @@
+{
+  "name": "platform",
+  "private": true,
+  "dependencies": {
+    "animate.css": "3.5.1",
+    "bootstrap": "4.1.1",
+    "jquery": "1.11.3",
+    "jquery-scroll-lock": "3.1.3",
+    "jquery.scrollbar": "0.2.11"
+  }
+}

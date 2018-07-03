@@ -1,0 +1,2 @@
+APP_DOMAIN_NAME: localhost:3000
+REDIS_URI: redis://127.0.0.1:6379/5
