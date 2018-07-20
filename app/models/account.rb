@@ -1,7 +1,7 @@
 class Account
   include Mongoid::Document
-  include Mongoid::Paranoia
   include Mongoid::Timestamps
+  include Paranoidal
   
   # field :cookies, type: Hash, default: {}
   

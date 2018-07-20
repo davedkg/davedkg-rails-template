@@ -1,8 +1,8 @@
 class User
   include Mongoid::Document
-  include Mongoid::Paranoia
   include Mongoid::Timestamps
   include Devisable
+  include Paranoidal
 
   field :first_name, type: String
   validates :first_name, presence: true

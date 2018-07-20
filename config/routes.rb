@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  
+  mount API => '/'
 
   resources :users, only: [ :index, :new, :create, :destroy ] do
     post 'resend-invitation', to: 'users#resend_invitation', on: :member
@@ -24,5 +26,7 @@ Rails.application.routes.draw do
   constraints resque_web_constraint do
     mount Resque::Server, at: '/resque'
   end
+  
+  mount GrapeSwaggerRails::Engine => 'explorer' #if Rails.env.development? #TODO security
   
 end

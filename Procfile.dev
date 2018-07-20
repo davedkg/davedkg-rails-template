@@ -1,3 +1,2 @@
 web: rails s -p 3000
 worker: sh -c 'QUEUE=* bundle exec rake resque:work'
-mailcatcher: mailcatcher

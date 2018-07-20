@@ -13,17 +13,17 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem "breadcrumbs_on_rails", "~> 3.0.1"
-gem 'capybara', '~> 2.13'
 gem "figaro", '~> 1.1.1'
-gem "font-awesome-rails", "~> 4.7.0.4"
 gem 'devise', '~> 4.4.3'
 gem 'devise_invitable', '~> 1.7.4'
+gem "font-awesome-rails", "~> 4.7.0.4"
+gem 'grape', '~> 1.0.3'
+gem 'grape-swagger', '~> 0.30.1'
+gem 'grape-swagger-rails', '~> 0.3.0'
 gem "haml-rails", "~> 1.0"
-gem 'launchy', '~> 2.4.3'
 gem 'mongoid', '~> 6.1.0'
 gem 'mongoid_paranoia', '~> 0.3.0'
-gem 'poltergeist', '~> 1.18.0'
-gem 'popper_js', '~> 1.12.9'
+gem 'popper_js', '~> 1.12.9' # TODO move me into yarn
 gem 'resque', "~> 1.27.0"
 gem 'sendgrid', '~> 1.2.4'
 gem 'simple_form', '~> 3.5.0'
@@ -31,7 +31,6 @@ gem 'simple_form', '~> 3.5.0'
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
-  gem 'selenium-webdriver'
 end
 
 group :development do
@@ -42,7 +41,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'foreman'
-  gem 'mailcatcher'
 end
 
 group :production do
