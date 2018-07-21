@@ -1,11 +1,15 @@
 # davedkg-rails-template
 
-## Libaries
+## Important Libaries
 | Name | Description |
 | ---- | ----------- |
+| [Bootstrap 4](https://getbootstrap.com/docs/4.0/) | Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. |
 | [Devise](https://github.com/plataformatec/devise) | Flexible authentication solution for Rails with Warden. | 
 | [Devise Zxcvbn](https://github.com/bitzesty/devise_zxcvbn) | Devise plugin to reject weak passwords using zxcvbn. | 
+| [FactoryBot](https://github.com/thoughtbot/factory_bot) | A library for setting up Ruby objects as test data. |
 | [Grape](https://github.com/ruby-grape/grape) | An opinionated framework for creating REST-like APIs in Ruby. |
+| [JQuery 3.3](https://api.jquery.com) | jQuery is a fast, small, and feature-rich JavaScript library. |
+| [RSpec Rails](https://github.com/rspec/rspec-rails) | rspec-rails is a testing framework for Rails 3.x, 4.x and 5.x |
 | [Simple Form](https://github.com/plataformatec/simple_form) | Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup. |
 
 
