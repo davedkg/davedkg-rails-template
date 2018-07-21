@@ -33,7 +33,7 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = 'http://assets.example.com'
+  config.action_controller.asset_host =  "https://#{ENV['ASSET_DOMAIN']}" if nil != ENV['ASSET_DOMAIN']
 
   # Specifies the header that your server uses for sending files.
   # config.action_dispatch.x_sendfile_header = 'X-Sendfile' # for Apache
@@ -50,12 +50,13 @@ Rails.application.configure do
   ActionMailer::Base.smtp_settings = {
     :address => "smtp.sendgrid.net",
     :port => '587',
-    :domain => "example.com",
+    :domain => EMAIL_DOMAIN,
     :authentication => :plain,
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD']
   }
   config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN_NAME'] }
+  config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

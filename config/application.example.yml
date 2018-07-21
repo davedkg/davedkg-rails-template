@@ -1,3 +1,4 @@
+ASSET_DOMAIN: TODO optional in production only
 APP_DOMAIN_NAME: TODO
 REDIS_URI: TODO
 SENDGRID_PASSWORD: TODO production only
