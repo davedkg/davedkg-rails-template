@@ -10,6 +10,7 @@
 | [Grape](https://github.com/ruby-grape/grape) | An opinionated framework for creating REST-like APIs in Ruby. |
 | [jQuery](https://api.jquery.com) | jQuery is a fast, small, and feature-rich JavaScript library. |
 | [RSpec](https://github.com/rspec/rspec) | Behaviour Driven Development for Ruby |
+| [RubyOnRails](https://github.com/rails/rails) | Rails is a web-application framework that includes everything needed to create database-backed web applications according to the Model-View-Controller (MVC) pattern. |
 | [Simple Form](https://github.com/plataformatec/simple_form) | Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup. |
 
 
