@@ -1,7 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
   include SendGrid
   
-  default from: 'no-reply@example.com'
+  default from: FROM_EMAIL_ADDRESS
   layout 'mailer'
   
 end

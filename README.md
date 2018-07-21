@@ -2,16 +2,16 @@
 
 ## Libaries
 | Name | Description |
-| Grape[https://github.com/ruby-grape/grape] | An opinionated framework for creating REST-like APIs in Ruby. |
+| ---- | ----------- |
+| Grape [https://github.com/ruby-grape/grape] | An opinionated framework for creating REST-like APIs in Ruby. |
 
 
 
 # TODOS
 
-- document ping url
+- document ping url usage
 
 ## Configure
-email domain name in mailer and enviornement # TODO move into a config
 config/initializers/constants.rb
 config/mongoid.yml
 config/applcation.yml
