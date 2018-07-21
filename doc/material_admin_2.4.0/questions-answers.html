@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Vendor styles -->
+        <link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
+        <link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+
+        <!-- App styles -->
+        <link rel="stylesheet" href="css/app.min.css">
+    </head>
+
+    <body data-ma-theme="green">
+        <main class="main">
+            <div class="page-loader">
+                <div class="page-loader__spinner">
+                    <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
+
+            <header class="header">
+                <div class="navigation-trigger hidden-xl-up" data-ma-action="aside-open" data-ma-target=".sidebar">
+                    <div class="navigation-trigger__inner">
+                        <i class="navigation-trigger__line"></i>
+                        <i class="navigation-trigger__line"></i>
+                        <i class="navigation-trigger__line"></i>
+                    </div>
+                </div>
+
+                <div class="header__logo hidden-sm-down">
+                    <h1><a href="index.html">Material Admin 2.0</a></h1>
+                </div>
+
+                <form class="search">
+                    <div class="search__inner">
+                        <input type="text" class="search__text" placeholder="Search for people, files, documents...">
+                        <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
+                    </div>
+                </form>
+
+                <ul class="top-nav">
+                    <li class="hidden-xl-up"><a href="" data-ma-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
+
+                    <li class="dropdown">
+                        <a href="" data-toggle="dropdown"><i class="zmdi zmdi-email"></i></a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
+                            <div class="listview listview--hover">
+                                <div class="listview__header">
+                                    Messages
+
+                                    <div class="actions">
+                                        <a href="messages.html" class="actions__item zmdi zmdi-plus"></a>
+                                    </div>
+                                </div>
+
+                                <a href="" class="listview__item">
+                                    <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+
+                                    <div class="listview__content">
+                                        <div class="listview__heading">
+                                            David Belle <small>12:01 PM</small>
+                                        </div>
+                                        <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+
+                                    <div class="listview__content">
+                                        <div class="listview__heading">
+                                            Jonathan Morris
+                                            <small>02:45 PM</small>
+                                        </div>
+                                        <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+
+                                    <div class="listview__content">
+                                        <div class="listview__heading">
+                                            Fredric Mitchell Jr.
+                                            <small>08:21 PM</small>
+                                        </div>
+                                        <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
+
+                                    <div class="listview__content">
+                                        <div class="listview__heading">
+                                            Glenn Jecobs
+                                            <small>08:43 PM</small>
+                                        </div>
+                                        <p>Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</p>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
+
+                                    <div class="listview__content">
+                                        <div class="listview__heading">
+                                            Bill Phillips
+                                            <small>11:32 PM</small>
+                                        </div>
+                                        <p>Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</p>
+                                    </div>
+                                </a>
+
+                                <a href="" class="view-more">View all messages</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown top-nav__notifications">
+                        <a href="" data-toggle="dropdown" class="top-nav__notify">
+                            <i class="zmdi zmdi-notifications"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
+                            <div class="listview listview--hover">
+                                <div class="listview__header">
+                                    Notifications
+
+                                    <div class="actions">
+                                        <a href="" class="actions__item zmdi zmdi-check-all" data-ma-action="notifications-clear"></a>
+                                    </div>
+                                </div>
+
+                                <div class="listview__scroll scrollbar-inner">
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">David Belle</div>
+                                            <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">Jonathan Morris</div>
+                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">Fredric Mitchell Jr.</div>
+                                            <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/4.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">Glenn Jecobs</div>
+                                            <p>Ut vitae lacus sem ellentesque maximus, nunc sit amet varius dignissim, dui est consectetur neque</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">Bill Phillips</div>
+                                            <p>Proin laoreet commodo eros id faucibus. Donec ligula quam, imperdiet vel ante placerat</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/1.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">David Belle</div>
+                                            <p>Cum sociis natoque penatibus et magnis dis parturient montes</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/2.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">Jonathan Morris</div>
+                                            <p>Nunc quis diam diamurabitur at dolor elementum, dictum turpis vel</p>
+                                        </div>
+                                    </a>
+
+                                    <a href="" class="listview__item">
+                                        <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+
+                                        <div class="listview__content">
+                                            <div class="listview__heading">Fredric Mitchell Jr.</div>
+                                            <p>Phasellus a ante et est ornare accumsan at vel magnauis blandit turpis at augue ultricies</p>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="p-1"></div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown hidden-xs-down">
+                        <a href="" data-toggle="dropdown"><i class="zmdi zmdi-check-circle"></i></a>
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
+                            <div class="listview listview--hover">
+                                <div class="listview__header">Tasks</div>
+
+                                <a href="" class="listview__item">
+                                    <div class="listview__content">
+                                        <div class="listview__heading mb-2">HTML5 Validation Report</div>
+
+                                        <div class="progress">
+                                            <div class="progress-bar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <div class="listview__content">
+                                        <div class="listview__heading mb-2">Google Chrome Extension</div>
+
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" style="width: 43%" aria-valuenow="43" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <div class="listview__content">
+                                        <div class="listview__heading mb-2">Social Intranet Projects</div>
+
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 20%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <div class="listview__content">
+                                        <div class="listview__heading mb-2">Bootstrap Admin Template</div>
+
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="" class="listview__item">
+                                    <div class="listview__content">
+                                        <div class="listview__heading mb-2">Youtube Client App</div>
+
+                                        <div class="progress">
+                                            <div class="progress-bar bg-danger" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a href="" class="view-more">View all tasks</a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown hidden-xs-down">
+                        <a href="" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
+
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
+                            <div class="row app-shortcuts">
+                                <a class="col-4 app-shortcuts__item" href="">
+                                    <i class="zmdi zmdi-calendar"></i>
+                                    <small class="">Calendar</small>
+                                    <span class="app-shortcuts__helper bg-red"></span>
+                                </a>
+                                <a class="col-4 app-shortcuts__item" href="">
+                                    <i class="zmdi zmdi-file-text"></i>
+                                    <small class="">Files</small>
+                                    <span class="app-shortcuts__helper bg-blue"></span>
+                                </a>
+                                <a class="col-4 app-shortcuts__item" href="">
+                                    <i class="zmdi zmdi-email"></i>
+                                    <small class="">Email</small>
+                                    <span class="app-shortcuts__helper bg-teal"></span>
+                                </a>
+                                <a class="col-4 app-shortcuts__item" href="">
+                                    <i class="zmdi zmdi-trending-up"></i>
+                                    <small class="">Reports</small>
+                                    <span class="app-shortcuts__helper bg-blue-grey"></span>
+                                </a>
+                                <a class="col-4 app-shortcuts__item" href="">
+                                    <i class="zmdi zmdi-view-headline"></i>
+                                    <small class="">News</small>
+                                    <span class="app-shortcuts__helper bg-orange"></span>
+                                </a>
+                                <a class="col-4 app-shortcuts__item" href="">
+                                    <i class="zmdi zmdi-image"></i>
+                                    <small class="">Gallery</small>
+                                    <span class="app-shortcuts__helper bg-light-green"></span>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="dropdown hidden-xs-down">
+                        <a href="" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-item theme-switch">
+                                Theme Switch
+
+                                <div class="btn-group btn-group-toggle btn-group--colors" data-toggle="buttons">
+                                    <label class="btn bg-green active"><input type="radio" value="green" autocomplete="off" checked></label>
+                                    <label class="btn bg-blue"><input type="radio" value="blue" autocomplete="off"></label>
+                                    <label class="btn bg-red"><input type="radio" value="red" autocomplete="off"></label>
+                                    <label class="btn bg-orange"><input type="radio" value="orange" autocomplete="off"></label>
+                                    <label class="btn bg-teal"><input type="radio" value="teal" autocomplete="off"></label>
+
+                                    <div class="clearfix mt-2"></div>
+
+                                    <label class="btn bg-cyan"><input type="radio" value="cyan" autocomplete="off"></label>
+                                    <label class="btn bg-blue-grey"><input type="radio" value="blue-grey" autocomplete="off"></label>
+                                    <label class="btn bg-purple"><input type="radio" value="purple" autocomplete="off"></label>
+                                    <label class="btn bg-indigo"><input type="radio" value="indigo" autocomplete="off"></label>
+                                    <label class="btn bg-brown"><input type="radio" value="brown" autocomplete="off"></label>
+                                </div>
+                            </div>
+                            <a href="" class="dropdown-item">Fullscreen</a>
+                            <a href="" class="dropdown-item">Clear Local Storage</a>
+                        </div>
+                    </li>
+
+                    <li class="hidden-xs-down">
+                        <a href="" data-ma-action="aside-open" data-ma-target=".chat" class="top-nav__notify">
+                            <i class="zmdi zmdi-comment-alt-text"></i>
+                        </a>
+                    </li>
+                </ul>
+            </header>
+
+            <aside class="sidebar">
+                <div class="scrollbar-inner">
+                    <div class="user">
+                        <div class="user__info" data-toggle="dropdown">
+                            <img class="user__img" src="demo/img/profile-pics/8.jpg" alt="">
+                            <div>
+                                <div class="user__name">Malinda Hollaway</div>
+                                <div class="user__email">malinda-h@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="">View Profile</a>
+                            <a class="dropdown-item" href="">Settings</a>
+                            <a class="dropdown-item" href="">Logout</a>
+                        </div>
+                    </div>
+
+                    <ul class="navigation">
+                        <li><a href="index.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+
+                        <li class="navigation__sub">
+                            <a href=""><i class="zmdi zmdi-view-week"></i> Variants</a>
+
+                            <ul>
+                                <li><a href="hidden-sidebar.html">Hidden Sidebar</a></li>
+                                <li><a href="boxed-layout.html">Boxed Layout</a></li>
+                                <li><a href="hidden-sidebar-boxed-layout.html">Boxed Layout with Hidden Sidebar</a></li>
+                                <li><a href="top-navigation.html">Top Navigation</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="typography.html"><i class="zmdi zmdi-format-underlined"></i> Typography</a></li>
+
+                        <li><a href="widgets.html"><i class="zmdi zmdi-widgets"></i> Widgets</a></li>
+
+                        <li class="navigation__sub">
+                            <a href=""><i class="zmdi zmdi-view-list"></i> Tables</a>
+
+                            <ul>
+                                <li><a href="html-table.html">HTML Table</a></li>
+                                <li><a href="data-table.html">Data Table</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="navigation__sub">
+                            <a href=""><i class="zmdi zmdi-collection-text"></i> Forms</a>
+
+                            <ul>
+                                <li><a href="form-elements.html">Basic Form Elements</a></li>
+                                <li><a href="form-components.html">Form Components</a></li>
+                                <li><a href="form-layouts.html">Form Layouts</a></li>
+                                <li><a href="form-validation.html">Form Validation</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="navigation__sub">
+                            <a href=""><i class="zmdi zmdi-swap-alt"></i> User Interface</a>
+
+                            <ul>
+                                <li><a href="colors.html">Colors</a></li>
+                                <li><a href="css-animations.html">CSS Animations</a></li>
+                                <li><a href="buttons.html">Buttons</a></li>
+                                <li><a href="icons.html">Icons</a></li>
+                                <li><a href="listview.html">Listview</a></li>
+                                <li><a href="toolbars.html">Toolbars</a></li>
+                                <li><a href="cards.html">Cards</a></li>
+                                <li><a href="alerts.html">Alerts</a></li>
+                                <li><a href="badges.html">Badges</a></li>
+                                <li><a href="breadcrumbs.html">Bredcrumbs</a></li>
+                                <li><a href="jumbotron.html">Jumbotron</a></li>
+                                <li><a href="navs.html">Navs</a></li>
+                                <li><a href="pagination.html">Pagination</a></li>
+                                <li><a href="progress.html">Progress</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="navigation__sub">
+                            <a href=""><i class="zmdi zmdi-group-work"></i> Javascript Components</a>
+
+                            <ul class="navigation__sub">
+                                <li><a href="carousel.html">Carousel</a></li>
+                                <li><a href="collapse.html">Collapse</a></li>
+                                <li><a href="dropdowns.html">Dropdowns</a></li>
+                                <li><a href="modals.html">Modals</a></li>
+                                <li><a href="popover.html">Popover</a></li>
+                                <li><a href="tabs.html">Tabs</a></li>
+                                <li><a href="tooltips.html">Tooltips</a></li>
+                                <li><a href="notifications-alerts.html">Notifications & Alerts</a></li>
+                                <li><a href="tree-view.html">Tree View</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="navigation__sub">
+                            <a href=""><i class="zmdi zmdi-trending-up"></i> Charts</a>
+
+                            <ul>
+                                <li><a href="flot-charts.html">Flot</a></li>
+                                <li><a href="other-charts.html">Other Charts</a></li>
+                            </ul>
+                        </li>
+
+                        <li><a href="calendar.html"><i class="zmdi zmdi-calendar"></i> Calendar</a></li>
+
+                        <li><a href="photo-gallery.html"><i class="zmdi zmdi-image"></i> Photo Gallery</a></li>
+
+                        <li class="navigation__sub navigation__sub--active navigation__sub--toggled">
+                            <a href=""><i class="zmdi zmdi-collection-item"></i> Sample Pages</a>
+
+                            <ul>
+                                <li><a href="profile-about.html">Profile</a></li>
+                                <li><a href="messages.html">Messages</a></li>
+                                <li><a href="contacts.html">Contacts</a></li>
+                                <li><a href="new-contact.html">New Contact</a></li>
+                                <li><a href="groups.html">Groups</a></li>
+                                <li><a href="pricing-tables.html">Pricing Tables</a></li>
+                                <li><a href="invoice.html">Invoice</a></li>
+                                <li><a href="todo-lists.html">Todo Lists</a></li>
+                                <li><a href="notes.html">Notes</a></li>
+                                <li><a href="search-results.html">Search Results</a></li>
+                                <li><a href="issue-tracker.html">Issue Tracker</a></li>
+                                <li><a href="faq.html">FAQ</a></li>
+                                <li><a href="team.html">Team</a></li>
+                                <li><a href="blog.html">Blog</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                                <li class="navigation__active"><a href="questions-answers.html">Questions & Answers</a></li>
+                                <li><a href="questions-answers-details.html">Questions & Answers Details</a></li>
+                                <li><a href="login.html">Login & SignUp</a></li>
+                                <li><a href="lockscreen.html">Lockscreen</a></li>
+                                <li><a href="404.html">404</a></li>
+                                <li><a href="empty.html">Empty Page</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+            <aside class="chat">
+                <div class="chat__header">
+                    <h2 class="chat__title">Chat <small>Currently 20 contacts online</small></h2>
+
+                    <div class="chat__search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Search...">
+                            <i class="form-group__bar"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="scrollbar-inner">
+                    <div class="listview listview--hover chat__buddies">
+                        <a class="listview__item chat__available">
+                            <img src="demo/img/profile-pics/7.jpg" class="listview__img" alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading">Jeannette Lawson</div>
+                                <p>hey, how are you doing.</p>
+                            </div>
+                        </a>
+
+                        <a class="listview__item chat__available">
+                            <img src="demo/img/profile-pics/5.jpg" class="listview__img" alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading">Jeannette Lawson</div>
+                                <p>hmm...</p>
+                            </div>
+                        </a>
+
+                        <a class="listview__item chat__away">
+                            <img src="demo/img/profile-pics/3.jpg" class="listview__img" alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading">Jeannette Lawson</div>
+                                <p>all good</p>
+                            </div>
+                        </a>
+
+                        <a class="listview__item">
+                            <img src="demo/img/profile-pics/8.jpg" class="listview__img" alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading">Jeannette Lawson</div>
+                                <p>morbi leo risus portaac consectetur vestibulum at eros.</p>
+                            </div>
+                        </a>
+
+                        <a class="listview__item">
+                            <img src="demo/img/profile-pics/6.jpg" class="listview__img" alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading">Jeannette Lawson</div>
+                                <p>fusce dapibus</p>
+                            </div>
+                        </a>
+
+                        <a class="listview__item chat__busy">
+                            <img src="demo/img/profile-pics/9.jpg" class="listview__img" alt="">
+
+                            <div class="listview__content">
+                                <div class="listview__heading">Jeannette Lawson</div>
+                                <p>cras mattis consectetur purus sit amet fermentum.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <a href="messages.html" class="btn btn--action btn-danger"><i class="zmdi zmdi-plus"></i></a>
+            </aside>
+
+            <section class="content">
+                <div class="content__inner">
+                    <header class="content__title">
+                        <h1>Questions and Answers</h1>
+                        <small>Praesent commodo cursus magnavel scelerisque nisl consectetur</small>
+                    </header>
+
+                    <div class="card">
+                        <div class="toolbar toolbar--inner">
+                            <div class="toolbar__label">Total 128 Q&As</div>
+
+                            <div class="actions">
+                                <i class="actions__item zmdi zmdi-search" data-ma-action="toolbar-search-open" data-toggle="tooltip" data-title="Search"></i>
+
+                                <div class="dropdown actions__item hidden-sm-down" data-toggle="tooltip" data-title="Tag">
+                                    <i class="zmdi zmdi-label-alt-outline" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--active dropdown-menu--sort">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-tag-1">
+                                            <label for="qa-tag-1" class="checkbox__label">All Tags</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-tag-2">
+                                            <label for="qa-tag-2" class="checkbox__label">Tag 1</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-tag-3">
+                                            <label for="qa-tag-3" class="checkbox__label">Tag 2</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-tag-4">
+                                            <label for="qa-tag-4" class="checkbox__label">Tag 3</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown actions__item hidden-sm-down" data-toggle="tooltip" data-title="Project">
+                                    <i class="zmdi zmdi-book" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--active dropdown-menu--sort">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-projects-1">
+                                            <label for="qa-projects-1" class="checkbox__label">All Projects</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-projects-2">
+                                            <label for="qa-projects-2" class="checkbox__label">Project1 </label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-projects-3">
+                                            <label for="qa-projects-3" class="checkbox__label">Project 2</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-projects-4">
+                                            <label for="qa-projects-4" class="checkbox__label">Project 3</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-projects-5">
+                                            <label for="qa-projects-5" class="checkbox__label">Project 4</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown actions__item hidden-sm-down" data-toggle="tooltip" data-title="Original Poster">
+                                    <i class="zmdi zmdi-account-circle" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--active dropdown-menu--sort">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-op-1">
+                                            <label for="qa-op-1" class="checkbox__label">Everyone</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-op-2">
+                                            <label for="qa-op-2" class="checkbox__label">David Wilson</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-op-3">
+                                            <label for="qa-op-3" class="checkbox__label">James Frank</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-op-4">
+                                            <label for="qa-op-4" class="checkbox__label">Natalie Sheth</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-op-5">
+                                            <label for="qa-op-5" class="checkbox__label">Christian Robu</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="dropdown actions__item hidden-sm-down" data-toggle="tooltip" data-title="Sort by">
+                                    <i class="zmdi zmdi-sort" data-toggle="dropdown"></i>
+
+                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu--active dropdown-menu--sort">
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-sort-1">
+                                            <label for="qa-sort-1" class="checkbox__label">Newest</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-sort-2">
+                                            <label for="qa-sort-2" class="checkbox__label">Oldest</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-sort-3">
+                                            <label for="qa-sort-3" class="checkbox__label">Most Commented</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-sort-4">
+                                            <label for="qa-sort-4" class="checkbox__label">Least Commented</label>
+                                        </div>
+                                        <div class="checkbox">
+                                            <input type="checkbox" id="qa-sort-5">
+                                            <label for="qa-sort-5" class="checkbox__label">Recently Updated</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="toolbar__search">
+                                <input type="text" placeholder="Search...">
+                                <i class="toolbar__search__close zmdi zmdi-long-arrow-left" data-ma-action="toolbar-search-close"></i>
+                            </div>
+                        </div>
+                        <div class="listview listview--bordered q-a">
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>22</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>02</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>35</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Dulla vel metus scelerisque ante sollicitudin commodo purus odio Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</a>
+                                    <p>Asked by David James 2 hours ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Bibendum</span>
+                                        <span>Parturient</span>
+                                        <span>Vehicula Ornare</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>05</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>00</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>140</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin gravida blandit vestibulum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mususpendisse volutpat dolor massa</a>
+                                    <p>Asked by Yen Williams 5 hours ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Aliquam</span>
+                                        <span>Aene</span>
+                                        <span>Consecteture</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>541</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>24</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>1324</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Donec lorem augue, pharetra id ipsum necrci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc et gravida orci, eget imperdiet nulla.</a>
+                                    <p>Asked by Robert Williams 7 hours ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Praesent</span>
+                                        <span>Sollicitudin</span>
+                                        <span>Libero</span>
+                                        <span>Nec</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>00</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>00</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>10</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Etiam vulputate elit sit amet mi imperdiet viverra.</a>
+                                    <p>Asked by Yen Williams 1 Day ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Eget</span>
+                                        <span>Vestibulum</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>2672</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>143</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>5098</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Aliquam facilisis eget sapien id fermentum donec vitae accumsan quam</a>
+                                    <p>Asked by Sean Paul 2 Days ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Cras</span>
+                                        <span>Imperdiet</span>
+                                        <span>Proin</span>
+                                        <span>Praesent</span>
+                                        <span>Lorem</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>342</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>12</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>2674</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Mauris interdum felis sem, ac ultrices augue maximus sit amet. In non aliquam nulla. Nunc sodales id elit non ullamcorper. Nulla facilisi. Praesent quis quam eget urna feugiat viverra. In malesuada sodales justo nec laoreet</a>
+                                    <p>Asked by Teena James 5 days ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Lorem</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>412</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>10</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>8962</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Nulla id viverra lacus. Proin ornare ante sapien, quis finibus sem ornare vel. Fusce in laoreet ante. Donec gravida eros vel interdum commodo</a>
+                                    <p>Asked by Natalie Seth 7 days ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Imperdiet</span>
+                                        <span>Aliquam</span>
+                                        <span>Praesent</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>531</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>28</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>10923</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Mauris interdum felis sem, ac ultrices augue maximus sit amet</a>
+                                    <p>Asked by Lendl Simmons 10 days ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Nulla</span>
+                                        <span>Ullamcorper</span>
+                                        <span>Consectetur</span>
+                                        <span>Adipiscing</span>
+                                        <span>Quisque</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>02</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>01</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>1921</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Phasellus dignissim lorem non nunc consectetur, vitae efficitur quam vehicula. Aliquam a commodo quam. Nunc purus orci, ornare ac magna ac, semper luctus sapien</a>
+                                    <p>Asked by Andy Mitchell a Month ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Fusce</span>
+                                        <span>Morbiroin</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="listview__item q-a__item">
+                                <div class="q-a__stat hidden-sm-down">
+                                    <span>
+                                        <strong>1541</strong>
+                                        <small>Votes</small>
+                                    </span>
+
+                                    <span>
+                                        <strong>32</strong>
+                                        <small>Answers</small>
+                                    </span>
+
+                                    <span class="hidden-md-down">
+                                        <strong>10452</strong>
+                                        <small>Views</small>
+                                    </span>
+                                </div>
+                                <div class="listview__content">
+                                    <a href="questions-answers-details.html" class="listview__heading">Integer pretium quam et nisi finibus, ut interdum mi posuere. Maecenas eget fermentum lorem. Maecenas vitae ex ligula</a>
+                                    <p>Asked by Diesel Dames a month ago</p>
+                                    <div class="listview__attrs">
+                                        <span>Ipsum</span>
+                                        <span>Interdum</span>
+                                        <span>Amet</span>
+                                        <span>Donec</span>
+                                        <span>Pellentesque</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clearfix mb-3"></div>
+                        </div>
+                    </div>
+
+                    <nav>
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item pagination-first"><a class="page-link" href="#"></a></li>
+                            <li class="page-item pagination-prev"><a class="page-link" href="#"></a></li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#">6</a></li>
+                            <li class="page-item pagination-next"><a class="page-link" href="#"></a></li>
+                            <li class="page-item pagination-last"><a class="page-link" href="#"></a></li>
+                        </ul>
+                    </nav>
+
+                    <footer class="footer hidden-xs-down">
+                    <p>© Material Admin Responsive. All rights reserved.</p>
+
+                    <ul class="nav footer__nav">
+                        <a class="nav-link" href="">Homepage</a>
+
+                        <a class="nav-link" href="">Company</a>
+
+                        <a class="nav-link" href="">Support</a>
+
+                        <a class="nav-link" href="">News</a>
+
+                        <a class="nav-link" href="">Contacts</a>
+                    </ul>
+                </footer>
+                </div>
+            </section>
+        </main>
+
+        <!-- Older IE warning message -->
+            <!--[if IE]>
+                <div class="ie-warning">
+                    <h1>Warning!!</h1>
+                    <p>You are using an outdated version of Internet Explorer, please upgrade to any of the following web browsers to access this website.</p>
+
+                    <div class="ie-warning__downloads">
+                        <a href="http://www.google.com/chrome">
+                            <img src="img/browsers/chrome.png" alt="">
+                        </a>
+
+                        <a href="https://www.mozilla.org/en-US/firefox/new">
+                            <img src="img/browsers/firefox.png" alt="">
+                        </a>
+
+                        <a href="http://www.opera.com">
+                            <img src="img/browsers/opera.png" alt="">
+                        </a>
+
+                        <a href="https://support.apple.com/downloads/safari">
+                            <img src="img/browsers/safari.png" alt="">
+                        </a>
+
+                        <a href="https://www.microsoft.com/en-us/windows/microsoft-edge">
+                            <img src="img/browsers/edge.png" alt="">
+                        </a>
+
+                        <a href="http://windows.microsoft.com/en-us/internet-explorer/download-ie">
+                            <img src="img/browsers/ie.png" alt="">
+                        </a>
+                    </div>
+                    <p>Sorry for the inconvenience!</p>
+                </div>
+            <![endif]-->
+
+        <!-- Javascript -->
+        <!-- Vendors -->
+        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="vendors/bower_components/popper.js/dist/umd/popper.min.js"></script>
+        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+
+        <!-- App functions and actions -->
+        <script src="js/app.min.js"></script>
+    </body>
+</html>

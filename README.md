@@ -12,6 +12,7 @@
 # TODOS
 
 - document ping url usage
+- dcument doc/material admin
 
 ## Configure
 config/initializers/constants.rb
