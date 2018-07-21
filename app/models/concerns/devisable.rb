@@ -3,9 +3,9 @@ module Devisable
   
   included do 
     # Include default devise modules. Others available are:
-    # :lockable, :timeoutable and :omniauthable
-    devise :database_authenticatable, :registerable,
-           :recoverable, :rememberable, :trackable, :validatable, 
+    # :lockable, :timeoutable and :omniauthable, :registerable,
+    devise :database_authenticatable, :validatable, 
+           :recoverable, :rememberable, :trackable,
            :confirmable, :invitable, :zxcvbnable
 
     ## Database authenticatable
@@ -56,7 +56,7 @@ module Devisable
     field :invitation_limit, type: Integer
   
     index( {invitation_token: 1}, {:background => true} )
-    index( {invitation_by_id: 1}, {:background => true} )
+    # index( {invitation_by_id: 1}, {:background => true} )
   end
   
   def downcase_email
