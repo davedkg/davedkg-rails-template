@@ -16,6 +16,7 @@ gem "breadcrumbs_on_rails", "~> 3.0.1"
 gem "figaro", '~> 1.1.1'
 gem 'devise', '~> 4.4.3'
 gem 'devise_invitable', '~> 1.7.4'
+gem 'devise_zxcvbn', '~> 4.4.1'
 gem "font-awesome-rails", "~> 4.7.0.4"
 gem 'grape', '~> 1.0.3'
 gem 'grape-swagger', '~> 0.30.1'

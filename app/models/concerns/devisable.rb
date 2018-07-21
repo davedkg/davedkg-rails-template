@@ -6,7 +6,7 @@ module Devisable
     # :lockable, :timeoutable and :omniauthable
     devise :database_authenticatable, :registerable,
            :recoverable, :rememberable, :trackable, :validatable, 
-           :confirmable, :invitable
+           :confirmable, :invitable, :zxcvbnable
 
     ## Database authenticatable
     field :email,              type: String, default: ""

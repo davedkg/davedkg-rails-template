@@ -3,8 +3,8 @@
 ## Libaries
 | Name | Description |
 | ---- | ----------- |
+| (Devise Zxcvbn)[https://github.com/bitzesty/devise_zxcvbn] | Devise plugin to reject weak passwords using zxcvbn. | 
 | (Grape)[https://github.com/ruby-grape/grape] | An opinionated framework for creating REST-like APIs in Ruby. |
-
 
 
 # TODOS
