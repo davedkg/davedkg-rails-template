@@ -65,7 +65,7 @@ class V1::API < Grape::API
                             info: { title: "Endpoints" },
                             doc_version: '1.0.0',
                             add_version: true,
-                            base_path: "#{ Rails.env.production? ? 'https' : 'http' }//#{ENV['APP_DOMAIN']}/api/v1",
+                            base_path: "#{ Rails.env.production? ? 'https' : 'http' }://#{ENV['APP_DOMAIN']}/api/v1",
                             add_base_path: true,
                             models: [
                               # TheApi::Entities::UseResponse,
