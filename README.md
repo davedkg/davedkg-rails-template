@@ -7,6 +7,7 @@
 | [Devise](https://github.com/plataformatec/devise) | Flexible authentication solution for Rails with Warden. | 
 | [Devise Zxcvbn](https://github.com/bitzesty/devise_zxcvbn) | Devise plugin to reject weak passwords using zxcvbn. | 
 | [FactoryBot](https://github.com/thoughtbot/factory_bot) | A library for setting up Ruby objects as test data. |
+| [Faker](https://github.com/stympy/faker) | A library for generating fake data such as names, addresses, and phone numbers. |
 | [Grape](https://github.com/ruby-grape/grape) | An opinionated framework for creating REST-like APIs in Ruby. |
 | [jQuery](https://api.jquery.com) | jQuery is a fast, small, and feature-rich JavaScript library. |
 | [RSpec](https://github.com/rspec/rspec) | Behaviour Driven Development for Ruby |

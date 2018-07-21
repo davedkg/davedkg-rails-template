@@ -35,6 +35,11 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.10.0'
 end
 
+group :test do
+  gem 'faker', '~> 1.9.1'
+  gem 'database_cleaner', '~> 1.7.0'
+end
+
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
