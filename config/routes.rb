@@ -1,13 +1,17 @@
 Rails.application.routes.draw do
-  
-  mount API => '/'
 
+  mount API => '/'
+  
   resources :users, only: [ :index, :new, :create, :destroy ] do
     post 'resend-invitation', to: 'users#resend_invitation', on: :member
   end
 
+  get   'profile',      to: 'profile#show'
+  get   'profile/edit', to: 'profile#edit', as: :edit_profile
+  patch 'profile',      to: 'profile#update'
+  get   'ping',         to: 'application#ping'
+  
   root to: 'dashboard#index'
-  get 'ping', to: 'application#ping'
   
   devise_for :user, controllers: {
     passwords: 'passwords',
