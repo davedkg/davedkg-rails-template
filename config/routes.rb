@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
 
   root to: 'dashboard#index'
+  get 'ping', to: 'application#ping'
   
   devise_for :user, controllers: {
     passwords: 'passwords',

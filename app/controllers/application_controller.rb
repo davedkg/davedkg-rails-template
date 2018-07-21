@@ -3,6 +3,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!
   
+  def ping
+    render json: { working: User.count }
+  end
+  
   private
 
   def set_raven_context

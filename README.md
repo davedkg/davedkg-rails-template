@@ -8,8 +8,13 @@
 
 # TODOS
 
+- document ping url
+
 ## Configure
-email domain name in mailer and enviornement
+email domain name in mailer and enviornement # TODO move into a config
+config/initializers/constants.rb
+config/mongoid.yml
+config/applcation.yml
 
 ## Development
 
