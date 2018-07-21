@@ -4,6 +4,4 @@ class API < Grape::API
 
   mount V1::API
   
-  add_swagger_documentation
-  
 end

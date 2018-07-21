@@ -28,6 +28,6 @@ Rails.application.routes.draw do
     mount Resque::Server, at: '/resque'
   end
   
-  mount GrapeSwaggerRails::Engine => 'explorer' #if Rails.env.development? #TODO security
+  mount GrapeSwaggerRails::Engine => 'api/explorer'
   
 end

@@ -55,7 +55,7 @@ Rails.application.configure do
     :user_name => ENV['SENDGRID_USERNAME'],
     :password => ENV['SENDGRID_PASSWORD']
   }
-  config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN_NAME'] }
+  config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'] }
   config.action_mailer.asset_host = config.action_controller.asset_host
 
   # Use the lowest log level to ensure availability of diagnostic information
