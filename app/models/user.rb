@@ -9,6 +9,9 @@ class User
   
   field :last_name, type: String
   validates :last_name, presence: true
+  
+  field     :time_zone, type: String, default: 'Eastern Time (US & Canada)'
+  validates :time_zone, presence: true
 
   def name
     "#{self.first_name} #{self.last_name}" if self.first_name && self.last_name

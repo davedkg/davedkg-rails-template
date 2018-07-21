@@ -1,18 +1,32 @@
 class ApplicationController < ActionController::Base
+
+  before_action :authenticate_user!, except: [ :ping ]
+  before_action :set_time_zone
   before_action :set_raven_context
   protect_from_forgery with: :exception
-  before_action :authenticate_user!, except: [ :ping ]
   
   def ping
     render json: { working: User.count }
   end
   
   private
+  
+  def set_time_zone
+    Time.zone = current_user.time_zone if current_user
+  end
 
   def set_raven_context
-    if defined?(Raven)
-      # Raven.user_context(id: session[:current_user_id]) # or anything else in session
-      Raven.extra_context(params: params.to_unsafe_h, url: request.url)
-    end
+    Raven.user_context(
+      id: current_user.id.to_s,
+      primary_email: current_user.primary_email.email,
+      ip_address: request.ip,
+    ) if current_user && defined?(Raven)
+    
+    Raven.tags_context(
+      language: I18n.locale, 
+      timezone: current_user.time_zone,
+    ) if current_user && defined?(Raven)
+    
+    Raven.extra_context(params: params.to_unsafe_h, url: request.url) if defined?(Raven)
   end
 end
