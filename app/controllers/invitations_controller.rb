@@ -19,7 +19,7 @@ class InvitationsController < Devise::InvitationsController
   private
   
   def set_page_title
-    @page_title = 'Intitations'
+    @page_title = 'Invitations'
   end
 
 end

@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
   
   def create
-    User.invite!(user_params)
+    User.invite!(user_params, current_user)
     
     redirect_to users_path, notice: 'User was successfully invited.'
   end
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   def resend_invitation
     @user.send_invitation 
     
-    redirect_to users_path, notice: 'Invitation was sucessfully sent.'
+    redirect_to users_path, notice: 'Invitation was sucessfully resent.'
   end
   
   def destroy

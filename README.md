@@ -3,7 +3,7 @@
 ## Libaries
 | Name | Description |
 | ---- | ----------- |
-| Grape [https://github.com/ruby-grape/grape] | An opinionated framework for creating REST-like APIs in Ruby. |
+| (Grape)[https://github.com/ruby-grape/grape] | An opinionated framework for creating REST-like APIs in Ruby. |
 
 
 
