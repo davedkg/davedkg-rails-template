@@ -40,13 +40,14 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'foreman'
+  gem 'foreman', '~> 0.64.0'
 end
 
 group :production do
-  gem 'newrelic_rpm'
-  gem 'rails_12factor'
-  gem "sentry-raven"
+  gem 'dalli', '~> 2.7.6'
+  gem 'newrelic_rpm', '~> 5.2.0.345'
+  gem 'rails_12factor', '~> 0.0.3'
+  gem "sentry-raven", '~> 2.7.4'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

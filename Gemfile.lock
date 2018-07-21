@@ -53,6 +53,7 @@ GEM
       descendants_tracker (~> 0.0.1)
     concurrent-ruby (1.0.5)
     crass (1.0.4)
+    dalli (2.7.8)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
     devise (4.4.3)
@@ -283,11 +284,12 @@ PLATFORMS
 DEPENDENCIES
   breadcrumbs_on_rails (~> 3.0.1)
   byebug
+  dalli (~> 2.7.6)
   devise (~> 4.4.3)
   devise_invitable (~> 1.7.4)
   figaro (~> 1.1.1)
   font-awesome-rails (~> 4.7.0.4)
-  foreman
+  foreman (~> 0.64.0)
   grape (~> 1.0.3)
   grape-swagger (~> 0.30.1)
   grape-swagger-rails (~> 0.3.0)
@@ -295,16 +297,16 @@ DEPENDENCIES
   listen (>= 3.0.5, < 3.2)
   mongoid (~> 6.1.0)
   mongoid_paranoia (~> 0.3.0)
-  newrelic_rpm
+  newrelic_rpm (~> 5.2.0.345)
   popper_js (~> 1.12.9)
   puma (~> 3.7)
   rails (~> 5.1.6)
-  rails_12factor
+  rails_12factor (~> 0.0.3)
   resque (~> 1.27.0)
   rspec-rails (~> 3.7)
   sass-rails (~> 5.0)
   sendgrid (~> 1.2.4)
-  sentry-raven
+  sentry-raven (~> 2.7.4)
   simple_form (~> 3.5.0)
   spring
   spring-watcher-listen (~> 2.0.0)

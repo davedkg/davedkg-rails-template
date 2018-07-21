@@ -19,6 +19,10 @@ config/applcation.yml
 ## Development
 
 bundle and yarn
+brew install memcached
+mongoid
+resque
+
 
 #### Kill Mailcatcher
 
