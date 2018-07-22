@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Analyzable
   include Devisable
   include Paranoidal
 

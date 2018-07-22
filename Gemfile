@@ -13,6 +13,7 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem "breadcrumbs_on_rails", "~> 3.0.1"
+gem 'coffee-rails', '~> 4.2.2'
 gem "figaro", '~> 1.1.1'
 gem 'devise', '~> 4.4.3'
 gem 'devise_invitable', '~> 1.7.4'

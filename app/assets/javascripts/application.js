@@ -16,5 +16,6 @@
 //= require bootstrap/dist/js/bootstrap
 //= require jquery.scrollbar
 //= require jquery-scroll-lock
+//= require jquery.sparkline
 //= require_tree ./material
 //= require_tree .
