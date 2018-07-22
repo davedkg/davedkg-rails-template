@@ -13,6 +13,7 @@
  *= require animate.css/animate.css
  *= require jquery.scrollbar
  *= require font-awesome
+ *= require chosen
+ *= require_tree ./material
  *= require_tree .
- *= require_self
  */

@@ -17,5 +17,6 @@
 //= require jquery.scrollbar
 //= require jquery-scroll-lock
 //= require jquery.sparkline
+//= require chosen-jquery
 //= require_tree ./material
 //= require_tree .

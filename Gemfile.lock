@@ -49,6 +49,10 @@ GEM
     bson (4.3.0)
     builder (3.2.3)
     byebug (10.0.2)
+    chosen-rails (1.8.3)
+      coffee-rails (>= 3.2)
+      railties (>= 3.0)
+      sass-rails (>= 3.2)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     coffee-rails (4.2.2)
@@ -304,6 +308,7 @@ PLATFORMS
 DEPENDENCIES
   breadcrumbs_on_rails (~> 3.0.1)
   byebug
+  chosen-rails (~> 1.8.3)
   coffee-rails (~> 4.2.2)
   dalli (~> 2.7.6)
   database_cleaner (~> 1.7.0)
