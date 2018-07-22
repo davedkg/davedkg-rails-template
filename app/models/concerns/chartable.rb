@@ -1,4 +1,4 @@
-module Analyzable 
+module Chartable 
   extend ActiveSupport::Concern
   
   module ClassMethods
