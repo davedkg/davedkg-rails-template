@@ -9,6 +9,7 @@ require 'rspec/rails'
 require "faker"
 require "factory_bot"
 require "database_cleaner"
+require 'devise'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -48,6 +49,8 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
   
   config.include FactoryBot::Syntax::Methods
+  config.include Devise::Test::ControllerHelpers, type: :controller
+  config.include ControllerHelpers, type: :controller
   
   config.before(:suite) do
     DatabaseCleaner.orm = 'mongoid'
