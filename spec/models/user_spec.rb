@@ -5,7 +5,13 @@ describe User, type: :model do
   it_behaves_like 'analyzable'
   it_behaves_like 'paranoidal'
   
-  let(:user) { create(:user) }
+  let(:user) { build(:user) }
+  
+  describe 'FactoryBot' do
+    it 'builds a valid user' do
+      expect(user.valid?).to be_truthy
+    end
+  end
   
   describe '#valid?' do
     it 'requires presence of first name' do
