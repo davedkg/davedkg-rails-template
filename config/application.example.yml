@@ -1,5 +1,7 @@
-ASSET_DOMAIN: TODO optional in production only
+ASSET_DOMAIN: TODO production only (optional)
 APP_DOMAIN: TODO
 REDIS_URI: TODO
 SENDGRID_PASSWORD: TODO production only
 SENDGRID_USERNAME: TODO production only
+SENTRY_DSN: TODO production only (optional, rails)
+SENTRY_PUBLIC_DSN: TODO production only (optional, js)

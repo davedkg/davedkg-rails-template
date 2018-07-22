@@ -1,0 +1,5 @@
+<% if nil != ENV['SENTRY_PUBLIC_DSN'] %>
+  //= require raven-js/dist/raven
+
+  Raven.config("<%= ENV['SENTRY_PUBLIC_DSN'] %>").install();  
+<% end %>
