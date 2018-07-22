@@ -4,7 +4,7 @@ module Analyzable
   module ClassMethods
   
     def totals_by_month(num_months=12)
-      [ 0,0,0,0,0,1 ]
+      [ 0,0,0,0,0,0,0,0,0,0,0,1 ]
      #  db.transaction.aggregate([
      #     { "$project": {
      #         "nominal": 1,
