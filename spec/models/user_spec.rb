@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe User, type: :model do
   
-  # it_behaves_like 'paranoidal'
+  it_behaves_like 'paranoidal'
   
   let(:user) { create(:user) }
   
