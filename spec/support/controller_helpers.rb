@@ -1,5 +1,7 @@
 module ControllerHelpers
+  
    def sign_in_with_double(user = build('user'))
+     request.env['devise.mapping'] = Devise.mappings[:user]
      if user.nil?
        allow(request.env['warden']).to receive(:authenticate!).and_throw(:warden, {:scope => :user})
        allow(controller).to receive(:current_user).and_return(nil)
