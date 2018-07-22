@@ -23,6 +23,7 @@
 config/initializers/constants.rb
 config/mongoid.yml
 config/applcation.yml
+http://livereload.com/extensions/#installing-sections
 
 ## Development
 
