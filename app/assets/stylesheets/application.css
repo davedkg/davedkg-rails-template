@@ -16,4 +16,5 @@
  *= require chosen
  *= require_tree ./material
  *= require_tree .
+ *= require_self
  */

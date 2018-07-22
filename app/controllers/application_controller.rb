@@ -3,7 +3,9 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [ :ping ]
   before_action :set_time_zone
   before_action :set_raven_context
-  protect_from_forgery with: :exception
+  
+  # protect_from_forgery with: :exception # FIXME why is this causeing issues
+  protect_from_forgery prepend: true
   
   def ping
     render json: { working: User.count }
