@@ -10,6 +10,7 @@
 | [Faker](https://github.com/stympy/faker) | A library for generating fake data such as names, addresses, and phone numbers. |
 | [Grape](https://github.com/ruby-grape/grape) | An opinionated framework for creating REST-like APIs in Ruby. |
 | [jQuery](https://api.jquery.com) | jQuery is a fast, small, and feature-rich JavaScript library. |
+| [DirtyForms](https://github.com/snikch/jquery.dirtyforms) | A jQuery Plugin that monitors forms for change and alerts the user before leaving the page. |
 | [RSpec](https://github.com/rspec/rspec) | Behaviour Driven Development for Ruby |
 | [Simple Form](https://github.com/plataformatec/simple_form) | Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup. |
 

@@ -12,7 +12,7 @@
 //
 //= require rails-ujs
 //= require jquery
-//= require popper
+//= require popper.js/dist/popper.js
 //= require bootstrap/dist/js/bootstrap
 //= require jquery.scrollbar
 //= require jquery-scroll-lock
