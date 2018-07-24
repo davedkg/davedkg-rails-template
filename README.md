@@ -4,6 +4,7 @@
 | Name | Description |
 | ---- | ----------- |
 | [Bootstrap](https://getbootstrap.com/docs/4.0/) | Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. |
+| [Bootstrap Notify](http://bootstrap-notify.remabledesigns.com) | This plugin helps to turn standard bootstrap alerts into "growl" like notifications. |
 | [Devise](https://github.com/plataformatec/devise) | Flexible authentication solution for Rails with Warden. | 
 | [Devise Zxcvbn](https://github.com/bitzesty/devise_zxcvbn) | Devise plugin to reject weak passwords using zxcvbn. | 
 | [FactoryBot](https://github.com/thoughtbot/factory_bot) | A library for setting up Ruby objects as test data. |
