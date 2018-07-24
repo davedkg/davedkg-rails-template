@@ -19,4 +19,5 @@
 //= require jquery.sparkline
 //= require chosen-jquery
 //= require_tree ./material
+//= require_tree ./inputs
 //= require_tree .
