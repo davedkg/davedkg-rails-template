@@ -18,6 +18,7 @@
 //= require jquery-scroll-lock
 //= require jquery.sparkline
 //= require chosen-jquery
+//= require jquery.dirtyforms/jquery.dirtyforms
 //= require_tree ./material
 //= require_tree ./inputs
 //= require_tree .
