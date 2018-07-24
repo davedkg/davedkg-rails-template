@@ -20,6 +20,6 @@
 //= require chosen-jquery
 //= require jquery.dirtyforms/jquery.dirtyforms
 //= require bootstrap-notify/bootstrap-notify
-//= require_tree ./material
+//= require material
 //= require_tree ./inputs
 //= require_tree .

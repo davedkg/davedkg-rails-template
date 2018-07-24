@@ -15,6 +15,6 @@ Rails.application.config.assets.paths << Rails.root.join('vendor', 'assets')
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
 # Add Fonts Support
-Rails.application.config.assets.paths << Rails.root.join("app", "assets", "fonts")
+Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "fonts")
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/# Add client/assets/ folders to asset pipeline's search path.
 
