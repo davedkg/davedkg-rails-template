@@ -1,0 +1,10 @@
+<% if flash[:success] || flash[:notice] -%>
+  <script>
+    notifySuccess("<%= flash[:success] || flash[:notice] %>");
+  </script>
+<% end -%>
+<% if flash[:error] || flash[:alert] -%>
+  <script>
+    notifyFailure("<%= flash[:error] || flash[:alert] %>");
+  </script>
+<% end -%>

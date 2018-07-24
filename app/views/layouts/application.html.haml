@@ -13,8 +13,8 @@
       = render 'application/sidebar'
       %section.content
         = render 'application/breadcrumbs'
-        = render 'application/alerts'
         = yield
     = javascript_include_tag 'application'
+    = render 'application/notify'
     = render 'application/sentry'
     = yield :javascript
