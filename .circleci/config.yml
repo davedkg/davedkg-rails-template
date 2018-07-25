@@ -5,6 +5,8 @@
 version: 2
 jobs:
   build:
+    environment:
+      CC_TEST_REPORTER_ID: 5a1e999d1d8a3629fdd50273f3d95d9a874fe9dd58246e0071c96cdda89cc7d0
     docker:
       # specify the version you desire here
        - image: circleci/ruby:2.5.1-node-browsers
@@ -59,3 +61,8 @@ jobs:
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+notify:
+  webhooks:
+    # A list of hook hashes, containing the URL field
+    - url: https://hooks.slack.com/services/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
