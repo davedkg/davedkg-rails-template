@@ -9,6 +9,16 @@ class InvitationsController < Devise::InvitationsController
   def new
     redirect_to root_path
   end
+  
+  # Prevent
+  def create
+    redirect_to root_path
+  end
+  
+  # Prevent
+  def destroy
+    redirect_to root_path
+  end
 
   protected
 
