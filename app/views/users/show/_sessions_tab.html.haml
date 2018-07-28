@@ -1,0 +1,8 @@
+%table.table.table-striped
+  %tr
+    %th IP
+    %th Agent
+  - @user.user_sessions.each do |user_session|
+    %tr
+      %td= user_session.ip
+      %td= user_session.user_agent
