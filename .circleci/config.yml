@@ -5,50 +5,54 @@
 version: 2
 jobs:
   build:
+    
     environment:
       CC_TEST_REPORTER_ID: 5a1e999d1d8a3629fdd50273f3d95d9a874fe9dd58246e0071c96cdda89cc7d0
-    docker:
-      # specify the version you desire here
-       - image: circleci/ruby:2.5.1-node-browsers
       
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/postgres:9.4
+    docker:
+      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/mongo:3.6.6-jessie
+      
+    working_directory: ~/davedkg-rails-template
+    
+    steps: # a collection of executable commands
+      - checkout # special step to check out source code to working directory
 
-    working_directory: ~/repo
-
-    steps:
-      - checkout
-
-      # Download and cache dependencies
+      # bundle install
+      - run:
+          name: Which bundler?
+          command: bundle -v
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "Gemfile.lock" }}
-          # fallback to using the latest cache if no exact match is found
-          - v1-dependencies-
-
+            - davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
+            - davedkg-rails-template-bundle-v2-
       - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
+          name: Bundle Install
+          command: bundle check || bundle install
       - save_cache:
+          key: davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "Gemfile.lock" }}
-        
-      # Database setup
-      - run: bundle exec rake db:create
-      - run: bundle exec rake db:schema:load
+            - vendor/bundle
 
-      # run tests!
+      # yarn install
+      - restore_cache:
+          keys:
+            - davedkg-rails-template-yarn-{{ checksum "yarn.lock" }}
+            - davedkg-rails-template-yarn-
+      - run:
+          name: Yarn Install
+          command: yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+    
       - run:
           name: run tests
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-            
+
             bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
                             --out /tmp/test-results/rspec.xml \
@@ -64,5 +68,4 @@ jobs:
 
 notify:
   webhooks:
-    # A list of hook hashes, containing the URL field
     - url: https://hooks.slack.com/services/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
