@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_page_title
   before_action :set_breadcrumbs, except: [ :index ]
   before_action :set_user, except: [ :index, :new, :create ]
+  before_action :set_tab, only: [ :show ]
   
   def index
     @users = User.all
@@ -10,6 +11,9 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+  
+  def show
   end
   
   def create
@@ -46,6 +50,10 @@ class UsersController < ApplicationController
   
   def set_breadcrumbs
     add_breadcrumb "Users", users_path
+  end
+  
+  def set_tab
+    @tab = (params[:tab]|| 'overview').to_sym
   end
   
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   mount API => '/'
   
-  resources :users, only: [ :index, :new, :create, :destroy ] do
+  resources :users, only: [ :index, :new, :show, :create, :destroy ] do
     post 'resend-invitation', to: 'users#resend_invitation', on: :member
   end
 

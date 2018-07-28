@@ -1,0 +1,24 @@
+.content__inner
+
+  %header.content__title
+    %h1= @user.name
+    %small= @user.email
+    .actions
+      .dropdown.actions__item
+        %i.zmdi.zmdi-more-vert{"data-toggle" => "dropdown"}
+        .dropdown-menu.dropdown-menu-right
+          / = link_to "Edit", edit_user_path(@user), class: "dropdown-item"
+          - if nil == @user.invitation_accepted_at
+            = link_to "Resend Invitation", resend_invitation_user_path(@user), method: :post, class: "dropdown-item"
+          - if @user.id != current_user.id
+            = link_to "Destroy", user_path(@user), method: :delete, class: "dropdown-item", data: { confirm: 'Are you sure?' }
+
+  .toolbar
+    %nav.toolbar__nav
+      %a{ href: user_path(@user, tab: :overview), class: active_tab_class(:overview) } Overview
+      %a{ href: user_path(@user, tab: :sessions), class: active_tab_class(:sessions)} Sessions
+      
+  - if :overview == @tab
+    = render 'users/show/overview_tab'
+  - elsif :sessions == @tab
+    = render 'users/show/sessions_tab'

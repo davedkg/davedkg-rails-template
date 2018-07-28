@@ -77,6 +77,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise_invalidatable (0.1.0)
+      devise
+      rails
     devise_invitable (1.7.4)
       actionmailer (>= 4.1.0)
       devise (>= 4.0.0)
@@ -359,6 +362,7 @@ DEPENDENCIES
   dalli (~> 2.7.6)
   database_cleaner (~> 1.7.0)
   devise (~> 4.4.3)
+  devise_invalidatable (~> 0.1.0)
   devise_invitable (~> 1.7.4)
   devise_zxcvbn (~> 4.4.1)
   factory_bot_rails (~> 4.10.0)
