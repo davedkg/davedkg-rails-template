@@ -17,11 +17,20 @@ jobs:
     
     steps: # a collection of executable commands
       - checkout # special step to check out source code to working directory
+      
+      # # install test reporter
+      # - run:
+      #   name: Setup Code Climate test-reporter Dependencies
+      #   command: |
+      #     sudo composer self-update
+      #     composer install -n --prefer-dist
+      # - run:
+      #   name: Setup Code Climate test-reporter
+      #   command: |
+      #     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+      #     chmod +x ./cc-test-reporter
 
       # bundle install
-      - run:
-          name: Which bundler?
-          command: bundle -v
       - restore_cache:
           keys:
             - davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
@@ -48,7 +57,7 @@ jobs:
             - ~/.cache/yarn
     
       - run:
-          name: run tests
+          name: rspec
           command: |
             mkdir /tmp/test-results
             TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
@@ -60,12 +69,12 @@ jobs:
                             $TEST_FILES
 
       # collect reports
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+      # - store_test_results:
+      #     path: /tmp/test-results
+      # - store_artifacts:
+      #     path: /tmp/test-results
+      #     destination: test-results
 
 notify:
   webhooks:
-    - url: https://hooks.slack.com/services/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
+    # - url: https://hooks.slack.com/services/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
