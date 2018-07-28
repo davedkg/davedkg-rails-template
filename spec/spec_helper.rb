@@ -1,4 +1,4 @@
-if ENV['RAILS_ENV'] == 'test' || nil != if ENV["COVERAGE"]
+if ENV['RAILS_ENV'] == 'test' || nil != ENV["COVERAGE"]
   require 'simplecov'
   SimpleCov.start 'rails'
   puts "*** required simplecov"
