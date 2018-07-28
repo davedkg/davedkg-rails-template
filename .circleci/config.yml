@@ -10,8 +10,8 @@ jobs:
       CC_TEST_REPORTER_ID: 5a1e999d1d8a3629fdd50273f3d95d9a874fe9dd58246e0071c96cdda89cc7d0
       
     docker:
-      - image: ruby:2.5.1-node-browsers
-      - image: mongo:3.6.6-jessie
+      - image: circleci/ruby:2.5.1-node-browsers
+      - image: circleci/mongo:3.6.6-jessie
       
     working_directory: ~/davedkg-rails-template
     
