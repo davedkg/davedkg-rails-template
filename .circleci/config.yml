@@ -8,6 +8,8 @@ jobs:
       
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
+        enviornment:
+            RAILS_ENV: test
       - image: circleci/mongo:3.6.6
       
     working_directory: ~/davedkg-rails-template
