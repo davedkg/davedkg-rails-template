@@ -18,27 +18,27 @@ jobs:
       # bundle install
       - restore_cache:
           keys:
-            - davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
-            - davedkg-rails-template-bundle-v2-
+            - bundle-{{ checksum "Gemfile.lock" }}
+            - bundle-
       - run:
           name: bundle install
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
-          key: davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
+          key: bundle-{{ checksum "Gemfile.lock" }}
           paths:
-            - ./vendor/bundle
+            - vendor/bundle
 
       # yarn install
       - restore_cache:
           keys:
-            - davedkg-rails-template-yarn-{{ checksum "yarn.lock" }}
-            - davedkg-rails-template-yarn-
+            - yarn-{{ checksum "yarn.lock" }}
+            - yarn-
       - run:
           name: yarn install
           command: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
-          key: davedkg-rails-template-yarn-{{ checksum "yarn.lock" }}
+          key: yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
     
