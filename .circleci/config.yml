@@ -10,8 +10,8 @@ jobs:
       CC_TEST_REPORTER_ID: 5a1e999d1d8a3629fdd50273f3d95d9a874fe9dd58246e0071c96cdda89cc7d0
       
     docker:
-      - image: circleci/ruby:2.5.1-node-browsers
-      - image: circleci/mongo:3.6.6-jessie
+      - image: ruby:2.5.1-node-browsers
+      - image: mongo:3.6.6-jessie
       
     working_directory: ~/davedkg-rails-template
     
@@ -36,7 +36,7 @@ jobs:
             - davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
             - davedkg-rails-template-bundle-v2-
       - run:
-          name: Bundle Install
+          name: bundle install
           command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
       - save_cache:
           key: davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
@@ -49,7 +49,7 @@ jobs:
             - davedkg-rails-template-yarn-{{ checksum "yarn.lock" }}
             - davedkg-rails-template-yarn-
       - run:
-          name: Yarn Install
+          name: yarn install
           command: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
           key: davedkg-rails-template-yarn-{{ checksum "yarn.lock" }}
