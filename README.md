@@ -9,7 +9,6 @@
 | [Bootstrap](https://getbootstrap.com/docs/4.0/) | Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. |
 | [Bootstrap Notify](http://bootstrap-notify.remabledesigns.com) | This plugin helps to turn standard bootstrap alerts into "growl" like notifications. |
 | [Devise](https://github.com/plataformatec/devise) | Flexible authentication solution for Rails with Warden. | 
-| (Devise Invalidatable)[https://github.com/madkins/devise_invalidatable] | Adds support for Devise to manually invalidate sessions on the server-side. |
 | [Devise Zxcvbn](https://github.com/bitzesty/devise_zxcvbn) | Devise plugin to reject weak passwords using zxcvbn. | 
 | [FactoryBot](https://github.com/thoughtbot/factory_bot) | A library for setting up Ruby objects as test data. |
 | [Faker](https://github.com/stympy/faker) | A library for generating fake data such as names, addresses, and phone numbers. |
