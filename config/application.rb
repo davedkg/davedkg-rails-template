@@ -25,13 +25,12 @@ module SocialGrowers
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     
-    config.generators.orm = :mongoid
-    config.generators.assets = false
-    
     config.active_job.queue_adapter = :resque
     config.action_mailer.deliver_later_queue_name = 'high'
-    
+
     config.generators do |g|
+      g.orm :mongoid
+      g.assets false
       g.view_specs false
       g.helper_specs false
     end
