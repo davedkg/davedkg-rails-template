@@ -37,7 +37,7 @@ jobs:
             - davedkg-rails-template-bundle-v2-
       - run:
           name: Bundle Install
-          command: bundle check || bundle install
+          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
       - save_cache:
           key: davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
@@ -52,7 +52,7 @@ jobs:
           name: Yarn Install
           command: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
-          key: rails-demo-yarn-{{ checksum "yarn.lock" }}
+          key: davedkg-rails-template-yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
     
