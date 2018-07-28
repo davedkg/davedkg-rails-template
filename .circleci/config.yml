@@ -41,17 +41,34 @@ jobs:
           key: yarn-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+            
+      # start code climate reporter\
+       - run:
+           name: Start Code Climate test-reporter
+           command: |
+             sudo composer self-update
+             composer install -n --prefer-dist
+             curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+             chmod +x ./cc-test-reporter
+             ./cc-test-reporter before-build
     
       - run:
           name: rspec
           command: |
             mkdir /tmp/test-results
+            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
             bundle exec rspec --format progress \
                               --format RspecJunitFormatter \
-                              --out /tmp/test-results/rspec.xml
+                              --out /tmp/test-results/rspec.xml \
+                              $TEST_FILES
 
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+          
+      -run:
+        name: Upload Code Climate report
+        command: |
+          - ./cc-test-reporter after-build --exit-code /tmp/test-results

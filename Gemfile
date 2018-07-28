@@ -56,6 +56,7 @@ group :test do
   gem 'faker', '~> 1.9.1'
   gem 'database_cleaner', '~> 1.7.0'
   gem 'rspec_junit_formatter', '~> 0.4.1'
+  gem 'simplecov', '~> 0.16.1', require: false
 end
 
 group :production do
