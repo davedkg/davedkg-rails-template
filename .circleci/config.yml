@@ -5,30 +5,15 @@
 version: 2
 jobs:
   build:
-    
-    environment:
-      CC_TEST_REPORTER_ID: 5a1e999d1d8a3629fdd50273f3d95d9a874fe9dd58246e0071c96cdda89cc7d0
       
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
-      - image: circleci/mongo:3.6.6-jessie
+      - image: circleci/mongo:3.6.6
       
     working_directory: ~/davedkg-rails-template
     
-    steps: # a collection of executable commands
-      - checkout # special step to check out source code to working directory
-      
-      # # install test reporter
-      # - run:
-      #   name: Setup Code Climate test-reporter Dependencies
-      #   command: |
-      #     sudo composer self-update
-      #     composer install -n --prefer-dist
-      # - run:
-      #   name: Setup Code Climate test-reporter
-      #   command: |
-      #     curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-      #     chmod +x ./cc-test-reporter
+    steps: 
+      - checkout 
 
       # bundle install
       - restore_cache:
@@ -37,11 +22,12 @@ jobs:
             - davedkg-rails-template-bundle-v2-
       - run:
           name: bundle install
-          command: bundle check --path=vendor/bundle || bundle install --path=vendor/bundle
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle
       - save_cache:
           key: davedkg-rails-template-bundle-v2-{{ checksum "Gemfile.lock" }}
           paths:
-            - vendor/bundle
+            - ./vendor/bundle
 
       # yarn install
       - restore_cache:
@@ -60,21 +46,12 @@ jobs:
           name: rspec
           command: |
             mkdir /tmp/test-results
-            TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-
             bundle exec rspec --format progress \
                             --format RspecJunitFormatter \
-                            --out /tmp/test-results/rspec.xml \
-                            --format progress \
-                            $TEST_FILES
+                            --out /tmp/test-results/rspec.xml
 
-      # collect reports
-      # - store_test_results:
-      #     path: /tmp/test-results
-      # - store_artifacts:
-      #     path: /tmp/test-results
-      #     destination: test-results
-
-notify:
-  webhooks:
-    # - url: https://hooks.slack.com/services/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
+      - store_test_results:
+          path: /tmp/test-results
+      - store_artifacts:
+          path: /tmp/test-results
+          destination: test-results
