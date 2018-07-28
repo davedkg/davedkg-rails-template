@@ -8,8 +8,6 @@ jobs:
       
     docker:
       - image: circleci/ruby:2.5.1-node-browsers
-        enviornment:
-            RAILS_ENV: test
       - image: circleci/mongo:3.6.6
       
     working_directory: ~/davedkg-rails-template
@@ -55,6 +53,8 @@ jobs:
       # run tests
       - run:
           name: rspec
+          environment: 
+              RAILS_ENV: test
           command: |
               mkdir /tmp/test-results
               TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
