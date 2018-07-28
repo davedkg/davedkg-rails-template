@@ -1,8 +1,11 @@
-%table.table.table-striped
-  %tr
-    %th IP
-    %th Agent
-  - @user.user_sessions.each do |user_session|
+.card
+  %table.table.table-striped
     %tr
-      %td= user_session.ip
-      %td= user_session.user_agent
+      %th IP
+      %th Agent
+      %th Last Seen
+    - @user.sessions.each do |session|
+      %tr
+        %td= session.ip_address
+        %td= session.agent_description
+        %td= time_ago_in_words(session.last_seen_at) + ' ago'

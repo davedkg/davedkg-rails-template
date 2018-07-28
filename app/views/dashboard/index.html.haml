@@ -9,3 +9,10 @@
         %small Total Users
       .quick-stats__chart
         .sparkline-bar-stats{ values: quick_stats_chart_values(User) } 
+  .col-sm-6.col-md-3
+    .quick-stats__item.bg-green
+      .quick-stats__info
+        %h2= number_with_delimiter Session.count
+        %small Total Sessions
+      .quick-stats__chart
+        .sparkline-bar-stats{ values: quick_stats_chart_values(Session) }

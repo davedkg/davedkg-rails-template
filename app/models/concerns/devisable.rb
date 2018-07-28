@@ -6,8 +6,9 @@ module Devisable
     # :lockable, :timeoutable and :omniauthable, :registerable,
     devise :database_authenticatable, :validatable, 
            :recoverable, :rememberable, :trackable,
-           :confirmable, :invitable, :zxcvbnable,
-           :invalidatable
+           :confirmable, :invitable, :zxcvbnable
+           
+    has_many :sessions, dependent: :destroy
 
     ## Database authenticatable
     field :email,              type: String, default: ""
@@ -59,6 +60,23 @@ module Devisable
     index( {invitation_token: 1}, {:background => true} )
     # index( {invitation_by_id: 1}, {:background => true} )
   end
+  
+  def send_invitation
+    self.invitation_sent_at = Time.now
+    self.deliver_invitation
+  end
+  
+  def activate_session(options = {})
+    new_session = Sessions::BrowserSession.new(options.merge(user: self))
+    new_session.save
+    new_session.session_id
+  end
+
+  def session_active?(session_id)
+    sessions.where(session_id: session_id).exists?
+  end
+  
+  private
   
   def downcase_email
     self.email = self.email.downcase if self.email

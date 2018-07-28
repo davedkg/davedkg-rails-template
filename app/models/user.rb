@@ -5,10 +5,10 @@ class User
   include Devisable
   include Paranoidal
 
-  field :first_name, type: String
+  field     :first_name, type: String
   validates :first_name, presence: true
   
-  field :last_name, type: String
+  field     :last_name, type: String
   validates :last_name, presence: true
   
   field     :time_zone, type: String, default: 'Eastern Time (US & Canada)'
@@ -16,11 +16,6 @@ class User
 
   def name
     "#{self.first_name} #{self.last_name}" if self.first_name && self.last_name
-  end
-  
-  def send_invitation
-    self.invitation_sent_at = Time.now
-    self.deliver_invitation
   end
 
 end

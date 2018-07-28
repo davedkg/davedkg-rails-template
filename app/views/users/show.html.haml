@@ -18,9 +18,7 @@
       %a{ href: user_path(@user, tab: :overview), class: active_tab_class(:overview) } Overview
       %a{ href: user_path(@user, tab: :sessions), class: active_tab_class(:sessions)} Sessions
       
-  .card
-    .card-body
-      - if :overview == @tab
-        = render 'users/show/overview_tab'
-      - elsif :sessions == @tab
-        = render 'users/show/sessions_tab'
+  - if :overview == @tab
+    = render 'users/show/overview_tab'
+  - elsif :sessions == @tab
+    = render 'users/show/sessions_tab'
