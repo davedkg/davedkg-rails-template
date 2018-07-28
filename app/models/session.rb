@@ -22,7 +22,7 @@ class Session
   index({ session_id: 1 }, { unique: true })
 
   def stamp!
-    self.update_attributes(last_seen_at: Time.now) if self.last_seen.to_i < (Time.now - 5.minutes).to_i
+    self.update_attributes(last_seen_at: Time.now) if self.last_seen_at.to_i < (Time.now - 5.minutes).to_i
   end
   
   def agent_description

@@ -71,6 +71,11 @@ module Devisable
     new_session.save
     new_session.session_id
   end
+  
+  def stamp_session!(session_id)
+    session = sessions.where(session_id: session_id).first
+    session.stamp!
+  end
 
   def session_active?(session_id)
     sessions.where(session_id: session_id).exists?

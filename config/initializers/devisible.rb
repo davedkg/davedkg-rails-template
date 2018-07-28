@@ -12,7 +12,7 @@ end
 # After fetching a user from the session, we check that the session is marked
 # as active for that user. If it’s not we log the user out.
 Warden::Manager.after_fetch do |user, warden, _|
-  unless user.session_active?(warden.raw_session['auth_id'])
+  unless user.session_active?(warden.raw_session['auth_id']) && user.stamp_session!(warden.raw_session['auth_id'])
     warden.logout
     throw :warden, message: :unauthenticated
   end
