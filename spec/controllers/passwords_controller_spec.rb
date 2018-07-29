@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe PasswordsController, type: :controller do
   
   before(:each) do
-    sign_in_with_double nil
+    set_devise_user_mapping
   end
   
   let(:token) { SecureRandom.uuid }
@@ -18,6 +18,20 @@ RSpec.describe PasswordsController, type: :controller do
   describe "GET #edit" do
     it "returns http success" do
       get :edit, params: { reset_password_token: token }
+      expect(response).to have_http_status(:success)
+    end
+  end
+  
+  describe "POST #create" do
+    it "returns http redirect" do
+      post :create
+      expect(response).to have_http_status(:redirect)
+    end
+  end
+  
+  describe "PATCH #update" do
+    it "returns http success" do
+      patch :update
       expect(response).to have_http_status(:success)
     end
   end

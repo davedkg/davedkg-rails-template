@@ -334,4 +334,8 @@ Devise.setup do |config|
   # Devise zxcvbn
   # A score of less than 3 is not recommended.
   config.min_password_score = 3
+  
+  # Speed up tests
+  # https://github.com/plataformatec/devise/wiki/Speed-up-your-unit-tests
+  config.stretches = Rails.env.test? ? 1 : 10
 end

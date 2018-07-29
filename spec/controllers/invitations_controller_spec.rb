@@ -2,8 +2,12 @@ require 'rails_helper'
 
 RSpec.describe InvitationsController, type: :controller do
   
-  let(:user_params) { build(:user, :unconfirmed) }
+  let(:user_params) { attributes_for(:user, :unconfirmed) }
   let(:user) { User.invite!(email: user_params[:email]) }
+  
+  before(:each) do
+    set_devise_user_mapping
+  end
   
   describe "GET #new" do
     it "returns http redirect" do
@@ -33,9 +37,9 @@ RSpec.describe InvitationsController, type: :controller do
     end
   end
 
-  describe "GET #delete" do
+  describe "DELETE #delete" do
     it "returns http redirect" do
-      get :delete
+      delete :destroy
       expect(response).to have_http_status(:redirect)
     end
   end
