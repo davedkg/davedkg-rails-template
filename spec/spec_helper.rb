@@ -1,10 +1,6 @@
 if ENV['RAILS_ENV'] == 'test' || nil != ENV["COVERAGE"]
   require 'simplecov'
-  SimpleCov.start 'rails' do
-    add_group "Controllers", "app/controllers"
-    add_group "Mailers", "app/mailers"
-    add_group "Models", "app/models"
-  end
+  SimpleCov.start 'rails'
   puts "Running simplecov"
 end
 
