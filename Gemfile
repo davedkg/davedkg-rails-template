@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'rspec-rails', '~> 3.7'
   gem 'factory_bot_rails', '~> 4.10.0'
+  gem 'pry-rails', '~> 0.3.6'
 end
 
 group :development do
@@ -49,7 +50,6 @@ group :development do
   gem 'foreman', '~> 0.64.0'
   gem 'guard-rspec', '~> 4.7.3', require: false
   gem 'guard-livereload', '~> 2.5', require: false
-  gem 'pry-rails', '~> 0.3.6'
 end
 
 group :test do
