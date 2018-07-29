@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
   def set_raven_context
     Raven.user_context(
       id: current_user.id.to_s,
-      primary_email: current_user.primary_email.email,
+      primary_email: current_user.email,
       ip_address: request.ip,
     ) if current_user && defined?(Raven)
     
@@ -27,6 +27,6 @@ class ApplicationController < ActionController::Base
       timezone: current_user.time_zone,
     ) if current_user && defined?(Raven)
     
-    Raven.extra_context(params: params.to_unsafe_h, url: request.url) if defined?(Raven)
+    Raven.extra_context(params: params.to_unsafe_h, url: request.url) if defined?(Raven) # FIXME filter params
   end
 end
