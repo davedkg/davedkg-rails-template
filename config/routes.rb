@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  
   mount API => '/'
   
   resources :users, only: [ :index, :new, :show, :create, :destroy ] do
@@ -34,7 +35,7 @@ Rails.application.routes.draw do
   constraints resque_web_constraint do
     mount Resque::Server, at: '/resque'
   end
-  
+  mount RailsEmailPreview::Engine, at: 'emails'
   mount GrapeSwaggerRails::Engine => 'api/explorer'
   
 end

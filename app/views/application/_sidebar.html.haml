@@ -26,6 +26,5 @@
           %li
             = link_to 'API Explorer', grape_swagger_rails_path
             = link_to 'Applications', applications_path
-            - if true == Rails.env.development?
-              = link_to 'Mailers', '/rails/mailers'
+            = link_to 'Mailers', rails_email_preview_path
             = link_to 'Resque', resque_server_path

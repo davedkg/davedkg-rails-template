@@ -240,6 +240,11 @@ GEM
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
+    rails_email_preview (2.0.6)
+      rails (>= 4.2)
+      request_store
+      sass
+      turbolinks
     rails_serve_static_assets (0.0.5)
     rails_stdout_logging (0.0.5)
     railties (5.1.6)
@@ -255,6 +260,8 @@ GEM
     redis (4.0.1)
     redis-namespace (1.6.0)
       redis (>= 3.0.4)
+    request_store (1.4.1)
+      rack (>= 1.4)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
@@ -336,6 +343,9 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    turbolinks (5.1.1)
+      turbolinks-source (~> 5.1)
+    turbolinks-source (5.1.0)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.12)
@@ -396,6 +406,7 @@ DEPENDENCIES
   rails (~> 5.1.6)
   rails-controller-testing (~> 1.0.2)
   rails_12factor (~> 0.0.3)
+  rails_email_preview (~> 2.0.6)
   resque (~> 1.27.0)
   rspec-rails (~> 3.7)
   rspec_junit_formatter (~> 0.4.1)
