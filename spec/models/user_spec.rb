@@ -8,7 +8,7 @@ describe User, type: :model do
   let(:user) { build(:user) }
   
   describe 'FactoryBot' do
-    it 'builds a valid user' do
+    it 'creates a valid model' do
       expect(user.valid?).to be_truthy
     end
   end

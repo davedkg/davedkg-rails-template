@@ -5,14 +5,14 @@
 # after authentication in order to avoid session fixation attacks. So it’s
 # easier to just use our own id.
 Warden::Manager.after_set_user except: :fetch do |user, warden, _|
-  Session.deactivate(warden.raw_session['auth_id'])
-  warden.raw_session['auth_id'] = user.activate_session(ip_address: warden.request.ip, user_agent: warden.request.user_agent)
+  Session.deactivate(warden.raw_session['auth_token'])
+  warden.raw_session['auth_token'] = user.activate_session(ip_address: warden.request.ip, user_agent: warden.request.user_agent)
 end
 
 # After fetching a user from the session, we check that the session is marked
 # as active for that user. If it’s not we log the user out.
 Warden::Manager.after_fetch do |user, warden, _|
-  unless user.session_active?(warden.raw_session['auth_id']) #&& user.stamp_session!(warden.raw_session['auth_id'])
+  unless user.session_active?(warden.raw_session['auth_token']) #&& user.stamp_session!(warden.raw_session['auth_id'])
     warden.logout
     throw :warden, message: :unauthenticated
   end
@@ -21,5 +21,5 @@ end
 # When logging out, we deactivate the current session. This ensures that the
 # session cookie can’t be reused afterwards.
 Warden::Manager.before_logout do |_, warden, _|
-  Session.deactivate(warden.raw_session['auth_id'])
+  Session.deactivate(warden.raw_session['auth_token'])
 end

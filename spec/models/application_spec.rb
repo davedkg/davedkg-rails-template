@@ -1,9 +1,17 @@
 require 'rails_helper'
 
 RSpec.describe Application, type: :model do
+
+  it_behaves_like 'paranoidal'
   
   let(:application_params) { attributes_for(:application) }
   let(:application) { Application.create(application_params) }
+  
+  describe 'FactoryBot' do
+    it 'creates a valid model' do
+      expect(application.valid?).to be_truthy
+    end
+  end
   
   context "#valid?" do
     it "requires a name" do
