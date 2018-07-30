@@ -6,48 +6,78 @@ RSpec.describe UsersController, type: :controller do
   let(:user) { create(:user) }
   
   before(:each) do
-    sign_in_with_double
+    sign_in_with_user
   end
 
   describe "GET #index" do
-    it "returns http success" do
+    before(:each) do
       get :index
+    end
+    
+    it "returns http success" do
       expect(response).to have_http_status(:success)
     end
   end
 
   describe "GET #new" do
-    it "returns http success" do
+    before(:each) do
       get :new
+    end
+    
+    it "returns http success" do
       expect(response).to have_http_status(:success)
     end
   end
   
   describe "POST #create" do
-    it "returns http success" do
+    before(:each) do
       post :create, params: { user: user_params }
-      expect(response).to have_http_status(:success)
+    end
+    
+    it "returns http success" do
+      expect(response).to have_http_status(:redirect)
+    end
+    
+    it "redirects to users_path" do
+      expect(response).to redirect_to(users_path)
     end
   end
   
   describe "GET #show" do
-    it "returns http success" do
+    before(:each) do
       get :show, params: { id: user.id }
+    end
+  
+    it "returns http success" do
       expect(response).to have_http_status(:success)
     end
   end
   
   describe "delete #destroy" do
-    it "returns http success" do
+    before(:each) do
       get :destroy, params: { id: user.id }
-      expect(response).to have_http_status(:success)
+    end
+    
+    it "returns http success" do
+      expect(response).to have_http_status(:redirect)
+    end
+    
+    it "redirects to users_path" do
+      expect(response).to redirect_to(users_path)
     end
   end
   
   describe "POST #resend_invitation" do
-    it "returns http success" do
+    before(:each) do
       post :resend_invitation, params: { id: user.id }
-      expect(response).to have_http_status(:success)
+    end
+    
+    it "returns http success" do
+      expect(response).to have_http_status(:redirect)
+    end
+    
+    it "redirects to user_path" do
+      expect(response).to redirect_to(users_path)
     end
   end
 

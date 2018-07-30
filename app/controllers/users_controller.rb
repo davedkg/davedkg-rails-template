@@ -19,19 +19,19 @@ class UsersController < ApplicationController
   def create
     User.invite!(user_params, current_user)
     
-    redirect_to users_path, status: :created, notice: 'User was successfully invited.'
+    redirect_to users_path, notice: 'User was successfully invited.'
   end
   
   def resend_invitation
     @user.send_invitation 
     
-    redirect_to users_path, status: :ok, notice: 'Invitation was sucessfully resent.'
+    redirect_to users_path, notice: 'Invitation was sucessfully resent.'
   end
   
   def destroy
     @user.destroy
     
-    redirect_to users_path, status: :ok, notice: 'User was successfully destroyed.'
+    redirect_to users_path,  notice: 'User was successfully destroyed.'
   end
   
   private
