@@ -38,10 +38,6 @@ RSpec.describe SessionsController, type: :controller do
       delete :destroy
     end
     
-    it "returns http success" do
-      expect(response).to have_http_status(:redirect)
-    end
-    
     it "redirects to root_path" do
       expect(response).to redirect_to(new_user_session_path)
     end

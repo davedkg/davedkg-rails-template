@@ -23,10 +23,6 @@ RSpec.describe PasswordsController, type: :controller do
       post :create
     end
     
-    it "returns http redirect" do
-      expect(response).to have_http_status(:redirect)
-    end
-    
     it "redirects to new_user_session_path" do
       expect(response).to redirect_to(new_user_session_path)
     end

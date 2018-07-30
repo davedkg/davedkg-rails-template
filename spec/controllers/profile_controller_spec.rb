@@ -33,10 +33,6 @@ RSpec.describe ProfileController, type: :controller do
       patch :update, params: { user: user_params }
     end
     
-    it "returns http redirect" do
-      expect(response).to have_http_status(:redirect)
-    end
-    
     it "redirects to profile_path" do
       expect(response).to redirect_to(profile_path)
     end

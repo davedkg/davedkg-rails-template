@@ -34,10 +34,6 @@ RSpec.describe ApplicationsController, type: :controller do
       get :create, params: { application: application_params }
     end
     
-    it "returns http success" do
-      expect(response).to have_http_status(:redirect)
-    end
-    
     it 'redirects_to application_path' do
       expect(response).to redirect_to(application_path(assigns(:application)))
     end
@@ -66,10 +62,6 @@ RSpec.describe ApplicationsController, type: :controller do
   describe "PATCH #update" do
     before(:each) do
       get :update, params: { id: application.id, application: application_params }
-    end
-    
-    it "returns http success" do
-      expect(response).to have_http_status(:redirect)
     end
     
     it 'redirects_to application_path' do
