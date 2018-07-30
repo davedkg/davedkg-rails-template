@@ -57,6 +57,7 @@ Rails.application.configure do
   }
   config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'] }
   config.action_mailer.asset_host = config.action_controller.asset_host
+  config.roadie.url_options = config.action_mailer.default_url_options
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.

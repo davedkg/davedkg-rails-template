@@ -3,15 +3,15 @@ require 'rails_email_preview'
 #= REP hooks and config
 #RailsEmailPreview.setup do |config|
 #
-#  # hook before rendering preview:
-#   config.before_render do |message, preview_class_name, mailer_action|
-#     # Use roadie-rails:
-#     Roadie::Rails::MailInliner.new(message, message.roadie_options).execute
-# #    # Use premailer-rails:
-# #    Premailer::Rails::Hook.delivering_email(message)
-# #    # Use actionmailer-inline-css:
-# #    ActionMailer::InlineCssHook.delivering_email(message)
-#   end
+ # hook before rendering preview:
+  config.before_render do |message, preview_class_name, mailer_action|
+    # Use roadie-rails:
+    Roadie::Rails::MailInliner.new(message, message.roadie_options).execute
+#    # Use premailer-rails:
+#    Premailer::Rails::Hook.delivering_email(message)
+#    # Use actionmailer-inline-css:
+#    ActionMailer::InlineCssHook.delivering_email(message)
+  end
 #
 #  # do not show Send Email button
 #  config.enable_send_email = false
