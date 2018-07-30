@@ -1,11 +1,11 @@
 module ApplicationHelper
   
-  def active_tab_class(tab)
-    'active' if tab == @tab
+  def active_tab_class(tab, current_tag)
+    'active' if current_tag == tab
   end
   
-  def active_class_for_controller(c)
-    'navigation__active' if params[:controller].to_sym == c
+  def active_class_for_controller(controller)
+    'navigation__active' if params[:controller].to_sym == controller
   end
   
 end

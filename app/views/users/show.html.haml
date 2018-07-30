@@ -15,8 +15,8 @@
 
   .toolbar
     %nav.toolbar__nav
-      %a{ href: user_path(@user, tab: :overview), class: active_tab_class(:overview) } Overview
-      %a{ href: user_path(@user, tab: :sessions), class: active_tab_class(:sessions)} Sessions
+      %a{ href: user_path(@user, tab: :overview), class: active_tab_class(:overview, @tab) } Overview
+      %a{ href: user_path(@user, tab: :sessions), class: active_tab_class(:sessions, @tab)} Sessions
       
   - if :overview == @tab
     = render 'users/show/overview_tab'
