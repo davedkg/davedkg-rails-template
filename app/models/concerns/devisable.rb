@@ -69,16 +69,16 @@ module Devisable
   def activate_session(options = {})
     new_session = Sessions::BrowserSession.new(options.merge(user: self))
     new_session.save
-    new_session.session_id
+    new_session.auth_token
   end
   
-  def stamp_session!(session_id)
-    session = sessions.where(session_id: session_id).first
-    session.stamp!
-  end
+  # def stamp_session!(session_id)
+  #   session = sessions.where(session_id: session_id).first
+  #   session.stamp!
+  # end
 
-  def session_active?(session_id)
-    sessions.where(session_id: session_id).exists?
+  def session_active?(auth_token)
+    sessions.where(auth_token: auth_token).exists?
   end
   
   private
