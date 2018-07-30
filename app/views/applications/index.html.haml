@@ -1,0 +1,19 @@
+%header.content__title
+  %h1 Applications
+  .actions
+    = link_to "", new_application_path, class: 'actions__item zmdi zmdi-plus'
+    
+.card
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Key
+        %th &nbsp;
+    %tbody
+      - @applications.each do |application|
+        %tr
+          %td= application.name 
+          %td= application.key
+          %td.right
+            = link_to "Show", application, class: 'btn btn-outline-primary btn-sm'

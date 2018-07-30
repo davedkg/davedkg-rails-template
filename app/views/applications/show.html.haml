@@ -1,0 +1,14 @@
+.content__inner
+
+  %header.content__title
+    %h1= @application.name
+    %small= @application.key
+    .actions
+      .dropdown.actions__item
+        %i.zmdi.zmdi-more-vert{"data-toggle" => "dropdown"}
+        .dropdown-menu.dropdown-menu-right
+          = link_to "Edit", edit_application_path(@application), class: "dropdown-item"
+
+  .toolbar
+    %nav.toolbar__nav
+      %a.actice Overview

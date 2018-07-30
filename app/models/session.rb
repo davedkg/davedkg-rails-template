@@ -41,7 +41,7 @@ class Session
   
   def generate_session_id
     begin
-      session_id = SecureRandom.hex(127).to_s
+      self.session_id = SecureRandom.hex(127).to_s
     end while 0 != Session.where(session_id: session_id).count
   end
   
