@@ -1,6 +1,6 @@
 require "rails_helper"
 
-describe ApplicationHelper do
+describe ApplicationHelper, type: :helper do
   
   describe "#active_tab_class" do
     it "returns active if tabs match" do
