@@ -23,7 +23,7 @@ RSpec.describe InvitationsController, type: :controller do
   # we don't want to expose this endpoint
   describe "POST #create" do
     before(:each) do
-      post :create, params: { user: user_params } }
+      post :create, params: { user: user_params }
     end
     
     it "redirects to root_path" do
