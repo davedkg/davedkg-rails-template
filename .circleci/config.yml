@@ -21,7 +21,7 @@ jobs:
             - bundle-{{ checksum "Gemfile.lock" }}
             - bundle-
       - run:
-          name: bundle install
+          name: Running bundle install
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
       - save_cache:
@@ -35,7 +35,7 @@ jobs:
             - yarn-{{ checksum "yarn.lock" }}
             - yarn-
       - run:
-          name: yarn install
+          name: Running yarn install
           command: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
           key: yarn-{{ checksum "yarn.lock" }}
@@ -52,7 +52,7 @@ jobs:
     
       # run tests
       - run:
-          name: rspec
+          name: Running rspec
           environment: 
               RAILS_ENV: test
           command: |
@@ -70,6 +70,6 @@ jobs:
           destination: test-results
           
       - run:
-          name: Upload Code Climate report
+          name: Uploading Code Climate report
           command: |
               ./cc-test-reporter after-build --coverage-input-type simplecov
