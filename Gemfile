@@ -39,6 +39,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.10.0'
   gem 'pry-rails', '~> 0.3.6'
   gem 'rails-controller-testing', '~> 1.0.2'
+  gem 'faker', '~> 1.9.1'
 end
 
 group :development do
@@ -54,7 +55,6 @@ group :development do
 end
 
 group :test do
-  gem 'faker', '~> 1.9.1'
   gem 'database_cleaner', '~> 1.7.0'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'simplecov', '~> 0.16.1', require: false

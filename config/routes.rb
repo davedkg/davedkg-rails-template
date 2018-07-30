@@ -18,12 +18,14 @@ Rails.application.routes.draw do
     passwords: 'passwords',
     sessions: 'sessions',
     invitations: 'invitations',
+    confirmations: 'confirmations',
   }, path: '', path_names: { 
     sign_in: 'sign-in', 
     sign_out: 'sign-out',
     password: 'passwords', 
     invitations: 'invitations',
-  }, skip: [ :registrations, :omniauth_callbacks, :unlocks, :confirmations ] 
+    comnfirmations: 'confirmations'
+  }, skip: [ :registrations, :omniauth_callbacks, :unlocks ] 
 
   require 'resque/server'
   resque_web_constraint = lambda do |request|

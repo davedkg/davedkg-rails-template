@@ -25,7 +25,7 @@ class ProfileController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :time_zone)
+    params.require(:user).permit(:email, :first_name, :last_name, :time_zone)
   end
   
   def set_page_title
