@@ -17,6 +17,8 @@
  *= require material
  *= require material-design-iconic-font
  *= require_tree ./inputs
- *= require_tree .
- *= require_self
+ *= require button
+ *= require charts
+ *= require input
+ *= require table
  */
