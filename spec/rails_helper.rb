@@ -51,6 +51,8 @@ RSpec.configure do |config|
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include ControllerHelpers, type: :controller
+  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include RequestHelpers, type: :request
   
   config.before(:suite) do
     DatabaseCleaner.orm = 'mongoid'
