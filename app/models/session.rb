@@ -29,12 +29,17 @@ class Session
     session
   end
 
-  def stamp!
-    self.update_attributes(last_seen_at: Time.now) if self.last_seen_at.to_i < (Time.now - 5.minutes).to_i
+  def stamp!(ip_address)
+    attrs = {}
+    
+    attrs[:last_seen_at] = Time.now   if self.last_seen_at.to_i < (Time.now - 5.minutes).to_i
+    attrs[:ip_address]   = ip_address if ip_address != self.up_address
+    
+    self.update_attributes(attrs) if 0 != attrs.size 
   end
   
-  def agent_description
-    # TODO throw exception
+  def description
+    raise 'Not Implemented' 
   end
   
   def self.deactivate(auth_token)

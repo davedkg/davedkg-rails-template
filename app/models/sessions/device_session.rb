@@ -1,6 +1,6 @@
 class Sessions::DeviceSession < Session
   
-  def agent_description
+  def description
     'TODO device description'
   end
   

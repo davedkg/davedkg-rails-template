@@ -44,11 +44,15 @@ class API < Grape::API
     end
 
     def authenticate_session!
-      error!('Unauthorized', 401) unless current_session
+      error!({ error: { message: 'Unauthorized', code: 401 } }, 401) unless current_session
     end
 
     def current_user
       @current_user ||= current_session.user if current_session
+    end
+    
+    def stamp_session
+      current_session.stamp!(ip_address) if current_session
     end
     
     def set_raven_context
@@ -56,7 +60,6 @@ class API < Grape::API
         Raven.user_context(user_id: current_user.id.to_s)       if current_user
         Raven.user_context(user_email: current_user.email)      if current_user
         Raven.user_context(session_id: current_session.id.to_s) if current_session
-        # Raven.extra_context(params: params.to_unsafe_h, url: request.url) # TODO FIXME filter params
       end
     end
     
@@ -64,6 +67,10 @@ class API < Grape::API
   
   before do
     set_raven_context
+  end
+  
+  after do
+    stamp_session
   end
   
   mount Endpoints::Sessions
