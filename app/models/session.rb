@@ -20,6 +20,14 @@ class Session
   
   index({ user_id: 1 })
   index({ auth_token: 1 }, { unique: true })
+  
+  def self.device_session(user, ip_address)
+    session = Sessions::DeviceSession.new
+    session.user       = user
+    session.ip_address = ip_address
+    session.save
+    session
+  end
 
   def stamp!
     self.update_attributes(last_seen_at: Time.now) if self.last_seen_at.to_i < (Time.now - 5.minutes).to_i

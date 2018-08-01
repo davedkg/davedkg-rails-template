@@ -23,7 +23,9 @@ gem 'devise_invalidatable', '~>  0.1.0'
 gem 'devise_zxcvbn', '~> 4.4.1'
 gem "font-awesome-rails", "~> 4.7.0.4"
 gem 'grape', '~> 1.0.3'
+gem 'grape-entity', '~> 0.7.1'
 gem 'grape-swagger', '~> 0.30.1'
+gem 'grape-swagger-entity', '~> 0.2.5'
 gem 'grape-swagger-rails', '~> 0.3.0'
 gem "haml-rails", "~> 1.0"
 gem 'mongoid', '~> 6.1.0'
