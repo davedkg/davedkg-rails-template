@@ -40,7 +40,5 @@ class ApplicationController < ActionController::Base
       language: I18n.locale, 
       timezone: current_user.time_zone,
     ) if current_user && defined?(Raven)
-    
-    Raven.extra_context(params: params.to_unsafe_h, url: request.url) if defined?(Raven) # FIXME filter params
   end
 end
