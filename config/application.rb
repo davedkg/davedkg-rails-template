@@ -28,11 +28,6 @@ module SocialGrowers
     config.active_job.queue_adapter = :resque
     config.action_mailer.deliver_later_queue_name = 'high'
 
-    config.generators do |g|
-      g.orm :mongoid
-      g.assets false
-      g.view_specs false
-      g.helper_specs false
-    end
+
   end
 end
