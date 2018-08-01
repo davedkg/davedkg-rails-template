@@ -2,25 +2,15 @@ class Endpoints::Sessions < Grape::API
 
   namespace :sessions do
     
-    desc "Create a device session.", {
-      success: { code: 201, model: Entities::Session, message: 'User was successfully authenticated.' },
+    desc "Create a session.", {
+      success: { code: 201, model: Entities::Session, message: 'Session was successfully created.' },
       failure: [[401, 'Invalid email or password', Entities::Error]]
-      }
+    }
     params do
-      # requires :app_key, type: String, desc: 'app.key'
       optional :user, type: Hash do
         requires :email,      type: String, desc: 'user.email'
         requires :password,   type: String, desc: 'user.password'
       end
-      # optional :device, type: Hash do
-      #   requires :local_key,     type: String, desc: 'device.local_key'
-      #   requires :name,          type: String, desc: 'device.name'
-      #   requires :os_type,       type: String, desc: 'device.os_type'
-      #   requires :os_version,    type: String, desc: 'device.os_version'
-      #   requires :device_type,   type: String, desc: 'device.device_type'
-      #   requires :version,       type: String, desc: 'device.version'
-      #   requires :build_version, type: String, desc: 'device.build_version'
-      # end
     end
     post do
       user = User.where(email: params[:user][:email].downcase).first
@@ -30,6 +20,18 @@ class Endpoints::Sessions < Grape::API
       session = Session.device_session(user, ip_address)
 
       present :session, session, with: Entities::Session
+    end
+    
+    desc "Destroy current session.", {
+      headers: { "X-Auth-Token" => { description: "session.auth_token", required: true } },    
+      success: { code: 204, message: 'Session was successfully destroyed.' }
+    }
+    delete :me do
+      authenticate_session!
+      
+      current_session.destroy
+      
+      body false
     end
   
   end # namespace :sessions
