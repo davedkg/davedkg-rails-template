@@ -17,6 +17,6 @@ $ foreman start -f Procfile.dev
 $ open http://localhost:3000/
 ```
 
-###### Live Reload (optional)
+#### Live Reload (optional)
 
 http://livereload.com/extensions/#installing-sections
