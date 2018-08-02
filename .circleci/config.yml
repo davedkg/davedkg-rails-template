@@ -10,7 +10,7 @@ jobs:
       - image: circleci/ruby:2.5.1-node-browsers
       - image: circleci/mongo:3.6.6
       
-    working_directory: ~/davedkg-rails-template
+    working_directory: ~/repo
     
     steps: 
       - checkout 
