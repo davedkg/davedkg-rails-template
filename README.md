@@ -7,7 +7,6 @@
 ## Local Setup
 
 ```bash
-$ git clone https://github.com/davedkg/davedkg-rails-template
 $ brew install mongodb redis npm
 $ rvm install 2.5.1 
 $ bundle && yarn
