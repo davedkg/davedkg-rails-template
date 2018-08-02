@@ -31,13 +31,13 @@ RSpec.describe SessionsController, type: :request do
     # end
   end
   
-  describe "DELETE #destroy" do
+  describe "GET #destroy" do
     before(:each) do
       sign_in
-      delete user_session_path
+      get destroy_user_session_path
     end
     
-    it "redirects to root_path" do
+    it "redirects to new_user_session_path" do
       expect(response).to redirect_to(new_user_session_path)
     end
   end
