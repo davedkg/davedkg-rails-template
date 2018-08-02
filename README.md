@@ -8,8 +8,17 @@
 
 #### Local Setup
 
-TODO
+```bash
+$ git clone https://github.com/davedkg/davedkg-rails-template
+$ brew install mongodb redis npm
+$ rvm install 2.5.1 
+$ bundle && yarn
+$ cp config/application.example.yml config/application.yml
+$ rspec
+$ foreman start -f Procfile.dev
+$ open http://localhost:3000/
+```
 
-#### Running Tests
+###### Live Reload (optional)
 
-TODO
+http://livereload.com/extensions/#installing-sections
