@@ -71,7 +71,6 @@ GEM
     crass (1.0.4)
     css_parser (1.6.0)
       addressable
-    dalli (2.7.8)
     database_cleaner (1.7.0)
     descendants_tracker (0.0.4)
       thread_safe (~> 0.3, >= 0.3.1)
@@ -396,7 +395,6 @@ DEPENDENCIES
   byebug
   chosen-rails (~> 1.8.3)
   coffee-rails (~> 4.2.2)
-  dalli (~> 2.7.6)
   database_cleaner (~> 1.7.0)
   devise (~> 4.4.3)
   devise_invalidatable (~> 0.1.0)

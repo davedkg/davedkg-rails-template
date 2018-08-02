@@ -65,7 +65,7 @@ group :test do
 end
 
 group :production do
-  gem 'dalli', '~> 2.7.6'
+  # gem 'dalli', '~> 2.7.6' 
   gem 'newrelic_rpm', '~> 5.2.0.345'
   gem 'rails_12factor', '~> 0.0.3'
   gem "sentry-raven", '~> 2.7.4'
