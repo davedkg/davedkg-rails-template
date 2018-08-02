@@ -148,7 +148,7 @@ development:
 test:
   clients:
     default:
-      database: social_growers_test
+      database: davedkg_template_test
       hosts:
         - localhost:27017
       options:
