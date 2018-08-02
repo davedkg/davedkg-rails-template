@@ -4,9 +4,7 @@
 [![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master)
 [![Inch CI](https://inch-ci.org/github/davedkg/davedkg-rails-template.svg?branch=master)](https://inch-ci.org/github/davedkg/davedkg-rails-template/suggestions?branch=master)
 
-## Getting Started
-
-#### Local Setup
+## Local Setup
 
 ```bash
 $ git clone https://github.com/davedkg/davedkg-rails-template
