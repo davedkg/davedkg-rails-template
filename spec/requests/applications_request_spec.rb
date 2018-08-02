@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe ApplicationsController, type: :controller do
+RSpec.describe ApplicationsController, type: :request do
   
   let(:application_params) { attributes_for(:application) }
   let(:application) { create(:application) }
 
   before(:each) do
-    sign_in_with_user
+    sign_in
   end
 
-  describe "GET #index" do
+  describe "GET applications_path" do
     before(:each) do
-      get :index
+      get applications_path
     end
     
     it "returns http success" do
@@ -19,9 +19,9 @@ RSpec.describe ApplicationsController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  describe "GET new_application_path" do
     before(:each) do
-      get :new
+      get new_application_path
     end
     
     it "returns http success" do
@@ -29,9 +29,9 @@ RSpec.describe ApplicationsController, type: :controller do
     end
   end
   
-  describe "POST #create" do
+  describe "POST applications_path" do
     before(:each) do
-      get :create, params: { application: application_params }
+      post applications_path, params: { application: application_params }
     end
     
     it 'redirects_to application_path' do
@@ -39,9 +39,9 @@ RSpec.describe ApplicationsController, type: :controller do
     end
   end
 
-  describe "GET #show" do
+  describe "GET application_path" do
     before(:each) do
-      get :show, params: { id: application.id }
+      get application_path(application)
     end
     
     it "returns http success" do
@@ -49,9 +49,9 @@ RSpec.describe ApplicationsController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
+  describe "GET edit_application_path" do
     before(:each) do
-      get :edit, params: { id: application.id }
+      get edit_application_path(application)
     end
     
     it "returns http success" do
@@ -61,7 +61,7 @@ RSpec.describe ApplicationsController, type: :controller do
   
   describe "PATCH #update" do
     before(:each) do
-      get :update, params: { id: application.id, application: application_params }
+      patch application_path(application), params: { application: application_params }
     end
     
     it 'redirects_to application_path' do

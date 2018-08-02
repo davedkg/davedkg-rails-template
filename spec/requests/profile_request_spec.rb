@@ -1,16 +1,14 @@
 require 'rails_helper'
 
-RSpec.describe ProfileController, type: :controller do
-  
-  let(:user_params) { attributes_for(:user, :unconfirmed) }
+RSpec.describe ProfileController, type: :request do
   
   before(:each) do
-    sign_in_with_user
+    sign_in
   end
 
-  describe "GET #show" do
+  describe "GET profile_path" do
     before(:each) do
-      get :show
+      get profile_path
     end
     
     it "returns http success" do
@@ -18,9 +16,9 @@ RSpec.describe ProfileController, type: :controller do
     end
   end
 
-  describe "GET #edit" do
+  describe "GET edit_profile_path" do
     before(:each) do
-      get :edit
+      get edit_profile_path
     end
     
     it "returns http success" do
@@ -28,9 +26,9 @@ RSpec.describe ProfileController, type: :controller do
     end
   end
   
-  describe "PATCH #update" do
+  describe "PATCH profile_path" do
     before(:each) do
-      patch :update, params: { user: user_params }
+      patch profile_path, params: { user: user_params }
     end
     
     it "redirects to profile_path" do

@@ -13,5 +13,8 @@ RSpec.describe ConfirmationsController, type: :request do
       expect(response).to have_http_status(:success)
     end
   end
+  
+  it "CERATE"
+  it "SHOW"
 
 end

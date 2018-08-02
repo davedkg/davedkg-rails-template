@@ -27,7 +27,5 @@ module SocialGrowers
     
     config.active_job.queue_adapter = :resque
     config.action_mailer.deliver_later_queue_name = 'high'
-
-
   end
 end

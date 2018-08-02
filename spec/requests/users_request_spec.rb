@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe UsersController, type: :controller do
+RSpec.describe UsersController, type: :request do
   
   let(:user_params) { attributes_for(:user, :unconfirmed) }
   let(:user) { create(:user) }
   
   before(:each) do
-    sign_in_with_user
+    sign_in
   end
 
-  describe "GET #index" do
+  describe "GET users_path" do
     before(:each) do
-      get :index
+      get users_path
     end
     
     it "returns http success" do
@@ -19,9 +19,9 @@ RSpec.describe UsersController, type: :controller do
     end
   end
 
-  describe "GET #new" do
+  describe "GET new_user_path" do
     before(:each) do
-      get :new
+      get new_user_path
     end
     
     it "returns http success" do
@@ -29,9 +29,9 @@ RSpec.describe UsersController, type: :controller do
     end
   end
   
-  describe "POST #create" do
+  describe "POST user_path" do
     before(:each) do
-      post :create, params: { user: user_params }
+      post users_path, params: { user: user_params }
     end
     
     it "redirects to users_path" do
@@ -39,9 +39,9 @@ RSpec.describe UsersController, type: :controller do
     end
   end
   
-  describe "GET #show" do
+  describe "GET user_path" do
     before(:each) do
-      get :show, params: { id: user.id }
+      get user_path(user)
     end
   
     it "returns http success" do
@@ -49,9 +49,9 @@ RSpec.describe UsersController, type: :controller do
     end
   end
   
-  describe "delete #destroy" do
+  describe "delete user_path" do
     before(:each) do
-      get :destroy, params: { id: user.id }
+      delete user_path(user)
     end
     
     it "redirects to users_path" do
@@ -59,9 +59,9 @@ RSpec.describe UsersController, type: :controller do
     end
   end
   
-  describe "POST #resend_invitation" do
+  describe "POST resend_invitation_user_path" do
     before(:each) do
-      post :resend_invitation, params: { id: user.id }
+      post resend_invitation_user_path(user)
     end
     
     it "redirects to user_path" do

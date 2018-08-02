@@ -1,14 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe SessionsController, type: :controller do
+RSpec.describe SessionsController, type: :request do
   
   let(:user_params) { attributes_for(:user) }
   let(:user) { User.create!(user_params) }
 
-  describe "GET #new" do
+  describe "GET new_user_session_path" do
     before(:each) do
-      set_devise_mapping
-      get :new
+      get new_user_session_path
     end
     
     it "returns http success" do
@@ -16,10 +15,10 @@ RSpec.describe SessionsController, type: :controller do
     end
   end
   
+  
   describe "POST #create" do
     before(:each) do
-      set_devise_mapping
-      post :create, params: { user: user_params }
+      post user_session_path, params: { user: user_params }
     end
     
     it "returns http success" do
@@ -34,8 +33,8 @@ RSpec.describe SessionsController, type: :controller do
   
   describe "DELETE #destroy" do
     before(:each) do
-      sign_in_with_user
-      delete :destroy
+      sign_in
+      delete user_session_path
     end
     
     it "redirects to root_path" do
