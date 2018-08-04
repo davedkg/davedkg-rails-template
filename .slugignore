@@ -1,0 +1,16 @@
+# Folders
+./spec
+./.circleci
+
+# Files
+*.example.yml
+/config/enviornments/development.rb
+/config/enviornments/test.rb
+.gitattributes
+.gitignore
+.rspec
+.ruby-gemset
+.ruby-version
+Guardfile
+README.md
+Procfile.dev
