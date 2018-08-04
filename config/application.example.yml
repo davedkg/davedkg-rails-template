@@ -1,7 +1,6 @@
 # ASSET_DOMAIN: auhsflkshdf.cloudfront.net # production only (optional)
 APP_DOMAIN: localhost:3000
-REDIS_URI: redis://127.0.0.1:6379/0
+REDIS_URL: redis://127.0.0.1:6379/0
 # SENDGRID_PASSWORD: # production only
 # SENDGRID_USERNAME: # production only
 # SENTRY_DSN: # production only (optional, rails)
-# SENTRY_PUBLIC_DSN: # production only (optional, js)
