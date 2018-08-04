@@ -19,3 +19,25 @@ $ open http://localhost:3000/
 #### Live Reload (optional)
 
 http://livereload.com/extensions/#installing-sections
+
+## Heroku Setup
+
+#### Provisioning
+
+```bash
+$ heroku create <app-name>
+$ heroku addons:create mongolab
+$ heroku addons:create heroku-redis:hobby-dev
+$ heroku addons:create newrelic:wayne
+$ heroku buildpacks:add --index 1 heroku/nodejs
+$ heroku buildpacks:add --index 2 heroku/ruby
+$ heroku labs:enable runtime-dyno-metadata 
+```
+
+#### Configuring
+
+```bash
+$ heroku config:set APP_DOMAIN <app-name.herokuapp.com>
+$ heroku config:set SENDGRID_PASSWORD <bob>
+$ heroku config:set SENDGRID_USERNAME <bobs_password>
+$ heroku config:set SENTRY_DSN <https://sentry.private.dsn>
