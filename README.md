@@ -38,6 +38,6 @@ $ heroku labs:enable runtime-dyno-metadata
 
 ```bash
 $ heroku config:set APP_DOMAIN <app-name.herokuapp.com>
-$ heroku config:set SENDGRID_PASSWORD <bob>
-$ heroku config:set SENDGRID_USERNAME <bobs_password>
+$ heroku config:set SENDGRID_USERNAME <bob>
+$ heroku config:set SENDGRID_PASSWORD <bobs_password>
 $ heroku config:set SENTRY_DSN <https://sentry.private.dsn>
