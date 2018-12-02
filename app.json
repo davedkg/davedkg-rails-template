@@ -1,0 +1,41 @@
+{
+  "name": "DaveDKG Rails Template",
+  "description": "Deploy this customizable Ruby on Rails template to Heroku in seconds.",
+  "repository": "https://github.com/davedkg/davedkg-rails-template",
+  "keywords": [
+    "heroku",
+    "rails",
+    "mongodb",
+    "rspec",
+    "grape",
+    "bootstrap",
+    "resque",
+    "mit-license"
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "env": {
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "5"
+    },
+    "HEROKU_RELEASE_VERSION": {
+      "description": "Used by Sentry to differentiate between deploys.",
+       "required": false
+     }
+  },
+  "addons": [
+    "mongolab",
+    "newrelic",
+    "heroku-redis",
+    "sendgrid",
+    "sentry"
+  ],
+  "image": "heroku/ruby"
+}

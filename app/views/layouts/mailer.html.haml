@@ -20,5 +20,5 @@
               %table{:width => "100%"}
                 %tr
                   %td.aligncenter.content-block
-                    %a{:href => "#{ Rails.env.production? ? 'https' : 'http' }://#{ENV['APP_DOMAIN']}"}= ENV['APP_DOMAIN']
+                    %a{:href => "#{ Rails.env.production? ? 'https' : 'http' }://localhost:3000}"}= 'localhost:3000'
         %td

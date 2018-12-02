@@ -29,21 +29,18 @@ And then find the accept invitation link in the log.
 
 ## Heroku Setup
 
-#### Provisioning
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
+#### Fork Repo
+
+TODO
+
+#### Create First User
+
+TODO
+
+#### Optional Configuring
 
 ```bash
-$ heroku create <app-name>
-$ heroku addons:create mongolab
-$ heroku addons:create heroku-redis:hobby-dev
-$ heroku addons:create newrelic:wayne
-$ heroku addons:create sendgrid:starter
-$ heroku labs:enable runtime-dyno-metadata
+$ heroku config:set APP_DOMAIN www.example.com
 ```
-
-#### Configuring
-
-```bash
-$ heroku config:set APP_DOMAIN <app-name.herokuapp.com>
-$ heroku config:set SENDGRID_USERNAME <bob>
-$ heroku config:set SENDGRID_PASSWORD <bobs_password>
-$ heroku config:set SENTRY_DSN <https://sentry.private.dsn>

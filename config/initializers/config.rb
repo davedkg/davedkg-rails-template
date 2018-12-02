@@ -1,1 +1,0 @@
-APP_TITLE = 'DKG Template'
