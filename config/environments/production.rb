@@ -35,12 +35,13 @@ Rails.application.configure do
   config.action_controller.asset_host = "https://#{ENV['ASSET_DOMAIN']}" if nil != ENV['ASSET_DOMAIN']
 
   ActionMailer::Base.smtp_settings = {
-    :address => "smtp.sendgrid.net",
-    :port => '587',
-    :domain => 'example.com',
-    :authentication => :plain,
-    :user_name => ENV['SENDGRID_USERNAME'],
-    :password => ENV['SENDGRID_PASSWORD']
+    address: "smtp.sendgrid.net",
+    port: '587',
+    domain: 'example.com',
+    authentication: :plain,
+    enable_starttls_auto: true,
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD'],
   }
   config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'] }
   config.action_mailer.asset_host = config.action_controller.asset_host

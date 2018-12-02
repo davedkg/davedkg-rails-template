@@ -16,6 +16,17 @@ $ foreman start -f Procfile.dev
 $ open http://localhost:3000/
 ```
 
+#### Create First User
+
+```bash
+$ rails c
+$ <pry> User.invite!(email: "bob@bob.com")
+$ <pry> exit
+$ tail -100 log/development.log
+```
+
+And then find the accept invitation link in the log.
+
 ## Heroku Setup
 
 #### Provisioning
@@ -25,8 +36,7 @@ $ heroku create <app-name>
 $ heroku addons:create mongolab
 $ heroku addons:create heroku-redis:hobby-dev
 $ heroku addons:create newrelic:wayne
-$ heroku buildpacks:add --index 1 heroku/nodejs
-$ heroku buildpacks:add --index 2 heroku/ruby
+$ heroku addons:create sendgrid:starter
 $ heroku labs:enable runtime-dyno-metadata
 ```
 
