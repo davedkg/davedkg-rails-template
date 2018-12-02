@@ -57,11 +57,15 @@ RSpec.configure do |config|
   Capybara.register_driver :selenium_chrome do |app|
     Capybara::Selenium::Driver.new(app, browser: :chrome)
   end
-  Capybara.javascript_driver = :selenium_chrome
+  Capybara.javascript_driver = :selenium_chrome_headless
 
   config.before(:suite) do
     DatabaseCleaner.orm = 'mongoid'
     DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each, js: true) do
+    Capybara.current_session.current_window.resize_to(1400, 1400)
   end
 
   config.before(:each) do
