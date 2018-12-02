@@ -1,16 +1,17 @@
 source 'https://rubygems.org'
 
-ruby "2.5.1"
+ruby "2.5.3"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
 
+gem "bootsnap", ">= 1.1.0", require: false
 gem 'coffee-rails', '~> 4.2.2'
 gem 'mongoid', '~> 6.1.0'
 gem 'puma', '~> 3.7'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.1'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
@@ -23,7 +24,7 @@ gem 'devise_invitable', '~> 1.7.4'
 gem 'devise_invalidatable', '~>  0.1.0'
 gem 'devise_zxcvbn', '~> 4.4.1'
 gem "font-awesome-rails", "~> 4.7.0.4"
-gem 'grape', '~> 1.0.3'
+gem 'grape', '~> 1.1.0'
 gem 'grape-entity', '~> 0.7.1'
 gem 'grape-swagger', '~> 0.30.1'
 gem 'grape-swagger-entity', '~> 0.2.5'
@@ -34,7 +35,7 @@ gem 'premailer-rails', "~> 1.10.2"
 gem 'popper_js', '~> 1.12.9'
 gem 'resque', "~> 1.27.0"
 gem 'sendgrid', '~> 1.2.4'
-gem 'simple_form', '~> 3.5.0'
+gem 'simple_form', '~> 4.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -42,7 +43,7 @@ group :development, :test do
   gem 'factory_bot_rails', '~> 4.10.0'
   gem 'pry-rails', '~> 0.3.6'
   gem 'faker', '~> 1.9.1'
-  gem 'rails-controller-testing', '~> 1.0.2'
+  gem 'rails-controller-testing'#, '~> 1.0.2'
 end
 
 group :development do
