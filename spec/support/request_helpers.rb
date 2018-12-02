@@ -1,5 +1,4 @@
-module RequestHelpers
-
+module DeviseHelpers
   include Warden::Test::Helpers
 
   def self.included(base)

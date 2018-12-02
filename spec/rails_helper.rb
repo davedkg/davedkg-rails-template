@@ -10,6 +10,7 @@ require "faker"
 require "factory_bot"
 require "database_cleaner"
 require 'devise'
+require "capybara/rspec"
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -47,14 +48,24 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  
+
   config.include FactoryBot::Syntax::Methods
   config.include Devise::Test::IntegrationHelpers, type: :request
-  config.include RequestHelpers, type: :request
-  
+  config.include DeviseHelpers, type: :request
+  config.include DeviseHelpers, type: :feature
+
+  Capybara.register_driver :selenium_chrome do |app|
+    Capybara::Selenium::Driver.new(app, browser: :chrome)
+  end
+  Capybara.javascript_driver = :selenium_chrome_headless
+
   config.before(:suite) do
     DatabaseCleaner.orm = 'mongoid'
     DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each, js: true) do
+    Capybara.current_session.current_window.resize_to(1400, 1400)
   end
 
   config.before(:each) do
@@ -64,5 +75,5 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
-  
+
 end
