@@ -7,15 +7,16 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'rails', '~> 5.1.6'
+gem 'coffee-rails', '~> 4.2.2'
+gem 'mongoid', '~> 6.1.0'
 gem 'puma', '~> 3.7'
+gem 'rails', '~> 5.1.6'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 
 gem "autoprefixer-rails", '~> 9.0.0'
 gem "breadcrumbs_on_rails", "~> 3.0.1"
 gem 'chosen-rails', '~> 1.8.3'
-gem 'coffee-rails', '~> 4.2.2'
 gem "figaro", '~> 1.1.1'
 gem 'devise', '~> 4.4.3'
 gem 'devise_invitable', '~> 1.7.4'
@@ -28,7 +29,6 @@ gem 'grape-swagger', '~> 0.30.1'
 gem 'grape-swagger-entity', '~> 0.2.5'
 gem 'grape-swagger-rails', '~> 0.3.0'
 gem "haml-rails", "~> 1.0"
-gem 'mongoid', '~> 6.1.0'
 gem 'mongoid_paranoia', '~> 0.3.0'
 gem 'popper_js', '~> 1.12.9'
 gem 'rails_email_preview', '~> 2.0.6'
