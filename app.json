@@ -31,11 +31,11 @@
      }
   },
   "addons": [
-    "mongolab",
-    "newrelic",
-    "heroku-redis",
-    "sendgrid",
-    "sentry"
+    "heroku-redis:hobby-dev",
+    "mongolab:sandbox",
+    "newrelic:wayne",
+    "sendgrid:starter",
+    "sentry:f1"
   ],
   "image": "heroku/ruby"
 }
