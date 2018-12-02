@@ -30,10 +30,9 @@ gem 'grape-swagger-entity', '~> 0.2.5'
 gem 'grape-swagger-rails', '~> 0.3.0'
 gem "haml-rails", "~> 1.0"
 gem 'mongoid_paranoia', '~> 0.3.0'
+gem 'premailer-rails', "~> 1.10.2"
 gem 'popper_js', '~> 1.12.9'
-gem 'rails_email_preview', '~> 2.0.6'
 gem 'resque', "~> 1.27.0"
-gem 'roadie-rails', '~> 1.3.0'
 gem 'sendgrid', '~> 1.2.4'
 gem 'simple_form', '~> 3.5.0'
 
