@@ -8,17 +8,13 @@
 
 ```bash
 $ brew install mongodb redis npm
-$ rvm install 2.5.1 
+$ rvm install 2.5.3
 $ bundle && yarn
 $ cp config/application.example.yml config/application.yml
 $ rspec
 $ foreman start -f Procfile.dev
 $ open http://localhost:3000/
 ```
-
-#### Live Reload (optional)
-
-http://livereload.com/extensions/#installing-sections
 
 ## Heroku Setup
 
@@ -31,7 +27,7 @@ $ heroku addons:create heroku-redis:hobby-dev
 $ heroku addons:create newrelic:wayne
 $ heroku buildpacks:add --index 1 heroku/nodejs
 $ heroku buildpacks:add --index 2 heroku/ruby
-$ heroku labs:enable runtime-dyno-metadata 
+$ heroku labs:enable runtime-dyno-metadata
 ```
 
 #### Configuring
