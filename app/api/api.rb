@@ -32,13 +32,13 @@ class API < Grape::API
 
     Rack::Response.new({ error: { message: message, code: status } }.to_json, status, { "Content-type" => "application/json" })
   end
-  
+
   helpers do
-    
+
     def ip_address
       env['REMOTE_ADDR']
     end
-    
+
     def current_session
       @current_session ||= Session.where(auth_token: headers['X-Auth-Token']).first
     end
@@ -50,29 +50,37 @@ class API < Grape::API
     def current_user
       @current_user ||= current_session.user if current_session
     end
-    
+
     def stamp_session
       current_session.stamp!(ip_address) if current_session
     end
-    
+
+    def permitted_params
+      @permitted_params ||= declared(params, include_missing: false).deep_symbolize_keys
+    end
+
     def set_raven_context
       if defined? Raven
-        Raven.user_context(user_id: current_user.id.to_s)       if current_user
-        Raven.user_context(user_email: current_user.email)      if current_user
+        Raven.user_context(
+          id: current_user.id.to_s,
+          email: current_user.email,
+          ip_address: request.ip,
+        ) if current_user
         Raven.user_context(session_id: current_session.id.to_s) if current_session
+        Raven.extra_context(params: params, url: request.url)
       end
     end
-    
+
   end # helpers
-  
+
   before do
     set_raven_context
   end
-  
+
   after do
     stamp_session
   end
-  
+
   mount Endpoints::Sessions
 
   add_swagger_documentation api_version: 'v1',
