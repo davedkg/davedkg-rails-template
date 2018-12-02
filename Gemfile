@@ -54,8 +54,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'foreman', '~> 0.64.0'
-  gem 'guard-rspec', '~> 4.7.3', require: false
-  gem 'guard-livereload', '~> 2.5', require: false
 end
 
 group :test do
