@@ -6,11 +6,11 @@
 *.example.yml
 /config/enviornments/development.rb
 /config/enviornments/test.rb
+/config/application.example.yml
 .gitattributes
 .gitignore
 .rspec
 .ruby-gemset
 .ruby-version
-Guardfile
 README.md
 Procfile.dev
