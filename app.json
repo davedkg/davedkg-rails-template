@@ -20,20 +20,7 @@
       "quantity": 1
     }
   },
-  "env": {
-    "APP_DOMAIN": {
-      "description": "Custom application domain.",
-      "required": false
-    },
-    "ASSET_CDN_DOMAIN": {
-      "description": "Asset CDN domain.",
-      "required": false
-    },
-    "WEB_CONCURRENCY": {
-      "description": "The number of processes to run.",
-      "value": "5"
-    }
-  },
+
   "addons": [
     "heroku-redis",
     "mongolab",
