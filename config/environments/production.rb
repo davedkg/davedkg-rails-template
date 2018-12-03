@@ -34,7 +34,7 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.action_controller.asset_host = "https://#{ENV['ASSET_CDN_DOMAIN']}" if nil != ENV['ASSET_CDN_DOMAIN']
+  config.action_controller.asset_host = "https://#{ENV['ASSET_DOMAIN']}" if nil != ENV['ASSET_DOMAIN']
 
   ActionMailer::Base.smtp_settings = {
     address: "smtp.sendgrid.net",

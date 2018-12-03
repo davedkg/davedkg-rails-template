@@ -21,6 +21,14 @@
     }
   },
   "env": {
+    "APP_DOMAIN": {
+      "description": "Custom domain name.",
+      "required": false
+    },
+    "ASSET_DOMAIN": {
+      "description": "Custom asset CDN domain name.",
+      "required": false
+    },
     "WEB_CONCURRENCY": {
       "description": "The number of processes to run.",
       "value": "5"
