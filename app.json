@@ -1,6 +1,6 @@
 {
   "name": "DaveDKG Rails Template",
-  "description": "Deploy this customizable Ruby on Rails template to Heroku in seconds.",
+  "description": "Deploy this customizable Ruby on Rails starter template to Heroku in seconds.",
   "repository": "https://github.com/davedkg/davedkg-rails-template",
   "keywords": [
     "heroku",
