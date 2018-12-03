@@ -1,6 +1,7 @@
 # Folders
 ./spec
 ./.circleci
+./vendor/bundle
 
 # Files
 /config/enviornments/development.rb
