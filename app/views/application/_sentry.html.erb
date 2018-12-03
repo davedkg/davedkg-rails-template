@@ -1,6 +1,6 @@
-<% if nil != ENV['SENTRY_DSN'] -%>
+<% if nil != ENV['SENTRY_PUBLIC_DSN'] -%>
 <script>
-  Raven.config("<%= ENV['SENTRY_DSN'] %>").install();
+  Raven.config("<%= ENV['SENTRY_PUBLIC_DSN'] %>").install();
   <% if nil != current_user -%>
   Raven.setUserContext({ email: "<%= current_user.email %>", id: "<%= current_user.id.to_s %>" });
   <% end -%>
