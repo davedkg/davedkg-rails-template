@@ -31,18 +31,15 @@ And then find the accept invitation link in the log.
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/davedkg/davedkg-rails-template/tree/master)
 
-TODO turn on worker thread
+#### TODOS
 
-#### Fork Repo
-
-TODO
-
-#### Create First User
-
-TODO
+- clone repo
+- create firstr user
+- turn on worker thread
 
 #### Optional Configuring
 
 ```bash
+$ heroku labs:enable runtime-dyno-metadata
 $ heroku config:set APP_DOMAIN www.example.com
 ```

@@ -21,14 +21,19 @@
     }
   },
   "env": {
+    "APP_DOMAIN": {
+      "description": "Custom application domain.",
+      "required": false
+    },
+    "ASSET_CDN_DOMAIN": {
+      "description": "Asset CDN domain.",
+      "required": false
+    },
     "WEB_CONCURRENCY": {
       "description": "The number of processes to run.",
-      "value": "5"
+      "value": "5",
+      "required": true
     },
-    "HEROKU_RELEASE_VERSION": {
-      "description": "Used by Sentry to differentiate between deploys.",
-       "required": false
-     }
   },
   "addons": [
     "heroku-redis",
