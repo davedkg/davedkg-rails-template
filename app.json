@@ -20,7 +20,13 @@
       "quantity": 1
     }
   },
+  "env": {
 
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "5"
+    }
+  },
   "addons": [
     "heroku-redis",
     "mongolab",
