@@ -29,7 +29,7 @@ And then find the accept invitation link in the log.
 
 ## Heroku Setup
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/davedkg/davedkg-rails-template/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 #### TODOS
 
