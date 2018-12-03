@@ -1,5 +1,0 @@
-<% if nil != ENV['SENTRY_DSN'] %>
-  //= require raven-js/dist/raven
-
-  Raven.config("<%= ENV['SENTRY_DSN'] %>").install();  
-<% end %>

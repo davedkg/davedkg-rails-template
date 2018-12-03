@@ -20,6 +20,7 @@
 //= require chosen-jquery
 //= require jquery.dirtyforms/jquery.dirtyforms
 //= require bootstrap-notify/bootstrap-notify
+//= require raven-js/dist/raven
 //= require material
 //= require_tree ./inputs
 //= require_tree .
