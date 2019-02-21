@@ -4,10 +4,16 @@
 [![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master)
 [![Inch CI](https://inch-ci.org/github/davedkg/davedkg-rails-template.svg?branch=master)](https://inch-ci.org/github/davedkg/davedkg-rails-template/suggestions?branch=master)
 
+## Getting Started
+
+- fork
+- local setup
+- deploy to heroku
+
 ## Local Setup
 
 ```bash
-$ brew install mongodb redis npm
+$ brew install mongodb redis yarn
 $ rvm install 2.5.3
 $ bundle && yarn
 $ cp config/application.example.yml config/application.yml
@@ -22,7 +28,7 @@ $ open http://localhost:3000/
 $ rails c
 $ <pry> User.invite!(email: "bob@bob.com")
 $ <pry> exit
-$ tail -100 log/development.log
+$ tail -200 log/development.log
 ```
 
 And then find the accept invitation link in the log.
@@ -34,12 +40,13 @@ And then find the accept invitation link in the log.
 #### TODOS
 
 - clone repo
-- create firstr user
+- create first user
 - turn on worker thread
+- how to use deploy to heroku button
 
 #### Optional Configuring
 
 ```bash
-$ heroku labs:enable runtime-dyno-metadata
+$ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection
 $ heroku config:set APP_DOMAIN www.example.com
 ```
