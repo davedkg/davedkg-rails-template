@@ -2,18 +2,15 @@
   %h1 Users
   .actions
     = link_to "", new_user_path, class: 'actions__item zmdi zmdi-plus'
-    
+
 .card
   %table.table.table-striped
     %thead
       %tr
-        %th Name
         %th Email
+        %th Name
         %th &nbsp;
-    %tbody
-      - @users.each do |user|
-        %tr
-          %td= user.name || 'n/a'
-          %td= user.email
-          %td.right
-            = link_to "View", user, class: 'btn btn-outline-primary btn-sm'
+    %tbody#users
+      = render 'users'
+  #paginator
+    = render 'paginator'

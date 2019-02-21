@@ -32,6 +32,8 @@ gem 'grape-swagger-entity', '~> 0.2.5'
 gem 'grape-swagger-rails', '~> 0.3.0'
 gem "haml-rails", "~> 1.0"
 gem 'mongoid_paranoia', '~> 0.3.0'
+gem 'kaminari-actionview', '~> 1.1.1'
+gem 'kaminari-mongoid', '~> 1.0.1'
 gem 'premailer-rails', "~> 1.10.2"
 gem 'popper_js', '~> 1.12.9'
 gem 'resque', "~> 1.27.0"

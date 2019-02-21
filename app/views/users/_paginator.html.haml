@@ -1,0 +1,5 @@
+.dataTables__bottom
+  #data-table_info.dataTables_info{"aria-live" => "polite", role: "status"}
+    = page_entries_info @users
+  #data-table_paginate.dataTables_paginate.paging_simple_numbers
+    = paginate @users, remote: true

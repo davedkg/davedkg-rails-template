@@ -1,0 +1,5 @@
+- c = ''
+- c += 'disabled' if page.current?
+%li.page-item{:class => c}
+  = link_to url, class: 'page-link', remote: remote do
+    = page

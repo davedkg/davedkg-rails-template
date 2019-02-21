@@ -1,0 +1,5 @@
+- c = 'pagination-first'
+- c += 'disabled' if current_page.first?
+%li.page-item{:class => c}
+  = link_to url, class: 'page-link', remote: remote do
+    &nbsp;
