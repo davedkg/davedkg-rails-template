@@ -39,20 +39,12 @@ class API < Grape::API
       env['REMOTE_ADDR']
     end
 
-    def current_session
-      @current_session ||= Session.where(auth_token: headers['X-Auth-Token']).first
-    end
-
-    def authenticate_session!
-      error!({ error: { message: 'Unauthorized', code: 401 } }, 401) unless current_session
+    def authenticate_user!
+      error!({ error: { message: 'Unauthorized', code: 401 } }, 401) unless current_user
     end
 
     def current_user
-      @current_user ||= current_session.user if current_session
-    end
-
-    def stamp_session
-      current_session.stamp!(ip_address) if current_session
+      @current_user ||= User.where(auth_token: headers['X-Auth-Token']).first
     end
 
     def permitted_params
@@ -66,7 +58,6 @@ class API < Grape::API
           email: current_user.email,
           ip_address: request.ip,
         ) if current_user
-        Raven.user_context(session_id: current_session.id.to_s) if current_session
         Raven.extra_context(params: params, url: request.url)
       end
     end
@@ -77,11 +68,8 @@ class API < Grape::API
     set_raven_context
   end
 
-  after do
-    stamp_session
-  end
-
   mount Endpoints::Sessions
+  mount Endpoints::User
 
   add_swagger_documentation api_version: 'v1',
                             hide_documentation_path: true,

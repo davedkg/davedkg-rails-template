@@ -14,14 +14,9 @@ class User
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""
 
-  index({ email: 1 }, { unique: true, background: true })
-  before_validation :downcase_email
-
   ## Recoverable
   field :reset_password_token,   type: String
   field :reset_password_sent_at, type: Time
-
-  index({ reset_password_token: 1 }, { background: true })
 
   ## Rememberable
   field :remember_created_at, type: Time
@@ -39,8 +34,6 @@ class User
   field :confirmation_sent_at, type: Time
   field :unconfirmed_email,    type: String # Only if using reconfirmable
 
-  index({ confirmation_token: 1 }, { background: true })
-
   ## Lockable
   # field :failed_attempts, type: Integer, default: 0 # Only if lock strategy is :failed_attempts
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
@@ -57,9 +50,6 @@ class User
   field :invitation_accepted_at, type: Time
   field :invitation_limit, type: Integer
 
-  index( {invitation_token: 1}, {:background => true} )
-  # index( {invitation_by_id: 1}, {:background => true} )
-
   field     :first_name, type: String
   validates :first_name, presence: true
 
@@ -68,6 +58,18 @@ class User
 
   field     :time_zone, type: String, default: 'Eastern Time (US & Canada)'
   validates :time_zone, presence: true
+
+  field     :auth_token, type: String
+  validates :auth_token, presence: true, uniqueness: true
+
+  index({ email: 1 }, { unique: true, background: true })
+  index({ reset_password_token: 1 }, { background: true, unique: true })
+  index({ confirmation_token: 1 }, { background: true, unique: true })
+  index({ invitation_token: 1 }, { background: true, unique: true } )
+  index({ auth_token: 1 }, { background: true, unique: true })
+
+  before_validation :downcase_email
+  before_create :generate_auth_token
 
   def name
     "#{self.first_name} #{self.last_name}" if self.first_name && self.last_name
@@ -78,21 +80,6 @@ class User
     self.deliver_invitation
   end
 
-  def activate_session(options = {})
-    new_session = Sessions::BrowserSession.new(options.merge(user: self))
-    new_session.save
-    new_session.auth_token
-  end
-
-  # def stamp_session!(session_id)
-  #   session = sessions.where(session_id: session_id).first
-  #   session.stamp!
-  # end
-
-  def session_active?(auth_token)
-    sessions.where(auth_token: auth_token).exists?
-  end
-
   private
 
   def downcase_email
@@ -101,6 +88,12 @@ class User
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self.id.to_s, *args).deliver_later
+  end
+
+  def generate_auth_token
+    begin
+      self.auth_token = SecureRandom.hex(127).to_s
+    end while 0 != User.where(auth_token: auth_token).count
   end
 
 end
