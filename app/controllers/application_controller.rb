@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!, except: [ :ping ]
   before_action :set_time_zone
   before_action :set_raven_context
-  after_action  :stamp_session!
   protect_from_forgery prepend: true, with: :exception
 
   def ping
@@ -14,14 +13,6 @@ class ApplicationController < ActionController::Base
 
   def ip_address
     request.remote_ip
-  end
-
-  def current_session
-    @current_session ||= current_user.sessions.where(auth_token: warden.raw_session['auth_token']).first if nil != current_user && nil != warden.raw_session['auth_token']
-  end
-
-  def stamp_session!
-    current_session.stamp!(ip_address) if nil != current_session
   end
 
   # Devie -> Overwriting the sign_out redirect path method
