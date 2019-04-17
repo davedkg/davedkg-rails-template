@@ -10,8 +10,6 @@ class User
          :recoverable, :rememberable, :trackable,
          :confirmable, :invitable, :zxcvbnable
 
-  has_many :sessions, dependent: :destroy
-
   ## Database authenticatable
   field :email,              type: String, default: ""
   field :encrypted_password, type: String, default: ""

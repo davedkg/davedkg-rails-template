@@ -5,7 +5,6 @@ Rails.application.routes.draw do
   resources :users, only: [ :index, :new, :show, :create, :destroy ] do
     post 'resend-invitation', to: 'users#resend_invitation', on: :member
   end
-  resources :applications, except: [ :destroy ]
 
   get   'profile',      to: 'profile#show'
   get   'profile/edit', to: 'profile#edit', as: :edit_profile
