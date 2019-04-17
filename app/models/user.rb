@@ -1,7 +1,6 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
-  include Chartable
   include Paranoidal
 
   # Include default devise modules. Others available are:
