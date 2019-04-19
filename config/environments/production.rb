@@ -35,6 +35,7 @@ Rails.application.configure do
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
   config.action_controller.asset_host = "https://#{ENV['ASSET_DOMAIN']}" if nil != ENV['ASSET_DOMAIN']
+  config.action_mailer.default_url_options = { ENV['APP_DOMAIN'] }
 
   ActionMailer::Base.smtp_settings = {
     address: "smtp.sendgrid.net",
