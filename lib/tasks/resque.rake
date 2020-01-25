@@ -1,1 +1,0 @@
-task "resque:setup" => :environment

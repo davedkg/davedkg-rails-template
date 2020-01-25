@@ -1,2 +1,3 @@
 web: bundle exec puma -C config/puma.rb
-worker: env TERM_CHILD=1 QUEUE=high,normal,low bundle exec rake resque:work
+# worker: bundle exec sidekiq -c 3 -q mailers -q jobs
+# release: bundle exec rake db:migrate db:seed
