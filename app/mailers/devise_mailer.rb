@@ -12,4 +12,8 @@ class DeviseMailer < Devise::Mailer
     super(User.find(user_id), token, opts)
   end
 
+  def invitation_instructions(user_id, token, opts = {})
+    super(User.find(user_id), token, opts)
+  end
+
 end

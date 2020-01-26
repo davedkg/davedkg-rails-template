@@ -1,0 +1,14 @@
+.ibox
+  .ibox-content
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Email
+            %th Actions
+        %tbody
+          = render 'users'
+
+    %a.btn.btn-primary.btn-block{ href: new_user_path }
+      %i.fa.fa-plus
+      Invite User

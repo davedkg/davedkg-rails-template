@@ -1,0 +1,10 @@
+.row.wrapper.border-bottom.white-bg.page-heading
+  .col-lg-10
+    %h2= page_title
+    %ol.breadcrumb
+      - breadcrumb_trail do |crumb|
+        %li.breadcrumb-item{ class: "#{crumb.current? ? 'active' : '' }" }
+          / - if crumb.current?
+          /   %strong= crumb.name
+          / - else
+          = link_to crumb.name, crumb.url

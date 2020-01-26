@@ -16,6 +16,8 @@
       = render 'application/navigation'
       #page-wrapper.gray-bg
         = render 'application/topnavbar'
-        = render 'application/flash'
-        = yield
+        = render 'application/page_header'
+        .wrapper.wrapper-content
+          = render 'application/flash'
+          = yield
     = yield :javascript

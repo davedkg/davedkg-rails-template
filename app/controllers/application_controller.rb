@@ -5,7 +5,11 @@ class ApplicationController < ActionController::Base
 
   private
 
-  ## *** Devise Overrides
+  def prevent_action
+    redirect_to root_path
+  end
+
+  ## *** Devise
 
   def after_sign_out_path_for(*)
     new_user_session_path

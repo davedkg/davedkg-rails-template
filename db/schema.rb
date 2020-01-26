@@ -33,13 +33,25 @@ ActiveRecord::Schema.define(version: 2020_01_26_002834) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.string "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.integer "invitation_limit"
+    t.string "invited_by_type"
+    t.bigint "invited_by_id"
+    t.integer "invitations_count", default: 0
     t.datetime "deleted_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["deleted_at", "confirmation_token"], name: "index_users_on_deleted_at_and_confirmation_token", unique: true
     t.index ["deleted_at", "email"], name: "index_users_on_deleted_at_and_email", unique: true
+    t.index ["deleted_at", "invitation_token"], name: "index_users_on_deleted_at_and_invitation_token", unique: true
+    t.index ["deleted_at", "invitations_count"], name: "index_users_on_deleted_at_and_invitations_count"
+    t.index ["deleted_at", "invited_by_id"], name: "index_users_on_deleted_at_and_invited_by_id"
     t.index ["deleted_at", "reset_password_token"], name: "index_users_on_deleted_at_and_reset_password_token", unique: true
     t.index ["deleted_at", "unlock_token"], name: "index_users_on_deleted_at_and_unlock_token", unique: true
+    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"
   end
 
 end

@@ -3,21 +3,27 @@
     %ul#side-menu.nav.metismenu
       %li.nav-header
         .dropdown.profile-element
-          / %img{ class: "rounded-circle", src: image_path("header-profile.png") }
+          %img.rounded-circle{ gravatar_attrs(@user, size: 50) }/
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-            %span.block.m-t-xs.font-bold Example user
-            %span.text-muted.text-xs.block
-              Example menu
-              %b.caret
-          %ul.dropdown-menu.animated.fadeInRight.m-t-xs
-            %li
-              %a.dropdown-item{:href => "#"} Logout
+            %span.block.m-t-xs.font-bold
+              = current_user.email
+          /   %span.text-muted.text-xs.block
+          /     Example menu
+          /     %b.caret
+          / %ul.dropdown-menu.animated.fadeInRight.m-t-xs
+          /   %li
+          /     %a.dropdown-item{:href => "#"} Logout
         .logo-element
           IN+
       %li.active
         = link_to root_path do
           %i.fa.fa-tachometer-alt
           %span.nav-label Dashboard
+
+      %li
+        = link_to users_path do
+          %i.fa.fa-users
+          %span.nav-label Users
 
       - if Rails.env.development?
         %li
