@@ -10,6 +10,7 @@ require("jquery")
 require("bootstrap")
 require('turbolinks-animate')
 require("metismenu")
+require("jquery-slimscroll")
 require("inspina")
 require("channels")
 
@@ -22,6 +23,6 @@ require("channels")
 
 import "controllers"
 
-// document.addEventListener( 'turbolinks:load', function() {
-//   TurbolinksAnimate.init({ element: document.querySelector('.turbolinks-animate') })
-// })
+document.addEventListener( 'turbolinks:load', function() {
+  TurbolinksAnimate.init({ element: document.querySelector('.turbolinks-animate') })
+})

@@ -6,7 +6,8 @@
  */
 
 
-$(document).ready(function () {
+// $(document).ready(function () {
+document.addEventListener( 'turbolinks:load', function() {
 
     // Fast fix bor position issue with Propper.js
     // Will be fixed in Bootstrap 4.1 - https://github.com/twbs/bootstrap/pull/24092
