@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   breadcrumb "Invite User", :new_user_path, only: [ :new, :create ]
 
   def index
-    @users = User.all
+    @users = User.order(email: :asc).page(params[:page])
   end
 
   def new

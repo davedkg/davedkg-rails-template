@@ -37,6 +37,7 @@ GEM
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
       rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    actionview-component (1.8.1)
     activejob (6.0.2.1)
       activesupport (= 6.0.2.1)
       globalid (>= 0.3.6)
@@ -125,6 +126,18 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.9.1)
       activesupport (>= 4.2.0)
+    kaminari (1.1.1)
+      activesupport (>= 4.1.0)
+      kaminari-actionview (= 1.1.1)
+      kaminari-activerecord (= 1.1.1)
+      kaminari-core (= 1.1.1)
+    kaminari-actionview (1.1.1)
+      actionview
+      kaminari-core (= 1.1.1)
+    kaminari-activerecord (1.1.1)
+      activerecord
+      kaminari-core (= 1.1.1)
+    kaminari-core (1.1.1)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.7.0)
@@ -324,6 +337,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actionview-component (~> 1.8.1)
   autoprefixer-rails (~> 6.7.2)
   bootsnap (>= 1.4.2)
   capybara (>= 2.15)
@@ -336,6 +350,7 @@ DEPENDENCIES
   gravatarify (~> 3.0.0)
   haml-rails (~> 2.0)
   jbuilder (~> 2.7)
+  kaminari (~> 1.1.1)
   letter_opener_web (~> 1.0)
   listen (>= 3.0.5, < 3.2)
   loaf (~> 0.9.0)

@@ -13,11 +13,13 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
+gem "actionview-component", "~> 1.8.1"
 gem "autoprefixer-rails", "~> 6.7.2"
 gem 'devise', "~> 4.7.1"
 gem 'devise_invitable', '~> 2.0.0'
 gem 'gravatarify', '~> 3.0.0'
 gem "haml-rails", "~> 2.0"
+gem 'kaminari', "~> 1.1.1"
 gem "loaf", "~> 0.9.0"
 gem "paranoia", "~> 2.4.2"
 gem 'resque', "~> 2.0.0"
@@ -33,11 +35,11 @@ group :development, :test do
 end
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
   gem 'letter_opener_web', '~> 1.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'web-console', '>= 3.3.0'
 end
 
 group :test do

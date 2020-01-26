@@ -4,10 +4,10 @@
       = user.email
     %td
       - if !user.invitation_accepted_at?
-        = link_to resend_invitation_user_path(user), class: "btn btn-warning", data: { method: :post, confirm: "Are you sure?" } do
+        = link_to resend_invitation_user_path(user), class: "btn btn-info btn-xs", data: { method: :post, confirm: "Are you sure?" } do
           %i.fa.fa-envelope-open
           Resend Invitation
       - if user != current_user
-        = link_to user, class: "btn btn-danger", data: { method: :delete, confirm: "Are you sure?" } do
+        = link_to user, class: "btn btn-danger btn-xs", data: { method: :delete, confirm: "Are you sure?" } do
           %i.fa.fa-trash
           Delete
