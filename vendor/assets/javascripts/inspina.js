@@ -66,10 +66,10 @@ $(document).ready(function () {
     });
 
     // Run menu of canvas
-    $('body.canvas-menu .sidebar-collapse').slimScroll({
-        height: '100%',
-        railOpacity: 0.9
-    });
+    // $('body.canvas-menu .sidebar-collapse').slimScroll({
+    //     height: '100%',
+    //     railOpacity: 0.9
+    // });
 
     // Open close right sidebar
     $('.right-sidebar-toggle').on('click', function (e) {
@@ -78,11 +78,11 @@ $(document).ready(function () {
     });
 
     // Initialize slimscroll for right sidebar
-    $('.sidebar-container').slimScroll({
-        height: '100%',
-        railOpacity: 0.4,
-        wheelStep: 10
-    });
+    // $('.sidebar-container').slimScroll({
+    //     height: '100%',
+    //     railOpacity: 0.4,
+    //     wheelStep: 10
+    // });
 
     // Open close small chat
     $('.open-small-chat').on('click', function (e) {
@@ -92,10 +92,10 @@ $(document).ready(function () {
     });
 
     // Initialize slimscroll for small chat
-    $('.small-chat-box .content').slimScroll({
-        height: '234px',
-        railOpacity: 0.4
-    });
+    // $('.small-chat-box .content').slimScroll({
+    //     height: '234px',
+    //     railOpacity: 0.4
+    // });
 
     // Small todo handler
     $('.check-link').on('click', function () {
@@ -141,9 +141,9 @@ $(document).ready(function () {
         .popover();
 
     // Add slimscroll to element
-    $('.full-height-scroll').slimscroll({
-        height: '100%'
-    })
+    // $('.full-height-scroll').slimscroll({
+    //     height: '100%'
+    // })
 });
 
 // Minimalize menu when screen is less than 768px
@@ -156,14 +156,14 @@ $(window).bind("resize", function () {
 });
 
 // Fixed Sidebar
-$(window).bind("load", function () {
-    if ($("body").hasClass('fixed-sidebar')) {
-        $('.sidebar-collapse').slimScroll({
-            height: '100%',
-            railOpacity: 0.9
-        });
-    }
-});
+// $(window).bind("load", function () {
+//     if ($("body").hasClass('fixed-sidebar')) {
+//         $('.sidebar-collapse').slimScroll({
+//             height: '100%',
+//             railOpacity: 0.9
+//         });
+//     }
+// });
 
 
 // check if browser support HTML5 local storage
@@ -173,52 +173,52 @@ function localStorageSupport() {
 
 // Local Storage functions
 // Set proper body class and plugins based on user configuration
-$(document).ready(function () {
-    if (localStorageSupport()) {
-
-        var collapse = localStorage.getItem("collapse_menu");
-        var fixedsidebar = localStorage.getItem("fixedsidebar");
-        var fixednavbar = localStorage.getItem("fixednavbar");
-        var boxedlayout = localStorage.getItem("boxedlayout");
-        var fixedfooter = localStorage.getItem("fixedfooter");
-
-        var body = $('body');
-
-        if (fixedsidebar == 'on') {
-            body.addClass('fixed-sidebar');
-            $('.sidebar-collapse').slimScroll({
-                height: '100%',
-                railOpacity: 0.9
-            });
-        }
-
-        if (collapse == 'on') {
-            if (body.hasClass('fixed-sidebar')) {
-                if (!body.hasClass('body-small')) {
-                    body.addClass('mini-navbar');
-                }
-            } else {
-                if (!body.hasClass('body-small')) {
-                    body.addClass('mini-navbar');
-                }
-
-            }
-        }
-
-        if (fixednavbar == 'on') {
-            $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
-            body.addClass('fixed-nav');
-        }
-
-        if (boxedlayout == 'on') {
-            body.addClass('boxed-layout');
-        }
-
-        if (fixedfooter == 'on') {
-            $(".footer").addClass('fixed');
-        }
-    }
-});
+// $(document).ready(function () {
+//     if (localStorageSupport()) {
+//
+//         var collapse = localStorage.getItem("collapse_menu");
+//         var fixedsidebar = localStorage.getItem("fixedsidebar");
+//         var fixednavbar = localStorage.getItem("fixednavbar");
+//         var boxedlayout = localStorage.getItem("boxedlayout");
+//         var fixedfooter = localStorage.getItem("fixedfooter");
+//
+//         var body = $('body');
+//
+//         if (fixedsidebar == 'on') {
+//             body.addClass('fixed-sidebar');
+//             $('.sidebar-collapse').slimScroll({
+//                 height: '100%',
+//                 railOpacity: 0.9
+//             });
+//         }
+//
+//         if (collapse == 'on') {
+//             if (body.hasClass('fixed-sidebar')) {
+//                 if (!body.hasClass('body-small')) {
+//                     body.addClass('mini-navbar');
+//                 }
+//             } else {
+//                 if (!body.hasClass('body-small')) {
+//                     body.addClass('mini-navbar');
+//                 }
+//
+//             }
+//         }
+//
+//         if (fixednavbar == 'on') {
+//             $(".navbar-static-top").removeClass('navbar-static-top').addClass('navbar-fixed-top');
+//             body.addClass('fixed-nav');
+//         }
+//
+//         if (boxedlayout == 'on') {
+//             body.addClass('boxed-layout');
+//         }
+//
+//         if (fixedfooter == 'on') {
+//             $(".footer").addClass('fixed');
+//         }
+//     }
+// });
 
 // For demo purpose - animation css script
 function animationHover(element, animation) {
