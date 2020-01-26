@@ -8,11 +8,12 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("jquery")
 require("bootstrap")
+require('turbolinks-animate')
 require("pace")
 require("slimscroll")
 require("metismenu")
-require("channels")
 require("inspina")
+require("channels")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -22,3 +23,7 @@ require("inspina")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+
+document.addEventListener( 'turbolinks:load', function() {
+  TurbolinksAnimate.init({ element: document.querySelector('.turbolinks-animate') })
+})

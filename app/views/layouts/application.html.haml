@@ -11,7 +11,7 @@
     %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap", :rel => "stylesheet"}/
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body
+  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: '' do
     #wrapper{class: "#{params[:controller]}.#{params[:action]}"}
       = render 'application/navigation'
       #page-wrapper.gray-bg

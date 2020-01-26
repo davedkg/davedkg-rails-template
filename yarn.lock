@@ -7384,6 +7384,14 @@ tunnel-agent@^0.6.0:
   dependencies:
     safe-buffer "^5.0.1"
 
+turbolinks-animate@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/turbolinks-animate/-/turbolinks-animate-3.2.1.tgz#145ddf0b637f7da62d49aca3ca6b74efa1da32d2"
+  integrity sha512-tYnRSMn29NakwaU6Iq5bJYoUmoANlXLp7CsE1DhWfUEK3KMmusj80MdAMyu7aD7ZeZ7iSC1CAG80q7imhqPUag==
+  dependencies:
+    animate.css "^3.7.2"
+    turbolinks "^5.2.0"
+
 turbolinks@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/turbolinks/-/turbolinks-5.2.0.tgz#e6877a55ea5c1cb3bb225f0a4ae303d6d32ff77c"
