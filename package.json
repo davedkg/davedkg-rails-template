@@ -11,7 +11,6 @@
     "expose-loader": "^0.7.5",
     "jquery": "^3.4.1",
     "metismenu": "^3.0.5",
-    "pace": "^0.0.4",
     "popper.js": "^1.16.1",
     "stimulus": "^1.1.1",
     "turbolinks": "^5.2.0",
