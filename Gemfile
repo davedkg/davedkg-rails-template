@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.4'
 
+gem 'dotenv-rails', "~> 2.7.5", groups: [:development, :test]
+
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.1'
@@ -18,6 +20,7 @@ gem 'gravatarify', '~> 3.0.0'
 gem "haml-rails", "~> 2.0"
 gem "loaf", "~> 0.9.0"
 gem "paranoia", "~> 2.4.2"
+gem 'resque', "~> 2.0.0"
 gem 'simple_form', "~> 5.0.1"
 
 gem 'bootsnap', '>= 1.4.2', require: false

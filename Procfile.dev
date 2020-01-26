@@ -1,4 +1,4 @@
 web: bundle exec rails s -p 3000
-# worker: bundle exec sidekiq -q jobs
+worker: QUEUE=* bundle exec rake resque:work
 webpacker: ./bin/webpack-dev-server
 # guard: bundle exec guard -P livereload --no-interactions

@@ -25,6 +25,11 @@
           %i.fa.fa-users
           %span.nav-label Users
 
+      %li
+        = link_to "/resque" do
+          %i.fa.fa-code
+          %span.nav-label Resque
+
       - if Rails.env.development?
         %li
           = link_to "/letter-opener" do
