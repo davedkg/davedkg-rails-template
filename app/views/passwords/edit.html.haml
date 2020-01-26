@@ -1,0 +1,6 @@
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "m-t" }) do |f|
+  = f.hidden_field :reset_password_token
+  = f.error_notification
+  = f.input :password, autofocus: true, autocomplete: "new-password"
+  = f.input :password_confirmation, autocomplete: "new-password"
+  = f.button :submit, "Change My Password", class: "block full-width m-b"

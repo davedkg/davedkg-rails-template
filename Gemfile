@@ -15,6 +15,7 @@ gem "autoprefixer-rails", "~> 6.7.2"
 gem 'devise', "~> 4.7.1"
 gem "haml-rails", "~> 2.0"
 gem "paranoia", "~> 2.4.2"
+gem 'simple_form', "~> 5.0.1"
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
