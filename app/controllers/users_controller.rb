@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: [ :index, :new, :create ]
 
   breadcrumb "Users", :users_path
-  breadcrumb "New User", :new_user_path, only: [ :new, :create ]
+  breadcrumb "Invite User", :new_user_path, only: [ :new, :create ]
 
   def index
     @users = User.all
@@ -39,6 +39,12 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def page_title_hash
+    super.merge({
+      new: "Invite User"
+    })
   end
 
 end

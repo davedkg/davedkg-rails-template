@@ -13,10 +13,10 @@
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: '' do
     #wrapper{class: "#{params[:controller]}.#{params[:action]}"}
-      = render 'application/navigation'
+      = render 'application/sidebar'
       #page-wrapper.gray-bg
-        = render 'application/topnavbar'
-        = render 'application/page_header'
+        = render 'application/navbar'
+        = render 'application/breadcrumbs'
         .wrapper.wrapper-content
           = render 'application/flash'
           = yield

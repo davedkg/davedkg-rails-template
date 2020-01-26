@@ -1,4 +1,6 @@
 .ibox
+  .ibox-title
+    %h3= page_title
   .ibox-content
     = simple_form_for(@user) do |f|
       = f.input :email

@@ -1,4 +1,11 @@
 .ibox
+  .ibox-title
+    %h3= page_title
+    .ibox-tools
+      %a.btn.btn-primary{ href: new_user_path }
+        %i.fa.fa-plus
+        Invite User
+
   .ibox-content
     .table-responsive
       %table.table.table-striped
@@ -9,6 +16,4 @@
         %tbody
           = render 'users'
 
-    %a.btn.btn-primary.btn-block{ href: new_user_path }
-      %i.fa.fa-plus
-      Invite User
+

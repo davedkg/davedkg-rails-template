@@ -1,6 +1,5 @@
-.row.wrapper.border-bottom.white-bg.page-heading{ "data-turbolinks-animate-persist" => "true" }
+.row{ "data-turbolinks-animate-persist" => "true" }
   .col-lg-10
-    %h2= page_title
     %ol.breadcrumb
       - breadcrumb_trail do |crumb|
         %li.breadcrumb-item{ class: "#{crumb.current? ? 'active' : '' }" }
