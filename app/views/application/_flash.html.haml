@@ -1,0 +1,4 @@
+- if notice
+  = render partial: "alert", locals: { message: notice, alert_type: "success" }
+- if alert
+  = render partial: "alert", locals: { message: alert, alert_type: "danger" }

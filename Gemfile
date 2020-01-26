@@ -12,6 +12,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
 gem "autoprefixer-rails", "~> 6.7.2"
+gem 'devise', "~> 4.7.1"
 gem "haml-rails", "~> 2.0"
 gem "paranoia", "~> 2.4.2"
 
