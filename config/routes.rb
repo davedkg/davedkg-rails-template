@@ -14,4 +14,6 @@ Rails.application.routes.draw do
 
   root to: "dashboard#show"
 
+  mount LetterOpenerWeb::Engine, at: "/letter-opener" if Rails.env.development?
+
 end

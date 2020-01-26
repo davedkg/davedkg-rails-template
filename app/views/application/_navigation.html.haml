@@ -19,7 +19,12 @@
           %i.fa.fa-tachometer-alt
           %span.nav-label Dashboard
 
-      %li
-        = link_to "/rails/mailers" do
-          %i.fa.fa-code
-          %span.nav-label Email Previews
+      - if Rails.env.development?
+        %li
+          = link_to "/letter-opener" do
+            %i.fa.fa-code
+            %span.nav-label Letter Opener
+        %li
+          = link_to "/rails/mailers" do
+            %i.fa.fa-code
+            %span.nav-label Email Previews
