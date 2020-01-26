@@ -18,7 +18,9 @@ gem "paranoia", "~> 2.4.2"
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem 'factory_bot_rails', "~> 5.1.1"
   gem "pry-byebug", "~> 3.8.0"
+  gem 'rspec-rails', '~> 3.9'
 end
 
 group :development do
@@ -28,10 +30,12 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
-# group :test do
-#   gem 'capybara', '>= 2.15'
-#   gem 'selenium-webdriver'
-#   gem 'webdrivers'
-# end
+group :test do
+  gem 'capybara', '>= 2.15'
+  gem "database_cleaner", "~> 1.7.0"
+  gem "faker", "~> 2.10.1"
+  gem 'selenium-webdriver'
+  gem 'webdrivers'
+end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
