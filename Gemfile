@@ -23,6 +23,7 @@ gem 'kaminari', "~> 1.1.1"
 gem "loaf", "~> 0.9.0"
 gem "paranoia", "~> 2.4.2"
 gem 'resque', "~> 2.0.0"
+gem 'sendgrid', '~> 1.2.4'
 gem 'simple_form', "~> 5.0.1"
 gem 'turbolinks-animate', "~> 2.0.1"
 

@@ -290,6 +290,8 @@ GEM
     selenium-webdriver (3.142.7)
       childprocess (>= 0.5, < 4.0)
       rubyzip (>= 1.2.2)
+    sendgrid (1.2.4)
+      json
     sentry-raven (2.13.0)
       faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.13.0)
@@ -386,6 +388,7 @@ DEPENDENCIES
   rspec_junit_formatter (~> 0.4.1)
   sass-rails (>= 6)
   selenium-webdriver
+  sendgrid (~> 1.2.4)
   sentry-raven (~> 2.13.0)
   simple_form (~> 5.0.1)
   simplecov (~> 0.17.1)
