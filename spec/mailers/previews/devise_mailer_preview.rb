@@ -1,15 +1,19 @@
 class DeviseMailerPreview < ActionMailer::Preview
-  
-  def confirmation_instructions
-    DeviseMailer.confirmation_instructions(user_id, token, {})
-  end
-  
-  def invitation_instructions
-    DeviseMailer.invitation_instructions(user_id, token, {})
-  end
 
   def reset_password_instructions
-    DeviseMailer.reset_password_instructions(user_id, token, {})
+    DeviseMailer.reset_password_instructions(user_id, {})
+  end
+
+  def confirmation_instructions
+    DeviseMailer.confirmation_instructions(user_id, {})
+  end
+
+  def unlock_instructions
+    DeviseMailer.unlock_instructions(user_id, {})
+  end
+
+  def invitation_instructions
+    DeviseMailer.invitation_instructions(user_id, "user_raw_invitation_token", {})
   end
 
   private
@@ -17,9 +21,5 @@ class DeviseMailerPreview < ActionMailer::Preview
   def user_id
     User.first.id
   end
-  
-  def token
-    SecureRandom.uuid
-  end
-  
+
 end

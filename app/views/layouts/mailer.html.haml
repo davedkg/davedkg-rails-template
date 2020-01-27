@@ -1,25 +1,8 @@
 !!!
-%html{:xmlns => "http://www.w3.org/1999/xhtml"}
+%html
   %head
-    %meta{:content => "width=device-width", :name => "viewport"}/
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    = stylesheet_link_tag 'email', media: 'all'
-  %body.email
-    %table.body-wrap
-      %tr
-        %td
-        %td.container{:width => "600"}
-          .content
-            .header
-              .title= APP_TITLE
-            %table.main{:cellpadding => "0", :cellspacing => "0", :width => "100%"}
-              %tr
-                %td.content-wrap
-                  = yield
-            .footer
-              %table{:width => "100%"}
-                %tr
-                  %td.aligncenter.content-block
-                    %a{:href => "#{ Rails.env.production? ? 'https' : 'http' }://localhost:3000"}
-                      localhost:3000
-        %td
+    %meta{:content => "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
+    :css
+      /* Email styles need to be inline */
+  %body
+    = yield

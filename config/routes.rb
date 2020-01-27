@@ -1,38 +1,29 @@
 Rails.application.routes.draw do
 
-  mount API => '/'
-
-  resources :users, only: [ :index, :new, :show, :create, :destroy ] do
-    post 'resend-invitation', to: 'users#resend_invitation', on: :member
+  resources :users, except: [ :show, :edit, :update ] do
+    post 'resend-invitation', on: :member
   end
 
-  get   'profile',      to: 'profile#show'
-  get   'profile/edit', to: 'profile#edit', as: :edit_profile
-  patch 'profile',      to: 'profile#update'
-  get   'ping',         to: 'application#ping'
-
-  root to: 'dashboard#index'
-
-  devise_for :user, controllers: {
+  devise_for :users, controllers: {
     passwords: 'passwords',
+    invitations: 'invitations',
     sessions: 'sessions',
-    invitations: 'invitations',
-    confirmations: 'confirmations',
-  }, path: '', path_names: {
+    unlocks: 'unlocks',
+    confirmations: 'confirmations'
+  }, path_names: {
     sign_in: 'sign-in',
-    sign_out: 'sign-out',
-    password: 'passwords',
-    invitations: 'invitations',
-    comnfirmations: 'confirmations'
-  }, skip: [ :registrations, :omniauth_callbacks, :unlocks ]
+    sign_out: 'sign-out'
+  }, path: '', skip: %i[omniauth_callbacks registrations]
 
-  require 'resque/server'
+  root to: "dashboard#show"
+
   resque_web_constraint = lambda do |request|
-    request.env['warden'].authenticate?
+    request.env['warden'].authenticate? # TODO and user.admin?
   end
   constraints resque_web_constraint do
     mount Resque::Server, at: '/resque'
   end
-  mount GrapeSwaggerRails::Engine => 'api/explorer'
+
+  mount LetterOpenerWeb::Engine, at: "/letter-opener" if Rails.env.development?
 
 end

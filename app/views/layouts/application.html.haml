@@ -1,21 +1,23 @@
 !!!
-%html{:lang => "en"}
+%html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
-    = render 'application/page_title'
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title= "#{page_title} | #{PLATFORM_TITLE}"
     = csrf_meta_tags
-    = stylesheet_link_tag 'application', media: 'all'
-  %body{"data-ma-theme" => "blue"}
-    %main.main
-      = render 'application/header'
+    = csp_meta_tag
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap", :rel => "stylesheet"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: '' do
+    #wrapper{class: "#{params[:controller]}.#{params[:action]}"}
       = render 'application/sidebar'
-      %section.content
+      #page-wrapper.gray-bg
+        = render 'application/navbar'
         = render 'application/breadcrumbs'
-        = yield
-    = javascript_include_tag 'application'
-    = javascript_pack_tag "application"
-    = render 'application/notify'
-    = render 'application/sentry'
+        .wrapper.wrapper-content
+          = render 'application/flash'
+          = yield
     = yield :javascript

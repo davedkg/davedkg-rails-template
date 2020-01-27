@@ -1,16 +1,16 @@
-%header.content__title
-  %h1 Users
-  .actions
-    = link_to "", new_user_path, class: 'actions__item zmdi zmdi-plus'
+.ibox
+  .ibox-title
+    %h3= page_title
+    .ibox-tools
+      %a.btn.btn-primary{ href: new_user_path }
+        %i.fa.fa-plus
+        Invite User
 
-.card
-  %table.table.table-striped
-    %thead
-      %tr
-        %th Email
-        %th Name
-        %th &nbsp;
-    %tbody#users
-      = render 'users'
-  #paginator
-    = render 'paginator'
+  .ibox-content
+    = render(PaginatedTableComponent, objects: @users, object_class: 'users') do |component|
+      - component.with(:head) do
+        %tr
+          %th Email
+          %th Actions
+      - component.with(:body) do
+        = render 'users'

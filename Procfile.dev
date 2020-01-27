@@ -1,3 +1,4 @@
-web: rails s -p 3000
-worker: sh -c 'QUEUE=* bundle exec rake resque:work'
+web: bundle exec rails s -p 3000
+worker: QUEUE=* bundle exec rake resque:work
 webpacker: ./bin/webpack-dev-server
+# guard: bundle exec guard -P livereload --no-interactions

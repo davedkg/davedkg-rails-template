@@ -1,0 +1,24 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %title= "#{page_title} | #{PLATFORM_TITLE}"
+    = csrf_meta_tags
+    = csp_meta_tag
+    %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap", :rel => "stylesheet"}/
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+  %body.gray-bg
+    .middle-box.text-center.loginscreen
+      %div
+        - if notice
+          = render partial: "alert", locals: { message: notice, alert_type: "success" }
+        %h3
+          = page_title
+        - if alert
+          = render partial: "alert", locals: { message: alert, alert_type: "danger" }
+        = yield
+        = render "splash/links"

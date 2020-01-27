@@ -1,5 +1,2 @@
-- c = 'pagination-next'
-- c += ' disabled' if current_page.last?
-%li.page-item{:class => c}
-  = link_to url, class: 'page-link', remote: remote do
-    &nbsp;
+%li.page-item
+  = link_to_unless current_page.last?, raw(t 'views.pagination.next'), url, rel: 'next', remote: remote, class: 'page-link'

@@ -1,0 +1,61 @@
+/*
+ *
+ *   INSPINIA - Responsive Admin Theme
+ *   version 2.9.3
+ *
+*/
+
+// Bootstra
+@import "bootstrap/dist/css/bootstrap";
+
+// Variables, Mixins
+@import "inspina/variables";
+@import "inspina/mixins";
+
+// INSPINIA Theme Elements
+@import "inspina/typography";
+@import "inspina/glyphicons";
+@import "inspina/navigation";
+@import "inspina/top_navigation";
+@import "inspina/buttons";
+@import "inspina/badges_labels";
+@import "inspina/elements";
+@import "inspina/sidebar";
+@import "inspina/base";
+@import "inspina/pages";
+@import "inspina/chat";
+@import "inspina/metismenu";
+@import "inspina/spinners";
+
+// Landing page
+@import "inspina/landing";
+
+// RTL Support
+@import "inspina/rtl";
+
+// For demo only - config box style
+@import "inspina/theme-config";
+
+// INSPINIA Skins
+@import "inspina/skins";
+@import "inspina/md-skin";
+
+// Media query style
+@import "inspina/media";
+
+// Custom style
+// Your custom style to override base style
+@import "inspina/custom";
+
+// Clear layout on print mode
+@media print {
+  nav.navbar-static-side {
+    display: none;
+  }
+
+  body { overflow: visible !important; }
+
+  #page-wrapper {
+    margin: 0;
+  }
+}

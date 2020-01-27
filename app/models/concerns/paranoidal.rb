@@ -1,4 +1,7 @@
-module Paranoidal 
+module Paranoidal
   extend ActiveSupport::Concern
-  include Mongoid::Paranoia
+
+  included do
+    acts_as_paranoid
+  end
 end

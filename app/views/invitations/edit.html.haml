@@ -1,21 +1,7 @@
-.login
-  .login__block.active
-    .login__block__header
-      %i.zmdi.zmdi-account-circle
-      Accept Invitation
-      .actions.actions--inverse.login__block__actions
-        .dropdown
-          %i.zmdi.zmdi-more-vert.actions__item{"aria-expanded" => "false", "data-toggle" => "dropdown"}
-          .dropdown-menu.dropdown-menu-right{:style => "position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(-123px, 30px, 0px);", "x-placement" => "bottom-end"}
-            = link_to "Sign In", new_user_session_path, class: "dropdown-item"
-    .login__block__body
-      = simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }, wrapper: :centered_form) do |f|
-        = f.error_notification
-        = f.hidden_field :invitation_token
-        = f.input :first_name
-        = f.input :last_name
-        = f.input :time_zone
-        = f.input :password
-        = f.input :password_confirmation
-        = f.button :button, type: :submit, class: 'btn btn--icon login__block__btn' do
-          %i.zmdi.zmdi-check
+= simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put, class: "m-t" }) do |f|
+  = f.hidden_field :invitation_token
+  = f.error_notification
+  = "Email: #{resource.email}"
+  = f.input :password
+  = f.input :password_confirmation
+  = f.button :submit, t("devise.invitations.edit.submit_button"), class: "block full-width m-b"

@@ -1,46 +1,31 @@
-# frozen_string_literal: true
-
 class PasswordsController < Devise::PasswordsController
-  
-  layout 'empty'
-  
-  before_action :set_page_title
-  
-  # GET /resource/password/new
-  # def new
-  #   super
-  # end
 
-  # POST /resource/password
-  # def create
-  #   super
-  # end
+  layout "splash"
 
-  # GET /resource/password/edit?reset_password_token=abcdef
-  # def edit
-  #   super
-  # end
+  before_action :validate_reset_password_token, only: :edit
 
-  # PUT /resource/password
-  # def update
-  #   super
-  # end
-
-  # protected
-
-  # def after_resetting_password_path_for(resource)
-  #   super(resource)
-  # end
-
-  # The path used after sending reset password instructions
-  # def after_sending_reset_password_instructions_path_for(resource_name)
-  #   super(resource_name)
-  # end
-  
-  private
-  
-  def set_page_title
-    @page_title = 'Password Recovery'
+  def edit
+    super
   end
-  
+
+  private
+
+  def page_title_hash
+    {
+      new: "Forgot Password?",
+      create: "Forgot Password?",
+      edit: "Change Password",
+      update: "Change Password"
+    }
+  end
+
+  def validate_reset_password_token
+    recoverable = resource_class.with_reset_password_token(params[:reset_password_token])
+
+    if !recoverable || !recoverable.reset_password_period_valid?
+      flash[:alert] = "Recover password link has expired. You must resend a reset link again."
+      redirect_to new_user_password_path
+    end
+  end
+
 end

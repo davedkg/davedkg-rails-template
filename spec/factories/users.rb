@@ -1,17 +1,16 @@
 FactoryBot.define do
-
   factory :user do
-    email { Faker::Internet.email }
-    password { Faker::Internet.password(10, 20, true) }
-    first_name { Faker::Name.first_name }
-    last_name { Faker::Name.last_name  }
-    time_zone 'Eastern Time (US & Canada)'
-    confirmed_at Time.now
-    auth_token SecureRandom.hex(127).to_s
+    sequence(:email) { |n| "user#{n}@example.com" }
+    password { Faker::Internet.password(min_length: 15, max_length: 128) }
+    confirmed_at { Time.zone.now }
+    invitation_accepted_at { Time.zone.now }
 
     trait :unconfirmed do
-      confirmed_at nil
+      confirmed_at { nil }
+    end
+
+    trait :invitation_not_accepted do
+      invitation_accepted_at { nil }
     end
   end
-
 end

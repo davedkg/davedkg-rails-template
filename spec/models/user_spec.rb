@@ -1,32 +1,40 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe User, type: :model do
+describe User do
+  it_behaves_like "paranoidal"
 
-  it_behaves_like 'paranoidal'
+  let(:user_attributes) { attributes_for(:user) }
 
-  let(:user) { build(:user) }
+  describe "#valid?" do
+    it "returns false when email is missing" do
+      user_attributes.delete(:email)
 
-  describe 'FactoryBot' do
-    it 'creates a valid model' do
-      expect(user.valid?).to be_truthy
+      expect(User.new(user_attributes).valid?).to be(false)
     end
   end
 
-  describe '#valid?' do
-    it 'requires presence of first name' do
-      user.first_name = nil
-      expect(user.valid?).to be_falsey
+  describe "#create" do
+    it "DOES NOT create two users with the same email address" do
+      User.create(user_attributes)
+      User.create(user_attributes)
+
+      expect(User.count).to eq(1)
     end
 
-    it 'requires presence of last name' do
-      user.last_name = nil
-      expect(user.valid?).to be_falsey
-    end
+    # TODO is it a confirmation email or invitation email
+    it "sends a confirmation email" do
+      user_attributes.delete(:confirmed_at)
 
-    it 'requires presence of time_zone' do
-      user.time_zone = nil
-      expect(user.valid?).to be_falsey
+      expect do
+        User.create(user_attributes)
+      end.to change { Devise.mailer.deliveries.size }.by(1)
     end
   end
+
+  # FIXME
+  # describe "#send_invitation" do
+  #   it "sends an invitationm email"
+  #   it "sets invitation_sent_at"
+  # end
 
 end

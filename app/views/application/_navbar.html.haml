@@ -1,0 +1,18 @@
+.row{ "data-turbolinks-animate-persist" => "true" }
+  %nav.navbar.navbar-static-top.gray-bg{:role => "navigation", :style => "margin-bottom: 0"}
+    .navbar-header
+      %a.navbar-minimalize.minimalize-styl-2.btn.btn-primary{:href => "#"}
+        %i.fa.fa-bars
+
+    %ul.nav.navbar-top-links.navbar-right.mr-4
+      %li.dropdown
+        %a.dropdown-toggle.count-info{"aria-expanded" => "true", "data-toggle" => "dropdown", :href => "#"}
+          %i.fa.fa-user{ style: "font-size:1.25rem" }
+        %ul.dropdown-menu
+          %li
+            = link_to destroy_user_session_path, class: "dropdown-item", data: { method: :delete } do
+              %i.fa.fa-sign-out-alt
+              Sign Out
+
+
+
