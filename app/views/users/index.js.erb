@@ -1,2 +1,2 @@
-$("#users").html("<%= j render 'users' %>")
-$("#paginator").html("<%= j render 'paginator' %>")
+$("#users-body").html("<%= j render 'users' %>")
+$("#users-paginator").html("<%= j render(PaginatorComponent, objects: @users) %>")

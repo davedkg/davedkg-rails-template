@@ -7,13 +7,10 @@
         Invite User
 
   .ibox-content
-    .table-responsive
-      %table.table.table-striped
-        %thead
-          %tr
-            %th Email
-            %th Actions
-        %tbody#users
-          = render 'users'
-      #paginator
-        = render 'paginator'
+    = render(PaginatedTableComponent, objects: @users, object_class: 'users') do |component|
+      - component.with(:head) do
+        %tr
+          %th Email
+          %th Actions
+      - component.with(:body) do
+        = render 'users'
