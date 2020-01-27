@@ -22,6 +22,7 @@ gem "haml-rails", "~> 2.0"
 gem 'kaminari', "~> 1.1.1"
 gem "loaf", "~> 0.9.0"
 gem "paranoia", "~> 2.4.2"
+gem "pundit", '~> 2.1.0'
 gem 'resque', "~> 2.0.0"
 gem 'sendgrid', '~> 1.2.4'
 gem 'simple_form', "~> 5.0.1"
@@ -47,6 +48,7 @@ group :test do
   gem 'capybara', '>= 2.15'
   gem "database_cleaner", "~> 1.7.0"
   gem "faker", "~> 2.10.1"
+  gem 'pundit-matchers', '~> 1.6.0'
   gem "rspec_junit_formatter", "~> 0.4.1"
   gem 'selenium-webdriver'
   gem "simplecov", "~> 0.17.1", require: false

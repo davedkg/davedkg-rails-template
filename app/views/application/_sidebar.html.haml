@@ -12,10 +12,11 @@
           %i.fa.fa-tachometer-alt
           %span.nav-label Dashboard
 
-      %li{ class: active_sidebar_tab(:users) }
-        = link_to users_path do
-          %i.fa.fa-users
-          %span.nav-label Users
+      - if policy(User).index?
+        %li{ class: active_sidebar_tab(:users) }
+          = link_to users_path do
+            %i.fa.fa-users
+            %span.nav-label Users
 
       %li
         = link_to '#' do

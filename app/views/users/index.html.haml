@@ -2,9 +2,10 @@
   .ibox-title
     %h3= page_title
     .ibox-tools
-      %a.btn.btn-primary{ href: new_user_path }
-        %i.fa.fa-plus
-        Invite User
+      - if policy(User).new?
+        %a.btn.btn-primary{ href: new_user_path }
+          %i.fa.fa-plus
+          Invite User
 
   .ibox-content
     = render(PaginatedTableComponent, objects: @users, object_class: 'users') do |component|

@@ -6,14 +6,16 @@ class UsersController < ApplicationController
   breadcrumb "Invite User", :new_user_path, only: [ :new, :create ]
 
   def index
-    @users = User.order(email: :asc).page(params[:page])
+    @users = authorize User.order(email: :asc).page(params[:page])
   end
 
   def new
-    @user = User.new
+    @user = authorize User.new
   end
 
   def create
+    authorize User
+
     User.invite!(user_params, current_user)
 
     redirect_to users_path, notice: 'User was successfully invited.'
@@ -38,7 +40,7 @@ class UsersController < ApplicationController
   end
 
   def set_user
-    @user = User.find(params[:id])
+    @user = authorize User.find(params[:id])
   end
 
   def page_title_hash
