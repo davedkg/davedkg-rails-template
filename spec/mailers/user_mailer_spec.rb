@@ -1,11 +1,11 @@
 require "rails_helper"
 
-describe DeviseMailer, type: :mailer do
+describe UserMailer, type: :mailer do
   let(:user) { create(:user) }
   let(:token) { SecureRandom.uuid }
 
   describe "#reset_password_instructions" do
-    let(:mailer) { DeviseMailer.reset_password_instructions(user.id, token) }
+    let(:mailer) { UserMailer.reset_password_instructions(user.id, token) }
 
     it "sends to user's email" do
       expect(mailer.to).to contain_exactly(user.email)
@@ -18,7 +18,7 @@ describe DeviseMailer, type: :mailer do
   end
 
   describe "#invitation_instructions" do
-    let(:mailer) { DeviseMailer.invitation_instructions(user.id, token) }
+    let(:mailer) { UserMailer.invitation_instructions(user.id, token) }
 
     it "sends to user's email" do
       expect(mailer.to).to contain_exactly(user.email)
@@ -31,7 +31,7 @@ describe DeviseMailer, type: :mailer do
   end
 
   describe "#confirmation_instructions" do
-    let(:mailer) { DeviseMailer.confirmation_instructions(user.id, token) }
+    let(:mailer) { UserMailer.confirmation_instructions(user.id, token) }
 
     it "sends to user's email" do
       expect(mailer.to).to contain_exactly(user.email)
@@ -44,7 +44,7 @@ describe DeviseMailer, type: :mailer do
   end
 
   describe "#unlock_instructions" do
-    let(:mailer) { DeviseMailer.unlock_instructions(user.id, token) }
+    let(:mailer) { UserMailer.unlock_instructions(user.id, token) }
 
     it "sends to user's email" do
       expect(mailer.to).to contain_exactly(user.email)
