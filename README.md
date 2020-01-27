@@ -1,24 +1,52 @@
-# README
+# davedkg-rails-template
+[![Maintainability](https://api.codeclimate.com/v1/badges/84c96cc264dcf00b0449/maintainability)](https://codeclimate.com/github/davedkg/davedkg-rails-template/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/84c96cc264dcf00b0449/test_coverage)](https://codeclimate.com/github/davedkg/davedkg-rails-template/test_coverage)
+[![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
 
-Things you may want to cover:
+- fork
+- local setup
+- deploy to heroku
 
-* Ruby version
+## Local Setup
 
-* System dependencies
+```bash
+$ brew install mongodb redis yarn
+$ rvm install 2.6.4
+$ bundle && yarn
+$ gem install foreman
+$ cp .env.sample .env
+$ rspec
+$ foreman start -f Procfile.dev
+$ open http://localhost:3000/
+```
 
-* Configuration
+#### Create First User
 
-* Database creation
+```bash
+$ rails c
+$ <pry> User.invite!(email: "bob@bob.com")
+$ <pry> exit
+$ tail -200 log/development.log
+```
 
-* Database initialization
+And then find the accept invitation link in the log.
 
-* How to run the test suite
+## Heroku Setup
 
-* Services (job queues, cache servers, search engines, etc.)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/davedkg/davedkg-rails-template/tree/master)
 
-* Deployment instructions
+#### TODOS
 
-* ...
+- clone repo
+- create first user
+- turn on worker thread
+- how to use deploy to heroku button
+
+#### Optional Configuring
+
+```bash
+$ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection
+$ heroku config:set APP_DOMAIN www.example.com
+```
