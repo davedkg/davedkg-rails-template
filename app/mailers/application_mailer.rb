@@ -16,7 +16,7 @@ class ApplicationMailer < ActionMailer::Base
     {
       utm_medium: :email,
       utm_source: PLATFORM_TITLE.downcase.parameterize,
-      utm_campaign: "#{self.class.to_s.downcase.gsub("mailer", "")}.action_name"
+      utm_campaign: "#{self.class.to_s.downcase.gsub("mailer", "")}.#{action_name}"
     }
   end
 end
