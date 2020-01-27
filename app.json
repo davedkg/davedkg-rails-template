@@ -1,0 +1,36 @@
+{
+  "name": "DaveDKG Rails Template",
+  "description": "Deploy this customizable Ruby on Rails starter template to Heroku in seconds.",
+  "repository": "https://github.com/davedkg/davedkg-rails-template",
+  "keywords": [
+    "heroku",
+    "rails",
+    "postgresql",
+    "rspec",
+    "stimulusjs",
+    "bootstrap",
+    "pundit"
+  ],
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "env": {
+    "WEB_CONCURRENCY": {
+      "description": "The number of processes to run.",
+      "value": "5"
+    }
+  },
+  "addons": [
+    "heroku-redis",
+    "heroku-postgresql:hobby-dev",
+    "newrelic",
+    "sendgrid",
+    "sentry"
+  ],
+  "image": "heroku/ruby"
+}
