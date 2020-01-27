@@ -14,7 +14,7 @@ jobs:
           RAILS_ENV: test
       - image: circleci/postgres:10-postgis-ram
         environment:
-          POSTGRES_DB: test_db
+          POSTGRES_DB: davedkg_template_test
           POSTGRES_PASSWORD: ""
           POSTGRES_USER: db_user
 
