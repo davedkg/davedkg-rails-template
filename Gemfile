@@ -45,13 +45,15 @@ group :development do
 end
 
 group :test do
-  gem 'capybara', '>= 2.15'
   gem "database_cleaner", "~> 1.7.0"
   gem "faker", "~> 2.10.1"
   gem 'pundit-matchers', '~> 1.6.0'
   gem "rspec_junit_formatter", "~> 0.4.1"
-  gem 'selenium-webdriver'
   gem "simplecov", "~> 0.17.1", require: false
+
+  # Feature Tests
+  gem 'capybara', '>= 2.15'
+  gem 'selenium-webdriver'
   gem 'webdrivers'
 end
 

@@ -42,9 +42,16 @@ And then find the accept invitation link in the log.
 | user@example.com | users_password123 |
 | admin@example.com | admins_password123 |
 
-## Heroku Setup
+#### Rebrand App
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/davedkg/davedkg-rails-template/tree/master)
+- .circleci/config.yml (change database name)
+- config/initializers/constants.rb (change PLATFORM_NAME)
+- config/application.rb (change app name)
+- config/database.yml (change database names)
+
+## Deploy to Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 #### Configuring
 
@@ -52,3 +59,10 @@ And then find the accept invitation link in the log.
 $ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection
 $ heroku config:set APP_DOMAIN app-name.herokuapp.com
 ```
+
+#### Acceptance Rake Tasks
+
+| Task | Description |
+| --- | --- |
+| acceptance:setup | Setup acceptance enviornment (see app.json) |
+| acceptance:teardown | Tear down acceptance enviornment (see app.json) |

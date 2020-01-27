@@ -11,6 +11,10 @@
     "bootstrap",
     "pundit"
   ],
+  "scripts": {
+    "postdeploy": "bundle exec rake acceptance:setup",
+    "pr-predestroy": "bundle exec rake acceptance:teardown"
+  },
   "formation": {
     "worker": {
       "quantity": 1
