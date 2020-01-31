@@ -19,12 +19,13 @@
             %span.nav-label Users
 
       %li
-        = link_to '#' do
+        = link_to '#', { "aria-expanded"=>"false" } do
           %i.fa.fa-user-shield
           %span.nav-label Developer
           %span.fa.arrow
-        %ul.nav.nav-second-level.collapse{ "aria-expanded" => false }
+        %ul.nav.nav-second-level.collapse
           %li= link_to "Resque", "/resque", target: "_blank"
           - if Rails.env.development?
             %li= link_to "Email Previews", "/rails/mailers", target: "_blank"
             %li= link_to "Letter Opener", "/letter-opener", target: "_blank"
+

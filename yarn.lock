@@ -3870,7 +3870,7 @@ jquery-slimscroll@^1.3.8:
   dependencies:
     jquery ">= 1.7"
 
-"jquery@>= 1.7", jquery@^3.4.1:
+"jquery@>= 1.7", jquery@^3.3.1, jquery@^3.4.1:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
@@ -4264,10 +4264,12 @@ methods@~1.1.2:
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
   integrity sha1-VSmk1nZUE07cxSZmVoNbD4Ua/O4=
 
-metismenu@^3.0.5:
-  version "3.0.5"
-  resolved "https://registry.yarnpkg.com/metismenu/-/metismenu-3.0.5.tgz#b7229ef17a305edf1f462bb18dac79082c04024f"
-  integrity sha512-s5rTYsejjLQO+uEbce6uVGVyGSVMPuN9jvGkWbNN7o8FVV50jHAX2DZlx9mqNnSI/uZIeOf+GduXaSYoSdAUOw==
+metismenu@2.7.7:
+  version "2.7.7"
+  resolved "https://registry.yarnpkg.com/metismenu/-/metismenu-2.7.7.tgz#a4b3707dd66f6f52410b182d3ac16b0402493bfa"
+  integrity sha512-Lg/ILhPC1nPloPE8aRN2ovxvoxzqQ8Jugswb12pJeD14RrYxNGwVzDF0dJyJ9GI3BzImjYLpTgo1FTptZivSoA==
+  dependencies:
+    jquery "^3.3.1"
 
 micromatch@^3.0.4, micromatch@^3.1.10, micromatch@^3.1.4:
   version "3.1.10"
