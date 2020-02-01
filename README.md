@@ -44,10 +44,14 @@ And then find the accept invitation link in the log.
 
 #### Rebrand App
 
-- .circleci/config.yml (change database name)
-- config/initializers/constants.rb (change PLATFORM_NAME)
-- config/application.rb (change app name)
-- config/database.yml (change database names)
+| File | Change |
+| --- | --- |
+| .circleci/config.yml | database name |
+| app/mailers/application_mailer.rb | default from: 'email address' |
+| config/enviornments/production.rb | ActionMailer::Base.smtp_settings[:domain] |
+| config/initializers/constants.rb | PLATFORM_NAME |
+| config/application.rb | Rails::Application module name |
+| config/database.yml | database names |
 
 ## Deploy to Heroku
 
