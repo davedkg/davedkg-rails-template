@@ -11,14 +11,11 @@
     %link{:href => "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap", :rel => "stylesheet"}/
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body.gray-bg
+  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: 'gray-bg' do
     .middle-box.text-center.loginscreen
       %div
-        - if notice
-          = render partial: "alert", locals: { message: notice, alert_type: "success" }
-        %h3
-          = page_title
-        - if alert
-          = render partial: "alert", locals: { message: alert, alert_type: "danger" }
+        = render(AlertComponent, message: notice, type: :success)
+        %h3= page_title
+        = render(AlertComponent, message: alert, type: :danger)
         = yield
         = render "splash/links"
