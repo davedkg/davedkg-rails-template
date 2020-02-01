@@ -1,0 +1,12 @@
+/.circleci
+/config/enviornments/development.rb
+/config/enviornments/test.rb
+/spec
+.env.sample
+.gitattributes
+.gitignore
+.rspec
+.ruby-gemset
+.ruby-version
+Procfile.dev
+README.md
