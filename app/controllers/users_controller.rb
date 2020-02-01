@@ -47,7 +47,8 @@ class UsersController < ApplicationController
 
   def page_title_hash
     super.merge({
-      new: "Invite User"
+      new: "Invite User",
+      create: "Invite User"
     })
   end
 
