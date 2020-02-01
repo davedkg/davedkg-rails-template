@@ -76,8 +76,8 @@ jobs:
 
       # setup database
       - run:
-          name: Running rake db:schema:load db:seed
-          command: bundle exec rake db:schema:load db:seed
+          name: Running rake db:schema:load
+          command: bundle exec rake db:schema:load
 
       # start code climate reporter
       - run:
