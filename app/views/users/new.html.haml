@@ -3,6 +3,7 @@
     %h3= page_title
   .ibox-content
     = simple_form_for(@user) do |f|
+      = f.error_notification
       = f.input :email
       = f.button :submit, "Invite User"
       = link_to "Cancel", users_path, class: "btn btn-default"
