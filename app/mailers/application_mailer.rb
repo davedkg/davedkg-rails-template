@@ -9,6 +9,7 @@ class ApplicationMailer < ActionMailer::Base
   def mail(headers, &block)
     sendgrid_category "#{self.class} - #{action_name.humanize}"
     self.default_url_options = default_url_options.merge(utm_params)
+    headers[:subject] = "[#{PLATFORM_TITLE}] #{headers[:subject]}"
     super
   end
 
