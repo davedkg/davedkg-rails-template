@@ -53,6 +53,9 @@ And then find the accept invitation link in the log.
 | config/initializers/devise.rb | config.mailer_sender |
 | config/application.rb | Rails::Application module name |
 | config/database.yml | database names |
+| .ruby-gemset | gemset name |
+| README.md | project title |
+| app.json | name, description, reposiitory |
 
 ## Deploy to Heroku
 
