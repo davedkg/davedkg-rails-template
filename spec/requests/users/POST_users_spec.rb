@@ -27,6 +27,26 @@ describe "POST users_path", type: :request do
     }.to change { Devise.mailer.deliveries.size }.by(1)
   end
 
+  context "when email is blank" do
+    before { user_params[:email] = nil }
+
+    it "returns ok status" do
+      described_request
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
+  context "when email is invalid" do
+    before { user_params[:email] = 'invalid' }
+
+    it "returns ok status" do
+      described_request
+
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
   def described_request
     post users_path params: { user: user_params }
   end

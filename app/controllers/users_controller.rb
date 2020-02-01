@@ -14,11 +14,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    authorize User
+    @user = authorize User.invite!(user_params, current_user)
 
-    User.invite!(user_params, current_user)
-
-    redirect_to users_path, notice: 'User was successfully invited.'
+    if @user.valid?
+      redirect_to users_path, notice: 'User was successfully invited.'
+    else
+      render :new
+    end
   end
 
   def destroy
