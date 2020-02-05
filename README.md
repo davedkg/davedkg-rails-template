@@ -7,7 +7,6 @@
 
 ```bash
 $ brew install postgresql redis yarn
-$ rvm install 2.6.4
 $ bundle && yarn
 $ gem install foreman
 $ cp .env.sample .env
