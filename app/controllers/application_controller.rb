@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :set_turbolinks_animation
+  before_action :set_raven_context
   after_action  :verify_authorized, unless: :devise_controller?
 
   private
@@ -27,6 +28,13 @@ class ApplicationController < ActionController::Base
       format.any do
         head :not_found
       end
+    end
+  end
+
+  def set_raven_context
+    if defined?(Raven)
+      Raven.user_context(id: current_user.id) if current_user
+      Raven.extra_context(params: params.to_unsafe_h, url: request.url)
     end
   end
 
