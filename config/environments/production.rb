@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  require_relative Rails.root.join("lib", "app_config.rb")
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -110,7 +112,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_mailer.default_url_options = { host: APP_DOMAIN }
+  config.action_mailer.default_url_options = { host: AppConfig.app_domain }
 
   ActionMailer::Base.smtp_settings = {
     address: "smtp.sendgrid.net",
