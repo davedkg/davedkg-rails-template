@@ -110,8 +110,7 @@ Rails.application.configure do
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
 
-  config.action_controller.asset_host = "https://#{ENV['ASSET_DOMAIN']}" if nil != ENV['ASSET_DOMAIN']
-  config.action_mailer.default_url_options = { host: ENV['APP_DOMAIN'] }
+  config.action_mailer.default_url_options = { host: APP_DOMAIN }
 
   ActionMailer::Base.smtp_settings = {
     address: "smtp.sendgrid.net",

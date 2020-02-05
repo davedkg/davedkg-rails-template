@@ -11,10 +11,6 @@
     "bootstrap",
     "pundit"
   ],
-  "scripts": {
-    "postdeploy": "bundle exec rake acceptance:setup",
-    "pr-predestroy": "bundle exec rake acceptance:teardown"
-  },
   "formation": {
     "worker": {
       "quantity": 1
@@ -26,10 +22,6 @@
   "env": {
     "APP_DOMAIN": {
       "description": "Custom domain name.",
-      "required": true
-    },
-    "ASSET_DOMAIN": {
-      "description": "Custom asset CDN domain name.",
       "required": false
     },
     "WEB_CONCURRENCY": {
@@ -38,8 +30,8 @@
     }
   },
   "addons": [
-    "heroku-redis",
     "heroku-postgresql:hobby-dev",
+    "heroku-redis",
     "newrelic",
     "sendgrid",
     "sentry"

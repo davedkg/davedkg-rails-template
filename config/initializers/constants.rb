@@ -1,2 +1,2 @@
 PLATFORM_TITLE = "DKG Template"
-APP_DOMAIN     = ENV['APP_DOMAIN'] || "localhost:3000"
+APP_DOMAIN     = Rails.env.production? ? (ENV['APP_DOMAIN'] || "#{ENV['HEROKU_APP_NAME']}.herokuapp.com") : "localhost:3000"

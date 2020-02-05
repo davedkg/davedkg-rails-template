@@ -64,8 +64,9 @@ And then find the accept invitation link in the log.
 #### Configuring
 
 ```bash
-$ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection
-$ heroku config:set APP_DOMAIN app-name.herokuapp.com
+$ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
+$ heroku config:set WEB_CONCURRENCY 5
+$ heroku config:set APP_DOMAIN www.example.com # optional
 ```
 
 #### Acceptance Rake Tasks
