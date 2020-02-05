@@ -1,7 +1,7 @@
 - @users.each do |user|
   %tr
-    %td
-      = user.email
+    %td= user.email
+    %td= user.role
     %td
       - if !user.invitation_accepted_at? && policy(user).resend_invitation?
         = link_to resend_invitation_user_path(user), class: "btn btn-info btn-xs", data: { method: :post, confirm: "Are you sure?" } do

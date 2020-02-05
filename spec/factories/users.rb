@@ -5,6 +5,10 @@ FactoryBot.define do
     confirmed_at { Time.zone.now }
     invitation_accepted_at { Time.zone.now }
 
+    trait :admin do
+      role { User.roles[:admin] }
+    end
+
     trait :unconfirmed do
       confirmed_at { nil }
     end

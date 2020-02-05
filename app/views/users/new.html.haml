@@ -5,5 +5,6 @@
     = simple_form_for(@user) do |f|
       = f.error_notification
       = f.input :email
+      = f.input :role, as: :radio_buttons, collection: User.roles
       = f.button :submit, "Invite User"
       = link_to "Cancel", users_path, class: "btn btn-default"

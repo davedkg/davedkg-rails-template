@@ -1,23 +1,19 @@
 class UserPolicy < ApplicationPolicy
 
   def index?
-    true
+    user.admin?
   end
 
   def create?
-    true
-  end
-
-  def new?
-    true
+    user.admin?
   end
 
   def destroy?
-    true
+    user.admin?
   end
 
   def resend_invitation?
-    true
+    user.admin?
   end
 
 end

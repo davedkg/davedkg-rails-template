@@ -41,6 +41,10 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.references :invited_by, polymorphic: true
       t.integer    :invitations_count, default: 0
 
+      ## Role
+      t.string :role, null: false, default: User.roles[:user]
+
+      ## Timestamps
       t.datetime :deleted_at, precision: 6
       t.timestamps null: false
     end

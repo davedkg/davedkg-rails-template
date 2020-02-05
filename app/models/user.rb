@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :confirmable, :invitable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  enum role: {
+    user: "user",
+    admin: "admin"
+  }
+
   def send_invitation
     self.invitation_sent_at = Time.now
     self.deliver_invitation

@@ -6,8 +6,12 @@ describe UserPolicy do
   let(:user) { create(:user) }
   let(:other_user) { user }
 
-  context 'being a user' do
-    let(:user) { create(:user) }
+  context 'as a user' do
+    it { is_expected.to forbid_actions([ :index, :new, :create, :show, :edit, :update, :destroy, :resend_invitation ]) }
+  end
+
+  context "as an admin" do
+    let(:user) { create(:user, :admin) }
 
     it { is_expected.to permit_actions([ :index, :new, :create, :destroy, :resend_invitation ]) }
     it { is_expected.to forbid_actions([ :show, :edit, :update ]) }

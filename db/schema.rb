@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_021737) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.string "role", default: "user", null: false
     t.datetime "deleted_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
