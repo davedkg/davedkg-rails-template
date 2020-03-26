@@ -17,6 +17,10 @@ Rails.application.routes.draw do
 
   root to: "dashboard#show"
 
+  authenticate :user, lambda { |u| u.admin? } do
+     mount Sidekiq::Web => "sidekiq"
+   end
+
   mount LetterOpenerWeb::Engine, at: "/letter-opener" if Rails.env.development?
 
 end
