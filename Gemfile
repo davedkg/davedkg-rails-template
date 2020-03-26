@@ -23,7 +23,6 @@ gem 'kaminari', "~> 1.1.1"
 gem "loaf", "~> 0.9.0"
 gem "paranoia", "~> 2.4.2"
 gem "pundit", '~> 2.1.0'
-gem 'resque', "~> 2.0.0"
 gem 'sendgrid', '~> 1.2.4'
 gem 'simple_form', "~> 5.0.1"
 gem 'turbolinks-animate', "~> 2.0.1"
@@ -60,7 +59,6 @@ end
 group :production do
   gem 'newrelic_rpm', '~> 6.8.0.360'
   gem 'rails_12factor', '~> 0.0.3'
-  gem 'resque-heroku-signals', '~> 2.0.0'
   gem "sentry-raven", '~> 2.13.0'
 end
 
