@@ -8,16 +8,16 @@ class ApplicationMailer < ActionMailer::Base
 
   def mail(headers, &block)
     sendgrid_category "#{self.class} - #{action_name.humanize}"
-    self.default_url_options = default_url_options.merge(utm_params)
+    # self.default_url_options = default_url_options.merge(utm_params)
     headers[:subject] = "[#{PLATFORM_TITLE}] #{headers[:subject]}"
     super
   end
 
-  def utm_params
-    {
-      utm_medium: :email,
-      utm_source: PLATFORM_TITLE.downcase.parameterize,
-      utm_campaign: "#{self.class.to_s.downcase.gsub("mailer", "")}_#{action_name}"
-    }
-  end
+  # def utm_params
+  #   {
+  #     utm_medium: :email,
+  #     utm_source: PLATFORM_TITLE.downcase.parameterize,
+  #     utm_campaign: "#{self.class.to_s.downcase.gsub("mailer", "")}_#{action_name}"
+  #   }
+  # end
 end

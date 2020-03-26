@@ -4,9 +4,9 @@ describe UserMailer, type: :mailer do
   let(:user) { create(:user) }
   let(:token) { SecureRandom.uuid }
 
-  before do
-    allow_any_instance_of(ApplicationMailer).to receive(:utm_params).and_return({})
-  end
+  # before do
+  #   allow_any_instance_of(ApplicationMailer).to receive(:utm_params).and_return({})
+  # end
 
   describe "#reset_password_instructions" do
     let(:mailer) { UserMailer.reset_password_instructions(user.id, token) }
