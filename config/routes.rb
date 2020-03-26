@@ -17,12 +17,9 @@ Rails.application.routes.draw do
 
   root to: "dashboard#show"
 
-  resque_web_constraint = lambda do |request|
-    request.env['warden'].authenticate? # TODO and user.admin?
-  end
-  constraints resque_web_constraint do
-    mount Resque::Server, at: '/resque'
-  end
+  authenticate :user, lambda { |u| u.admin? } do
+     mount Sidekiq::Web => "sidekiq"
+   end
 
   mount LetterOpenerWeb::Engine, at: "/letter-opener" if Rails.env.development?
 

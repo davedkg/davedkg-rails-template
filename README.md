@@ -41,6 +41,11 @@ And then find the accept invitation link in the log.
 | user@example.com | users_password123 |
 | admin@example.com | admins_password123 |
 
+#### Sidekiq
+
+https://gist.github.com/wbotelhos/fb865fba2b4f3518c8e533c7487d5354
+https://github.com/mperham/sidekiq/wiki/API
+
 #### Rebrand App
 
 | File | Change |
