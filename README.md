@@ -54,7 +54,6 @@ https://github.com/mperham/sidekiq/wiki/API
 | app/mailers/application_mailer.rb | default from: 'email address' |
 | config/enviornments/production.rb | ActionMailer::Base.smtp_settings[:domain] |
 | config/initializers/constants.rb | PLATFORM_NAME |
-| config/initializers/devise.rb | config.mailer_sender |
 | config/application.rb | Rails::Application module name |
 | config/database.yml | database names |
 | .ruby-gemset | gemset name |
