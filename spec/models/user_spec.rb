@@ -1,7 +1,9 @@
 require "rails_helper"
 
 describe User do
+
   it_behaves_like "paranoidal"
+  it_behaves_like "purgable"
 
   let(:user_attributes) { attributes_for(:user) }
 

@@ -33,6 +33,9 @@ And then find the accept invitation link in the log.
 | --- | --- |
 | development:reset | Reset development and test databases, run development:seed, clear out tmp files |
 | development:seed | Create seed data for development enviornment |
+| acceptance:setup | Setup acceptance enviornment (see app.json) |
+| acceptance:teardown | Tear down acceptance enviornment (see app.json) |
+| cron:daily | Daily cron tasks |
 
 #### Development Users
 
@@ -71,10 +74,3 @@ $ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_AP
 $ heroku config:set WEB_CONCURRENCY 5
 $ heroku config:set APP_DOMAIN www.example.com # optional
 ```
-
-#### Acceptance Rake Tasks
-
-| Task | Description |
-| --- | --- |
-| acceptance:setup | Setup acceptance enviornment (see app.json) |
-| acceptance:teardown | Tear down acceptance enviornment (see app.json) |

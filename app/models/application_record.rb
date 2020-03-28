@@ -1,5 +1,6 @@
 class ApplicationRecord < ActiveRecord::Base
   include Paranoidal
+  include Purgable
 
   self.abstract_class = true
 
