@@ -31,6 +31,7 @@ gem 'turbolinks-animate', "~> 2.0.1"
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
+  gem "action-cable-testing", "~> 0.6.1"
   gem 'factory_bot_rails', "~> 5.1.1"
   gem "pry-byebug", "~> 3.8.0"
   gem 'rspec-rails', '~> 3.9'

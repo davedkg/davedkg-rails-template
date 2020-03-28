@@ -48,4 +48,6 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost' }
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
+
+  config.active_job.queue_adapter = :test
 end

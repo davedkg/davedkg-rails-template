@@ -8,6 +8,7 @@ require File.expand_path('../config/environment', __dir__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
+require "action_cable/testing/rspec"
 require "action_view/component/test_helpers"
 require "database_cleaner"
 require "devise"
@@ -72,6 +73,7 @@ RSpec.configure do |config|
   config.include ActionView::Component::TestHelpers, type: :component
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :feature
+  config.include ActionCable::TestHelper, type: :channel
 
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
