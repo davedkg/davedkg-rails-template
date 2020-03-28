@@ -18,6 +18,6 @@
         = render 'application/navbar'
         = render 'application/breadcrumbs'
         .wrapper.wrapper-content
-          = render 'application/flash'
           = yield
+    = render 'application/toast'
     = yield :javascript

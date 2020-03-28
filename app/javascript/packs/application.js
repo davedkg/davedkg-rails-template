@@ -24,7 +24,5 @@ require("channels")
 // const imagePath = (name) => images(name, true)
 
 import "controllers"
+import "lib"
 
-document.addEventListener( 'turbolinks:load', function() {
-  TurbolinksAnimate.init({ element: document.querySelector('.turbolinks-animate') })
-})
