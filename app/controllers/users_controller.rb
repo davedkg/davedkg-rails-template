@@ -2,8 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, except: [ :index, :new, :create ]
 
-  breadcrumb "Users", :users_path
-  breadcrumb "Invite User", :new_user_path, only: [ :new, :create ]
+  breadcrumb "Users", :users_path, except: [ :index ]
 
   def index
     @users = authorize User.order(email: :asc).page(params[:page])
