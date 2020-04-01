@@ -18,15 +18,16 @@
             %i.fa.fa-users
             %span.nav-label Users
 
-      %li
-        = link_to '#', { "aria-expanded"=>"false" } do
-          %i.fa.fa-user-shield
-          %span.nav-label Developer
-          %span.fa.arrow
-        %ul.nav.nav-second-level.collapse
-          %li= link_to "Sidekiq", "/sidekiq", target: "_blank"
-          - if Rails.env.development?
-            %li= link_to "Component Previews", "/rails/components"
-            %li= link_to "Email Previews", "/rails/mailers", target: "_blank"
-            %li= link_to "Letter Opener", "/letter-opener", target: "_blank"
+      - if current_user.admin?
+        %li
+          = link_to '#', { "aria-expanded"=>"false" } do
+            %i.fa.fa-user-shield
+            %span.nav-label Developer
+            %span.fa.arrow
+          %ul.nav.nav-second-level.collapse
+            %li= link_to "Sidekiq", "/sidekiq", target: "_blank"
+            - if Rails.env.development?
+              %li= link_to "Component Previews", "/rails/components"
+              %li= link_to "Email Previews", "/rails/mailers", target: "_blank"
+              %li= link_to "Letter Opener", "/letter-opener", target: "_blank"
 
