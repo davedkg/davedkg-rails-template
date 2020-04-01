@@ -7,13 +7,13 @@
           %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
             %span.block.m-t-xs.font-bold
               = current_user.email
-      %li{ class: active_sidebar_tab(:dashboard) }
+      %li{ class: active_sidebar_tab("/" == request.path) }
         = link_to root_path do
           %i.fa.fa-tachometer-alt
           %span.nav-label Dashboard
 
       - if policy(User).index?
-        %li{ class: active_sidebar_tab(:users) }
+        %li{ class: active_sidebar_tab(request.path.start_with?("/users")) }
           = link_to users_path do
             %i.fa.fa-users
             %span.nav-label Users
