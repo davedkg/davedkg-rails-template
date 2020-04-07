@@ -1,9 +1,6 @@
-<% if flash[:success] || flash[:notice] -%>
-  Toast.success("<%= flash[:success] || flash[:notice] %>")
+<% if notice -%>
+Toast.success("<%= notice %>");
 <% end -%>
-<% if flash[:alert] -%>
-  Toast.warning("<%= flash[:alert] %>")
-<% end -%>
-<% if flash[:error] -%>
-  Toast.error("<%= flash[:error] %>")
+<% if alert -%>
+Toast.error("<%= alert %>");
 <% end -%>
