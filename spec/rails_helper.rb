@@ -9,7 +9,6 @@ abort("The Rails environment is running in production mode!") if Rails.env.produ
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require "action_cable/testing/rspec"
-require "action_view/component/test_helpers"
 require "database_cleaner"
 require "devise"
 require "factory_bot"
@@ -70,7 +69,6 @@ RSpec.configure do |config|
   # config.filter_gems_from_backtrace("gem name")
 
   config.include FactoryBot::Syntax::Methods
-  config.include ActionView::Component::TestHelpers, type: :component
   config.include Devise::Test::IntegrationHelpers, type: :request
   config.include Devise::Test::IntegrationHelpers, type: :feature
   config.include ActionCable::TestHelper, type: :channel

@@ -27,7 +27,6 @@
           %ul.nav.nav-second-level.collapse
             %li= link_to "Sidekiq", "/sidekiq", target: "_blank"
             - if Rails.env.development?
-              %li= link_to "Component Previews", "/rails/components"
               %li= link_to "Email Previews", "/rails/mailers", target: "_blank"
               %li= link_to "Letter Opener", "/letter-opener", target: "_blank"
 
