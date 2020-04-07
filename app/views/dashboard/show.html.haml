@@ -1,1 +1,9 @@
-Dashboard
+- if current_user.admin?
+  .row
+    .col-lg-4
+      .ibox
+        .ibox-title
+          .ibox-tools
+          %h5 Heroku Database Rows
+        .ibox-content
+          %h3.no-margins= "#{number_with_delimiter ApplicationRecord.rows_count} of #{number_with_delimiter HEROKU_ROWS_COUNT} available"
