@@ -1,4 +1,4 @@
-unless ENV['SENTRY_DSN'].nil?
+if ENV['SENTRY_DSN'] && defined?(Raven)
   Raven.configure do |config|
     config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
     config.environments    = ['production']
