@@ -1,2 +1,2 @@
-= render(AlertComponent, message: notice, type: :success)
-= render(AlertComponent, message: alert,  type: :danger)
+= render 'alert', locals: { message: notice, type: :success }
+= render 'alert', locals: { message: alert, type: :success }

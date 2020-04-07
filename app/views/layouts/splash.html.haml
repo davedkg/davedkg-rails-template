@@ -14,8 +14,8 @@
   = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: 'gray-bg' do
     .middle-box.text-center.loginscreen
       %div
-        = render(AlertComponent, message: notice, type: :success)
+        = render 'alert', locals: { message: notice, type: :success }
         %h3= page_title
-        = render(AlertComponent, message: alert, type: :danger)
+        = render 'alert', locals: { message: alert, type: :success }
         = yield
         = render "splash/links"

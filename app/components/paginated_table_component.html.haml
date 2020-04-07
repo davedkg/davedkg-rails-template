@@ -1,8 +1,0 @@
-.table-responsive
-  %table.table.table-striped
-    %thead{ id: "#{object_class}-head" }
-      = head
-    %tbody{ id: "#{object_class}-body" }
-      = body
-  %div{ id: "#{object_class}-paginator" }
-    = render(PaginatorComponent, objects: objects)

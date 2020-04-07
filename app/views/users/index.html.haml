@@ -8,11 +8,15 @@
           Invite User
 
   .ibox-content
-    = render(PaginatedTableComponent, objects: @users, object_class: 'users') do |component|
-      - component.with(:head) do
-        %tr
-          %th Email
-          %th Role
-          %th Actions
-      - component.with(:body) do
-        = render 'users'
+    .table-responsive
+      %table.table.table-striped
+        %thead{ id: "users-head" }
+          %tr
+            %th Email
+            %th Role
+            %th Actions
+        %tbody{ id: "users-body" }
+          = render 'users'
+      %div{ id: "users-paginator" }
+        = paginate @users, remote: true
+

@@ -13,7 +13,6 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 
-gem "actionview-component", "~> 1.8.1"
 gem "autoprefixer-rails", "~> 6.7.2"
 gem 'devise', "~> 4.7.1"
 gem 'devise_invitable', '~> 2.0.0'
