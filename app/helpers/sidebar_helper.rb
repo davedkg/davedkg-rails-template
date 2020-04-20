@@ -1,7 +1,7 @@
 module SidebarHelper
 
   def active_sidebar_tab(active)
-    'active' if active
+    'navigation__active' if active
   end
 
 end
