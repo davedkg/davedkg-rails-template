@@ -11,7 +11,7 @@ RSpec.describe "Dashboard Features", type: :feature, js: true do
   end
 
   scenario "A user can view the dashboard" do
-    expect(page).to have_content("Dashboard")
+    expect(page).to have_content("DASHBOARD")
   end
 
 end
