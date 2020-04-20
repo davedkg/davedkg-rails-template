@@ -1,19 +1,20 @@
-- if controller_name != 'sessions'
-  = link_to new_session_path(resource_name) do
-    %small Sign In
-    %br/
+.mt-4
+  - if controller_name != 'sessions'
+    = link_to new_session_path(resource_name) do
+      %small Sign In
+      %br/
 
-- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-  = link_to new_password_path(resource_name) do
-    %small Forgot your password?
-    %br/
+  - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
+    = link_to new_password_path(resource_name) do
+      %small Forgot your password?
+      %br/
 
-- if devise_mapping.confirmable? && controller_name != 'confirmations'
-  = link_to new_confirmation_path(resource_name) do
-    %small Didn't receive confirmation instructions?
-    %br/
+  - if devise_mapping.confirmable? && controller_name != 'confirmations'
+    = link_to new_confirmation_path(resource_name) do
+      %small Didn't receive confirmation instructions?
+      %br/
 
-- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-  = link_to new_unlock_path(resource_name) do
-    %small Didn't receive unlock instructions?
-    %br/
+  - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
+    = link_to new_unlock_path(resource_name) do
+      %small Didn't receive unlock instructions?
+      %br/

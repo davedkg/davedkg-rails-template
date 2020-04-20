@@ -1,7 +1,6 @@
-.ibox
-  .ibox-title
-    %h3= page_title
-  .ibox-content
+.card
+  .card-body
+    %h4.card-title= page_title
     = simple_form_for(@user) do |f|
       = f.error_notification
       = f.input :email

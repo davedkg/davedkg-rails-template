@@ -11,10 +11,9 @@ require("jquery")
 require("bootstrap")
 require("trix")
 require('turbolinks-animate')
-require("metismenu")
-require("jquery-slimscroll")
-require("inspina")
-require("channels")
+require("jquery.scrollbar")
+require("jquery-scrollLock.min")
+require("material")
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

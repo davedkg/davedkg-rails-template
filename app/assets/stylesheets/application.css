@@ -10,10 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require bootstrap/dist/css/bootstrap.css
  *= require animate.css/animate.css
+ *= require jquery.scrollbar
+ *= require material-design-iconic-font
  *= require fontawesome
- *= require inspina
+ *= require material
  *= require_tree .
  *= require_self
  */

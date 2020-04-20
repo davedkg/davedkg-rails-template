@@ -1,4 +1,4 @@
-= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "m-t" }) do |f|
+= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
   = f.input :email, autofocus: true, autocomplete: "email"
-  = f.button :submit, "Email Reset Password Instructions", class: "block full-width m-b"
+  = f.button :submit, "Email Reset Password Instructions"
