@@ -1,22 +1,20 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+    %meta{:content => "width=device-width, initial-scale=1.0, shrink-to-fit=no", :name => "viewport"}/
     %title= "#{page_title} | #{PLATFORM_TITLE}"
     = csrf_meta_tags
     = csp_meta_tag
-    %link{href: "https://fonts.googleapis.com/icon?family=Material+Icons", rel: "stylesheet"}/
-    %link{href: "https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap", rel: "stylesheet"}/
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: 'gray-bg' do
-    .middle-box.text-center.loginscreen
-      %div
-        = render 'alert', locals: { message: notice, type: :success }
-        %h3= page_title
-        = render 'alert', locals: { message: alert, type: :success }
-        = yield
-        = render "splash/links"
+  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: "", "data-ma-theme"=>"blue" do
+    .login
+      .login__block.active
+        .login__block__header
+          %i.zmdi.zmdi-account-circle
+          = page_title
+        .login__block__body
+          = render 'flash'
+          = yield
+          = render "splash/links"

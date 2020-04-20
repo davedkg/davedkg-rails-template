@@ -12,6 +12,7 @@
  *
  *= require animate.css/animate.css
  *= require jquery.scrollbar
+ *= require material-design-iconic-font
  *= require material
  *= require_tree .
  *= require_self
