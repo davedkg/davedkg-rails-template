@@ -16,8 +16,8 @@
       = render "header"
       = render "sidebar"
       %section.content
-        / = render 'application/breadcrumbs'
+        = render 'breadcrumbs'
         = yield
-        = render 'application/toast'
+        = render 'toast'
         = yield :javascript
 

@@ -1,9 +1,7 @@
-.row{ "data-turbolinks-animate-persist" => "true" }
-  .col-lg-10
-    %ol.breadcrumb
-      - breadcrumb_trail do |crumb|
-        %li.breadcrumb-item{ class: "#{crumb.current? ? 'active' : '' }" }
-          / - if crumb.current?
-          /   %strong= crumb.name
-          / - else
-          = link_to crumb.name, crumb.url
+- if 0 != breadcrumb_trail.count
+  %nav.breadcrumb{ "data-turbolinks-animate-persist" => "true" }
+    - breadcrumb_trail do |crumb|
+      / - if crumb.current?
+      /   %span.breadcrumb-item.active= crumb.name
+      / - else
+      = link_to crumb.name, crumb.url, class: "breadcrumb-item"
