@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def authenticate_admin!
+    redirect_to root_path unless current_user.admin?
+  end
+
   def set_turbolinks_animation
      turbolinks_animate "fadeIn"
    end

@@ -1,0 +1,24 @@
+- collection = 100.times.map { |i| ["option text #{i}", i] }
+
+= simple_form_for :form do |f|
+
+  .card
+    .card-body
+      %h4.card-title Selects
+      %h6.card-subtitle TODO skin disabled/valid/invalid
+
+      %div
+        %p
+          = f.input :default, collection: collection, required: false
+        %p
+          = f.input :disabled, collection: collection, required: false, disabled: true
+        %p
+          = f.input(:valid, collection: collection, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false)
+        %p
+          = f.input(:invalid, collection: collection, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false)
+        %p.pt-4
+          %pre
+            = "= f.input :attribute, collection: collection"
+
+
+

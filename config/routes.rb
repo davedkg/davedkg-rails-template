@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     post 'resend-invitation', on: :member
   end
 
+  resources :web_components, only: [ :index ], path: :"web-components"
+
   devise_for :users, controllers: {
     passwords: 'passwords',
     invitations: 'invitations',
