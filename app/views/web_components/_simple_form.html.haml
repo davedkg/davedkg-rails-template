@@ -4,20 +4,20 @@
 
   .card
     .card-body
-      %h4.card-title Boolean Input
+      %h4.card-title Floating Label Text
       .row
         .col-md-6
-          = f.input :default, required: false, as: :boolean
-          = f.input :disabled, required: false, disabled: true, as: :boolean
-          = f.input(:valid, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }, required: false, as: :boolean)
-          = f.input(:invalid, label_html: { class: "is-invalid" }, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :boolean)
+          = f.input :default, required: false, wrapper: :floating_labels_form
+          = f.input :disabled, required: false, disabled: true, wrapper: :floating_labels_form
+          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, wrapper: :floating_labels_form
+          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, wrapper: :floating_labels_form
       .pt-4
         %pre
-          = "= f.input :attribute, as: :boolean"
+          = "= f.input :attribute, wrapper: :floating_labels_form"
 
   .card
     .card-body
-      %h4.card-title Collection Input
+      %h4.card-title Select
       %h6.card-subtitle TODO skin disabled/valid/invalid
       .row
         .col-md-6
@@ -31,20 +31,7 @@
 
   .card
     .card-body
-      %h4.card-title Floating Label Text Input
-      .row
-        .col-md-6
-          = f.input :default, required: false, wrapper: :floating_labels_form
-          = f.input :disabled, required: false, disabled: true, wrapper: :floating_labels_form
-          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, wrapper: :floating_labels_form
-          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, wrapper: :floating_labels_form
-      .pt-4
-        %pre
-          = "= f.input :attribute, wrapper: :floating_labels_form"
-
-  .card
-    .card-body
-      %h4.card-title Text Input
+      %h4.card-title Text
       .row
         .col-md-6
           = f.input :default, required: false
@@ -54,3 +41,16 @@
       .pt-4
         %pre
           = "= f.input :attribute"
+
+  .card
+    .card-body
+      %h4.card-title Toggle Switch
+      .row
+        .col-md-6
+          = f.input :default, required: false, as: :boolean
+          = f.input :disabled, required: false, disabled: true, as: :boolean
+          = f.input(:valid, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }, required: false, as: :boolean)
+          = f.input(:invalid, label_html: { class: "is-invalid" }, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :boolean)
+      .pt-4
+        %pre
+          = "= f.input :attribute, as: :boolean"

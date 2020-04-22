@@ -12,6 +12,20 @@
 
 // *** Simple Form
 
+.form-group-toggle-switch {
+  .toggle-switch {
+    height: 15px;
+  }
+
+  .invalid-feedback {
+    display: block;
+  }
+
+  &.form-group-invalid .toggle-switch__helper:before {
+    background-color: #ff6b68;
+  }
+}
+
 .form-check {
   padding-left: 0;
 
