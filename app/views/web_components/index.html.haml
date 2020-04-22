@@ -1,0 +1,13 @@
+%header.content__title
+  %h1= page_title
+
+.tab-container
+  .card
+    .card-body
+      %ul.nav.nav-tabs{:role => "tablist"}
+        %li.nav-item
+          %a.nav-link.active{"data-toggle" => "tab", :href => "#simple-form", :role => "tab"} Simple Form
+
+  .tab-content
+    #simple-form.tab-pane.active.fade.show{ role: "tabpanel" }
+      = render 'simple_form'

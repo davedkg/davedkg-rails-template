@@ -1,9 +1,11 @@
-.card
-  .card-body
-    %h4.card-title= page_title
-    = simple_form_for(@user) do |f|
-      = f.error_notification
-      = f.input :email
-      = f.input :role, as: :radio_buttons, collection: User.roles
-      = f.button :submit, "Invite User"
-      = link_to "Cancel", users_path, class: "btn btn-default"
+.row
+  .col-md-6.offset-md-3
+    .card
+      .card-body
+        %h4.card-title= page_title
+        = simple_form_for(@user) do |f|
+          = f.error_notification
+          = f.input :email
+          = f.input :role, collection: User.roles
+          = f.button :submit, "Send Invitation"
+          = link_to "Cancel", users_path, class: "btn btn-default"

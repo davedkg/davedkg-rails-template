@@ -9,3 +9,24 @@
 .content__title .actions {
   top: 0.5rem;
 }
+
+// *** Simple Form
+
+.form-check {
+  padding-left: 0;
+
+  .invalid-feedback {
+    display:block;
+  }
+
+  .checkbox__label {
+    &::before {
+      border: 2px solid #6e6e6e;
+    }
+
+    &.is-invalid::before {
+      border-color: #ff6b68;
+    }
+  }
+}
+
