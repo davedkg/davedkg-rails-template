@@ -4,7 +4,8 @@
     - if policy(User).new?
       %a.btn.btn-primary{ href: new_user_path }
         %i.fa.fa-plus
-        Invite User
+        .d-none.d-sm-inline
+          Invite User
 
 .card
   .card-body
@@ -17,4 +18,4 @@
       %tbody{ id: "users-body" }
         = render 'users'
     %div{ id: "users-paginator" }
-      = paginate @users, remote: true
+      = render "paginator"

@@ -4,10 +4,12 @@
     %td= user.role
     %td
       - if !user.invitation_accepted_at? && policy(user).resend_invitation?
-        = link_to resend_invitation_user_path(user), class: "btn btn-info btn-xs", data: { method: :post, confirm: "Are you sure?" } do
+        = link_to resend_invitation_user_path(user), class: "btn btn-info btn-sm mr-2", data: { method: :post, confirm: "Are you sure?" } do
           %i.fa.fa-envelope-open
-          Resend Invitation
+          .d-none.d-sm-inline
+            Resend Invitation
       - if user != current_user && policy(user).destroy?
-        = link_to user, class: "btn btn-danger btn-xs", data: { method: :delete, confirm: "Are you sure?" } do
+        = link_to user, class: "btn btn-danger btn-sm", data: { method: :delete, confirm: "Are you sure?" } do
           %i.fa.fa-trash
-          Delete
+          .d-none.d-sm-inline
+            Delete
