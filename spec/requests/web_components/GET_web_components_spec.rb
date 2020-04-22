@@ -9,7 +9,18 @@ describe "GET web_components_path", type: :request do
     get web_components_path
   end
 
-  it "returns ok status" do
-    expect(response).to have_http_status(:ok)
+  context "as a user" do
+    it "returns redirect status" do
+      expect(response).to have_http_status(:redirect)
+    end
   end
+
+  context "as an admin" do
+    let(:user) { create(:user, :admin) }
+
+    it "returns ok status" do
+      expect(response).to have_http_status(:ok)
+    end
+  end
+
 end
