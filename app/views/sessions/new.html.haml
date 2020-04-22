@@ -1,9 +1,7 @@
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: { class: "m-t"}) do |f|
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   = f.error_notification
-  = f.input :email, autofocus: true, autocomplete: "email"
-  = f.input :password
+  = f.input :email, autofocus: true, autocomplete: "email", wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
+  = f.input :password, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
   - if devise_mapping.rememberable?
-    .field.checkbox
-      = f.check_box :remember_me
-      = f.label :remember_me, class: "checkbox__label"
-  = f.button :submit, "Sign In"
+    = f.input :remember_me, as: :boolean
+  = f.button :submit, "Sign In", class: "btn-block"

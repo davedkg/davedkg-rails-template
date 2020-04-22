@@ -383,11 +383,10 @@ SimpleForm.setup do |config|
   #   b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   # end
 
-
   # Floating Labels form
   #
   # floating labels default_wrapper
-  config.wrappers :floating_labels_form, tag: 'div', class: 'form-label-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :floating_labels_form, tag: 'div', class: 'form-group form-group--float', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
     b.use :placeholder
     b.optional :maxlength
@@ -397,6 +396,8 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label
+    b.wrapper tag: "i", class: "form-group__bar" do
+    end
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
