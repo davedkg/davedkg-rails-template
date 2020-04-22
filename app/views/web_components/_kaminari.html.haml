@@ -1,0 +1,19 @@
+- params[:page] ||= 8
+- collection = Kaminari.paginate_array([], total_count: 145).page(params[:page]).per(10)
+
+.card
+  .card-body
+    %h4.card-title Paginator
+    = paginate collection
+    .pt-4
+      %pre
+        = "= paginate collection"
+
+.card
+  .card-body
+    %h4.card-title Page Entries Info
+    .text-center
+      = page_entries_info collection, entry_name: "widget"
+    .pt-4
+      %pre
+        = "= page_entries_info collection, entry_name: \"widget\""

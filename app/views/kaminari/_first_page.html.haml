@@ -1,1 +1,2 @@
-= link_to_unless current_page.first?, raw(t 'views.pagination.first'), url, remote: remote, class: 'paginate_button'
+%li.page-item.pagination-first
+  = link_to_unless current_page.first?, raw(t 'views.pagination.first'), url, remote: remote, class: 'page-link'

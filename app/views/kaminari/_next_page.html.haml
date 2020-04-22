@@ -1,1 +1,2 @@
-= link_to_unless current_page.last?, raw(t 'views.pagination.next'), url, rel: 'next', remote: remote, class: 'paginate_button next'
+%li.page-item.pagination-next
+  = link_to_unless current_page.last?, raw(t 'views.pagination.next'), url, rel: 'next', remote: remote, class: 'page-link'

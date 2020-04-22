@@ -1,4 +1,6 @@
 - if page.current?
-  = link_to page, url, remote: remote, rel: page.rel, class: 'paginate_button current'
+  %li.page-item.active
+    = link_to page, url, remote: remote, rel: page.rel, class: 'page-link'
 - else
-  = link_to page, url, remote: remote, rel: page.rel, class: 'paginate_button'
+  %li.page-item
+    = link_to page, url, remote: remote, rel: page.rel, class: 'page-link'
