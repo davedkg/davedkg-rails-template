@@ -17,16 +17,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_turbolinks_animation
-    if devise_controller?
-      if request.get?
-        turbolinks_animate "slideInDown"
-      else
-        turbolinks_animate "bounceIn"
-      end
-    else
-      turbolinks_animate "fadein"
-    end
-   end
+    turbolinks_animate "fadein"
+  end
 
   def prevent_action
     redirect_to root_path
