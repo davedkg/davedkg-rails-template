@@ -1,20 +1,16 @@
-.mt-4
+.mt-4.text-center
   - if controller_name != 'sessions'
-    = link_to new_session_path(resource_name) do
-      %small Sign In
-      %br/
+    = link_to new_session_path(resource_name), class: "btn btn-sm btn-outline-secondary mt-3 d-block" do
+      Sign In
 
   - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'
-    = link_to new_password_path(resource_name) do
-      %small Forgot your password?
-      %br/
+    = link_to new_password_path(resource_name), class: "btn btn-sm btn-outline-secondary mt-3 d-block" do
+      Forgot your password?
 
   - if devise_mapping.confirmable? && controller_name != 'confirmations'
-    = link_to new_confirmation_path(resource_name) do
-      %small Didn't receive confirmation instructions?
-      %br/
+    = link_to new_confirmation_path(resource_name), class: "btn btn-sm btn-outline-secondary mt-3 d-block" do
+      Didn't receive confirmation instructions?
 
   - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
-    = link_to new_unlock_path(resource_name) do
-      %small Didn't receive unlock instructions?
-      %br/
+    = link_to new_unlock_path(resource_name), class: "btn btn-sm btn-outline-secondary mt-3 d-block" do
+      Didn't receive unlock instructions?
