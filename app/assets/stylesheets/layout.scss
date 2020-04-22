@@ -1,0 +1,15 @@
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  margin: 0;
+}
+
+main {
+  flex:1;
+  flex-shrink: 0;
+  height: 100%;
+}
