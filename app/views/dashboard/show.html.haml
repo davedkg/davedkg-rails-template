@@ -1,12 +1,9 @@
 %header.content__title
   %h1= page_title
 
-- if current_user.admin?
-  .row
-    .col-lg-4
-      .ibox
-        .ibox-title
-          .ibox-tools
-          %h5 Heroku Database Rows
-        .ibox-content
-          %h3.no-margins= "#{number_with_delimiter ApplicationRecord.rows_count} of #{number_with_delimiter HEROKU_ROWS_COUNT} available"
+.row.quick-stats
+  .col-sm-6.col-md-3
+    .quick-stats__item.bg-blue
+      .quick-stats__info
+        %h2= "#{number_with_delimiter ApplicationRecord.rows_count} of #{number_with_delimiter HEROKU_ROWS_COUNT}"
+        %small Database Rows
