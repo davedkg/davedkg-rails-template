@@ -31,6 +31,19 @@
 
   .card
     .card-body
+      %h4.card-title Floating Label Text Input
+      .row
+        .col-md-6
+          = f.input :default, required: false, wrapper: :floating_labels_form
+          = f.input :disabled, required: false, disabled: true, wrapper: :floating_labels_form
+          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, wrapper: :floating_labels_form
+          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, wrapper: :floating_labels_form
+      .pt-4
+        %pre
+          = "= f.input :attribute, wrapper: :floating_labels_form"
+
+  .card
+    .card-body
       %h4.card-title Text Input
       .row
         .col-md-6
