@@ -49,6 +49,7 @@ Rails.application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+  config.assets.digest = false # issue with guard-livereload 404 on application.debug.css
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
@@ -65,4 +66,6 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :letter_opener_web
 
   config.active_job.queue_adapter = :sidekiq
+
+  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 end
