@@ -4,4 +4,4 @@
   = "Email: #{resource.email}"
   = f.input :password, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
   = f.input :password_confirmation, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
-  = f.button :submit, t("devise.invitations.edit.submit_button"), class: "btn-block"
+  = f.button :submit, t("devise.invitations.edit.submit_button"), class: "btn-block", data: { "disable-with": "Accepting Invitation..." }

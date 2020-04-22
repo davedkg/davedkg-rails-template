@@ -7,5 +7,5 @@
           = f.error_notification
           = f.input :email
           = f.input :role, collection: User.roles
-          = f.button :submit, "Send Invitation"
+          = f.button :submit, "Send Invitation", data: { "disable-with": "Sending Invitation..." }
           = link_to "Cancel", users_path, class: "btn btn-default"
