@@ -9,7 +9,7 @@
         .col-md-6
           = f.input :default,  collection: collection, as: :check_boxes, required: false
           = f.input :disabled, collection: collection, as: :check_boxes, required: false, disabled: true
-          = f.input :valid,    collection: collection, as: :check_boxes, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }
+          = f.input :valid,    collection: collection, as: :check_boxes, required: false, valid: true
           = f.input :invalid,  collection: collection, as: :check_boxes, required: false, error: "Invalid message"
       .pt-4
         %pre
@@ -22,7 +22,7 @@
         .col-md-6
           = f.input :default,  as: :date, required: false
           = f.input :disabled, as: :date, required: false, disabled: true
-          = f.input :valid,    as: :date, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }
+          = f.input :valid,    as: :date, required: false, valid: true
           = f.input :invalid,  as: :date, required: false, error: "Invalid message"
       .pt-4
         %pre
@@ -35,24 +35,11 @@
         .col-md-6
           = f.input :default,  as: :datetime, required: false, placeholder: "pick a date"
           = f.input :disabled, as: :datetime, required: false, disabled: true
-          = f.input :valid,    as: :datetime, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }
+          = f.input :valid,    as: :datetime, required: false, valid: true
           = f.input :invalid,  as: :datetime, required: false, error: "Invalid message"
       .pt-4
         %pre
           = "= f.input :attribute, as: :datetime"
-
-  .card
-    .card-body
-      %h4.card-title Time Picker
-      .row
-        .col-md-6
-          = f.input :default,  as: :time, required: false
-          = f.input :disabled, as: :time, required: false, disabled: true
-          = f.input :valid,    as: :time, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }
-          = f.input :invalid,  as: :time, required: false, error: "Invalid message"
-      .pt-4
-        %pre
-          = "= f.input :attribute, as: :time"
 
   .card
     .card-body
@@ -61,7 +48,7 @@
         .col-md-6
           = f.input :default,  as: :file, required: false
           = f.input :disabled, as: :file, required: false, disabled: true
-          = f.input :valid,    as: :file, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }
+          = f.input :valid,    as: :file, required: false, valid: true
           = f.input :invalid,  as: :file, required: false, error: "Invalid message"
       .pt-4
         %pre
@@ -74,7 +61,7 @@
         .col-md-6
           = f.input :default,  wrapper: :floating_labels_form, required: false
           = f.input :disabled, wrapper: :floating_labels_form, required: false, disabled: true
-          = f.input :valid,    wrapper: :floating_labels_form, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }
+          = f.input :valid,    wrapper: :floating_labels_form, required: false, valid: true
           = f.input :invalid,  wrapper: :floating_labels_form, required: false, error: "Invalid message"
       .pt-4
         %pre
@@ -87,7 +74,7 @@
         .col-md-6
           = f.input :default_radio_group,  collection: collection, as: :radio_buttons, required: false, label: "Default"
           = f.input :disabled_radio_group, collection: collection, as: :radio_buttons, required: false, label: "Disabled", disabled: true
-          = f.input :valid_radio_group,    collection: collection, as: :radio_buttons, required: false, label: "Valid",    input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }
+          = f.input :valid_radio_group,    collection: collection, as: :radio_buttons, required: false, label: "Valid",    valid: true
           = f.input :invalid_radio_group,  collection: collection, as: :radio_buttons, required: false, label: "Invalid",  error: "Invalid message"
       .pt-4
         %pre
@@ -101,7 +88,7 @@
         .col-md-6
           = f.input :default,  collection: collection, required: false
           = f.input :disabled, collection: collection, required: false, disabled: true
-          = f.input :valid,    collection: collection, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }
+          = f.input :valid,    collection: collection, required: false, valid: true
           = f.input :invalid,  collection: collection, required: false, error: "Invalid message"
       .pt-4
         %pre
@@ -114,7 +101,7 @@
         .col-md-6
           = f.input :default,  placeholder: "start typing here...", required: false
           = f.input :disabled, placeholder: "start typing here...", required: false, disabled: true
-          = f.input :valid,    placeholder: "start typing here...", required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }
+          = f.input :valid,    placeholder: "start typing here...", required: false, valid: true
           = f.input :invalid,  placeholder: "start typing here...", required: false, error: "Invalid message"
       .pt-4
         %pre
@@ -127,11 +114,24 @@
         .col-md-6
           = f.input :default,  as: :text, placeholder: "start typing here...", required: false
           = f.input :disabled, as: :text, placeholder: "start typing here...", required: false, disabled: true
-          = f.input :valid,    as: :text, placeholder: "start typing here...", required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }
+          = f.input :valid,    as: :text, placeholder: "start typing here...", required: false, valid: true
           = f.input :invalid,  as: :text, placeholder: "start typing here...", required: false, error: "Invalid message"
       .pt-4
         %pre
           = "= f.input :attribute, as: :text"
+
+  .card
+    .card-body
+      %h4.card-title Time Picker
+      .row
+        .col-md-6
+          = f.input :default,  as: :time, required: false
+          = f.input :disabled, as: :time, required: false, disabled: true
+          = f.input :valid,    as: :time, required: false, valid: true
+          = f.input :invalid,  as: :time, required: false, error: "Invalid message"
+      .pt-4
+        %pre
+          = "= f.input :attribute, as: :time"
 
   .card
     .card-body
@@ -140,7 +140,7 @@
         .col-md-6
           = f.input :default,  as: :boolean, required: false
           = f.input :disabled, as: :boolean, required: false, disabled: true
-          = f.input :valid,    as: :boolean, required: false, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }
+          = f.input :valid,    as: :boolean, required: false, valid: true
           = f.input :invalid,  as: :boolean, required: false, error: "Invalid message"
       .pt-4
         %pre

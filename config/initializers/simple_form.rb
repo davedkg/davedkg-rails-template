@@ -174,3 +174,21 @@ SimpleForm.setup do |config|
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
 end
+
+module SimpleForm
+  module Components
+    module Errors
+
+      def valid?
+        (!has_errors? && has_value?) || has_custom_valid?
+      end
+
+      private
+
+      def has_custom_valid?
+        options[:valid]
+      end
+
+    end
+  end
+end
