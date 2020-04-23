@@ -60,10 +60,10 @@
       %h4.card-title Text
       .row
         .col-md-6
-          = f.input :default, required: false
-          = f.input :disabled, required: false, disabled: true
-          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false
-          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false
+          = f.input :default, required: false, placeholder: "start typing here..."
+          = f.input :disabled, required: false, disabled: true, placeholder: "start typing here..."
+          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, placeholder: "start typing here..."
+          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, placeholder: "start typing here..."
       .pt-4
         %pre
           = "= f.input :attribute"
@@ -73,10 +73,10 @@
       %h4.card-title Text Area
       .row
         .col-md-6
-          = f.input :default, required: false, as: :text
-          = f.input :disabled, required: false, disabled: true, as: :text
-          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, as: :text
-          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :text
+          = f.input :default, required: false, as: :text, placeholder: "start typing here..."
+          = f.input :disabled, required: false, disabled: true, as: :text, placeholder: "start typing here..."
+          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, as: :text, placeholder: "start typing here..."
+          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :text, placeholder: "start typing here..."
       .pt-4
         %pre
           = "= f.input :attribute, as: :text"

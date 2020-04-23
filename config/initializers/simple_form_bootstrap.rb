@@ -61,7 +61,7 @@ SimpleForm.setup do |config|
     b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
     b.wrapper tag: "i", class: "form-group__bar" do
     end
-    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
@@ -75,7 +75,7 @@ SimpleForm.setup do |config|
       end
     end
     b.use :label, class: 'checkbox__label', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
@@ -87,7 +87,7 @@ SimpleForm.setup do |config|
       ba.use :label_text
     end
     b.use :input, error_class: 'is-invalid', valid_class: 'is-valid'
-    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip d-block' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
@@ -400,7 +400,7 @@ SimpleForm.setup do |config|
     b.use :label
     b.wrapper tag: "i", class: "form-group__bar" do
     end
-    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
