@@ -2,6 +2,7 @@ class TextInput < SimpleForm::Inputs::TextInput
 
   def input_html_options
     options          = super
+    options[:rows]   = options[:rows] || 1
     options[:data] ||= {}
 
     if options[:data][:controller]
