@@ -1,6 +1,19 @@
-- collection = 5.times.map { |i| ["option text #{i}", i] }
+- collection = 3.times.map { |i| ["option text #{i}", i] }
 
 = simple_form_for :form do |f|
+
+  .card
+    .card-body
+      %h4.card-title Checkboxes
+      .row
+        .col-md-6
+          = f.input :default, collection: collection, required: false, as: :check_boxes
+          = f.input :disabled, collection: collection, required: false, disabled: true, as: :check_boxes
+          = f.input :valid, collection: collection, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, as: :check_boxes
+          = f.input :invalid, collection: collection, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :check_boxes
+      .pt-4
+        %pre
+          = "= f.input :attribute, collection: collection, as: :check_boxes"
 
   .card
     .card-body
@@ -17,14 +30,27 @@
 
   .card
     .card-body
+      %h4.card-title Radio Group
+      .row
+        .col-md-6
+          = f.input :default_radio_group, collection: collection, required: false, as: :radio_buttons, label: "Default"
+          = f.input :disabled_radio_group, collection: collection, required: false, disabled: true, as: :radio_buttons, label: "Disabled"
+          = f.input :valid_radio_group, collection: collection, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, as: :radio_buttons, label: "Valid"
+          = f.input :invalid_radio_group, collection: collection, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :radio_buttons, label: "Invalid"
+      .pt-4
+        %pre
+          = "= f.input :attribute, collection: collection, as: :radio_buttons"
+
+  .card
+    .card-body
       %h4.card-title Select
       %h6.card-subtitle TODO skin disabled/valid/invalid
       .row
         .col-md-6
           = f.input :default, collection: collection, required: false
           = f.input :disabled, collection: collection, required: false, disabled: true
-          = f.input(:valid, collection: collection, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false)
-          = f.input(:invalid, collection: collection, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false)
+          = f.input :valid, collection: collection, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false
+          = f.input :invalid, collection: collection, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false
       .pt-4
         %pre
           = "= f.input :attribute, collection: collection"
@@ -36,8 +62,8 @@
         .col-md-6
           = f.input :default, required: false
           = f.input :disabled, required: false, disabled: true
-          = f.input(:valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false)
-          = f.input(:invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false)
+          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false
+          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false
       .pt-4
         %pre
           = "= f.input :attribute"
@@ -49,8 +75,8 @@
         .col-md-6
           = f.input :default, required: false, as: :boolean
           = f.input :disabled, required: false, disabled: true, as: :boolean
-          = f.input(:valid, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }, required: false, as: :boolean)
-          = f.input(:invalid, label_html: { class: "is-invalid" }, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :boolean)
+          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "form-group-valid" }, required: false, as: :boolean
+          = f.input :invalid, label_html: { class: "is-invalid" }, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :boolean
       .pt-4
         %pre
           = "= f.input :attribute, as: :boolean"

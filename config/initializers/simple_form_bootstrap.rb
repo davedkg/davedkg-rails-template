@@ -69,7 +69,7 @@ SimpleForm.setup do |config|
   config.wrappers :vertical_boolean, tag: 'fieldset', class: 'form-group form-group-toggle-switch', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
     b.optional :readonly
-    b.wrapper :form_check_wrapper, tag: 'div', class: 'toggle-switch toggle-switch--blue' do |bb|
+    b.wrapper :form_check_wrapper, tag: 'div', class: 'toggle-switch' do |bb|
       bb.use :input, class: "toggle-switch__checkbox", error_class: 'is-invalid', valid_class: 'is-valid'
       bb.wrapper tag: "i", class: "toggle-switch__helper" do
       end
@@ -80,13 +80,13 @@ SimpleForm.setup do |config|
   end
 
   # vertical input for radio buttons and check boxes
-  config.wrappers :vertical_collection, item_wrapper_class: 'form-check', item_label_class: 'form-check-label', tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+  config.wrappers :vertical_collection, tag: 'fieldset', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
     b.optional :readonly
     b.wrapper :legend_tag, tag: 'legend', class: 'col-form-label pt-0' do |ba|
       ba.use :label_text
     end
-    b.use :input, class: 'form-check-input', error_class: 'is-invalid', valid_class: 'is-valid'
+    b.use :input, error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end

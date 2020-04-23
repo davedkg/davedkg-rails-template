@@ -26,14 +26,12 @@
   }
 }
 
-.form-check {
-  padding-left: 0;
-
+.checkbox, .radio {
   .invalid-feedback {
     display:block;
   }
 
-  .checkbox__label {
+  .checkbox__label, .radio__label {
     &::before {
       border: 2px solid #6e6e6e;
     }
