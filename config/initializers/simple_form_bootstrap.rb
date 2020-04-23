@@ -425,7 +425,7 @@ SimpleForm.setup do |config|
     check_boxes:   :vertical_collection,
     date:          :vertical_multi_select,
     datetime:      :vertical_multi_select,
-    file:          :vertical_file,
+    file:          :custom_file,
     radio_buttons: :vertical_collection,
     range:         :vertical_range,
     time:          :vertical_multi_select

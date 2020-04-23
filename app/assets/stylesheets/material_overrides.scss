@@ -9,36 +9,3 @@
 .content__title .actions {
   top: 0.5rem;
 }
-
-// *** Simple Form
-
-.form-group-toggle-switch {
-  .toggle-switch {
-    height: 15px;
-  }
-
-  .invalid-tooltip {
-    display: block;
-  }
-
-  &.form-group-invalid .toggle-switch__helper:before {
-    background-color: #ff6b68;
-  }
-}
-
-.checkbox, .radio {
-  .invalid-feedback {
-    display:block;
-  }
-
-  .checkbox__label, .radio__label {
-    &::before {
-      border: 2px solid #6e6e6e;
-    }
-
-    &.is-invalid::before {
-      border-color: #ff6b68;
-    }
-  }
-}
-

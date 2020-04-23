@@ -6,12 +6,12 @@
     .card-body
       %ul.nav.nav-tabs{:role => "tablist"}
         %li.nav-item
-          %a.nav-link.active{"data-toggle" => "tab", :href => "#kaminari", :role => "tab"} Kaminari
+          %a.nav-link{"data-toggle" => "tab", :href => "#kaminari", :role => "tab"} Kaminari
         %li.nav-item
-          %a.nav-link{"data-toggle" => "tab", :href => "#simple-form", :role => "tab"} Simple Form
+          %a.nav-link.active{"data-toggle" => "tab", :href => "#simple-form", :role => "tab"} Simple Form
 
   .tab-content{ style: "padding: 0" }
-    #kaminari.tab-pane.active.fade.show{ role: "tabpanel" }
+    #kaminari.tab-pane.fade.show{ role: "tabpanel" }
       = render 'kaminari'
-    #simple-form.tab-pane.fade.show{ role: "tabpanel" }
+    #simple-form.tab-pane.active.fade.show{ role: "tabpanel" }
       = render 'simple_form'
