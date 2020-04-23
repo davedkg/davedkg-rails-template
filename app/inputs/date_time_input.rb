@@ -25,11 +25,11 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
   def input_placeholder
     case input_type
     when :date
-      "pick a date..."
+      "choose a date..."
     when :time
-      "pick a time..."
+      "choose a time..."
     else
-      "pick a date and time..."
+      "choose a date and time..."
     end
   end
 
