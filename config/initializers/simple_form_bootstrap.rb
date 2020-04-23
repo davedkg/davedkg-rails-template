@@ -116,6 +116,26 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
+  config.wrappers :vertical_date_time, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
+    b.use :html5
+    b.optional :readonly
+    b.use :label
+
+    b.wrapper tag: "div", class: "input-group" do |ig|
+      ig.wrapper tag: "div", class: "input-group-prepend" do |igp|
+        igp.wrapper tag: "span", class: "input-group-text" do |igt|
+          igt.wrapper tag: "i", class: "zmdi zmdi-calendar" do |i|
+          end
+        end
+      end
+
+      ig.use :input, error_class: 'is-invalid', valid_class: 'is-valid'
+    end
+
+    b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip' }
+    b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
+  end
+
   # vertical multi select
   config.wrappers :vertical_multi_select, tag: 'div', class: 'form-group', error_class: 'form-group-invalid', valid_class: 'form-group-valid' do |b|
     b.use :html5
@@ -423,12 +443,12 @@ SimpleForm.setup do |config|
   config.wrapper_mappings = {
     boolean:       :vertical_boolean,
     check_boxes:   :vertical_collection,
-    date:          :vertical_multi_select,
-    datetime:      :vertical_multi_select,
+    date:          :vertical_date_time,
+    datetime:      :vertical_date_time,
     file:          :custom_file,
     radio_buttons: :vertical_collection,
     range:         :vertical_range,
-    time:          :vertical_multi_select
+    time:          :vertical_date_time
   }
 
   # enable custom form wrappers

@@ -41,3 +41,9 @@
     padding-right: 1em;
   }
 }
+
+.form-group.datetime, .form-group.date, .form-group.time  {
+  .invalid-tooltip {
+    display: block;
+  }
+}
