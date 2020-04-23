@@ -70,6 +70,19 @@
 
   .card
     .card-body
+      %h4.card-title Text Area
+      .row
+        .col-md-6
+          = f.input :default, required: false, as: :text
+          = f.input :disabled, required: false, disabled: true, as: :text
+          = f.input :valid, input_html: { class: "is-valid" }, wrapper_html: { class: "is-valid" }, required: false, as: :text
+          = f.input :invalid, input_html: { class: "is-invalid" }, wrapper_html: { class: "form-group-invalid" }, error: "Invalid message", required: false, as: :text
+      .pt-4
+        %pre
+          = "= f.input :attribute, as: :text"
+
+  .card
+    .card-body
       %h4.card-title Toggle Switch
       .row
         .col-md-6
