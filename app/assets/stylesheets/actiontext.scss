@@ -34,3 +34,44 @@
     }
   }
 }
+
+trix-editor,
+trix-toolbar {
+  border-top: 0.0625rem solid #DDD;
+  border-bottom: 0.0625rem solid #DDD;
+  box-shadow: none;
+  height: initial;
+  outline: none;
+
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+trix-editor {
+  &.form-control {
+    height: auto;
+    padding: 1rem 0;
+  }
+}
+
+.disabled trix-toolbar {
+  display: none;
+}
+
+trix-toolbar {
+  padding: 0.5rem 0;
+
+  .trix-button-group {
+    border: 0;
+    margin: 0 0.5rem;
+
+    &:not(:first-child) {
+      margin-left: 0;
+    }
+
+    .trix-button {
+      border-bottom: 0;
+    }
+  }
+}
