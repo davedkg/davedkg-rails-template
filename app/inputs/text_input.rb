@@ -1,19 +1,14 @@
 class TextInput < SimpleForm::Inputs::TextInput
+  include StimulusableConcern
 
   def input_html_options
-    options          = super
-    options[:rows]   = options[:rows] || 1
-    options[:data] ||= {}
-
-    if options[:data][:controller]
-      unless options[:data][:controller].include?(" textarea")
-        options[:data][:controller] = "#{options[:data][:controller]} textarea"
-      end
-    else
-      options[:data][:controller] = "textarea"
-    end
-
+    options        = super
+    options[:rows] = options[:rows] || 1
     options
+  end
+
+  def stimulus_controller_name
+    "inputs--text-input"
   end
 
 end

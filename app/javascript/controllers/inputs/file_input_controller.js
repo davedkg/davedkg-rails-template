@@ -28,9 +28,3 @@ import { Controller } from "stimulus"
    }
 
 }
-
-
-
-
-
-

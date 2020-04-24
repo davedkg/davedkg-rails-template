@@ -1,18 +1,8 @@
 class CollectionSelectInput < SimpleForm::Inputs::CollectionSelectInput
+  include StimulusableConcern
 
-   def input_html_options
-     options          = super
-     options[:data] ||= {}
+  def stimulus_controller_name
+    "inputs--collection-select-input"
+  end
 
-     if options[:data][:controller]
-       unless options[:data][:controller].include?(" select")
-         options[:data][:controller] = "#{options[:data][:controller]} select"
-       end
-     else
-       options[:data][:controller] = "select"
-     end
-
-     options
-   end
-
- end
+end

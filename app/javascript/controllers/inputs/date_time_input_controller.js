@@ -47,9 +47,3 @@ import flatpickr from "flatpickr"
    }
 
 }
-
-
-
-
-
-

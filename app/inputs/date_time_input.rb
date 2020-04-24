@@ -8,7 +8,7 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
   private
 
   def input_data_attribute
-    { controller: "date-time", "date-time-type" => input_type }
+    { controller: stimulus_controller_name, "#{stimulus_controller_name}-type" => input_type }
   end
 
   def input_value
@@ -31,6 +31,10 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
     else
       "choose a date and time..."
     end
+  end
+
+  def stimulus_controller_name
+    "inputs--date-time-input"
   end
 
 end
