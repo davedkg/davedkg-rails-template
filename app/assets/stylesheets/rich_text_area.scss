@@ -42,10 +42,6 @@ trix-toolbar {
   box-shadow: none;
   height: initial;
   outline: none;
-
-  &.disabled {
-    pointer-events: none;
-  }
 }
 
 trix-editor {
@@ -53,10 +49,10 @@ trix-editor {
     height: auto;
     padding: 1rem 0;
   }
-}
 
-.disabled trix-toolbar {
-  display: none;
+  &:empty:not(:focus)::before {
+    color: #868e96;
+  }
 }
 
 trix-toolbar {
@@ -72,6 +68,24 @@ trix-toolbar {
 
     .trix-button {
       border-bottom: 0;
+    }
+  }
+}
+
+.disabled {
+  trix-toolbar {
+    pointer-events: none;
+
+    .trix-button {
+      opacity: 0.2;
+    }
+  }
+
+  trix-editor {
+    pointer-events: none;
+
+    &:empty:not(:focus)::before {
+      color: #DDD;
     }
   }
 }
