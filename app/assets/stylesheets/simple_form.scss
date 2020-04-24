@@ -1,3 +1,7 @@
+.form-control[readonly]:not([disabled]) {
+  opacity: 1;
+}
+
 .form-group-toggle-switch {
   .toggle-switch {
     height: 15px;
