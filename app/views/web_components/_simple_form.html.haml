@@ -83,10 +83,13 @@
   .card
     .card-body
       %h4.card-title Rich Text Area
-      = f.input :trix_default,  as: :rich_text_area, placeholder: "start typing here...", label: "Default",  required: false
-      = f.input :trix_disabled, as: :rich_text_area, placeholder: "start typing here...", label: "Disabled", required: false, disabled: true
-      = f.input :trix_valid,    as: :rich_text_area, placeholder: "start typing here...", label: "Valid",    required: false, valid: true
-      = f.input :trix_invalid,  as: :rich_text_area, placeholder: "start typing here...", label: "Invalid",  required: false, error: "Invalid message"
+      %h6.card-subtitle Requires :attribute to be an ActionText object
+      .row
+        .col
+          = f.input :trix_default,  as: :rich_text_area, placeholder: "start typing here...", label: "Default",  required: false
+          = f.input :trix_disabled, as: :rich_text_area, placeholder: "start typing here...", label: "Disabled", required: false, disabled: true
+          = f.input :trix_valid,    as: :rich_text_area, placeholder: "start typing here...", label: "Valid",    required: false, valid: true
+          = f.input :trix_invalid,  as: :rich_text_area, placeholder: "start typing here...", label: "Invalid",  required: false, error: "Invalid message"
       .pt-4
         %pre
           = "= f.input :attribute, as: :rich_text_area"
