@@ -7,8 +7,4 @@ class TextInput < SimpleForm::Inputs::TextInput
     options
   end
 
-  def stimulus_controller_name
-    "inputs--text-input"
-  end
-
 end

@@ -1,15 +1,12 @@
 class DateTimeInput < SimpleForm::Inputs::StringInput
+  include StimulusableConcern
 
   def input_html_options
-    super.merge(autocomplete: "off", data: input_data_attribute, placeholder: input_placeholder)
+    super.merge(autocomplete: "off", placeholder: input_placeholder)
          .merge(value: input_value) { |_, oldval, _| oldval }
   end
 
   private
-
-  def input_data_attribute
-    { controller: stimulus_controller_name, "#{stimulus_controller_name}-type" => input_type }
-  end
 
   def input_value
     case input_type
@@ -33,8 +30,8 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
     end
   end
 
-  def stimulus_controller_name
-    "inputs--date-time-input"
+  def stimulus_data_attributes
+    { type: input_type }
   end
 
 end
