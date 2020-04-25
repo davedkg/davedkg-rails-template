@@ -8,7 +8,7 @@
     = csp_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  %body{ "data-ma-theme"=>"blue" }
+  %body{ class: "#{params[:controller]} #{params[:action]}", "data-ma-theme"=>"blue" }
     .login
       .login__block.active
         .login__block__header

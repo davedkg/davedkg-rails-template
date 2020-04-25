@@ -12,6 +12,7 @@ class User < ApplicationRecord
 
   attr_accessor :skip_password_validation
 
+  validates :time_zone, presence: true
   validates :name, presence: true, uniqueness: { case_sensitive: false }, on: :update
 
   def send_invitation

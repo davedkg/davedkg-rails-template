@@ -26,7 +26,6 @@
     border-bottom-color: $shamrock-green;
   }
 
-
   .custom-file-label {
     background-repeat: no-repeat;
     background-position: center right calc(2.25rem / 4);
@@ -60,6 +59,10 @@
     background-position: center right calc(2.25rem / 4);
     background-size: calc(2.25rem / 2) calc(2.25rem / 2);
     background-image: image-url("form-validation-invalid.svg");
+  }
+
+  &.form-group--float {
+    margin-bottom: 4rem;
   }
 }
 

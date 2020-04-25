@@ -17,6 +17,6 @@
  *= require select2/dist/css/select2
  *= require flatpickr/dist/flatpickr
  *= require material
+ *= require_tree ./controllers
  *= require_tree .
- *= require_self
  */

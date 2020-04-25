@@ -1,0 +1,14 @@
+@import "colors";
+
+.invitations {
+  &.edit,
+  &.update {
+    .email {
+      text-align:center;
+
+      .card-title {
+        color: $dove-gray;
+      }
+    }
+  }
+}
