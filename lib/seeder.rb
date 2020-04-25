@@ -13,6 +13,7 @@ class Seeder
     time_current = Time.current
 
     user = User.new(
+      name: user_json["name"],
       email: user_json["email"],
       password: user_json["password"],
       confirmed_at: time_current,

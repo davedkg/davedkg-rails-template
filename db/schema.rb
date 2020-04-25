@@ -75,7 +75,9 @@ ActiveRecord::Schema.define(version: 2020_02_05_021737) do
     t.string "invited_by_type"
     t.bigint "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.string "name"
     t.string "role", default: "user", null: false
+    t.string "time_zone", default: "Eastern Time (US & Canada)", null: false
     t.datetime "deleted_at", precision: 6
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(version: 2020_02_05_021737) do
     t.index ["deleted_at", "invitation_token"], name: "index_users_on_deleted_at_and_invitation_token", unique: true
     t.index ["deleted_at", "invitations_count"], name: "index_users_on_deleted_at_and_invitations_count"
     t.index ["deleted_at", "invited_by_id"], name: "index_users_on_deleted_at_and_invited_by_id"
+    t.index ["deleted_at", "name"], name: "index_users_on_deleted_at_and_name", unique: true
     t.index ["deleted_at", "reset_password_token"], name: "index_users_on_deleted_at_and_reset_password_token", unique: true
     t.index ["deleted_at", "unlock_token"], name: "index_users_on_deleted_at_and_unlock_token", unique: true
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by_type_and_invited_by_id"

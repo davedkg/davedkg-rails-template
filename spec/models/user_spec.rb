@@ -13,6 +13,18 @@ describe User do
 
       expect(User.new(user_attributes).valid?).to be(false)
     end
+
+    context "when updating user" do
+      let!(:user) { create(:user) }
+
+      it "returns false when name is missing" do
+        user_attributes[:name] = nil
+
+        user.update(user_attributes)
+
+        expect(user.valid?).to be(false)
+      end
+    end
   end
 
   describe "#create" do

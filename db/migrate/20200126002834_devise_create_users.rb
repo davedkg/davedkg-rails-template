@@ -3,6 +3,7 @@
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
+
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
@@ -41,14 +42,16 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.references :invited_by, polymorphic: true
       t.integer    :invitations_count, default: 0
 
-      ## Role
-      t.string :role, null: false, default: User.roles[:user]
+      t.string :name
+      t.string :role,      null: false, default: User.roles[:user]
+      t.string :time_zone, null: false, default: "Eastern Time (US & Canada)"
 
       ## Timestamps
       t.datetime :deleted_at, precision: 6
       t.timestamps null: false
     end
 
+    add_index :users, [:deleted_at, :name],                 unique: true
     add_index :users, [:deleted_at, :email],                unique: true
     add_index :users, [:deleted_at, :reset_password_token], unique: true
     add_index :users, [:deleted_at, :confirmation_token],   unique: true

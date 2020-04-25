@@ -9,6 +9,12 @@ class User < ApplicationRecord
     admin: "admin"
   }
 
+  validates :name, presence: true, uniqueness: { case_sensitive: false }
+
+  def valid_invitation?
+    false == self.id.blank?
+  end
+
   def send_invitation
     self.invitation_sent_at = Time.now
     self.deliver_invitation

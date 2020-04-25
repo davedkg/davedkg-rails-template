@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :set_turbolinks_animation
   before_action :set_raven_context
+  before_action :configure_permitted_parameters, if: :devise_controller?
   after_action  :verify_authorized, unless: :devise_controller?
 
   private
@@ -43,6 +44,10 @@ class ApplicationController < ActionController::Base
   end
 
   ## *** Devise
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:accept_invitation, keys: %i[name time_zone])
+  end
 
   def after_sign_out_path_for(*)
     new_user_session_path

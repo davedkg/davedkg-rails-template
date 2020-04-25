@@ -15,7 +15,7 @@ class UsersController < ApplicationController
   def create
     @user = authorize User.invite!(user_params, current_user)
 
-    if @user.valid?
+    if @user.valid_invitation?
       redirect_to users_path, notice: 'User was successfully invited.'
     else
       render :new
