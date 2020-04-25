@@ -1,6 +1,47 @@
+@import "colors";
+
 .form-control[readonly]:not([disabled]) {
   opacity: 1;
 }
+
+// *** Form Grouup
+
+.form-group.datetime,
+.form-group.date,
+.form-group.time {
+  .invalid-tooltip {
+    display: block;
+  }
+}
+
+.form-group-valid {
+  .input-group > .input-group-prepend > .input-group-text {
+    border-bottom-color: $shamrock-green;
+  }
+}
+
+.form-group-invalid {
+  &.radio_buttons,
+  &.check_boxes,
+  &.form-group-toggle-switch {
+    .invalid-tooltip {
+      margin-top: 0.5rem;
+    }
+  }
+
+  .checkbox__label,
+  .radio__label {
+    &::before {
+      border-color: $bittersweet-red;
+    }
+  }
+
+  .input-group > .input-group-prepend > .input-group-text {
+    border-bottom-color: $bittersweet-red;
+  }
+}
+
+// *** Toggle Switch
 
 .form-group-toggle-switch {
   .toggle-switch {
@@ -12,9 +53,11 @@
   }
 
   &.form-group-invalid .toggle-switch__helper:before {
-    background-color: #ff6b68;
+    background-color: $bittersweet-red;
   }
 }
+
+// *** Checkbox & Radio Group
 
 .checkbox, .radio {
   .invalid-feedback {
@@ -23,14 +66,16 @@
 
   .checkbox__label, .radio__label {
     &::before {
-      border: 2px solid #6e6e6e;
+      border: 2px solid $dove-gray;
     }
 
     &.is-invalid::before {
-      border-color: #ff6b68;
+      border-color: $bittersweet-red;
     }
   }
 }
+
+// *** File
 
 .custom-file-input ~ .custom-file-label {
   border-top: 0;
@@ -38,16 +83,10 @@
   border-right: 0;
 
   &::after {
-    border-top: 1px solid #eceff1;
-    border-left: 1px solid #eceff1;
-    border-right: 1px solid #eceff1;
+    border-top: 1px solid $solitude-gray;
+    border-left: 1px solid $solitude-gray;
+    border-right: 1px solid $solitude-gray;
     padding-left: 1em;
     padding-right: 1em;
-  }
-}
-
-.form-group.datetime, .form-group.date, .form-group.time  {
-  .invalid-tooltip {
-    display: block;
   }
 }
