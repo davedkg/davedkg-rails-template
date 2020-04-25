@@ -2,18 +2,17 @@ class User < ApplicationRecord
 
   # Additional: :registerable, :timeoutable, and :omniauthable
   devise :database_authenticatable, :confirmable, :invitable, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable,
+         validate_on_invite: true
 
   enum role: {
     user: "user",
     admin: "admin"
   }
 
-  validates :name, presence: true, uniqueness: { case_sensitive: false }
+  attr_accessor :skip_password_validation
 
-  def valid_invitation?
-    false == self.id.blank?
-  end
+  validates :name, presence: true, uniqueness: { case_sensitive: false }, on: :update
 
   def send_invitation
     self.invitation_sent_at = Time.now
@@ -24,6 +23,13 @@ class User < ApplicationRecord
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, id, *args).deliver_later
+  end
+
+  protected
+
+  def password_required?
+    return false if skip_password_validation
+    super
   end
 
 end

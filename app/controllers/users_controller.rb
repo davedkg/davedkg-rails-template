@@ -13,9 +13,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = authorize User.invite!(user_params, current_user)
+    @user = authorize User.new(user_params)
+    @user.invited_by               = current_user
+    @user.skip_password_validation = true
 
-    if @user.valid_invitation?
+    if @user.valid? && @user.invite!
       redirect_to users_path, notice: 'User was successfully invited.'
     else
       render :new
