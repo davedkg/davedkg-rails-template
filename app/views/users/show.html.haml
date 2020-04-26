@@ -1,0 +1,29 @@
+.content__inner.content__inner--sm
+  %header.content__title
+    %h1= user_name(@user)
+    %small= "Member since: #{user_member_since(@user)}"
+    .actions
+      - if policy(@user).resend_invitation?
+        = link_to resend_invitation_user_path(@user), class: "btn btn-secondary btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to resend this invitation?" } do
+          %i.fa.fa-envelope-open
+          .d-none.d-md-inline
+            Resend Invitation
+      - if policy(@user).destroy?
+        = link_to @user, class: "btn btn-danger btn-sm", data: { method: :delete, confirm: "Are you sure you want to delete this user?" } do
+          %i.fa.fa-trash
+          .d-none.d-md-inline
+            Delete
+
+  .card.profile
+    .profile__img
+      %img{ gravatar_attrs(current_user, size: 200) }/
+      %a.zmdi.zmdi-camera.profile__img__edit{:href => ""}
+    .profile__info
+      %ul.icon-list
+        %li
+          %i.zmdi.zmdi-email
+          = @user.email
+        %li
+          %i.fa.fa-user-shield
+          = @user.role
+

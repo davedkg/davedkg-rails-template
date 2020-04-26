@@ -5,11 +5,14 @@ class UsersController < ApplicationController
   breadcrumb "Users", :users_path, except: [ :index ]
 
   def index
-    @users = authorize User.order(email: :asc).page(params[:page])
+    @users = authorize User.order(name: :asc).page(params[:page])
   end
 
   def new
     @user = authorize User.new
+  end
+
+  def show
   end
 
   def create
@@ -33,7 +36,7 @@ class UsersController < ApplicationController
   def resend_invitation
     @user.send_invitation
 
-    redirect_to users_path, notice: 'Invitation was sucessfully resent.'
+    redirect_to @user, notice: 'Invitation was sucessfully resent.'
   end
 
   private

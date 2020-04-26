@@ -4,7 +4,7 @@ describe UserPolicy do
   subject { described_class.new(user, other_user) }
 
   let(:user) { create(:user) }
-  let(:other_user) { user }
+  let(:other_user) { create(:user) }
 
   context 'as a user' do
     it { is_expected.to forbid_actions([ :index, :new, :create, :show, :edit, :update, :destroy, :resend_invitation ]) }
@@ -13,8 +13,14 @@ describe UserPolicy do
   context "as an admin" do
     let(:user) { create(:user, :admin) }
 
-    it { is_expected.to permit_actions([ :index, :new, :create, :destroy, :resend_invitation ]) }
-    it { is_expected.to forbid_actions([ :show, :edit, :update ]) }
+    it { is_expected.to permit_actions([ :index, :new, :create, :show, :destroy ]) }
+    it { is_expected.to forbid_actions([ :edit, :update, :resend_invitation ]) }
+
+    context "when user has not accepted invitation" do
+      let(:other_user) { create(:user, :unconfirmed) }
+
+      it { is_expected.to permit_actions([ :resend_invitation ]) }
+    end
   end
 
 end

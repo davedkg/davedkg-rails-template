@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :users, except: [ :show, :edit, :update ] do
+  resources :users, except: [ :edit, :update ] do
     post 'resend-invitation', on: :member
   end
 

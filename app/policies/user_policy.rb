@@ -8,12 +8,16 @@ class UserPolicy < ApplicationPolicy
     user.admin?
   end
 
-  def destroy?
+  def show?
     user.admin?
   end
 
+  def destroy?
+    user.admin? && user != record
+  end
+
   def resend_invitation?
-    user.admin?
+    user.admin? && !record.invitation_accepted_at?
   end
 
 end

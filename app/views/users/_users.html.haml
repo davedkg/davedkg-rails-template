@@ -1,16 +1,14 @@
 - @users.each do |user|
   %tr
-    %td= user.name
-    %td= user.email
-    %td= user.role
     %td
-      - if !user.invitation_accepted_at? && policy(user).resend_invitation?
-        = link_to resend_invitation_user_path(user), class: "btn btn-info btn-sm mr-2", data: { method: :post, confirm: "Are you sure?" } do
-          %i.fa.fa-envelope-open
+      = user_name(user)
+    %td.d-none.d-md-table-cell
+      = user.email
+    %td.d-none.d-md-table-cell
+      = user.role
+    %td.text-right
+      - if policy(user).show?
+        = link_to user_path(user), class: "btn btn-secondary btn-sm" do
+          %i.fa.fa-eye
           .d-none.d-sm-inline
-            Resend Invitation
-      - if user != current_user && policy(user).destroy?
-        = link_to user, class: "btn btn-danger btn-sm", data: { method: :delete, confirm: "Are you sure?" } do
-          %i.fa.fa-trash
-          .d-none.d-sm-inline
-            Delete
+            Show
