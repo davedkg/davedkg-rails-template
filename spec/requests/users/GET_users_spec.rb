@@ -2,11 +2,13 @@ require "rails_helper"
 
 describe "GET users_path", type: :request do
 
+  subject { get users_path }
+
   let(:user) { create(:user) }
 
   before do
     sign_in user
-    get users_path
+    subject
   end
 
   context "as a user" do

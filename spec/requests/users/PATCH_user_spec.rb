@@ -2,9 +2,11 @@ require "rails_helper"
 
 describe "GET edit_user_path", type: :request do
 
+  subject { patch user_path(record), params: { user: user_params } }
+
   let(:user_params) { attributes_for(:user) }
   let(:user) { create(:user) }
-  let(:other_user) { create(:user) }
+  let(:record) { create(:user) }
 
   before do
     sign_in user
@@ -12,22 +14,22 @@ describe "GET edit_user_path", type: :request do
 
   context "as a user" do
     it "returns not_found status" do
-      described_request
+      subject
       expect(response).to have_http_status(:not_found)
     end
 
-    context "when user == current_user" do
-      let(:other_user) { user }
+    context "when record is me" do
+      let(:record) { user }
 
       it "returns redirect status" do
-        described_request
+        subject
         expect(response).to have_http_status(:redirect)
       end
 
-      it "updates a user" do
+      it "updates record" do
         expect {
-          described_request
-        }.to change { other_user.reload.updated_at }
+          subject
+        }.to change { record.reload.updated_at }
       end
     end
   end
@@ -36,13 +38,9 @@ describe "GET edit_user_path", type: :request do
     let(:user) { create(:user, :admin) }
 
     it "returns not_found status" do
-      described_request
+      subject
       expect(response).to have_http_status(:not_found)
     end
-  end
-
-  def described_request
-    patch user_path(other_user), params: { user: user_params }
   end
 
 end

@@ -2,12 +2,14 @@ require "rails_helper"
 
 describe "GET user_path", type: :request do
 
+  subject { get user_path(record) }
+
   let(:user) { create(:user) }
-  let(:other_user) { create(:user) }
+  let(:record) { create(:user) }
 
   before do
     sign_in user
-    get user_path(other_user)
+    subject
   end
 
   context "as a user" do
@@ -16,7 +18,7 @@ describe "GET user_path", type: :request do
     end
 
     context "when user == current_user" do
-      let(:other_user) { user }
+      let(:record) { user }
 
       it "returns ok status" do
         expect(response).to have_http_status(:ok)
