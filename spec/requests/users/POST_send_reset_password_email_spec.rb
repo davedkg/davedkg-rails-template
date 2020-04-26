@@ -1,8 +1,8 @@
 require "rails_helper"
 
-describe "POST resend_invitation_user_path", type: :request do
+describe "POST send_reset_password_email_user_path", type: :request do
 
-  subject { create(:user, :invitation_not_accepted) }
+  subject { create(:user) }
   let(:user) { create(:user) }
 
   before do
@@ -34,7 +34,7 @@ describe "POST resend_invitation_user_path", type: :request do
   end
 
   def described_request
-    post resend_invitation_user_path(subject)
+    post send_reset_password_email_user_path(subject)
   end
 
 end

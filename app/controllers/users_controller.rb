@@ -46,10 +46,16 @@ class UsersController < ApplicationController
     redirect_to users_path, notice: "User was successfully deleted."
   end
 
-  def resend_invitation
+  def resend_invitation_email
     @user.send_invitation
 
-    redirect_to @user, notice: 'Invitation was sucessfully resent.'
+    redirect_to @user, notice: 'Invitation email was sucessfully resent.'
+  end
+
+  def send_reset_password_email
+    @user.send_reset_password_instructions
+
+    redirect_to @user, notice: "Reset password email was successfully sent."
   end
 
   private

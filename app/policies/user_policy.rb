@@ -20,8 +20,12 @@ class UserPolicy < ApplicationPolicy
     user.admin? && user != record
   end
 
-  def resend_invitation?
+  def resend_invitation_email?
     user.admin? && !record.invitation_accepted_at?
+  end
+
+  def send_reset_password_email?
+    user.admin? && user != record && record.invitation_accepted_at?
   end
 
   def permitted_attributes

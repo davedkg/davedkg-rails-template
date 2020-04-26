@@ -7,7 +7,7 @@ describe UserPolicy do
   let(:other_user) { create(:user) }
 
   context 'as a user' do
-    it { is_expected.to forbid_actions([ :index, :new, :create, :show, :edit, :update, :destroy, :resend_invitation ]) }
+    it { is_expected.to forbid_actions([ :index, :new, :create, :show, :edit, :update, :destroy, :resend_invitation_email, :send_reset_password_email ]) }
     it { is_expected.to permit_mass_assignment_of_exactly([ :name, :time_zone ]) }
 
     context "when user equals current_user" do
@@ -20,20 +20,21 @@ describe UserPolicy do
   context "as an admin" do
     let(:user) { create(:user, :admin) }
 
-    it { is_expected.to permit_actions([ :index, :new, :create, :show, :destroy ]) }
-    it { is_expected.to forbid_actions([ :edit, :update, :resend_invitation ]) }
+    it { is_expected.to permit_actions([ :index, :new, :create, :show, :destroy, :send_reset_password_email ]) }
+    it { is_expected.to forbid_actions([ :edit, :update, :resend_invitation_email ]) }
     it { is_expected.to permit_mass_assignment_of_exactly([ :email, :role ]) }
 
     context "when user equals current_user" do
       let(:other_user) { user }
 
-      it { is_expected.to forbid_actions([ :resend_invitation ]) }
+      it { is_expected.to forbid_actions([ :resend_invitation_email, :send_reset_password_email ]) }
     end
 
     context "when user has not accepted invitation" do
       let(:other_user) { create(:user, :unconfirmed) }
 
-      it { is_expected.to permit_actions([ :resend_invitation ]) }
+      it { is_expected.to permit_actions([ :resend_invitation_email ]) }
+      it { is_expected.to forbid_actions([ :send_reset_password_email ]) }
     end
   end
 
