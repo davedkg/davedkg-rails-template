@@ -12,11 +12,14 @@ FactoryBot.define do
 
     trait :unconfirmed do
       confirmed_at { nil }
-      invitation_accepted_at { nil }
     end
 
     trait :invitation_not_accepted do
       invitation_accepted_at { nil }
+    end
+
+    trait :locked do
+      locked_at { Time.now }
     end
   end
 end

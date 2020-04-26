@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users do
     post 'resend-invitation-email',   on: :member
     post 'send-reset-password-email', on: :member
+    post 'unlock',                    on: :member
   end
 
   resources :web_components, only: [ :index ], path: :"web-components"

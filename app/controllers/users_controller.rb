@@ -58,6 +58,12 @@ class UsersController < ApplicationController
     redirect_to @user, notice: "Reset password email was successfully sent."
   end
 
+  def unlock
+    @user.unlock_access!
+
+    redirect_to @user, notice: "User was successfully unlocked."
+  end
+
   private
 
   def set_user

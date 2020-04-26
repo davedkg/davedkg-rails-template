@@ -1,6 +1,5 @@
 class User < ApplicationRecord
 
-  # Additional: :registerable, :timeoutable, and :omniauthable
   devise :database_authenticatable, :confirmable, :invitable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
          validate_on_invite: true
@@ -20,10 +19,20 @@ class User < ApplicationRecord
     self.deliver_invitation
   end
 
+  ## *** States
+
   def state
-    return :invited if !invitation_accepted_at?
-    return :locked  if access_locked?
+    return :invited if !accepted_invitation?
+    return :locked  if locked?
     :active
+  end
+
+  def accepted_invitation?
+    invitation_accepted_at?
+  end
+
+  def locked?
+    access_locked?
   end
 
   ## *** Devise Overrides

@@ -1,39 +1,61 @@
 class UserPolicy < ApplicationPolicy
 
   def index?
-    user.admin?
+    admin?
   end
 
   def show?
-    user.admin? || user == record
+    admin? || me?
   end
 
   def create?
-    user.admin?
+    admin?
   end
 
   def update?
-    user == record
+    me?
   end
 
   def destroy?
-    user.admin? && user != record
+    admin? && !me?
   end
 
   def resend_invitation_email?
-    user.admin? && !record.invitation_accepted_at?
+    admin? && !me? && !accepted_invitation?
   end
 
   def send_reset_password_email?
-    user.admin? && user != record && record.invitation_accepted_at?
+    admin? && !me? && accepted_invitation? && !locked?
+  end
+
+  def unlock?
+    admin? && !me? && accepted_invitation? && locked?
   end
 
   def permitted_attributes
-    if user.admin?
+    if admin?
       [ :email, :role ]
     else
-      [:name, :time_zone]
+      [ :name, :time_zone ]
     end
+  end
+
+  private
+
+  def me?
+    user == record
+  end
+
+  def admin?
+    user.admin?
+  end
+
+  def accepted_invitation?
+    record.accepted_invitation?
+  end
+
+  def locked?
+    record.locked?
   end
 
 end
