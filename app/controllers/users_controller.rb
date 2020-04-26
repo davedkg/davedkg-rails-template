@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :set_user, except: [ :index, :new, :create ]
 
-  breadcrumb "Users", :users_path, except: [ :index ]
+  breadcrumb "Users", :users_path, except: [ :index ], if: -> { policy(User).index? }
   breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: [ :edit, :update ]
 
   def index
