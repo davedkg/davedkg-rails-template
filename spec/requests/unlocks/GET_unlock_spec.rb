@@ -2,51 +2,40 @@ require "rails_helper"
 
 describe "GET user_unlock_path", type: :request do
 
-  let(:user) { create(:user) }
+  subject { get user_unlock_path, params: { unlock_token: raw_unlock_token } }
+
+  let(:user) { create(:user, :locked) }
   let(:raw_unlock_token) { user.send_unlock_instructions }
 
-  before do
-    user.lock_access!
+  it "returns redirect status" do
+    subject
+    expect(response).to have_http_status(:redirect)
   end
 
-  context "when unlock_token is valid" do
-    it "returns redirect status" do
-      described_request
+  it "redirects to new_user_session_path" do
+    subject
+    expect(response).to redirect_to(new_user_session_path)
+  end
 
-      expect(response).to have_http_status(:redirect)
-    end
-
-    it "redirects to new_user_session_path" do
-      described_request
-
-      expect(response).to redirect_to(new_user_session_path)
-    end
-
-    it "unlocks user's account" do
-      expect {
-        described_request
-      }.to change{ user.reload.access_locked? }
-    end
+  it "unlocks user's account" do
+    expect {
+      subject
+    }.to change{ user.reload.locked? }
   end
 
   context "when unlock_token is invalid" do
     let(:raw_unlock_token) { 'invalid_token' }
 
     it "returns redirect status" do
-      described_request
-
+      subject
       expect(response).to have_http_status(:ok)
     end
 
-    it "unlocks user's account" do
+    it "does not unlock user's account" do
       expect {
-        described_request
-      }.not_to change{ user.reload.access_locked? }
+        subject
+      }.not_to change{ user.reload.locked? }
     end
-  end
-
-  def described_request
-    get user_unlock_path, params: { unlock_token: raw_unlock_token }
   end
 
 end

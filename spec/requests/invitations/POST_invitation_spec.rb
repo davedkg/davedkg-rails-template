@@ -1,9 +1,10 @@
-# frozen_string_literal: true
-
 require "rails_helper"
 
 describe "POST user_invitation_path", type: :request do
-  before { get new_user_invitation_path }
+
+  subject { get new_user_invitation_path }
+
+  before { subject }
 
   it "returns redirect status" do
     expect(response).to have_http_status(:redirect)

@@ -3,29 +3,25 @@
 require "rails_helper"
 
 describe "PATCH user_invitation_path", type: :request do
+
+  subject { patch user_invitation_path, params: { user: user_params } }
+
   let(:user) { create(:user, :invitation_not_accepted) }
+  let(:user_params) { { password: password, invitation_token: raw_invitation_token } }
   let(:password) { user.password }
   let(:raw_invitation_token) do
     user.invite! { |u| u.skip_invitation = true }
     user.raw_invitation_token
   end
-  let(:agree_to_legal_terms) { "1" }
-  let(:user_params) { { password: password, agree_to_legal_terms: agree_to_legal_terms, invitation_token: raw_invitation_token } }
 
-  before { patch user_invitation_path, params: { user: user_params } }
+  before { subject }
 
-  context "when password is valid" do
-    context "when invitation_token is correct" do
-      context "when terms are accepted" do
-        it "returns redirect status" do
-          expect(response).to have_http_status(:redirect)
-        end
+  it "returns redirect status" do
+    expect(response).to have_http_status(:redirect)
+  end
 
-        it "marks user as invitation_accepted?" do
-          expect(user.reload).to be_invitation_accepted
-        end
-      end
-    end
+  it "marks user as invitation_accepted?" do
+    expect(user.reload).to be_invitation_accepted
   end
 
   context "when password is invalid" do
