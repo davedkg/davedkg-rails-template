@@ -4,10 +4,6 @@
       = user_status_badge(user)
     %td
       = user_name(user)
-    %td.d-none.d-md-table-cell
-      = user.email
-    %td.d-none.d-md-table-cell
-      = user.role
     %td.text-right
       - if policy(user).show?
         = link_to user_path(user), class: "btn btn-secondary btn-sm" do
