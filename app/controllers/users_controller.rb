@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: [ :index, :new, :create ]
 
   breadcrumb "Users", :users_path, except: [ :index ]
+  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: [ :edit, :update ]
 
   def index
     @users = authorize User.order(name: :asc).page(params[:page])
@@ -15,8 +16,12 @@ class UsersController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
   def create
-    @user = authorize User.new(user_params)
+    @user = authorize User.new
+    @user.attributes               = permitted_attributes(@user)
     @user.invited_by               = current_user
     @user.skip_password_validation = true
 
@@ -24,6 +29,14 @@ class UsersController < ApplicationController
       redirect_to users_path, notice: 'User was successfully invited.'
     else
       render :new
+    end
+  end
+
+  def update
+    if @user.update(permitted_attributes(@user))
+      redirect_to @user, notice: "User was successfully updated."
+    else
+      render :edit
     end
   end
 
@@ -40,10 +53,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def user_params
-    params.require(:user).permit(:email, :role)
-  end
 
   def set_user
     @user = authorize User.find(params[:id])

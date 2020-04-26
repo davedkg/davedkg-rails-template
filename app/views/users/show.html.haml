@@ -3,8 +3,13 @@
     %h1= user_name(@user)
     %small= "Member since: #{user_member_since(@user)}"
     .actions
+      - if policy(@user).edit?
+        = link_to edit_user_path(@user), class: "btn btn-secondary btn-sm mr-2" do
+          %i.fa.fa-edit
+          .d-none.d-md-inline
+            Edit
       - if policy(@user).resend_invitation?
-        = link_to resend_invitation_user_path(@user), class: "btn btn-secondary btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to resend this invitation?" } do
+        = link_to resend_invitation_user_path(@user), class: "btn btn-info btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to resend this invitation?" } do
           %i.fa.fa-envelope-open
           .d-none.d-md-inline
             Resend Invitation

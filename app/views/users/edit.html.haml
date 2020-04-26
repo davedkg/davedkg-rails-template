@@ -1,0 +1,11 @@
+.row{ "data-turbolinks-animate-persist" => "true" }
+  .col-md-8.offset-md-2
+    .card
+      .card-body
+        %h4.card-title= page_title
+        = simple_form_for(@user) do |f|
+          = f.error_notification
+          = f.input :name
+          = f.input :time_zone
+          = f.button :submit, "Save", data: { "disable-with": "Saving..." }
+          = link_to "Cancel", @user, class: "btn btn-default"

@@ -8,11 +8,12 @@ describe UserPolicy do
 
   context 'as a user' do
     it { is_expected.to forbid_actions([ :index, :new, :create, :show, :edit, :update, :destroy, :resend_invitation ]) }
+    it { is_expected.to permit_mass_assignment_of_exactly([ :name, :time_zone ]) }
 
     context "when user equals current_user" do
       let(:other_user) { user }
 
-      it { is_expected.to permit_actions([ :show ]) }
+      it { is_expected.to permit_actions([ :show, :edit, :update ]) }
     end
   end
 
@@ -21,6 +22,7 @@ describe UserPolicy do
 
     it { is_expected.to permit_actions([ :index, :new, :create, :show, :destroy ]) }
     it { is_expected.to forbid_actions([ :edit, :update, :resend_invitation ]) }
+    it { is_expected.to permit_mass_assignment_of_exactly([ :email, :role ]) }
 
     context "when user equals current_user" do
       let(:other_user) { user }
