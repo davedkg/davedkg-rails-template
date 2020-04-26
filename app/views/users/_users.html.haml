@@ -1,5 +1,7 @@
 - @users.each do |user|
   %tr
+    %td.d-none.d-md-table-cell
+      = user_status_badge(user)
     %td
       = user_name(user)
     %td.d-none.d-md-table-cell

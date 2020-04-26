@@ -1,6 +1,8 @@
 .content__inner.content__inner--sm
   %header.content__title
-    %h1= user_name(@user)
+    %h1
+      = user_name(@user)
+      = user_status_badge(@user)
     %small= "Member since: #{user_member_since(@user)}"
     .actions
       - if policy(@user).edit?

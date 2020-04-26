@@ -20,6 +20,12 @@ class User < ApplicationRecord
     self.deliver_invitation
   end
 
+  def state
+    return :invited if !invitation_accepted_at?
+    return :locked  if access_locked?
+    :active
+  end
+
   ## *** Devise Overrides
 
   def send_devise_notification(notification, *args)
