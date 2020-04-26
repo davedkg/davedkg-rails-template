@@ -1,0 +1,11 @@
+@import "mixins";
+
+.web_components {
+
+  @include media-breakpoint-down(sm) {
+    pre {
+      display: none;
+    }
+  }
+
+}

@@ -1,4 +1,4 @@
-@import "colors";
+@import "mixins";
 
 .form-control[readonly]:not([disabled]) {
   opacity: 1;
