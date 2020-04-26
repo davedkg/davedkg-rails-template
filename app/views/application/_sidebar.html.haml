@@ -8,6 +8,9 @@
           .user__name= current_user.name
           .user__email= current_user.email
       .dropdown-menu
+        = link_to current_user, class: "dropdown-item" do
+          %i.fa.fa-user
+          Profile
         = link_to destroy_user_session_path, class: "dropdown-item", data: { method: :delete } do
           %i.fa.fa-sign-out-alt
           Sign Out

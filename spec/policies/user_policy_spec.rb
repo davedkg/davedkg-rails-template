@@ -8,6 +8,12 @@ describe UserPolicy do
 
   context 'as a user' do
     it { is_expected.to forbid_actions([ :index, :new, :create, :show, :edit, :update, :destroy, :resend_invitation ]) }
+
+    context "when user equals current_user" do
+      let(:other_user) { user }
+
+      it { is_expected.to permit_actions([ :show ]) }
+    end
   end
 
   context "as an admin" do
