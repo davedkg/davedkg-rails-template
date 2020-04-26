@@ -8,7 +8,6 @@ describe "POST user_password_path", type: :request do
   let(:email) { user.email }
 
   before do
-    Devise.mailer.deliveries.clear
     subject
   end
 

@@ -7,10 +7,6 @@ describe "POST user_unlock_path", type: :request do
   let(:user_params) { { email: user.email } }
   let(:user) { create(:user, :locked) }
 
-  before do
-    Devise.mailer.deliveries.clear
-  end
-
   it "creates a lock token" do
     expect {
       subject
