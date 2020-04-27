@@ -51,13 +51,4 @@ describe UserPolicy do
     end
   end
 
-  context "Scope" do
-    let(:records) { ApplicationPolicy::Scope.new(user, User).resolve.load }
-    let!(:other_record) { create(:user) }
-
-    it "returns all records" do
-      expect(records).to contain_exactly(record, other_record)
-    end
-  end
-
 end
