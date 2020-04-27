@@ -10,10 +10,6 @@ FactoryBot.define do
       role { User.roles[:admin] }
     end
 
-    trait :unconfirmed do
-      confirmed_at { nil }
-    end
-
     trait :invitation_not_accepted do
       invitation_accepted_at { nil }
     end

@@ -34,15 +34,6 @@ describe User do
 
       expect(User.count).to eq(1)
     end
-
-    # TODO is it a confirmation email or invitation email
-    it "sends a confirmation email" do
-      user_attributes.delete(:confirmed_at)
-
-      expect do
-        User.create(user_attributes)
-      end.to change { Devise.mailer.deliveries.size }.by(1)
-    end
   end
 
   # FIXME

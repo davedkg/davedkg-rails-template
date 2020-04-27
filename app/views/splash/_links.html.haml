@@ -7,10 +7,6 @@
     = link_to new_password_path(resource_name), class: "btn btn-sm btn-outline-secondary mt-3 d-block" do
       Forgot your password?
 
-  - if devise_mapping.confirmable? && controller_name != 'confirmations'
-    = link_to new_confirmation_path(resource_name), class: "btn btn-sm btn-outline-secondary mt-3 d-block" do
-      Didn't receive confirmation instructions?
-
   - if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks'
     = link_to new_unlock_path(resource_name), class: "btn btn-sm btn-outline-secondary mt-3 d-block" do
       Didn't receive unlock instructions?

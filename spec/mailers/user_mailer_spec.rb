@@ -33,18 +33,6 @@ describe UserMailer, type: :mailer do
     end
   end
 
-  describe "#confirmation_instructions" do
-    subject { UserMailer.confirmation_instructions(record.id, token) }
-
-    it "sends to user's email" do
-      expect(subject.to).to contain_exactly(record.email)
-    end
-
-    it "contains user_confirmation_url" do
-      expect(subject.body).to have_link(nil, href: user_confirmation_url(confirmation_token: token))
-    end
-  end
-
   describe "#unlock_instructions" do
     subject { UserMailer.unlock_instructions(record.id, token) }
 

@@ -12,12 +12,11 @@ Rails.application.routes.draw do
     passwords: 'passwords',
     invitations: 'invitations',
     sessions: 'sessions',
-    unlocks: 'unlocks',
-    confirmations: 'confirmations'
+    unlocks: 'unlocks'
   }, path_names: {
     sign_in: 'sign-in',
     sign_out: 'sign-out'
-  }, path: '', skip: %i[omniauth_callbacks registrations]
+  }, path: '', skip: %i[confirmations omniauth_callbacks registrations]
 
   root to: "dashboard#show"
 

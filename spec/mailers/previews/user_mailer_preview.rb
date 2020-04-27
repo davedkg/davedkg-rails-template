@@ -4,10 +4,6 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.reset_password_instructions(user_id, {})
   end
 
-  def confirmation_instructions
-    UserMailer.confirmation_instructions(user_id, {})
-  end
-
   def unlock_instructions
     UserMailer.unlock_instructions(user_id, {})
   end
