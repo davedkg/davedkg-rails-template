@@ -16,6 +16,10 @@ class UserPolicy < ApplicationPolicy
     me?
   end
 
+  def update_password?
+    me?
+  end
+
   def destroy?
     admin? && !me?
   end
@@ -33,10 +37,10 @@ class UserPolicy < ApplicationPolicy
   end
 
   def permitted_attributes
-    if admin?
+    if admin? && !me?
       [ :email, :role ]
     else
-      [ :name, :time_zone ]
+      [ :name, :time_zone, :password, :password_confirmation ]
     end
   end
 

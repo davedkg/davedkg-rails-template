@@ -1,8 +1,8 @@
 require "rails_helper"
 
-describe "PATCH user_path", type: :request do
+describe "PATCH update_password_user_path", type: :request do
 
-  subject { patch user_path(record), params: { user: user_params } }
+  subject { patch update_password_user_path(record), params: { user: user_params } }
 
   let(:user_params) { attributes_for(:user) }
   let(:user) { create(:user) }
