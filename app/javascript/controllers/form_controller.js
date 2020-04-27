@@ -22,7 +22,7 @@ import { Controller } from "stimulus"
 
    // Create a delay to allow data-disable-with to work on Safari
    submitButtonClicked(e) {
-     let disableWith = e.target.dataset.disableWith
+     const disableWith = e.target.dataset.disableWith
 
      if (disableWith) {
        e.preventDefault()
