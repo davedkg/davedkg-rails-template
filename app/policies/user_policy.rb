@@ -40,7 +40,7 @@ class UserPolicy < ApplicationPolicy
     if admin? && !me?
       [ :email, :role ]
     else
-      [ :name, :time_zone, :password, :password_confirmation ]
+      [ :name, :time_zone, :password, :password_confirmation, :avatar ]
     end
   end
 

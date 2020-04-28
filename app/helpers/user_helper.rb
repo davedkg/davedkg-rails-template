@@ -1,5 +1,13 @@
 module UserHelper
 
+  def user_avatar_url(user, size=200)
+    if user.avatar.attached?
+      url_for(user.avatar.variant(resize_to_limit: [size, size]))
+    else
+      image_url("profile-100x100.png")
+    end
+  end
+
   def user_status_badge(user)
     case (user.state)
     when :invited

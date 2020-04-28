@@ -9,7 +9,7 @@ describe UserPolicy do
 
   context 'as a user' do
     it { is_expected.to forbid_actions([ :index, :new, :create, :show, :edit, :update, :destroy, :update_password, :resend_invitation_email, :send_reset_password_email ,:unlock ]) }
-    it { is_expected.to permit_mass_assignment_of_exactly([ :name, :time_zone, :password, :password_confirmation ]) }
+    it { is_expected.to permit_mass_assignment_of_exactly([ :name, :time_zone, :password, :password_confirmation, :avatar ]) }
 
     context "when user is me" do
       let(:record) { user }

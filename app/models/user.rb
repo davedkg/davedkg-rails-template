@@ -11,6 +11,8 @@ class User < ApplicationRecord
 
   attr_accessor :skip_password_validation
 
+  has_one_attached :avatar
+
   validates :time_zone, presence: true
   validates :name, presence: true, uniqueness: { case_sensitive: false }, on: :update
 

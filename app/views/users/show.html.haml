@@ -34,8 +34,7 @@
 
   .card.profile
     .profile__img
-      %img{ src: image_path("profile-256x256.png") }/
-      %a.zmdi.zmdi-camera.profile__img__edit{:href => ""}
+      %img{ src: user_avatar_url(@user) }/
     .profile__info
       %ul.icon-list
         %li
