@@ -1,0 +1,8 @@
+// TODO add loading spinner
+
+%img{ src: user_avatar_url(@user, 150) }/
+
+- if policy(@user).update_avatar?
+  = simple_form_for(@user, url: { action: :update_avatar }, image_cropper: true) do |f|
+    = f.input :avatar, as: :image_cropper
+    = link_to "", "#", data: { action: "click->forms--image-cropper-form#submitForm" }, class: "zmdi zmdi-camera profile__img__edit"

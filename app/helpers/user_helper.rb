@@ -1,6 +1,6 @@
 module UserHelper
 
-  def user_avatar_url(user, size=200)
+  def user_avatar_url(user, size=150)
     if user.avatar.attached?
       url_for(user.avatar.variant(resize_to_limit: [size, size]))
     else
@@ -21,14 +21,6 @@ module UserHelper
 
   def user_name(user)
     user.name || user.email
-  end
-
-  def user_member_since(user)
-    if user.invitation_accepted_at
-      user.invitation_accepted_at.strftime("%B %Y")
-    else
-      'n/a'
-    end
   end
 
 end

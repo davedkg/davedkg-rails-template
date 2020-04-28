@@ -2,8 +2,8 @@
   %header.content__title
     %h1
       = user_name(@user)
+    %small
       = user_status_badge(@user)
-    %small= "Member since: #{user_member_since(@user)}"
 
     .actions
       - if policy(@user).edit?
@@ -34,7 +34,7 @@
 
   .card.profile
     .profile__img
-      %img{ src: user_avatar_url(@user) }/
+      = render "avatar"
     .profile__info
       %ul.icon-list
         %li

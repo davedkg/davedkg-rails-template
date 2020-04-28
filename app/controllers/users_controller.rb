@@ -38,6 +38,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def destroy
+    @user.destroy
+
+    redirect_to users_path, notice: "User was successfully deleted."
+  end
+
   def update_password
     if @user.update(permitted_attributes(@user))
       bypass_sign_in(@user)
@@ -45,10 +51,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    @user.destroy
+  def update_avatar
+    @user.update(permitted_attributes(@user))
 
-    redirect_to users_path, notice: "User was successfully deleted."
+    redirect_to @user, notice: "Avatar was successfully updated."
   end
 
   def resend_invitation_email

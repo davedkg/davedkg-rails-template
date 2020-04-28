@@ -20,6 +20,10 @@ class UserPolicy < ApplicationPolicy
     me?
   end
 
+  def update_avatar?
+    me?
+  end
+
   def destroy?
     admin? && !me?
   end

@@ -1,14 +1,19 @@
-= simple_form_for :form do |f|
-  .card
-    .card-body
-      %h4.card-title Image Cropper
-      %h6.card-subtitle Requires :attribute to be an ActiveStorage object
+.card
+  .card-body
+    %h4.card-title Image Cropper
+
+    %hr/
+    %br/
+
+    %p
       .row
         .col-md-6
-          = f.input :default,  as: :file, image_cropper: true, required: false
-          = f.input :disabled, as: :file, image_cropper: true, required: false, disabled: true
-          = f.input :valid,    as: :file, image_cropper: true, required: false, valid: true
-          = f.input :invalid,  as: :file, image_cropper: true, required: false, error: "Invalid message"
+          = simple_form_for(:model, image_cropper: true) do |f|
+            = f.input :avatar, as: :image_cropper
+            = link_to "#", data: { action: "click->forms--image-cropper-form#submitForm" }, class: "btn btn-primary" do
+              %i.fa.fa-upload
+              Upload Photo
+      %br/
       .pt-4
         %pre
-          = "= f.input :attribute, image_cropper: true"
+          = "= simple_form_for(:model, image_cropper: true)  do |f|\r\s\s= f.input :attribute, as: :image_cropper\r\s\s= link_to \"#\", data: { action: \"click->forms--image-cropper-form#submitForm\" } do\r\s\s\s\s%i.fa.fa-upload\r\s\s\s\sUpload Photo"
