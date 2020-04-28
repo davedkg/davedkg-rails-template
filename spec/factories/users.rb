@@ -6,6 +6,10 @@ FactoryBot.define do
     confirmed_at { Time.zone.now }
     invitation_accepted_at { Time.zone.now }
 
+    trait :with_avatar do
+      avatar { FilesSpecHelper.png_200x200 }
+    end
+
     trait :admin do
       role { User.roles[:admin] }
     end

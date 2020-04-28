@@ -13,8 +13,9 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
+  validates :name,      presence: true, uniqueness: { case_sensitive: false }, on: :update
   validates :time_zone, presence: true
-  validates :name, presence: true, uniqueness: { case_sensitive: false }, on: :update
+  validates :avatar,    dimension: { width: 200, height: 200 }, content_type: /\Aimage\/.*\z/
 
   def send_invitation
     self.invitation_sent_at = Time.now
