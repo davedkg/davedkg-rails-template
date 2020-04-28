@@ -2,6 +2,7 @@
   .card
     .card-body
       %h4.card-title Image Cropper
+      %h6.card-subtitle Requires :attribute to be an ActiveStorage object
       .row
         .col-md-6
           = f.input :default,  as: :file, image_cropper: true, required: false

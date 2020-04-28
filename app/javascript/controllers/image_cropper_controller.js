@@ -13,6 +13,10 @@ export default class extends Controller {
     }
   }
 
+  get $label() {
+    return $(this.element).siblings(".custom-file-label")
+  }
+
   get cropperOptions() {
     return {
       viewport: {
@@ -39,12 +43,17 @@ export default class extends Controller {
 
   // *** Actions
 
-  // TODO what happens if its not a valid image
-  // TODO accept="image/jpeg" on input
   inputChanged(e) {
-    this.cropper     = this.createCropper()
-    this.cropperFile = e.target.files[0]
-    this.showModal()
+    const file = e.target.files[0]
+
+    if (file.type.match(/^image\//)) {
+      this.cropper     = this.createCropper()
+      this.cropperFile = file
+      this.showModal()
+    } else {
+      this.$label.html("choose a file...")
+      Toast.error(`Invalid file type: ${file.type}. File must be an image.`)
+    }
   }
 
   // *** Helpers

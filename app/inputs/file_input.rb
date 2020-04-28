@@ -12,6 +12,8 @@ class FileInput < SimpleForm::Inputs::FileInput
 
       add_stimulus_controller(options[:data], controller)
       add_stimulus_action(options[:data], action)
+
+      options[:accept] = "image/*"
     end
 
     options
