@@ -34,7 +34,7 @@
 
   .card.profile
     .profile__img
-      %img{ gravatar_attrs(current_user, size: 200) }/
+      %img{ src: image_path("profile-256x256.png") }/
       %a.zmdi.zmdi-camera.profile__img__edit{:href => ""}
     .profile__info
       %ul.icon-list

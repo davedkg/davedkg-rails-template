@@ -16,7 +16,6 @@ gem 'jbuilder', '~> 2.7'
 gem "autoprefixer-rails", "~> 6.7.2"
 gem 'devise', "~> 4.7.1"
 gem 'devise_invitable', '~> 2.0.0'
-gem 'gravatarify', '~> 3.0.0'
 gem "haml-rails", "~> 2.0"
 gem 'kaminari', "~> 1.1.1"
 gem "loaf", "~> 0.9.0"
