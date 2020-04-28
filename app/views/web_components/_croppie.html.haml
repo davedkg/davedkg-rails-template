@@ -1,0 +1,13 @@
+= simple_form_for :form do |f|
+  .card
+    .card-body
+      %h4.card-title Image Cropper
+      .row
+        .col-md-6
+          = f.input :default,  as: :file, image_cropper: true, required: false
+          = f.input :disabled, as: :file, image_cropper: true, required: false, disabled: true
+          = f.input :valid,    as: :file, image_cropper: true, required: false, valid: true
+          = f.input :invalid,  as: :file, image_cropper: true, required: false, error: "Invalid message"
+      .pt-4
+        %pre
+          = "= f.input :attribute, as: :file, image_cropper: true"
