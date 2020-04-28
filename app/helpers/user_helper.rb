@@ -4,7 +4,7 @@ module UserHelper
     if user.avatar.attached?
       url_for(user.avatar.variant(resize_to_limit: [size, size]))
     else
-      image_url("profile-100x100.png")
+      image_url("profile-256x256.png")
     end
   end
 
