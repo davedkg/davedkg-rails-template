@@ -145,3 +145,24 @@
 .form-group.image_cropper {
   display: none;
 }
+
+// *** Select2
+
+.form-group-valid.select {
+  .select2-container--default .selection:before,
+  .select2-container--default .selection:after {
+    background-color: $shamrock-green;
+  }
+
+  border-bottom: 2px solid $shamrock-green;
+}
+
+.form-group-invalid.select {
+  .select2-container--default .selection:before,
+  .select2-container--default .selection:after {
+    background-color: $bittersweet-red;
+  }
+
+  border-bottom: 2px solid $bittersweet-red;
+}
+
