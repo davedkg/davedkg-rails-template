@@ -5,9 +5,19 @@ class CollectionSelectInput < SimpleForm::Inputs::CollectionSelectInput
     options = super
 
     options[:data] ||= {}
-    options[:data][:placeholder] = (options[:placeholder] || "choose an option...")
+    options[:data][:placeholder] = (options[:placeholder] || input_placeholder)
 
     options
+  end
+
+  private
+
+  def input_placeholder
+    if input_options[:multiple]
+      "choose one or more options..."
+    else
+      "choose an option..."
+    end
   end
 
   def stimulus_data_attributes
