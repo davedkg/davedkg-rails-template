@@ -115,10 +115,10 @@
 
       .row
         .col-md-6
-          = f.input :default,  collection: collection, multiple: true, required: false
-          = f.input :disabled, collection: collection, multiple: true, required: false, disabled: true
-          = f.input :valid,    collection: collection, multiple: true, required: false, valid: true
-          = f.input :invalid,  collection: collection, multiple: true, required: false, error: "Invalid message"
+          = f.input :default_multiple,  collection: collection, multiple: true, label: "Default",  required: false
+          = f.input :disabled_multiple, collection: collection, multiple: true, label: "Disabled", required: false, disabled: true
+          = f.input :valid_multiple,    collection: collection, multiple: true, label: "Valid",    required: false, valid: true
+          = f.input :invalid_multiple,  collection: collection, multiple: true, label: "Invalid",  required: false, error: "Invalid message"
       .pt-4
         %pre
           = "= f.input :attribute, collection: collection, multiple: true"
