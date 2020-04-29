@@ -31,6 +31,29 @@ describe "PATCH update_avatar_user_path", type: :request do
           subject
         }.to change { record.reload.updated_at }
       end
+
+      it "creates an ActiveStorage object" do
+        expect {
+          subject
+        }.to change { ActiveStorage::Attachment.count }
+      end
+
+      context "when file is invalid" do
+        before do
+          user_params[:avatar] = FilesSpecHelper.txt
+        end
+
+        it "returns redirect status" do
+          subject
+          expect(response).to have_http_status(:redirect)
+        end
+
+        it "does not create an ActiveStorage object" do
+          expect {
+            subject
+          }.not_to change { ActiveStorage::Attachment.count }
+        end
+      end
     end
   end
 

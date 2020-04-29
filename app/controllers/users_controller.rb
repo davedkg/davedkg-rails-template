@@ -52,9 +52,11 @@ class UsersController < ApplicationController
   end
 
   def update_avatar
-    @user.update(permitted_attributes(@user))
-
-    redirect_to @user, notice: "Avatar was successfully updated."
+    if @user.update(permitted_attributes(@user))
+      redirect_to @user, notice: "Avatar was successfully updated."
+    else
+      redirect_to @user, error: "Avatar was unsuccessfully updated."
+    end
   end
 
   def resend_invitation_email
