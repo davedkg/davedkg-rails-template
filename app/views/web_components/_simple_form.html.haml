@@ -97,6 +97,7 @@
   .card
     .card-body
       %h4.card-title Select
+      %h6.card-subtitle Single Select
       .row
         .col-md-6
           = f.input :default,  collection: collection, required: false
@@ -106,6 +107,21 @@
       .pt-4
         %pre
           = "= f.input :attribute, collection: collection"
+
+      %br/
+      %hr/
+      %br/
+      %h6.card-subtitle Multi Select
+
+      .row
+        .col-md-6
+          = f.input :default,  collection: collection, multiple: true, required: false
+          = f.input :disabled, collection: collection, multiple: true, required: false, disabled: true
+          = f.input :valid,    collection: collection, multiple: true, required: false, valid: true
+          = f.input :invalid,  collection: collection, multiple: true, required: false, error: "Invalid message"
+      .pt-4
+        %pre
+          = "= f.input :attribute, collection: collection, multiple: true"
 
   .card
     .card-body
