@@ -36,5 +36,13 @@
     "sendgrid",
     "sentry"
   ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick"
+    },
+    {
+      "url": "heroku/ruby"
+    }
+  ]
   "image": "heroku/ruby"
 }

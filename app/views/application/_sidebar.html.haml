@@ -3,7 +3,7 @@
 
     .user
       .user__info{"data-toggle" => "dropdown"}
-        %img.user__img{ gravatar_attrs(current_user, size: 50) }/
+        %img.user__img{ src: user_avatar_url(current_user, 50) }/
         %div
           .user__name= current_user.name
           .user__email= current_user.email

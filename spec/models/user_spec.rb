@@ -14,6 +14,18 @@ describe User do
       expect(User.new(user_attributes).valid?).to be(false)
     end
 
+    it "requires avatar of content_type image" do
+      user_attributes[:avatar] = FilesSpecHelper.txt
+
+      expect(User.new(user_attributes)).not_to be_valid
+    end
+
+    it "requires avatar with width and height equal to 200px" do
+      user_attributes[:avatar] = FilesSpecHelper.png_150x150
+
+      expect(User.new(user_attributes)).not_to be_valid
+    end
+
     context "when updating user" do
       let!(:user) { create(:user) }
 

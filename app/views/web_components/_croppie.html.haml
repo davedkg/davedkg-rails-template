@@ -1,0 +1,19 @@
+.card
+  .card-body
+    %h4.card-title Image Cropper
+
+    %hr/
+    %br/
+
+    %p
+      .row
+        .col-md-6
+          = simple_form_for(:model, image_cropper: true) do |f|
+            = f.input :avatar, as: :image_cropper
+            = link_to "#", data: { action: "click->forms--image-cropper-form#submitForm" }, class: "btn btn-primary" do
+              %i.fa.fa-upload
+              Upload Photo
+      %br/
+      .pt-4
+        %pre
+          = "= simple_form_for(:model, image_cropper: true)  do |f|\r\s\s= f.input :attribute, as: :image_cropper\r\s\s= link_to \"#\", data: { action: \"click->forms--image-cropper-form#submitForm\" } do\r\s\s\s\s%i.fa.fa-upload\r\s\s\s\sUpload Photo"

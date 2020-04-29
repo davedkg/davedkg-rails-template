@@ -9,7 +9,7 @@ module StimulusableConcern
     options
   end
 
-  private
+  protected
 
   def stimululs_controller_name
     @stimululs_controller_name ||= "inputs--#{self.class.to_s.titleize.parameterize}"
@@ -18,21 +18,29 @@ module StimulusableConcern
   def add_stimulus_options(options)
     options[:data] ||= {}
 
-    add_stimulus_controller(options[:data])
-    add_stimulus_data_attributes(options[:data])
+    add_stimulus_controller(options[:data], stimululs_controller_name)
+    add_stimulus_data_attributes(options[:data], stimululs_controller_name)
   end
 
-  def add_stimulus_controller(data)
+  def add_stimulus_controller(data, controller_name)
     controllers = (data[:controller] || "").split(" ")
 
-    controllers << stimululs_controller_name if !controllers.include?(stimululs_controller_name)
+    controllers << controller_name if !controllers.include?(controller_name)
 
     data[:controller] = controllers.join(" ")
   end
 
-  def add_stimulus_data_attributes(data)
+  def add_stimulus_action(data, action)
+    actions = (data[:action] || "").split(" ")
+
+    actions << action if !actions.include?(action)
+
+    data[:action] = actions.join(" ")
+  end
+
+  def add_stimulus_data_attributes(data, controller_name)
     stimulus_data_attributes.each do |key, value|
-      param_key       = "#{stimululs_controller_name}-#{key.to_s.parameterize}"
+      param_key       = "#{controller_name}-#{key.to_s.parameterize}"
       data[param_key] = value if !data.key(param_key)
     end
   end
