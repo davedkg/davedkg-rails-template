@@ -16,19 +16,19 @@ describe User do
       expect(subject).not_to be_valid
     end
 
-    it "requires avatar of content_type image" do
+    it "returns false when avatar IS NOT of content_type image" do
       user_attributes[:avatar] = FilesSpecHelper.txt
 
       expect(subject).not_to be_valid
     end
 
-    it "requires a unique email address" do
+    it "returns false when email address IS NOT unique" do
       User.create(user_attributes)
 
       expect(subject).not_to be_valid
     end
 
-    it "requires avatar with width and height equal to 200px" do
+    it "returns false when avatar IS NOT of width and height equal to 200px" do
       user_attributes[:avatar] = FilesSpecHelper.png_150x150
 
       expect(subject).not_to be_valid
