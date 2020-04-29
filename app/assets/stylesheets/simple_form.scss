@@ -155,6 +155,10 @@
     background-color: $shamrock-green;
   }
 
+  &.form_valid_multiple {
+    border-bottom-width: 2px;
+  }
+
   border-bottom: 1px solid $shamrock-green;
 }
 
@@ -163,6 +167,10 @@
   .select2-container--default .selection:before,
   .select2-container--default .selection:after {
     background-color: $bittersweet-red;
+  }
+
+  &.form_invalid_multiple {
+    border-bottom-width: 2px;
   }
 
   border-bottom: 1px solid $bittersweet-red;
