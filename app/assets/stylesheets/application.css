@@ -16,6 +16,7 @@
  *= require fontawesome
  *= require select2/dist/css/select2
  *= require flatpickr/dist/flatpickr
+ *= require flatpickr/dist/themes/material_blue
  *= require croppie/croppie
  *= require material
  *= require_tree ./controllers
