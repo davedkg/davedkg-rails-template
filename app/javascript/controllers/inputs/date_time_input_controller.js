@@ -15,13 +15,15 @@ import flatpickr from "flatpickr"
          return {
            altFormat: "l, F j, Y",
            altInput: true,
-           dateFormat: "Y-m-d"
+           dateFormat: "Y-m-d",
+           disableMobile: true
          }
        case "time":
          return {
            altFormat: "h:i K",
            altInput: true,
            dateFormat: "H:i",
+           disableMobile: true,
            enableTime: true,
            noCalendar: true
          }
@@ -30,6 +32,7 @@ import flatpickr from "flatpickr"
            altFormat: "l, F j, Y @ h:i K",
            altInput: true,
            dateFormat: "Y-m-d H:i",
+           disableMobile: true,
            enableTime: true
          }
      }
