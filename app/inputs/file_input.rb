@@ -1,3 +1,3 @@
 class FileInput < SimpleForm::Inputs::FileInput
-  include StimulusableConcern
+  include Inputs::Stimulusable
 end

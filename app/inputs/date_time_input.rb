@@ -1,5 +1,5 @@
 class DateTimeInput < SimpleForm::Inputs::StringInput
-  include StimulusableConcern
+  include Inputs::Stimulusable
 
   def input_html_options
     super.merge(autocomplete: :off, placeholder: input_placeholder)

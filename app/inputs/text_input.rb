@@ -1,5 +1,5 @@
 class TextInput < SimpleForm::Inputs::TextInput
-  include StimulusableConcern
+  include Inputs::Stimulusable
 
   def input_html_options
     options        = super

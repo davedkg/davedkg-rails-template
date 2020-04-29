@@ -1,3 +1,3 @@
 class CollectionSelectInput < SimpleForm::Inputs::CollectionSelectInput
-  include StimulusableConcern
+  include Inputs::Stimulusable
 end

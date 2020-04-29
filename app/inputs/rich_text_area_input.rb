@@ -1,5 +1,5 @@
 class RichTextAreaInput < SimpleForm::Inputs::TextInput
-  include StimulusableConcern
+  include Inputs::Stimulusable
 
   def input(wrapper_options = nil)
     merged_input_options = merge_wrapper_options(input_html_options, wrapper_options)
