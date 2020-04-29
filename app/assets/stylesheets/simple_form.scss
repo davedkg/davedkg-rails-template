@@ -146,9 +146,10 @@
   display: none;
 }
 
-// *** Select2
+// *** Select2/Time Zone
 
-.form-group-valid.select {
+.form-group-valid.select,
+.form-group-valid.time_zone {
   .select2-container--default .selection:before,
   .select2-container--default .selection:after {
     background-color: $shamrock-green;
@@ -157,7 +158,8 @@
   border-bottom: 2px solid $shamrock-green;
 }
 
-.form-group-invalid.select {
+.form-group-invalid.select,
+.form-group-invalid.time_zone {
   .select2-container--default .selection:before,
   .select2-container--default .selection:after {
     background-color: $bittersweet-red;
