@@ -7,6 +7,14 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
 
   private
 
+  def input_inline
+    if input_options.include?(:inline)
+      input_options[:inline]
+    else
+      true
+    end
+  end
+
   def input_value
     case input_type
     when :date
@@ -30,7 +38,10 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
   end
 
   def stimulus_data_attributes
-    { type: input_type }
+    {
+      type: input_type,
+      inline: input_inline
+    }
   end
 
 end

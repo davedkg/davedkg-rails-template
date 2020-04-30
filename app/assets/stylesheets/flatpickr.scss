@@ -1,15 +1,28 @@
-.flatpickr-current-month .flatpickr-monthDropdown-months {
-//  -webkit-appearance: none;
-  background: none;
-  font-weight: bold;
-}
-
-.numInputWrapper span:hover {
-  background: inherit;
-}
+@import "mixins";
 
 .flatpickr-calendar {
+  &.inline {
+    box-shadow:none;
+
+    &.hasTime.noCalendar {
+      width: 100%;
+      max-width: 200px;
+    }
+  }
+
+  .flatpickr-innerContainer {
+    padding: 0;
+  }
+
   .flatpickr-weekday {
     color: white;
+  }
+
+  .flatpickr-monthDropdown-months {
+    font-weight: bold;
+  }
+
+  .numInputWrapper span:hover {
+    background: inherit;
   }
 }

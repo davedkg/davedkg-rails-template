@@ -173,6 +173,29 @@
     border-bottom-width: 2px;
   }
 
-  border-bottom: 1px solid $bittersweet-red;
+  border-bottom: 1px solid $shamrock-green;
+}
+
+// *** Flatpickr
+
+.datetime.disabled,
+.date.disabled,
+.time.disabled {
+  .flatpickr-calendar {
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+.form-group-valid {
+  .flatpickr-innerContainer{
+    border-color: $shamrock-green;
+  }
+}
+
+.form-group-invalid {
+  .flatpickr-innerContainer {
+    border-color: $bittersweet-red;
+  }
 }
 

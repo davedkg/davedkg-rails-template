@@ -5,8 +5,21 @@ import flatpickr from "flatpickr"
 
    // *** Getters
 
+   get $inputGroup() {
+     return $(this.element).parent()
+   }
+
    get type() {
      return this.data.get("type")
+   }
+
+   get inline() {
+     console.log(this.data.get("inline"))
+     if ("true" === this.data.get("inline") || true === this.data.get("inline")) {
+       return true
+     } else {
+       return false
+     }
    }
 
    get config() {
@@ -16,7 +29,8 @@ import flatpickr from "flatpickr"
            altFormat: "l, F j, Y",
            altInput: true,
            dateFormat: "Y-m-d",
-           disableMobile: true
+           disableMobile: true,
+           inline: this.inline
          }
        case "time":
          return {
@@ -25,6 +39,7 @@ import flatpickr from "flatpickr"
            dateFormat: "H:i",
            disableMobile: true,
            enableTime: true,
+           inline: this.inline,
            noCalendar: true
          }
        default: // datetime
@@ -33,7 +48,8 @@ import flatpickr from "flatpickr"
            altInput: true,
            dateFormat: "Y-m-d H:i",
            disableMobile: true,
-           enableTime: true
+           enableTime: true,
+           inline: this.inline
          }
      }
    }
@@ -42,6 +58,13 @@ import flatpickr from "flatpickr"
 
    connect() {
      this.picker = flatpickr(this.element, this.config)
+
+     if (this.inline) {
+       const $inputGroup = this.$inputGroup
+
+       $inputGroup.find(".input-group-prepend").remove()
+       $inputGroup.find(".input").css("display", "none")
+     }
    }
 
    disconnect() {
