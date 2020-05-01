@@ -17,6 +17,7 @@ gem "active_storage_validations", "~> 0.8.8"
 gem "autoprefixer-rails", "~> 6.7.2"
 gem 'devise', "~> 4.7.1"
 gem 'devise_invitable', '~> 2.0.0'
+gem 'groupdate', "~> 5.0.0"
 gem "haml-rails", "~> 2.0"
 gem "image_processing", "~> 1.10.3"
 gem 'kaminari', "~> 1.1.1"
