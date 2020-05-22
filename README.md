@@ -71,6 +71,5 @@ https://github.com/mperham/sidekiq/wiki/API
 ```bash
 $ heroku buildpacks:add https://github.com/DuckyTeam/heroku-buildpack-imagemagick --index 1
 $ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
-$ heroku config:set WEB_CONCURRENCY 5
-$ heroku config:set APP_DOMAIN www.example.com # optional
+$ heroku config:set APP_DOMAIN www.example.com 
 ```
