@@ -8,7 +8,6 @@
 ```bash
 $ brew install postgresql redis yarn imagemagick
 $ bundle && yarn
-$ gem install foreman
 $ cp .env.sample .env
 $ bundle exec rake db:setup db:seed
 $ rspec
@@ -71,5 +70,5 @@ https://github.com/mperham/sidekiq/wiki/API
 ```bash
 $ heroku buildpacks:add https://github.com/DuckyTeam/heroku-buildpack-imagemagick --index 1
 $ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
-$ heroku config:set APP_DOMAIN www.example.com 
+$ heroku config:set APP_DOMAIN www.example.com
 ```

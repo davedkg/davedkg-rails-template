@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.5'
+ruby '2.6.6'
 
 gem 'dotenv-rails', "~> 2.7.5", groups: [:development, :test]
 
@@ -40,6 +40,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "foreman", "~> 0.87.1", require: false
   gem 'guard-livereload', '~> 2.5', require: false
   gem 'letter_opener_web', '~> 1.0'
   gem 'listen', '>= 3.0.5', '< 3.2'
