@@ -63,8 +63,8 @@ jobs:
 
       # lint
       - run:
-          name: Running rails lint
-          command: rails lint
+          name: Running rake lint
+          command: rake lint
 
       # compile assets
       - restore_cache:
