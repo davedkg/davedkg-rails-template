@@ -20,7 +20,7 @@ gem 'devise_invitable', '~> 2.0.0'
 gem 'groupdate', "~> 5.0.0"
 gem "haml-rails", "~> 2.0"
 gem "image_processing", "~> 1.10.3"
-gem 'kaminari', "~> 1.1.1"
+gem 'kaminari', "~> 1.2.1"
 gem "loaf", "~> 0.9.0"
 gem "mini_magick", "~> 4.10.1"
 gem "paranoia", "~> 2.4.2"
