@@ -6,15 +6,20 @@ if defined?(RuboCop)
 end
 
 namespace :lint do
-  task rubocop: :environment do
-    Rake::Task['rubocop'].invoke
+  task brakeman: :environment do
+    puts 'Running Brakeman...'
+    sh 'brakeman'
   end
 
   task reek: :environment do
     puts 'Running Reek...'
     sh 'reek -c .reek.yml'
   end
+
+  task rubocop: :environment do
+    Rake::Task['rubocop'].invoke
+  end
 end
 
 task "fix": ['rubocop:auto_correct']
-task "lint": ['lint:rubocop', 'lint:reek']
+task "lint": ['lint:rubocop', 'lint:reek', 'lint:brakeman']
