@@ -5,6 +5,6 @@ plugins:
   markdownlint:
     enabled: true
   rubocop:
-      enabled: true
-      config:
-        file: .rubocop.yml
+    enabled: true
+    config:
+      file: .rubocop.yml
