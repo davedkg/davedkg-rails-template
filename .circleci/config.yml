@@ -61,6 +61,11 @@ jobs:
           paths:
             - ~/.cache/yarn
 
+      # lint
+      - run:
+          name: Running rails lint
+          command: rails lint
+
       # compile assets
       - restore_cache:
           keys:
