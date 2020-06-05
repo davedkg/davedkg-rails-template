@@ -27,4 +27,5 @@ detectors:
     enabled: false
 exclude_paths:
   - db
+  - vendor
   - app/helpers/quick_stats_chart_helper.rb
