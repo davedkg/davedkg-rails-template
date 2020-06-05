@@ -13,5 +13,5 @@ module Purgable
         model.purgable.destroy_all
       end
     end
-  end # class_methods
+  end
 end

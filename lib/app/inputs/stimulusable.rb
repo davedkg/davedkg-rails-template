@@ -1,37 +1,39 @@
 # frozen_string_literal: true
 
-module Inputs::Stimulusable
-  include Stimulusable
+module Inputs
+  module Stimulusable
+    include ::Stimulusable
 
-  def input_html_options
-    options = super
+    def input_html_options
+      options = super
 
-    add_stimulus_options(options)
+      add_stimulus_options(options)
 
-    options
-  end
+      options
+    end
 
-  protected
+    protected
 
-  def stimululs_controller_name
-    @stimululs_controller_name ||= "inputs--#{self.class.to_s.titleize.parameterize}"
-  end
+    def stimululs_controller_name
+      @stimululs_controller_name ||= "inputs--#{self.class.to_s.titleize.parameterize}"
+    end
 
-  def stimulus_data_attributes
-    {}
-  end
+    def stimulus_data_attributes
+      {}
+    end
 
-  def add_stimulus_options(options)
-    options[:data] ||= {}
+    def add_stimulus_options(options)
+      options[:data] ||= {}
 
-    add_stimulus_controller(options[:data], stimululs_controller_name)
-    add_stimulus_data_attributes(options[:data], stimululs_controller_name)
-  end
+      add_stimulus_controller(options[:data], stimululs_controller_name)
+      add_stimulus_data_attributes(options[:data], stimululs_controller_name)
+    end
 
-  def add_stimulus_data_attributes(data, controller)
-    stimulus_data_attributes.each do |key, value|
-      param_key       = "#{controller}-#{key.to_s.parameterize}"
-      data[param_key] = value unless data.key(param_key)
+    def add_stimulus_data_attributes(data, controller)
+      stimulus_data_attributes.each do |key, value|
+        param_key       = "#{controller}-#{key.to_s.parameterize}"
+        data[param_key] = value unless data.key(param_key)
+      end
     end
   end
 end

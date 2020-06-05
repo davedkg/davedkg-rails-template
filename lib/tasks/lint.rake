@@ -6,7 +6,7 @@ if defined?(RuboCop)
 end
 
 namespace :lint do
-  task :rubocop do
+  task rubocop: :environment do
     Rake::Task['rubocop'].invoke
   end
 end

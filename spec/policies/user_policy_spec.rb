@@ -8,8 +8,10 @@ describe UserPolicy do
   let(:user) { create(:user) }
   let(:record) { create(:user) }
 
-  context 'as a user' do
-    it { is_expected.to forbid_actions(%i[index new create show edit update destroy update_password update_avatar resend_invitation_email send_reset_password_email unlock]) }
+  context 'when role is user' do
+    it { is_expected.to forbid_actions(%i[index new create show edit update destroy]) }
+    it { is_expected.to forbid_actions(%i[update_password update_avatar]) }
+    it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email unlock]) }
     it { is_expected.to permit_mass_assignment_of_exactly(%i[name time_zone password password_confirmation avatar]) }
 
     context 'when record is me' do
@@ -19,7 +21,7 @@ describe UserPolicy do
     end
   end
 
-  context 'as an admin' do
+  context 'when role is admin' do
     let(:user) { create(:user, :admin) }
 
     it { is_expected.to permit_actions(%i[index new create show destroy]) }

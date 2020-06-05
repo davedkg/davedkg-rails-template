@@ -8,7 +8,7 @@ describe ApplicationPolicy do
   let(:user) { create(:user) }
   let(:record) { user }
 
-  context 'as a user' do
+  context 'when role is user' do
     it { is_expected.to forbid_actions(%i[index show new create edit update destroy]) }
   end
 end

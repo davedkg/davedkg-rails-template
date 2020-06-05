@@ -12,13 +12,13 @@ describe 'GET web_components_path', type: :request do
     subject
   end
 
-  context 'as a user' do
+  context 'when role is user' do
     it 'returns redirect status' do
       expect(response).to have_http_status(:redirect)
     end
   end
 
-  context 'as an admin' do
+  context 'when role is admin' do
     let(:user) { create(:user, :admin) }
 
     it 'returns ok status' do

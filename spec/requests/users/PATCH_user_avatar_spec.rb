@@ -13,7 +13,7 @@ describe 'PATCH update_avatar_user_path', type: :request do
     sign_in user
   end
 
-  context 'as a user' do
+  context 'when role is user' do
     it 'returns not_found status' do
       subject
       expect(response).to have_http_status(:not_found)
@@ -38,27 +38,29 @@ describe 'PATCH update_avatar_user_path', type: :request do
           subject
         end.to change { ActiveStorage::Attachment.count }
       end
+    end
 
-      context 'when file is invalid' do
-        before do
-          user_params[:avatar] = FilesSpecHelper.txt
-        end
+    context 'when file is invalid' do
+      let(:record) { user }
 
-        it 'returns redirect status' do
+      before do
+        user_params[:avatar] = FilesSpecHelper.txt
+      end
+
+      it 'returns redirect status' do
+        subject
+        expect(response).to have_http_status(:redirect)
+      end
+
+      it 'does not create an ActiveStorage object' do
+        expect do
           subject
-          expect(response).to have_http_status(:redirect)
-        end
-
-        it 'does not create an ActiveStorage object' do
-          expect do
-            subject
-          end.not_to change { ActiveStorage::Attachment.count }
-        end
+        end.not_to change { ActiveStorage::Attachment.count }
       end
     end
   end
 
-  context 'as an admin' do
+  context 'when role is admin' do
     let(:user) { create(:user, :admin) }
 
     it 'returns not_found status' do

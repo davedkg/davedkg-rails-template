@@ -13,7 +13,7 @@ describe 'PATCH user_path', type: :request do
     sign_in user
   end
 
-  context 'as a user' do
+  context 'when role is user' do
     it 'returns not_found status' do
       subject
       expect(response).to have_http_status(:not_found)
@@ -35,7 +35,7 @@ describe 'PATCH user_path', type: :request do
     end
   end
 
-  context 'as an admin' do
+  context 'when role is admin' do
     let(:user) { create(:user, :admin) }
 
     it 'returns not_found status' do

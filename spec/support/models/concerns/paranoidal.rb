@@ -41,10 +41,12 @@ shared_examples_for 'paranoidal' do
       end.to change { paranoidal.reload.deleted_at }.from(Time).to(nil)
     end
 
+    # rubocop:disable RSpec/MultipleExpectations
     it 'restores rich text fields' do
       expect(rich_text_fields).to all(be_deleted)
       paranoidal.restore
       expect(rich_text_fields.map(&:reload).map(&:deleted?)).to all(be_falsey)
     end
+    # rubocop:enable RSpec/MultipleExpectations
   end
 end

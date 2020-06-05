@@ -9,7 +9,9 @@ describe ApplicationCable::Connection, type: :channel do
   let(:warden) { instance_double('warden', user: user) }
 
   before do
+    # rubocop:disable RSpec/AnyInstance
     allow_any_instance_of(described_class).to receive(:env) { env }
+    # rubocop:enable RSpec/AnyInstance
     allow(env).to receive(:[]).with('warden') { warden }
     allow(env['warden']).to receive(:authenticate!) { user }
   end

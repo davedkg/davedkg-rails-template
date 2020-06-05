@@ -5,8 +5,8 @@ require 'rails_helper'
 describe 'GET accept_user_invitation_path', type: :request do
   subject { get accept_user_invitation_path(user, invitation_token: raw_invitation_token) }
 
-  let!(:user) { create(:user, :invitation_not_accepted) }
-  let!(:raw_invitation_token) do
+  let(:user) { create(:user, :invitation_not_accepted) }
+  let(:raw_invitation_token) do
     user.invite! { |u| u.skip_invitation = true }
     user.raw_invitation_token
   end
@@ -18,7 +18,7 @@ describe 'GET accept_user_invitation_path', type: :request do
   end
 
   context 'when invitation_token is invalid' do
-    let!(:raw_invitation_token) { nil }
+    let(:raw_invitation_token) { nil }
 
     it 'returns redirect status' do
       expect(response).to have_http_status(:redirect)

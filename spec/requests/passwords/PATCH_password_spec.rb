@@ -8,7 +8,9 @@ describe 'PATCH user_password_path', type: :request do
   let!(:user) { create(:user) }
   let!(:reset_password_token) { user.send_reset_password_instructions }
   let(:new_password) { attributes_for(:user)[:password] }
-  let(:user_params) { { password: new_password, password_confirmation: new_password, reset_password_token: reset_password_token } }
+  let(:user_params) do
+    { password: new_password, password_confirmation: new_password, reset_password_token: reset_password_token }
+  end
 
   it 'returns redirect status' do
     subject

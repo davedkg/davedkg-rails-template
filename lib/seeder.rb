@@ -2,7 +2,7 @@
 
 class Seeder
   def self.create_users
-    users_file = File.read(Rails.root.join('db', 'seeds', 'users.json'))
+    users_file = File.read(Rails.root.join('db/seeds/users.json'))
     JSON.parse(users_file).each do |user_json|
       build_user(user_json).save
     end

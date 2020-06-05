@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
 namespace :acceptance do
-  task :setup do
-    require_relative Rails.root.join('lib', 'seeder.rb')
+  task setup: :environment do
+    require_relative Rails.root.join('lib/seeder.rb')
 
     Seeder.create_users
   end
 
-  task :teardown do
+  task teardown: :environment do
   end
 end
