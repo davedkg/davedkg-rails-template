@@ -12,6 +12,8 @@ jobs:
           PGHOST: 127.0.0.1
           PGUSER: db_user
           RAILS_ENV: test
+          REDIS_URL: redis://127.0.0.1:6379/0
+          TEST_REDIS_PORT: 6379
       - image: circleci/postgres:10-postgis-ram
         environment:
           POSTGRES_DB: davedkg_template_test
