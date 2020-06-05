@@ -8,6 +8,7 @@ module FilesSpecHelper
     'image-150x150.png'
   end
 
+  # :reek:UncommunicativeMethodName
   def png_150x150
     upload(png_150x150_name, 'image/png')
   end
@@ -16,6 +17,7 @@ module FilesSpecHelper
     'image-200x200.png'
   end
 
+  # :reek:UncommunicativeMethodName
   def png_200x200
     upload(png_200x200_name, 'image/png')
   end

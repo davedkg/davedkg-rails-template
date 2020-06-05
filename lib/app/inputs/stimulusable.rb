@@ -23,10 +23,12 @@ module Inputs
     end
 
     def add_stimulus_options(options)
-      options[:data] ||= {}
+      data = options[:data] || {}
 
-      add_stimulus_controller(options[:data], stimululs_controller_name)
-      add_stimulus_data_attributes(options[:data], stimululs_controller_name)
+      add_stimulus_controller(data, stimululs_controller_name)
+      add_stimulus_data_attributes(data, stimululs_controller_name)
+
+      options[:data] = data
     end
 
     def add_stimulus_data_attributes(data, controller)

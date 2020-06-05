@@ -5,9 +5,8 @@ class ImageCropperInput < SimpleForm::Inputs::FileInput
     options = super
 
     options[:accept] = 'image/*'
-    options[:data] ||= {}
 
-    add_stimulus_action(options[:data], 'change->forms--image-cropper-form#fileInputChanged')
+    add_stimulus_action((options[:data] ||= {}), 'change->forms--image-cropper-form#fileInputChanged')
 
     options
   end

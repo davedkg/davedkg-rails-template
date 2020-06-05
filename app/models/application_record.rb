@@ -8,12 +8,12 @@ class ApplicationRecord < ActiveRecord::Base
   self.abstract_class = true
 
   def self.rows_count
-    c = 0
+    count = 0
 
     ApplicationRecord.descendants.each do |model|
-      c += model.unscoped.count
+      count += model.unscoped.count
     end
 
-    c
+    count
   end
 end

@@ -6,8 +6,9 @@ class CollectionSelectInput < SimpleForm::Inputs::CollectionSelectInput
   def input_html_options
     options = super
 
-    options[:data] ||= {}
-    options[:data][:placeholder] = (options[:placeholder] || input_placeholder)
+    data               = options[:data] || {}
+    data[:placeholder] = (options[:placeholder] || input_placeholder)
+    options[:data]     = data
 
     options
   end

@@ -38,6 +38,7 @@ group :development, :test do
   gem 'action-cable-testing', '~> 0.6.1'
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'pry-byebug', '~> 3.9.0'
+  gem 'reek', '~> 6.0.1'
   gem 'rspec-rails', '~> 3.9'
   gem 'rubocop-rails', '~> 2.5.2'
   gem 'rubocop-rspec', '~> 1.39.0'

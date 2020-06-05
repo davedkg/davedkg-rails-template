@@ -2,8 +2,10 @@
 
 module UserHelper
   def user_avatar_url(user, size = 150)
-    if user.avatar.attached?
-      url_for(user.avatar.variant(resize_to_limit: [size, size]))
+    avatar = user.avatar
+
+    if avatar.attached?
+      url_for(avatar.variant(resize_to_limit: [size, size]))
     else
       image_url('profile-256x256.png')
     end
