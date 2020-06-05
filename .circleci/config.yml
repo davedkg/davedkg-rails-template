@@ -64,7 +64,7 @@ jobs:
       # lint
       - run:
           name: Running rake lint
-          command: rake lint
+          command: bundle exec rake lint
 
       # compile assets
       - restore_cache:
