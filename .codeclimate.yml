@@ -1,0 +1,10 @@
+version: "2"
+plugins:
+  fixme:
+    enabled: true
+  markdownlint:
+    enabled: true
+  rubocop:
+      enabled: true
+      config:
+        file: .rubocop.yml
