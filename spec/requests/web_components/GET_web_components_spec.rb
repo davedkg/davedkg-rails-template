@@ -1,7 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-describe "GET web_components_path", type: :request do
+require 'rails_helper'
 
+describe 'GET web_components_path', type: :request do
   subject { get web_components_path }
 
   let(:user) { create(:user) }
@@ -11,18 +12,17 @@ describe "GET web_components_path", type: :request do
     subject
   end
 
-  context "as a user" do
-    it "returns redirect status" do
+  context 'as a user' do
+    it 'returns redirect status' do
       expect(response).to have_http_status(:redirect)
     end
   end
 
-  context "as an admin" do
+  context 'as an admin' do
     let(:user) { create(:user, :admin) }
 
-    it "returns ok status" do
+    it 'returns ok status' do
       expect(response).to have_http_status(:ok)
     end
   end
-
 end

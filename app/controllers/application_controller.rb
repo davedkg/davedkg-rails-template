@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include PageTitleable
   include Pundit
@@ -19,7 +21,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_turbolinks_animation
-    turbolinks_animate "fadein"
+    turbolinks_animate 'fadein'
   end
 
   def prevent_action
@@ -29,7 +31,7 @@ class ApplicationController < ActionController::Base
   def render_page_not_found
     respond_to do |format|
       format.html do
-        render file: Rails.root.join("public", "404.html"), layout: false, status: :not_found
+        render file: Rails.root.join('public/404.html'), layout: false, status: :not_found
       end
       format.any do
         head :not_found
@@ -57,5 +59,4 @@ class ApplicationController < ActionController::Base
   def after_sign_out_path_for(*)
     new_user_session_path
   end
-
 end

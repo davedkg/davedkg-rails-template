@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     sequence(:name) { |n| "User #{n} Name" }
@@ -19,7 +21,7 @@ FactoryBot.define do
     end
 
     trait :locked do
-      locked_at { Time.now }
+      locked_at { Time.zone.now }
     end
   end
 end

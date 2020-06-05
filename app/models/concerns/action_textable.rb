@@ -1,8 +1,9 @@
+# frozen_string_literal: true
+
 module ActionTextable
   extend ActiveSupport::Concern
 
   class_methods do
-
     def has_rich_text(name, options = {})
       super(name)
 
@@ -15,7 +16,5 @@ module ActionTextable
       # add a presence validation on the field when passed { required: true }
       validates(name, presence: true, unless: -> { send(name)&.body&.present? }) if options[:required]
     end
-
   end # class_methods
-
 end

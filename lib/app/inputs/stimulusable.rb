@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Inputs::Stimulusable
   include Stimulusable
 
@@ -16,7 +18,7 @@ module Inputs::Stimulusable
   end
 
   def stimulus_data_attributes
-    Hash.new
+    {}
   end
 
   def add_stimulus_options(options)
@@ -29,8 +31,7 @@ module Inputs::Stimulusable
   def add_stimulus_data_attributes(data, controller)
     stimulus_data_attributes.each do |key, value|
       param_key       = "#{controller}-#{key.to_s.parameterize}"
-      data[param_key] = value if !data.key(param_key)
+      data[param_key] = value unless data.key(param_key)
     end
   end
-
 end

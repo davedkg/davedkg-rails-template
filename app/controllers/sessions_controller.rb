@@ -1,11 +1,11 @@
-class SessionsController < Devise::SessionsController
+# frozen_string_literal: true
 
-  layout "splash"
+class SessionsController < Devise::SessionsController
+  layout 'splash'
 
   private
 
   def page_title
-    @page_title ||= "Sign In"
+    @page_title ||= 'Sign In'
   end
-
 end

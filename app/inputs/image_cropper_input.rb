@@ -1,12 +1,13 @@
-class ImageCropperInput < SimpleForm::Inputs::FileInput
+# frozen_string_literal: true
 
+class ImageCropperInput < SimpleForm::Inputs::FileInput
   def input_html_options
     options = super
 
-    options[:accept] = "image/*"
+    options[:accept] = 'image/*'
     options[:data] ||= {}
 
-    add_stimulus_action(options[:data], "change->forms--image-cropper-form#fileInputChanged")
+    add_stimulus_action(options[:data], 'change->forms--image-cropper-form#fileInputChanged')
 
     options
   end
@@ -14,11 +15,10 @@ class ImageCropperInput < SimpleForm::Inputs::FileInput
   private
 
   def add_stimulus_action(data, action)
-    actions = (data[:action] || "").split(" ")
+    actions = (data[:action] || '').split(' ')
 
-    actions << action if !actions.include?(action)
+    actions << action unless actions.include?(action)
 
-    data[:action] = actions.join(" ")
+    data[:action] = actions.join(' ')
   end
-
 end

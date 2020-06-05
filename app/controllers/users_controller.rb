@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
+  before_action :set_user, except: %i[index new create]
 
-  before_action :set_user, except: [ :index, :new, :create ]
-
-  breadcrumb "Users", :users_path, except: [ :index ], if: -> { policy(User).index? }
-  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: [ :edit, :update ]
+  breadcrumb 'Users', :users_path, except: [:index], if: -> { policy(User).index? }
+  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update]
 
   def index
     @users = authorize User.order(name: :asc).page(params[:page])
@@ -13,11 +14,9 @@ class UsersController < ApplicationController
     @user = authorize User.new
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @user = authorize User.new
@@ -33,29 +32,27 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(permitted_attributes(@user))
-      redirect_to @user, notice: "User was successfully updated."
-    end
+    redirect_to @user, notice: 'User was successfully updated.' if @user.update(permitted_attributes(@user))
   end
 
   def destroy
     @user.destroy
 
-    redirect_to users_path, notice: "User was successfully deleted."
+    redirect_to users_path, notice: 'User was successfully deleted.'
   end
 
   def update_password
     if @user.update(permitted_attributes(@user))
       bypass_sign_in(@user)
-      redirect_to @user, notice: "Password was successfully updated."
+      redirect_to @user, notice: 'Password was successfully updated.'
     end
   end
 
   def update_avatar
     if @user.update(permitted_attributes(@user))
-      redirect_to @user, notice: "Avatar was successfully updated."
+      redirect_to @user, notice: 'Avatar was successfully updated.'
     else
-      redirect_to @user, error: "Avatar was unsuccessfully updated."
+      redirect_to @user, error: 'Avatar was unsuccessfully updated.'
     end
   end
 
@@ -68,13 +65,13 @@ class UsersController < ApplicationController
   def send_reset_password_email
     @user.send_reset_password_instructions
 
-    redirect_to @user, notice: "Reset password email was successfully sent."
+    redirect_to @user, notice: 'Reset password email was successfully sent.'
   end
 
   def unlock
     @user.unlock_access!
 
-    redirect_to @user, notice: "User was successfully unlocked."
+    redirect_to @user, notice: 'User was successfully unlocked.'
   end
 
   private
@@ -85,9 +82,8 @@ class UsersController < ApplicationController
 
   def page_title_hash
     super.merge({
-      new: "Invite User",
-      create: "Invite User"
-    })
+                  new: 'Invite User',
+                  create: 'Invite User'
+                })
   end
-
 end

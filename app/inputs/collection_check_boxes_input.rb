@@ -1,5 +1,6 @@
-class CollectionCheckBoxesInput < SimpleForm::Inputs::CollectionCheckBoxesInput
+# frozen_string_literal: true
 
+class CollectionCheckBoxesInput < SimpleForm::Inputs::CollectionCheckBoxesInput
   protected
 
   def apply_default_collection_options!(options)
@@ -10,11 +11,10 @@ class CollectionCheckBoxesInput < SimpleForm::Inputs::CollectionCheckBoxesInput
   end
 
   def item_wrapper_class
-    "checkbox"
+    'checkbox'
   end
 
   def item_label_class
-    "checkbox__label"
+    'checkbox__label'
   end
-
 end

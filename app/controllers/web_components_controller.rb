@@ -1,9 +1,8 @@
-class WebComponentsController < ApplicationController
+# frozen_string_literal: true
 
-  before_action      :authenticate_admin!
+class WebComponentsController < ApplicationController
+  before_action :authenticate_admin!
   skip_after_action :verify_authorized
 
-  def index
-  end
-
+  def index; end
 end

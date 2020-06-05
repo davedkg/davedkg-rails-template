@@ -1,7 +1,8 @@
-require "rails_helper"
+# frozen_string_literal: true
 
-describe "POST user_session_path", type: :request do
+require 'rails_helper'
 
+describe 'POST user_session_path', type: :request do
   subject { post user_session_path, params: { user: user_params } }
 
   let!(:user) { create(:user) }
@@ -11,26 +12,26 @@ describe "POST user_session_path", type: :request do
 
   before { subject }
 
-  it "returns redirect status" do
+  it 'returns redirect status' do
     expect(response).to have_http_status(:redirect)
   end
 
-  it "redirects to root_path" do
+  it 'redirects to root_path' do
     expect(response).to redirect_to(root_path)
   end
 
-  context "when email is invalid" do
-    let(:user_email) { "invalid@example.com" }
+  context 'when email is invalid' do
+    let(:user_email) { 'invalid@example.com' }
 
-    it "returns ok status" do
+    it 'returns ok status' do
       expect(response).to have_http_status(:ok)
     end
   end
 
-  context "when password is invalid" do
-    let(:user_password) { "invalid_password" }
+  context 'when password is invalid' do
+    let(:user_password) { 'invalid_password' }
 
-    it "returns ok status" do
+    it 'returns ok status' do
       expect(response).to have_http_status(:ok)
     end
   end

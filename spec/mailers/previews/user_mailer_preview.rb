@@ -1,5 +1,6 @@
-class UserMailerPreview < ActionMailer::Preview
+# frozen_string_literal: true
 
+class UserMailerPreview < ActionMailer::Preview
   def reset_password_instructions
     UserMailer.reset_password_instructions(user_id, {})
   end
@@ -9,7 +10,7 @@ class UserMailerPreview < ActionMailer::Preview
   end
 
   def invitation_instructions
-    UserMailer.invitation_instructions(user_id, "user_raw_invitation_token", {})
+    UserMailer.invitation_instructions(user_id, 'user_raw_invitation_token', {})
   end
 
   private
@@ -17,5 +18,4 @@ class UserMailerPreview < ActionMailer::Preview
   def user_id
     User.first.id
   end
-
 end

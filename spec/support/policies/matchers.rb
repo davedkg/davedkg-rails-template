@@ -7,7 +7,7 @@ module Pundit
       attributes = attributes.is_a?(Array) ? attributes : [attributes]
 
       match do |policy|
-        attr_method = "permitted_attributes"
+        attr_method = 'permitted_attributes'
         attr_method += "_for_#{@action}" if defined? @action
         @policy_attributes = policy.send(attr_method) || []
 

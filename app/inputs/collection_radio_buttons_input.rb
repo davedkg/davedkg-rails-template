@@ -1,5 +1,6 @@
-class CollectionRadioButtonsInput < SimpleForm::Inputs::CollectionRadioButtonsInput
+# frozen_string_literal: true
 
+class CollectionRadioButtonsInput < SimpleForm::Inputs::CollectionRadioButtonsInput
   protected
 
   def apply_default_collection_options!(options)
@@ -10,11 +11,10 @@ class CollectionRadioButtonsInput < SimpleForm::Inputs::CollectionRadioButtonsIn
   end
 
   def item_wrapper_class
-    "radio"
+    'radio'
   end
 
   def item_label_class
-    "radio__label"
+    'radio__label'
   end
-
 end

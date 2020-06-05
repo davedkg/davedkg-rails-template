@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CollectionSelectInput < SimpleForm::Inputs::CollectionSelectInput
   include Inputs::Stimulusable
 
@@ -14,20 +16,17 @@ class CollectionSelectInput < SimpleForm::Inputs::CollectionSelectInput
 
   def input_placeholder
     if input_options[:multiple]
-      "choose one or more options..."
+      'choose one or more options...'
     else
-      "choose an option..."
+      'choose an option...'
     end
   end
 
   def stimulus_data_attributes
-    attributes = super || Hash.new
+    attributes = super || {}
 
-    if input_options[:multiple]
-      attributes[:multiple] = true
-    end
+    attributes[:multiple] = true if input_options[:multiple]
 
     attributes
   end
-
 end

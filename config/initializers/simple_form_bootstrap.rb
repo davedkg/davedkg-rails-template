@@ -21,7 +21,7 @@ SimpleForm.setup do |config|
   config.boolean_label_class = 'form-check-label'
 
   # How the label text should be generated altogether with the required text.
-  config.label_text = lambda { |label, required, explicit_label| "#{label} #{required}" }
+  config.label_text = ->(label, required, _explicit_label) { "#{label} #{required}" }
 
   # Define the way to render check boxes / radio buttons with labels.
   config.boolean_style = :inline
@@ -45,7 +45,6 @@ SimpleForm.setup do |config|
   config.input_field_error_class = 'is-invalid'
   config.input_field_valid_class = 'is-valid'
 
-
   # vertical forms
   #
   # vertical default_wrapper
@@ -59,7 +58,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
     b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
-    b.wrapper tag: "i", class: "form-group__bar" do
+    b.wrapper tag: 'i', class: 'form-group__bar' do
     end
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
@@ -70,8 +69,8 @@ SimpleForm.setup do |config|
     b.use :html5
     b.optional :readonly
     b.wrapper :form_check_wrapper, tag: 'div', class: 'toggle-switch' do |bb|
-      bb.use :input, class: "toggle-switch__checkbox", error_class: 'is-invalid', valid_class: 'is-valid'
-      bb.wrapper tag: "i", class: "toggle-switch__helper" do
+      bb.use :input, class: 'toggle-switch__checkbox', error_class: 'is-invalid', valid_class: 'is-valid'
+      bb.wrapper tag: 'i', class: 'toggle-switch__helper' do
       end
     end
     b.use :label, class: 'checkbox__label', error_class: 'is-invalid', valid_class: 'is-valid'
@@ -139,7 +138,6 @@ SimpleForm.setup do |config|
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-feedback d-block' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
-
 
   # horizontal forms
   #
@@ -244,7 +242,6 @@ SimpleForm.setup do |config|
     end
   end
 
-
   # inline forms
   #
   # inline default_wrapper
@@ -272,7 +269,6 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: 'div', class: 'invalid-feedback' }
     b.optional :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
-
 
   # bootstrap custom forms
   #
@@ -369,10 +365,10 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :label
 
-    b.wrapper tag: "div", class: "input-group" do |ig|
-      ig.wrapper tag: "div", class: "input-group-prepend" do |igp|
-        igp.wrapper tag: "span", class: "input-group-text" do |igt|
-          igt.wrapper tag: "i", class: "zmdi zmdi-calendar" do |i|
+    b.wrapper tag: 'div', class: 'input-group' do |ig|
+      ig.wrapper tag: 'div', class: 'input-group-prepend' do |igp|
+        igp.wrapper tag: 'span', class: 'input-group-text' do |igt|
+          igt.wrapper tag: 'i', class: 'zmdi zmdi-calendar' do |i|
           end
         end
       end
@@ -383,7 +379,6 @@ SimpleForm.setup do |config|
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
-
 
   # Input Group - custom component
   # see example app and config at https://github.com/rafaelfranca/simple_form-bootstrap
@@ -418,7 +413,7 @@ SimpleForm.setup do |config|
     b.optional :readonly
     b.use :input, class: 'form-control', error_class: 'is-invalid', valid_class: 'is-valid'
     b.use :label
-    b.wrapper tag: "i", class: "form-group__bar" do
+    b.wrapper tag: 'i', class: 'form-group__bar' do
     end
     b.use :full_error, wrap_with: { tag: 'div', class: 'invalid-tooltip' }
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
@@ -434,21 +429,20 @@ SimpleForm.setup do |config|
     b.use :hint, wrap_with: { tag: 'small', class: 'form-text text-muted' }
   end
 
-
   # The default wrapper to be used by the FormBuilder.
   config.default_wrapper = :vertical_form
 
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
   config.wrapper_mappings = {
-    boolean:       :vertical_boolean,
-    check_boxes:   :vertical_collection,
-    date:          :custom_date_time,
-    datetime:      :custom_date_time,
-    file:          :custom_file,
+    boolean: :vertical_boolean,
+    check_boxes: :vertical_collection,
+    date: :custom_date_time,
+    datetime: :custom_date_time,
+    file: :custom_file,
     radio_buttons: :vertical_collection,
-    range:         :vertical_range,
-    time:          :custom_date_time
+    range: :vertical_range,
+    time: :custom_date_time
   }
 
   # enable custom form wrappers

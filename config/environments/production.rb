@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  require_relative Rails.root.join("lib", "app_config.rb")
+  require_relative Rails.root.join('lib', 'app_config.rb')
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -43,7 +45,7 @@ Rails.application.configure do
   # Mount Action Cable outside main process or domain.
   # config.action_cable.mount_path = nil
   config.action_cable.url = "wss://#{AppConfig.app_domain}/cable"
-  config.action_cable.allowed_request_origins = [ "https://#{AppConfig.app_domain}" ]
+  config.action_cable.allowed_request_origins = ["https://#{AppConfig.app_domain}"]
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
@@ -53,13 +55,13 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
   # Use a real queuing backend for Active Job (and separate queues per environment).
-  config.active_job.queue_adapter     = :sidekiq
+  config.active_job.queue_adapter = :sidekiq
   # config.active_job.queue_name_prefix = "sampledata_production"
 
   config.action_mailer.perform_caching = false
@@ -82,7 +84,7 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
-  if ENV["RAILS_LOG_TO_STDOUT"].present?
+  if ENV['RAILS_LOG_TO_STDOUT'].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
@@ -115,12 +117,12 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: AppConfig.app_domain }
 
   ActionMailer::Base.smtp_settings = {
-    address: "smtp.sendgrid.net",
+    address: 'smtp.sendgrid.net',
     port: '587',
     domain: AppConfig.app_domain,
     authentication: :plain,
     enable_starttls_auto: true,
     user_name: ENV['SENDGRID_USERNAME'],
-    password: ENV['SENDGRID_PASSWORD'],
+    password: ENV['SENDGRID_PASSWORD']
   }
 end

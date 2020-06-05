@@ -1,5 +1,6 @@
-class UserPolicy < ApplicationPolicy
+# frozen_string_literal: true
 
+class UserPolicy < ApplicationPolicy
   def index?
     admin?
   end
@@ -42,9 +43,9 @@ class UserPolicy < ApplicationPolicy
 
   def permitted_attributes
     if admin? && !me?
-      [ :email, :role ]
+      %i[email role]
     else
-      [ :name, :time_zone, :password, :password_confirmation, :avatar ]
+      %i[name time_zone password password_confirmation avatar]
     end
   end
 
@@ -65,5 +66,4 @@ class UserPolicy < ApplicationPolicy
   def locked?
     record.locked?
   end
-
 end

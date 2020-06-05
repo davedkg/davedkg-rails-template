@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationRecord < ActiveRecord::Base
   include ActionTextable
   include Paranoidal
@@ -14,5 +16,4 @@ class ApplicationRecord < ActiveRecord::Base
 
     c
   end
-
 end

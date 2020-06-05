@@ -1,12 +1,13 @@
-class User < ApplicationRecord
+# frozen_string_literal: true
 
+class User < ApplicationRecord
   devise :database_authenticatable, :confirmable, :invitable, :lockable,
          :recoverable, :rememberable, :trackable, :validatable,
          validate_on_invite: true
 
   enum role: {
-    user: "user",
-    admin: "admin"
+    user: 'user',
+    admin: 'admin'
   }
 
   attr_accessor :skip_password_validation
@@ -15,18 +16,19 @@ class User < ApplicationRecord
 
   validates :name,      presence: true, uniqueness: { case_sensitive: false }, on: :update
   validates :time_zone, presence: true
-  validates :avatar,    dimension: { width: 200, height: 200 }, content_type: /\Aimage\/.*\z/
+  validates :avatar,    dimension: { width: 200, height: 200 }, content_type: %r{\Aimage/.*\z}
 
   def send_invitation
-    self.invitation_sent_at = Time.now
-    self.deliver_invitation
+    self.invitation_sent_at = Time.zone.now
+    deliver_invitation
   end
 
   ## *** States
 
   def state
-    return :invited if !accepted_invitation?
+    return :invited unless accepted_invitation?
     return :locked  if locked?
+
     :active
   end
 
@@ -48,7 +50,7 @@ class User < ApplicationRecord
 
   def password_required?
     return false if skip_password_validation
+
     super
   end
-
 end

@@ -1,6 +1,7 @@
+# frozen_string_literal: true
+
 module ApplicationCable
   class Connection < ActionCable::Connection::Base
-
     identified_by :current_user
 
     def connect
@@ -10,12 +11,11 @@ module ApplicationCable
     protected
 
     def find_verfied_user
-      if (current_user = env["warden"].user)
+      if (current_user = env['warden'].user)
         current_user
       else
         reject_unauthorized_connection
       end
     end
-
   end
 end

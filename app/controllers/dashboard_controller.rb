@@ -1,8 +1,7 @@
+# frozen_string_literal: true
+
 class DashboardController < ApplicationController
+  skip_after_action :verify_authorized
 
-  skip_after_action  :verify_authorized
-
-  def show
-  end
-
+  def show; end
 end

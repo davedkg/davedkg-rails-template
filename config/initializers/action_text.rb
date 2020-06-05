@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.configuration.to_prepare do
-  ActionText::RichText.send :include, Paranoidal
+  ActionText::RichText.include Paranoidal
 end

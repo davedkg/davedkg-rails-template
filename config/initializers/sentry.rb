@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if ENV['SENTRY_DSN'] && defined?(Raven)
   Raven.configure do |config|
     config.sanitize_fields = Rails.application.config.filter_parameters.map(&:to_s)
