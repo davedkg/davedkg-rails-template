@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  build:
+  rspec:
 
     docker:
       - image: circleci/ruby:2.6.6-node-browsers
@@ -27,44 +27,49 @@ jobs:
     steps:
       - checkout
 
-      - run:
-          name: Configure Bundler
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
-
       # bundle install
       - restore_cache:
           keys:
-            - bundle-{{ checksum "Gemfile.lock" }}
-            - bundle-
+            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-cache-
       - run:
           name: Running bundle install
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
       - save_cache:
-          key: bundle-{{ checksum "Gemfile.lock" }}
+          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
             - vendor/bundle
 
       # yarn install
       - restore_cache:
           keys:
-            - yarn-{{ checksum "yarn.lock" }}
-            - yarn-
+            - v1-yarn-cache--{{ checksum "yarn.lock" }}
+            - v1-yarn-cache-
       - run:
           name: Running yarn install
           command: yarn install --cache-folder ~/.cache/yarn
       - save_cache:
-          key: yarn-{{ checksum "yarn.lock" }}
+          key: v1-yarn-cache-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
 
-      # lint
+      # install code climate test reporter
       - run:
-          name: Running rake lint
-          command: bundle exec rake lint
+          name: Install Code Climate Test Reporter
+          command: |
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
+
+      # Wait for DB
+      - run:
+          name: Wait for DB to Boot
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+
+      # setup database
+      - run:
+          name: Running rake db:schema:load db:seed
+          command: bundle exec rake db:schema:load db:seed
 
       # compile assets
       - restore_cache:
@@ -76,45 +81,218 @@ jobs:
           key: v1-asset-cache-{{ arch }}-{{ .Branch }}-{{ epoch }}
           paths:
             - public/assets
+            - public/packs
+            - public/packs-test
             - tmp/cache/assets/sprockets
 
-      # wait for db
-      - run:
-          name: Wait for DB to Boot
-          command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-      # setup database
-      - run:
-          name: Running rake db:schema:load
-          command: bundle exec rake db:schema:load
-
-      # start code climate reporter
-      - run:
-          name: Starting Code Climate Test Reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-            ./cc-test-reporter before-build
-
-      # run tests
+      # run rspec
       - run:
           name: Running rspec
-          environment:
-              RAILS_ENV: test
           command: |
               mkdir /tmp/test-results
+              ./cc-test-reporter before-build
               TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
               bundle exec rspec --format progress \
                                 --format RspecJunitFormatter \
                                 --out /tmp/test-results/rspec.xml \
                                 $TEST_FILES
-      # save test results
+
+      - run:
+          name: Run Code Climate Test Coverage
+          command: |
+            ./cc-test-reporter format-coverage -t simplecov -o "coverage/codeclimate.$CIRCLE_NODE_INDEX.json"
+      - persist_to_workspace:
+          root: coverage
+          paths:
+            - codeclimate.*.json
+
       - store_test_results:
           path: /tmp/test-results
       - store_artifacts:
           path: /tmp/test-results
           destination: test-results
+
+  upload-codeclimate-coverage:
+      docker:
+        - image: circleci/ruby:2.5.1-stretch-node
+      working_directory: ~/repo
+
+      steps:
+        - attach_workspace:
+            at: ~/repo
+        - run:
+            name: Install Code Climate Test Reporter
+            command: |
+              curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+              chmod +x ./cc-test-reporter
+        - run:
+            name: Upload Code Climate Report
+            command: |
+              ./cc-test-reporter sum-coverage --output - codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
+
+  reek:
+    docker:
+      - image: circleci/ruby:2.6.6
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # bundle install
+      - restore_cache:
+          keys:
+            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-cache-
       - run:
-          name: Uploading Code Climate Test Report
+          name: Running bundle install
           command: |
-              ./cc-test-reporter after-build --coverage-input-type simplecov
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+      - save_cache:
+          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run: bundle exec reek -c .reek.yml
+
+  rubocop:
+    docker:
+      - image: circleci/ruby:2.6.6
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # bundle install
+      - restore_cache:
+          keys:
+            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-cache-
+      - run:
+          name: Running bundle install
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+      - save_cache:
+          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run: bundle exec rubocop -c .rubocop.yml
+
+  brakeman:
+    docker:
+      - image: circleci/ruby:2.6.6
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # bundle install
+      - restore_cache:
+          keys:
+            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-cache-
+      - run:
+          name: Running bundle install
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+      - save_cache:
+          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run: bundle exec brakeman
+
+  eslint:
+    docker:
+      - image: circleci/ruby:2.6.6-node
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # bundle install
+      - restore_cache:
+          keys:
+            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-cache-
+      - run:
+          name: Running bundle install
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+      - save_cache:
+          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      # yarn install
+      - restore_cache:
+          keys:
+            - v1-yarn-cache--{{ checksum "yarn.lock" }}
+            - v1-yarn-cache-
+      - run:
+          name: Running yarn install
+          command: yarn install --cache-folder ~/.cache/yarn
+      - save_cache:
+          key: v1-yarn-cache-{{ checksum "yarn.lock" }}
+          paths:
+            - ~/.cache/yarn
+
+      - run: bundle exec rake eslint
+
+  scss-lint:
+    docker:
+      - image: circleci/ruby:2.6.6
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      # bundle install
+      - restore_cache:
+          keys:
+            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-cache-
+      - run:
+          name: Running bundle install
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+      - save_cache:
+          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run: bundle exec scss-lint -c .scss-lint.yml
+
+workflows:
+  version: 2
+  test-and-deploy:
+    jobs:
+      - rspec
+      - rubocop
+      - reek
+      - brakeman
+      - eslint
+      - scss-lint
+      - upload-codeclimate-coverage:
+          requires:
+            - rspec
