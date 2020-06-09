@@ -1,3 +1,4 @@
+@import 'mixins';
 //
 // Provides a drop-in pointer for the default Trix stylesheet that will format the toolbar and
 // the trix-editor content (whether displayed or under editing). Feel free to incorporate this
@@ -8,13 +9,15 @@
 // We need to override trix.css’s image gallery styles to accommodate the
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
+
+// scss-lint:disable ImportantRule
 .trix-content {
   .attachment-gallery {
     > action-text-attachment,
     > .attachment {
       flex: 1 0 33%;
-      padding: 0 0.5em;
       max-width: 33%;
+      padding: 0 0.5em;
     }
 
     &.attachment-gallery--2,
@@ -29,16 +32,16 @@
 
   action-text-attachment {
     .attachment {
-      padding: 0 !important;
       max-width: 100% !important;
+      padding: 0 !important;
     }
   }
 }
 
 trix-editor,
 trix-toolbar {
-  border-top: 0.0625rem solid #DDD;
-  border-bottom: 0.0625rem solid #DDD;
+  border-bottom: 0.0625rem solid $alto;
+  border-top: 0.0625rem solid $alto;
   box-shadow: none;
   height: initial;
   outline: none;
@@ -51,7 +54,7 @@ trix-editor {
   }
 
   &:empty:not(:focus)::before {
-    color: #868e96;
+    color: $oslo-gray;
   }
 }
 
@@ -85,7 +88,9 @@ trix-toolbar {
     pointer-events: none;
 
     &:empty:not(:focus)::before {
-      color: #DDD;
+      color: $alto;
     }
   }
 }
+
+// scss-lint:enable ImportantRule

@@ -1,5 +1,6 @@
+@import 'mixins';
+
 .flatpickr-current-month .flatpickr-monthDropdown-months {
-//  -webkit-appearance: none;
   background: none;
   font-weight: bold;
 }
@@ -10,6 +11,6 @@
 
 .flatpickr-calendar {
   .flatpickr-weekday {
-    color: white;
+    color: $white;
   }
 }

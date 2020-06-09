@@ -2,12 +2,12 @@ html {
   height: 100%;
 }
 
-body.flexable {
+.flexable {
   display: flex;
   height: 100%;
 
   main {
-    flex:1;
+    flex: 1;
     flex-shrink: 0;
     height: 100%;
   }

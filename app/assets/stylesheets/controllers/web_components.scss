@@ -1,6 +1,6 @@
-@import "mixins";
+@import 'mixins';
 
-.web_components {
+.web-components {
 
   @include media-breakpoint-down(sm) {
     pre {

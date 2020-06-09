@@ -35,6 +35,8 @@ And then find the accept invitation link in the log.
 | acceptance:setup | Setup acceptance enviornment (see app.json) |
 | acceptance:teardown | Tear down acceptance enviornment (see app.json) |
 | cron:daily | Daily cron tasks |
+| fix | Run Auto-correctors for Linters |
+| lint | Run All Linters |
 
 #### Development Users
 

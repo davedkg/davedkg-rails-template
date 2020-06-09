@@ -19,7 +19,12 @@ namespace :lint do
   task rubocop: :environment do
     Rake::Task['rubocop'].invoke
   end
+
+  task scss: :environment do
+    puts 'Running SCSS-Lint...'
+    sh 'scss-lint -c .scss-lint.yml'
+  end
 end
 
 task "fix": ['rubocop:auto_correct']
-task "lint": ['lint:rubocop', 'lint:reek', 'lint:brakeman']
+task "lint": ['lint:rubocop', 'lint:reek', 'lint:brakeman', 'lint:scss']
