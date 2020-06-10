@@ -16,6 +16,15 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_use_full_width_layout
+    @use_full_width_layout = true
+  end
+
+  helper_method :use_full_width_layout?
+  def use_full_width_layout?
+    true == @use_full_width_layout
+  end
+
   def authenticate_admin!
     redirect_to root_path unless current_user.admin?
   end

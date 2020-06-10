@@ -15,7 +15,7 @@
     %main.main
       = render "header"
       = render "sidebar"
-      %section.content#page-loader
+      %section.content#page-loader{ class: layout_content_class }
         = render 'breadcrumbs'
         = yield
         = render 'toast'
