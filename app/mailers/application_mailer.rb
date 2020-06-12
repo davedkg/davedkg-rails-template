@@ -1,15 +1,12 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  include SendGrid
-
-  default from: "#{PLATFORM_TITLE}<from@example.com>"
+  default from: "#{PLATFORM_TITLE}<noreply@#{ENV['MAILGUN_DOMAIN'] || 'example.com'}>"
   layout 'mailer'
 
   private
 
   def mail(headers, &block)
-    sendgrid_category "#{self.class} - #{action_name.humanize}"
     # self.default_url_options = default_url_options.merge(utm_params)
     super
   end
