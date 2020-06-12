@@ -32,8 +32,8 @@
   "addons": [
     "heroku-postgresql:hobby-dev",
     "heroku-redis",
+    "mailgun:starter",
     "newrelic",
-    "sendgrid",
     "sentry"
   ],
   "buildpacks": [
