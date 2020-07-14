@@ -20,5 +20,5 @@
  *= require croppie/croppie
  *= require material
  *= require_tree ./controllers
- *= require_tree .
+ *= require_tree ./application
  */
