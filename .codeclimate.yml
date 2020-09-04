@@ -1,16 +1,6 @@
 version: "2"
 plugins:
-  brakeman:
-    enabled: true
   fixme:
     enabled: true
   markdownlint:
     enabled: true
-  reek:
-    enabled: true
-    config:
-      file: ".reek.yml"
-  rubocop:
-    enabled: true
-    config:
-      file: .rubocop.yml
