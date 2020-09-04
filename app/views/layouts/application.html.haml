@@ -10,7 +10,6 @@
     = csp_meta_tag
     = action_cable_meta_tag
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = stylesheet_pack_tag 'application', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: "flexable #{params[:controller].gsub("_","-")} #{params[:action]}", "data-ma-theme"=>"blue" do
     %main.main
