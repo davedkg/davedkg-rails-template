@@ -3,11 +3,9 @@
 class PasswordsController < Devise::PasswordsController
   layout 'splash'
 
+  # rubocop:disable Rails/LexicallyScopedActionFilter
   before_action :validate_reset_password_token, only: :edit
-
-  def edit
-    super
-  end
+  # rubocop:enable Rails/LexicallyScopedActionFilter
 
   private
 

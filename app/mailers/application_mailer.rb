@@ -4,13 +4,6 @@ class ApplicationMailer < ActionMailer::Base
   default from: "#{PLATFORM_TITLE}<noreply@#{ENV['MAILGUN_DOMAIN'] || 'example.com'}>"
   layout 'mailer'
 
-  private
-
-  def mail(headers, &block)
-    # self.default_url_options = default_url_options.merge(utm_params)
-    super
-  end
-
   # def utm_params
   #   {
   #     utm_medium: :email,

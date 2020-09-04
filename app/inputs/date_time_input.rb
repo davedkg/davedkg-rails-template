@@ -9,6 +9,7 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
 
   private
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def input_value
     case input_type
     when :date
@@ -19,6 +20,7 @@ class DateTimeInput < SimpleForm::Inputs::StringInput
       object&.send(attribute_name)&.strftime '%Y-%m-%d %H:%M'
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def input_placeholder
     case input_type

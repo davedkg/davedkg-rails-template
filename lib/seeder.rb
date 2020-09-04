@@ -11,7 +11,7 @@ class Seeder
   def self.build_user(user_json)
     time_current = Time.current
 
-    user = User.new(
+    User.new(
       name: user_json['name'],
       email: user_json['email'],
       password: user_json['password'],
@@ -19,7 +19,5 @@ class Seeder
       invitation_accepted_at: time_current,
       role: (user_json['role'] || User.roles[:user])
     )
-
-    user
   end
 end
