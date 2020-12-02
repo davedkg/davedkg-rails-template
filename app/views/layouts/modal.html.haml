@@ -3,4 +3,6 @@
     .modal-content
       .modal-header
         %h5.modal-title.pull-left= page_title
+        %a{ :"data-dismiss" => "modal" }
+          %i.fa.fa-times
       = yield

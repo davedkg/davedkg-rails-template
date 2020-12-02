@@ -85,8 +85,7 @@ git pull template master --allow-unrelated-histories
 
 ```bash
 $ heroku buildpacks:add https://github.com/DuckyTeam/heroku-buildpack-imagemagick --index 1
-$ heroku buildpacks:add heroku/nodejs --index 2
-$ heroku buildpacks:add heroku/ruby --index 3
+$ heroku buildpacks:add heroku/ruby --index 2
 $ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
 $ heroku config:set APP_DOMAIN www.example.com
 ```
