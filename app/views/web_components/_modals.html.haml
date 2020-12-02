@@ -10,3 +10,8 @@
       .pt-4
         %pre
           = "= link_to \"Show AJAX Modal\", modal_web_components_path, modal: true"
+    %p.pt-4
+      Optional: Configure Modal Size [large, small]
+      .pt-4
+        %pre
+          = " before_action, -> { set_modal_size(:large) }"

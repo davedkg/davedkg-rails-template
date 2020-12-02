@@ -16,6 +16,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_modal_size(modal_size)
+    @modal_size = modal_size
+  end
+
   def set_use_full_width_layout
     @use_full_width_layout = true
   end

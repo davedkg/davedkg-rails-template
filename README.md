@@ -74,7 +74,6 @@ git remote add template git@github.com:davedkg/davedkg-rails-template.git
 ### Merge
 
 ```bash
-git flow feature start merge-template-{version}
 git pull template master --allow-unrelated-histories
 ```
 

@@ -60,6 +60,9 @@ Lint/RaiseException:
 Metrics/BlockLength:
   Enabled: false
 
+Naming/AccessorMethodName:
+  Enabled: false
+
 Naming/FileName:
   Exclude:
     - 'spec/requests/**/*'
