@@ -28,7 +28,7 @@ gem 'mailgun-ruby', '~>1.1.6'
 gem 'mini_magick', '~> 4.10.1'
 gem 'paranoia', '~> 2.4.2'
 gem 'pundit', '~> 2.1.0'
-gem 'sidekiq', '~> 6.0.6'
+gem 'sidekiq', '~> 6.1.1'
 gem 'simple_form', '~> 5.0.1'
 gem 'turbolinks-animate', '~> 2.0.1'
 
@@ -42,6 +42,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9.0'
   gem 'reek', '~> 6.0.1'
   gem 'rspec-rails', '~> 3.9'
+  gem 'rubocop', '~> 0.90.0' # FIXME: remove me when rubocop is fixed
   gem 'rubocop-rails', '~> 2.5.2'
   gem 'rubocop-rspec', '~> 1.39.0'
   gem 'scss_lint', '~> 0.59.0'

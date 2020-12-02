@@ -10,6 +10,8 @@
         %li.nav-item
           %a.nav-link{"data-toggle" => "tab", href: "#kaminari", role: "tab"} Kaminari
         %li.nav-item
+          %a.nav-link{"data-toggle" => "tab", href: "#modals", role: "tab"} Modals
+        %li.nav-item
           %a.nav-link.active{"data-toggle" => "tab", href: "#simple-form", role: "tab"} Simple Form
 
   .tab-content{ style: "padding: 0" }
@@ -17,5 +19,7 @@
       = render 'croppie'
     #kaminari.tab-pane.fade.show{ role: "tabpanel" }
       = render 'kaminari'
+    #modals.tab-pane.fade.show{ role: "tabpanel" }
+      = render 'modals'
     #simple-form.tab-pane.fade.show.active{ role: "tabpanel" }
       = render 'simple_form'
