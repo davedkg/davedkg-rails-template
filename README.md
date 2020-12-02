@@ -63,6 +63,21 @@ https://github.com/mperham/sidekiq/wiki/API
 | README.md | project title |
 | app.json | name, description, reposiitory |
 
+## Merge Template Updates
+
+### Setup
+
+```bash
+git remote add template git@github.com:davedkg/davedkg-rails-template.git
+```
+
+### Merge
+
+```bash
+git flow feature start merge-template-{version}
+git pull template master --allow-unrelated-histories
+```
+
 ## Deploy to Heroku
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
