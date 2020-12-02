@@ -1,5 +1,7 @@
-module LinkToHelper
+# frozen_string_literal: true
 
+module LinkToHelper
+  # :reek:DuplicateMethodCall
   def link_to(name = nil, options = nil, html_options = {}, &block)
     if block_given?
       html_options = options
@@ -18,11 +20,10 @@ module LinkToHelper
       remote: true
     ).delete(:modal)
     (html_options[:data] ||= {}).merge!(turbolinks: false).merge!(
-      controller: "ajax-modal",
-      action: "ajax:success->ajax-modal#success ajax:error->ajax-modal#error"
+      controller: 'ajax-modal',
+      action: 'ajax:success->ajax-modal#success ajax:error->ajax-modal#error'
     ) { |_, oldval, newval| "#{oldval} #{newval}".strip }
 
     html_options
   end
-
 end

@@ -72,6 +72,9 @@ Rails/LexicallyScopedActionFilter:
 Rails/UniqueValidationWithoutIndex:
   Enabled: false
 
+RSpec/ExampleLength:
+  Enabled: false
+
 RSpec/NamedSubject:
   Enabled: false
 

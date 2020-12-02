@@ -42,6 +42,7 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.9.0'
   gem 'reek', '~> 6.0.1'
   gem 'rspec-rails', '~> 3.9'
+  gem 'rubocop', '~> 0.90.0' # FIXME: remove me when rubocop is fixed
   gem 'rubocop-rails', '~> 2.5.2'
   gem 'rubocop-rspec', '~> 1.39.0'
   gem 'scss_lint', '~> 0.59.0'

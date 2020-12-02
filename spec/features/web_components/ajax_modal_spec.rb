@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.feature "A user can view an AJAX modal", type: :feature, js: true do
+RSpec.describe 'A user can view an AJAX modal', type: :feature, js: true do
   let(:user) { create(:user, :admin) }
 
   before do
@@ -10,7 +10,7 @@ RSpec.feature "A user can view an AJAX modal", type: :feature, js: true do
     visit web_components_path
   end
 
-  scenario "A user can open and close an AJAX modal" do
+  it 'A user can open and close an AJAX modal' do
     when_i_click_modal_tab
     and_click_show_ajax_modal
     then_i_see_a_modal
@@ -20,26 +20,26 @@ RSpec.feature "A user can view an AJAX modal", type: :feature, js: true do
   end
 
   def when_i_click_modal_tab
-    within ".nav-tabs" do
-      click_on "Modals"
+    within '.nav-tabs' do
+      click_on 'Modals'
     end
   end
 
   def and_click_show_ajax_modal
-    click_on "Show AJAX Modal"
+    click_on 'Show AJAX Modal'
   end
 
   def then_i_see_a_modal
-    expect(page).to have_selector ".modal"
+    expect(page).to have_selector '.modal'
   end
 
   def and_then_i_click_close_modal
-    within ".modal" do
-      click_on "Close"
+    within '.modal' do
+      click_on 'Close'
     end
   end
 
   def then_i_cannot_see_modal
-    expect(page).not_to have_selector ".modal"
+    expect(page).not_to have_selector '.modal'
   end
 end

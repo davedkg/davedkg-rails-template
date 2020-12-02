@@ -7,8 +7,8 @@ class WebComponentsController < ApplicationController
   def index; end
 
   def modal
-    @page_title = "AJAX Modal"
+    @page_title = 'AJAX Modal'
 
-    render layout: "modal"
+    render layout: 'modal'
   end
 end
