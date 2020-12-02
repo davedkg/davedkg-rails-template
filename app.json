@@ -41,9 +41,6 @@
       "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick"
     },
     {
-      "url": "heroku/nodejs"
-    },
-    {
       "url": "heroku/ruby"
     }
   ]

@@ -1,6 +1,6 @@
-.modal.fade.show{ "aria-modal" => "true" }
+.modal.fade
   .modal-dialog.modal-dialog-centered{ class: modal_size_class(@modal_size) }
     .modal-content
       .modal-header
-        %h5.modal-title.pull-left= @page_title
+        %h5.modal-title.pull-left= page_title
       = yield
