@@ -1,0 +1,6 @@
+.modal.fade.show{"aria-modal" => "true" }
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %h5.modal-title.pull-left= @page_title
+      = yield

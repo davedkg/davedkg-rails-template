@@ -9,7 +9,9 @@ Rails.application.routes.draw do
     patch 'update-password',           on: :member
   end
 
-  resources :web_components, only: [:index], path: :"web-components"
+  resources :web_components, only: [:index], path: :"web-components" do
+    get :modal, on: :collection
+  end
 
   devise_for :users, controllers: {
     passwords: 'passwords',
