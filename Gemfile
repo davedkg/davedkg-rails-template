@@ -78,4 +78,4 @@ group :production do
   gem 'sentry-raven', '~> 2.13.0'
 end
 
-gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
+# gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
