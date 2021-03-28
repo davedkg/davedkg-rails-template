@@ -1,0 +1,17 @@
+@import 'mixins';
+
+.progress-wheel {
+  animation-duration: 0.3s;
+  position: relative;
+  text-align: center;
+  top: calc(50% - 6.625rem);
+  transform: translateY(-50%);
+  z-index: 1000;
+
+  .spinner-border {
+    color: $dodger-blue;
+    height: 48px;
+    opacity: 0.7;
+    width: 48px;
+  }
+}
