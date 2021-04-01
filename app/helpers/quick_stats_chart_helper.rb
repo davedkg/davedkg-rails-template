@@ -24,25 +24,8 @@ module QuickStatsChartHelper
   end
 
   def quick_stats_chart_values(query)
-    now        = Time.zone.now
-    start      = now.beginning_of_month - 11.months + 1.minute
-    counts     = query.where(created_at: start..now).group_by_month(:created_at).count
-    new_counts = {}
+    results = query.group_by_week(:created_at, last: 12).count
 
-    counts = counts.map do |k, v|
-      new_counts[k.to_s] = v
-    end
-
-    results = []
-    step    = start
-    while step < now
-      key = step.to_date.to_s
-
-      results << (new_counts[key] || 0)
-
-      step += 1.month
-    end
-
-    results.join(',')
+    results.map{ |_,v| v }.join(',')
   end
 end
