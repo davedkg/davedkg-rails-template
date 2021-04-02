@@ -1,5 +1,3 @@
-import _ from "lodash"
-
 export const COLORS = {
   "red": "#ff6b68",
   "pink": "#ff85af",
@@ -22,6 +20,3 @@ export const COLORS = {
   "dark-grey": "#343a40",
   "blue-grey": "#607D8B",
 }
-
-// Randomize first 16 colors
-export const CHART_COLORS = _.shuffle(_.map(_.keys(COLORS), (key) => [key, COLORS[key]]).slice(0, 16))
