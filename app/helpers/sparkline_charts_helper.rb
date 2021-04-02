@@ -18,8 +18,19 @@ module SparklineChartsHelper
     end
   end
 
-  def sparkline_pie_chart(values, class_name = 'sparkline-pie')
-    content_tag(:div, class: className, data: { controller: 'charts--sparkline-pie-chart', 'charts--sparkline-pie-chart-values' => values.join(',') }) do
+  def sparkline_pie_chart(values, options = {})
+    data = {
+      controller: 'charts--sparkline-pie-chart',
+      'charts--sparkline-pie-chart-values' => values.join(',')
+    }
+    options = { css_class: 'sparkline-pie' }.merge(options)
+    css_class = options.delete(:css_class)
+
+    options.each do |key, value|
+      data["charts--sparkline-pie-chart-#{key}"] = value
+    end
+
+    content_tag(:div, class: css_class, data: data) do
       concat ''
     end
   end

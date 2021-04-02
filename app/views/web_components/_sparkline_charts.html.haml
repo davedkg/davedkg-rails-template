@@ -3,7 +3,7 @@
     %h4.card-title Chartline Bar Chart
     .row
       .col-md-6
-        - options = { color: "#2196F3", height: '50px', css_classes: "" }
+        - options = { color: "#2196F3", height: '50px' }
         = sparkline_bar_chart([4,6,2,9,5,10,3], options)
     .pt-4
       %pre
@@ -24,11 +24,17 @@
     %h4.card-title Chartline Pie Chart
     .row
       .col-md-6
-        = sparkline_pie_chart([4,6,2,9,5,10,3])
+        - options = { height: '50px' }
+        = sparkline_pie_chart([4,6,2,9,5,10,3], options)
     .pt-4
       %pre
-        = "= sparkline_pie_chart([4,6,2,9,5,10,3])"
+        = "- options = { height: '50px' }\n= sparkline_pie_chart([4,6,2,9,5,10,3], options)"
         %br/
         or
         %br/
-        = '<div class="sparkline-pie" data-controller="charts--sparkline-pie-chart" data-charts--sparkline-pie-chart-values="4,6,2,9,5,10,3"></div>'
+        = "<div\n\s\sclass='sparkline-pie'\n\s\sdata-controller='charts--sparkline-pie-chart'\n\s\sdata-charts--sparkline-pie-chart-values='4,6,2,9,5,10,3'\n\s\sdata-charts--sparkline-pie-chart-height='50px'\n></div>"
+    .pt-4
+      %h6 Optional
+      %ul
+        %li height (default 40px)
+        %li css_class (default sparkline-pie, helper only)

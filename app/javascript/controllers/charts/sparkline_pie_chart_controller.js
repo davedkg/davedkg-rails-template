@@ -6,6 +6,10 @@ export default class extends Controller {
 
   // *** Getters
 
+  get height() {
+    return this.data.get("height") || "40px"
+  }
+
   get colors() {
     return CHART_COLORS
   }
@@ -17,7 +21,7 @@ export default class extends Controller {
   get config() {
     return {
       type: 'pie',
-      height: '40px',
+      height: this.height,
       sliceColors: this.colors,
     }
   }
