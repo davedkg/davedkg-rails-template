@@ -14,9 +14,7 @@ module QuickStatsChartHelper
              end].join.html_safe
           end,
           content_tag(:div, class: 'quick-stats__chart') do
-            content_tag(:div, class: 'sparkline-bar-stats', data: { controller: 'charts--quick-stats-chart', 'charts--quick-stats-chart-values' => quick_stats_chart_values(query) }) do
-              concat ''
-            end
+            concat sparkline_bar_chart(quick_stats_chart_values(query), 'sparkline-bar-stats')
           end
         ].join.html_safe
       end
@@ -26,6 +24,6 @@ module QuickStatsChartHelper
   def quick_stats_chart_values(query)
     results = query.group_by_week(:created_at, last: 12).count
 
-    results.map{ |_,v| v }.join(',')
+    results.map{ |_,v| v }
   end
 end

@@ -13,6 +13,8 @@
           %a.nav-link{"data-toggle" => "tab", href: "#modals", role: "tab"} Modals
         %li.nav-item
           %a.nav-link.active{"data-toggle" => "tab", href: "#simple-form", role: "tab"} Simple Form
+        %li.nav-item
+          %a.nav-link{"data-toggle" => "tab", href: "#sparkline-charts", role: "tab"} Sparkline Charts
 
   .tab-content{ style: "padding: 0" }
     #croppie.tab-pane.fade.show{ role: "tabpanel" }
@@ -23,3 +25,5 @@
       = render 'modals'
     #simple-form.tab-pane.fade.show.active{ role: "tabpanel" }
       = render 'simple_form'
+    #sparkline-charts.tab-pane.fade.show{ role: "tabpanel" }
+      = render 'sparkline_charts'

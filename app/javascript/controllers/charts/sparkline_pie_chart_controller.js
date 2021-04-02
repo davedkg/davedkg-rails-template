@@ -1,7 +1,14 @@
 import { Controller } from "stimulus"
+import { CHART_COLORS } from "../../constants/charts"
 require("jquery-sparkline")
 
 export default class extends Controller {
+
+  // *** Getters
+
+  get colors() {
+    return CHART_COLORS
+  }
 
   get values() {
     return this.data.get("values").split(",")
@@ -9,9 +16,9 @@ export default class extends Controller {
 
   get config() {
     return {
-      type: 'bar',
-      barColor: 'white',
-      height: '40px'
+      type: 'pie',
+      height: '40px',
+      sliceColors: this.colors,
     }
   }
 

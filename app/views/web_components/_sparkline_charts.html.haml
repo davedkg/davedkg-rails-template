@@ -1,0 +1,27 @@
+.card
+  .card-body
+    %h4.card-title Chartline Bar Chart
+    .row
+      .col-md-6
+        = sparkline_bar_chart([4,6,2,9,5,10,3])
+    .pt-4
+      %pre
+        = "= sparkline_bar_chart([4,6,2,9,5,10,3])"
+        %br/
+        or
+        %br/
+        = '<div class="sparkline-bar" data-controller="charts--sparkline-bar-chart" data-charts--sparkline-bar-chart-values="4,6,2,9,5,10,3"></div>'
+
+.card
+  .card-body
+    %h4.card-title Chartline Pie Chart
+    .row
+      .col-md-6
+        = sparkline_pie_chart([4,6,2,9,5,10,3])
+    .pt-4
+      %pre
+        = "= sparkline_pie_chart([4,6,2,9,5,10,3])"
+        %br/
+        or
+        %br/
+        = '<div class="sparkline-pie" data-controller="charts--sparkline-pie-chart" data-charts--sparkline-pie-chart-values="4,6,2,9,5,10,3"></div>'
