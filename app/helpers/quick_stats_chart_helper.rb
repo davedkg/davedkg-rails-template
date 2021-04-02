@@ -14,7 +14,7 @@ module QuickStatsChartHelper
              end].join.html_safe
           end,
           content_tag(:div, class: 'quick-stats__chart') do
-            concat sparkline_bar_chart(quick_stats_chart_values(query), 'sparkline-bar-stats')
+            concat sparkline_bar_chart(quick_stats_chart_values(query), { css_class: 'sparkline-bar-stats' })
           end
         ].join.html_safe
       end

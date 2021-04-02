@@ -60,6 +60,10 @@ Lint/RaiseException:
 Metrics/BlockLength:
   Enabled: false
 
+Metrics/MethodLength:
+  Enabled: true
+  Max: 25
+
 Naming/AccessorMethodName:
   Enabled: false
 

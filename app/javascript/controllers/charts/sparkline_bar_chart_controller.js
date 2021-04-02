@@ -3,6 +3,12 @@ require("jquery-sparkline")
 
 export default class extends Controller {
 
+  // *** Getters
+
+  get height() {
+    return this.data.get("height") || '40px'
+  }
+
   get color() {
     return this.data.get("color") || "white"
   }
@@ -15,7 +21,7 @@ export default class extends Controller {
     return {
       type: 'bar',
       barColor: this.color,
-      height: '40px'
+      height: this.height,
     }
   }
 
