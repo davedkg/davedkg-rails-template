@@ -43,6 +43,6 @@
     {
       "url": "heroku/ruby"
     }
-  ]
+  ],
   "image": "heroku/ruby"
 }
