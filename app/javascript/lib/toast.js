@@ -10,9 +10,9 @@ Toast =  {
       z_index: 1100,
       delay: 3000,
       allow_dismiss: true,
-      offset: 10,
+      offset: { y: 84, x: 0 },
       template:
-        '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0} alert-dismissible fade show" role="alert">' +
+        '<div data-notify="container" class="col-xs-12 col-sm-10 col-md-6 col-xl-4 alert alert-{0} alert-dismissible fade show" role="alert">' +
       		'<button type="button" aria-hidden="true" class="close" data-notify="dismiss" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>' +
       		'<span data-notify="icon"></span> ' +
       		'<span data-notify="title">{1}</span> ' +
