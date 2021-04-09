@@ -6,7 +6,7 @@
       = user_name(user)
     %td.text-right
       - if policy(user).show?
-        = link_to user_path(user), class: "btn btn-secondary btn-sm" do
+        = link_to user_path(user), class: "btn btn-outline-secondary btn-sm" do
           %i.fa.fa-eye
           .d-none.d-sm-inline
             Show

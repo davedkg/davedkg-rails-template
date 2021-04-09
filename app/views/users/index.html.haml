@@ -2,7 +2,7 @@
   %h1= page_title
   .actions
     - if policy(User).new?
-      %a.btn.btn-primary{ href: new_user_path }
+      %a.btn.btn-outline-primary{ href: new_user_path }
         %i.fa.fa-plus
         .d-none.d-sm-inline
           Invite User
