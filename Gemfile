@@ -73,7 +73,7 @@ group :test do
 end
 
 group :production do
-  gem 'newrelic_rpm', '~> 6.8.0.360'
+  gem 'newrelic_rpm', '~> 6.15.0'
   gem 'rails_12factor', '~> 0.0.3'
   gem 'sentry-raven', '~> 2.13.0'
 end
