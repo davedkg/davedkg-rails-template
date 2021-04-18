@@ -17,6 +17,12 @@ describe User do
       expect(subject).not_to be_valid
     end
 
+    it 'returns false when time_zone is invalid' do
+      user_attributes[:time_zone] = 'INVALID_TIMEZONE'
+
+      expect(subject).not_to be_valid
+    end
+
     it 'returns false when avatar IS NOT of content_type image' do
       user_attributes[:avatar] = FilesSpecHelper.txt
 
