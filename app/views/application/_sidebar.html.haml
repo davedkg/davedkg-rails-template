@@ -1,4 +1,4 @@
-%aside.sidebar{ "data-turbolinks-animate-persist" => "true", class: layout_sidebar_class }
+%aside.sidebar{ class: layout_sidebar_class }
   .scrollbar-inner
 
     .user
@@ -27,7 +27,7 @@
             Users
       - if current_user.admin?
         %li.navigation__sub
-          %a{:href => ""}
+          %a{:href => "#"}
             %i.fa.fa-user-shield
             Developer
           %ul
