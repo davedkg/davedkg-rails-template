@@ -8,6 +8,10 @@ class TurboFailureApp < Devise::FailureApp
       super
     end
   end
+
+  def skip_format?
+    %w(html turbo_stream */*).include? request_format.to_s
+  end
 end
 
 class TurboController < ApplicationController
