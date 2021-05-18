@@ -27,7 +27,7 @@
             Users
       - if current_user.admin?
         %li.navigation__sub
-          %a{:href => "#"}
+          %a{"data-turbo" => "false"}
             %i.fa.fa-user-shield
             Developer
           %ul
