@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :reek:TooManyMethods
 class UsersController < ApplicationController
   before_action :set_user, except: %i[index new create]
 
@@ -72,6 +73,18 @@ class UsersController < ApplicationController
     @user.unlock_access!
 
     redirect_to @user, notice: 'User was successfully unlocked.'
+  end
+
+  def enable
+    @user.enabled!
+
+    redirect_to @user, notice: 'User was successfully enabled.'
+  end
+
+  def disable
+    @user.disabled!
+
+    redirect_to @user, notice: 'User was successfully disabled.'
   end
 
   private

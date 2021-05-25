@@ -13,4 +13,16 @@ describe 'GET new_user_session_path', type: :request do
   it 'returns ok status' do
     expect(response).to have_http_status(:ok)
   end
+
+  context 'when user is disabled' do
+    let!(:user) { create(:user, :disabled) }
+
+    it 'returns redirect status' do
+      expect(response).to have_http_status(:redirect)
+    end
+
+    it 'redirects to sign_in path' do
+      expect(response).to redirect_to(new_user_session_path)
+    end
+  end
 end

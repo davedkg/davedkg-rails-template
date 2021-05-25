@@ -1,9 +1,5 @@
 @import 'mixins';
 
-.flatpickr-calendar .hasTime .noCalendar {
-  width: 266px;
-}
-
 .flatpickr-current-month .flatpickr-monthDropdown-months {
   background: none;
   font-weight: bold;
@@ -14,6 +10,10 @@
 }
 
 .flatpickr-calendar {
+  .hasTime .noCalendar {
+    width: 266px;
+  }
+
   .flatpickr-weekday {
     color: $white;
   }
