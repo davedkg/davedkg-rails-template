@@ -16,12 +16,12 @@
           Sign Out
 
     %ul.navigation
-      %li{ class: active_sidebar_tab("/" == request.path) }
+      %li{ class: active_sidebar_tab(root_path == request.path) }
         = link_to root_path do
           %i.fa.fa-tachometer-alt
           Dashboard
       - if policy(User).index?
-        %li{ class: active_sidebar_tab_for_path("/users") }
+        %li{ class: active_sidebar_tab_for_path(users_path) }
           = link_to users_path do
             %i.fa.fa-users
             Users
@@ -33,7 +33,7 @@
             Developer
           %ul
             %li= link_to "Sidekiq", "/sidekiq", target: "_blank"
-            %li= link_to "Web Components", web_components_path, class: active_sidebar_tab_for_path("/web-components")
+            %li= link_to "Web Components", web_components_path, class: active_sidebar_tab_for_path(web_components_path)
             - if Rails.env.development?
               %li= link_to "Email Previews", "/rails/mailers", target: "_blank"
               %li= link_to "Letter Opener", "/letter-opener", target: "_blank"
