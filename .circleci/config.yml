@@ -358,7 +358,7 @@ jobs:
           paths:
             - vendor/bundle
 
-      - run: fasterer
+      - run: bundle exec fasterer
 
 workflows:
   version: 2
