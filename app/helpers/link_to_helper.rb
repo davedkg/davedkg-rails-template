@@ -22,7 +22,7 @@ module LinkToHelper
       turbolinks: false,
       controller: 'ajax-modal',
       action: 'ajax:success->ajax-modal#success ajax:error->ajax-modal#error'
-    ) { |_, oldval, newval| "#{oldval} #{newval}".strip }
+    )
 
     html_options
   end
