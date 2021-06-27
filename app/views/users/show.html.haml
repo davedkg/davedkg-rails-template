@@ -48,6 +48,9 @@
     .profile__info
       %ul.icon-list
         %li
+          %i.zmdi.zmdi-home
+          = @user.name || 'n/a'
+        %li
           %i.zmdi.zmdi-email
           = @user.email
         %li
