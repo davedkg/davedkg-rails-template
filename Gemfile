@@ -39,6 +39,7 @@ group :development, :test do
   gem 'brakeman', '~> 5.0.4'
   gem 'eslintrb', '~> 2.1.0'
   gem 'factory_bot_rails', '~> 5.1.1'
+  gem 'fasterer', '~> 0.9.0'
   gem 'pry-byebug', '~> 3.9.0'
   gem 'reek', '~> 6.0.1'
   gem 'rspec-rails', '~> 3.9'
