@@ -16,10 +16,11 @@
           Sign Out
 
     %ul.navigation
-      %li{ class: active_sidebar_tab(root_path == request.path) }
-        = link_to root_path do
-          %i.fa.fa-tachometer-alt
-          Dashboard
+      - if policy(:dashboard).show?
+        %li{ class: active_sidebar_tab_for_path(dashboard_path) }
+          = link_to dashboard_path do
+            %i.fa.fa-tachometer-alt
+            Dashboard
       - if policy(User).index?
         %li{ class: active_sidebar_tab_for_path(users_path) }
           = link_to users_path do
