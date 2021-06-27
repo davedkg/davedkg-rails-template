@@ -8,6 +8,7 @@ class WebComponentsController < ApplicationController
 
   def modal
     @page_title = 'AJAX Modal'
+    set_modal_size(params[:size].to_sym) if params[:size]
 
     render layout: 'modal'
   end
