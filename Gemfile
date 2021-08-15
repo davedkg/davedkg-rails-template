@@ -76,7 +76,9 @@ end
 group :production do
   gem 'newrelic_rpm', '~> 7.1.0'
   gem 'rails_12factor', '~> 0.0.3'
-  gem 'sentry-raven', '~> 3.1.2'
+  gem 'sentry-rails', '~> 4.6.4'
+  gem 'sentry-ruby', '~> 4.6.4'
+  gem 'sentry-sidekiq', '~> 4.6.4'
 end
 
 # gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
