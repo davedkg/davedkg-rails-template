@@ -7,7 +7,7 @@ jobs:
   rspec:
 
     docker:
-      - image: circleci/ruby:2.6.6-node-browsers
+      - image: circleci/ruby:2.6.8-node-browsers
         environment:
           PGHOST: 127.0.0.1
           PGUSER: db_user
@@ -139,7 +139,7 @@ jobs:
 
   reek:
     docker:
-      - image: circleci/ruby:2.6.6
+      - image: circleci/ruby:2.6.8
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
@@ -174,7 +174,7 @@ jobs:
 
   rubocop:
     docker:
-      - image: circleci/ruby:2.6.6
+      - image: circleci/ruby:2.6.8
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
@@ -209,7 +209,7 @@ jobs:
 
   brakeman:
     docker:
-      - image: circleci/ruby:2.6.6
+      - image: circleci/ruby:2.6.8
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
@@ -244,7 +244,7 @@ jobs:
 
   eslint:
     docker:
-      - image: circleci/ruby:2.6.6-node
+      - image: circleci/ruby:2.6.8-node
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
@@ -292,7 +292,7 @@ jobs:
 
   scss-lint:
     docker:
-      - image: circleci/ruby:2.6.6
+      - image: circleci/ruby:2.6.8
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test
@@ -327,7 +327,7 @@ jobs:
 
   fasterer:
     docker:
-      - image: circleci/ruby:2.6.6
+      - image: circleci/ruby:2.6.8
         environment:
           BUNDLE_PATH: vendor/bundle
           RAILS_ENV: test

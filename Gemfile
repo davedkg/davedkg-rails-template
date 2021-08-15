@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.6'
+ruby '2.6.8'
 
 gem 'dotenv-rails', '~> 2.7.5', groups: %i[development test]
 
