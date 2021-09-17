@@ -35,6 +35,7 @@ jobs:
             gem install bundler
 
       # bundle install
+      # gem pristine ffi is a back
       - restore_cache:
           keys:
             - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
@@ -43,6 +44,7 @@ jobs:
           name: Running bundle install
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+            gem pristine ffi
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
