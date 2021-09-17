@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include PageTitleable
   include Pundit
+  include Turbo::Redirection
 
   rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
   rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
