@@ -29,7 +29,7 @@ gem 'paranoia', '~> 2.4.2'
 gem 'pundit', '~> 2.1.0'
 gem 'sidekiq', '~> 6.1.1'
 gem 'simple_form', '~> 5.0.1'
-gem 'turbo-rails', '~> 0.5.9'
+gem 'turbo-rails', '~> 0.7.14'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 

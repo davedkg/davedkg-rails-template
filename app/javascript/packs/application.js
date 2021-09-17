@@ -13,8 +13,6 @@ require("jquery.scrollbar")
 require("jquery-scrollLock.min")
 require("material")
 
-import { Turbo } from "@hotwired/turbo-rails"
+import "@hotwired/turbo-rails"
 import "controllers"
 import "lib"
-
-window.Turbo = Turbo
