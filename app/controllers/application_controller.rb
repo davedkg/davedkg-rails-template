@@ -1,9 +1,13 @@
 # frozen_string_literal: true
 
+require 'action_text'
+
 class ApplicationController < ActionController::Base
   include PageTitleable
   include Pundit
   include Turbo::Redirection
+
+  helper ActionText::Engine.helpers
 
   rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
   rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
