@@ -1,13 +1,19 @@
 !!!
 %html
   %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0, shrink-to-fit=no", :name => "viewport"}/
-    %title= "#{page_title} | #{PLATFORM_TITLE}"
+    - if native?
+      %meta{:content => "width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0", :name => "viewport"}/
+      %title= page_title
+    - else
+      %meta{:content => "width=device-width,initial-scale=1.0", :name => "viewport"}/
+      %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+      %title= "#{page_title} | #{PLATFORM_TITLE}"
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbo-track': 'reload'
   %body{ class: "#{params[:controller]} #{params[:action]}", "data-ma-theme"=>"blue" }
     .login
       .login__block.active

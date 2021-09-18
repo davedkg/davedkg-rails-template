@@ -1,15 +1,19 @@
 # frozen_string_literal: true
 
+require 'action_text'
+
 class ApplicationController < ActionController::Base
   include PageTitleable
   include Pundit
+  include Turbo::Redirection
+
+  helper ActionText::Engine.helpers
 
   rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
   rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
 
   before_action :authenticate_user!
   before_action :set_time_zone
-  before_action :set_turbolinks_animation
   before_action :set_raven_context
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action  :verify_authorized, unless: -> { devise_controller? || application_controller? }
@@ -39,10 +43,6 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     redirect_to root_path unless current_user.admin?
-  end
-
-  def set_turbolinks_animation
-    turbolinks_animate 'fadein'
   end
 
   def prevent_action

@@ -69,5 +69,7 @@ Rails.application.configure do
 
   config.active_job.queue_adapter = :sidekiq
 
+  config.hosts = nil
+
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
 end

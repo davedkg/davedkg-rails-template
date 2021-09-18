@@ -3,15 +3,19 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:charset => "utf-8"}/
-    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-    %title= "#{page_title} | #{PLATFORM_TITLE}"
+    - if native?
+      %meta{:content => "width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0", :name => "viewport"}/
+      %title= page_title
+    - else
+      %meta{:content => "width=device-width,initial-scale=1.0", :name => "viewport"}/
+      %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
+      %title= "#{page_title} | #{PLATFORM_TITLE}"
     = csrf_meta_tags
     = csp_meta_tag
     = action_cable_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
-  = component 'turbolinks-animate', animation: @turbolinks_animate_animation, class: "flexable #{params[:controller].gsub("_","-")} #{params[:action]}", "data-ma-theme"=>"blue" do
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload'
+    = javascript_pack_tag 'application', 'data-turbo-track': 'reload'
+  %body{ class: "flexable #{params[:controller].gsub("_","-")} #{params[:action]}", "data-ma-theme"=>"blue" }
     %main.main
       = render "header"
       = render "sidebar"

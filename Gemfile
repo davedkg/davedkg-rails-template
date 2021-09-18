@@ -12,7 +12,6 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'sass-rails', '>= 6'
-gem 'turbolinks', '~> 5'
 gem 'webpacker', '~> 4.0'
 
 gem 'active_storage_validations', '~> 0.8.8'
@@ -30,13 +29,13 @@ gem 'paranoia', '~> 2.4.2'
 gem 'pundit', '~> 2.1.0'
 gem 'sidekiq', '~> 6.1.1'
 gem 'simple_form', '~> 5.0.1'
-gem 'turbolinks-animate', '~> 2.0.1'
+gem 'turbo-rails', '~> 0.7.14'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do
   gem 'action-cable-testing', '~> 0.6.1'
-  gem 'brakeman', '~> 5.0.4'
+  gem 'brakeman', '~> 5.1.1'
   gem 'eslintrb', '~> 2.1.0'
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'fasterer', '~> 0.9.0'

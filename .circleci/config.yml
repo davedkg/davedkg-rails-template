@@ -42,6 +42,7 @@ jobs:
       - run:
           name: Running bundle install
           command: |
+            sudo ln -s /usr/lib/x86_64-linux-gnu/libffi.so.7 /usr/lib/x86_64-linux-gnu/libffi.so.6
             bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
@@ -269,6 +270,7 @@ jobs:
       - run:
           name: Running bundle install
           command: |
+            sudo ln -s /usr/lib/x86_64-linux-gnu/libffi.so.7 /usr/lib/x86_64-linux-gnu/libffi.so.6
             bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}

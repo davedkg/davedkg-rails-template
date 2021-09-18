@@ -1,7 +1,7 @@
 'use strict';
 
 // $(document).ready(function () {
-document.addEventListener( 'turbolinks:load', function() {
+document.addEventListener( 'turbo:load', function() {
     var $body = $('body');
 
     //Fullscreen Launch function

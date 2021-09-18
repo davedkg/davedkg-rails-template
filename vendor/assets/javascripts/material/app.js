@@ -11,7 +11,7 @@
 
 
 // $(document).ready(function () {
-document.addEventListener( 'turbolinks:load', function() {
+document.addEventListener( 'turbo:load', function() {
     /*------------------------------------------------
         Theme Switch
     -------------------------------------------------*/
