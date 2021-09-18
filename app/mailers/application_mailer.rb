@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ApplicationMailer < ActionMailer::Base
-  default from: "#{PLATFORM_TITLE}<noreply@#{ENV['MAILGUN_DOMAIN'] || 'example.com'}>"
+  default from: "#{PLATFORM_TITLE}<noreply@#{EMAIL_DOMAIN}>"
   layout 'mailer'
 
   # def utm_params
