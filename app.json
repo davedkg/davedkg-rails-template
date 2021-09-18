@@ -24,6 +24,10 @@
       "description": "Custom domain name.",
       "required": false
     },
+    "EMAIL_DOMAIN": {
+      "description": "Custom email domain name.",
+      "required": false
+    },
     "WEB_CONCURRENCY": {
       "description": "The number of processes to run.",
       "value": "5"
