@@ -11,7 +11,7 @@ Rails.confirm = function(message, element) {
     confirmButtonText: 'Continue',
     buttonsStyling: false,
     confirmButtonClass: 'btn btn-primary ml-3',
-    cancelButtonClass: 'btn btn-link mr-3',
+    cancelButtonClass: 'btn btn-default mr-3',
     reverseButtons: true,
   }).then((result) => {
     if (result.isConfirmed) {

@@ -23,5 +23,9 @@ FactoryBot.define do
     trait :locked do
       locked_at { Time.zone.now }
     end
+
+    trait :disabled do
+      state { User.states[:disabled] }
+    end
   end
 end

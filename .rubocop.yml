@@ -82,6 +82,9 @@ Rails/UniqueValidationWithoutIndex:
 RSpec/ExampleLength:
   Enabled: false
 
+RSpec/LetSetup:
+  Enabled: false
+
 RSpec/NamedSubject:
   Enabled: false
 

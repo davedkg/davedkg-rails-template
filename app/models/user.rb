@@ -10,6 +10,11 @@ class User < ApplicationRecord
     admin: 'admin'
   }
 
+  enum state: {
+    enabled: 'enabled',
+    disabled: 'disabled'
+  }
+
   attr_accessor :skip_password_validation
 
   has_one_attached :avatar
@@ -21,15 +26,6 @@ class User < ApplicationRecord
   def send_invitation
     self.invitation_sent_at = Time.zone.now
     deliver_invitation
-  end
-
-  ## *** States
-
-  def state
-    return :invited unless accepted_invitation?
-    return :locked  if locked?
-
-    :active
   end
 
   def accepted_invitation?
@@ -44,6 +40,10 @@ class User < ApplicationRecord
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, id, *args).deliver_later
+  end
+
+  def active_for_authentication?
+    super && enabled?
   end
 
   protected

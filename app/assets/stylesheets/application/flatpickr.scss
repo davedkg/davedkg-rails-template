@@ -10,6 +10,10 @@
 }
 
 .flatpickr-calendar {
+  .hasTime .noCalendar {
+    width: 266px;
+  }
+
   .flatpickr-weekday {
     color: $white;
   }

@@ -12,7 +12,25 @@ RSpec.describe 'A user can view an AJAX modal', type: :feature, js: true do
 
   it 'A user can open and close an AJAX modal' do
     when_i_click_modal_tab
-    and_click_show_ajax_modal
+    and_click_show_ajax_modal('Show AJAX Modal')
+    then_i_see_a_modal
+    sleep 1
+    and_then_i_click_close_modal
+    then_i_cannot_see_modal
+  end
+
+  it 'A user can open and close a small AJAX modal' do
+    when_i_click_modal_tab
+    and_click_show_ajax_modal('Show Small AJAX Modal')
+    then_i_see_a_modal
+    sleep 1
+    and_then_i_click_close_modal
+    then_i_cannot_see_modal
+  end
+
+  it 'A user can open and close a large AJAX modal' do
+    when_i_click_modal_tab
+    and_click_show_ajax_modal('Show Large AJAX Modal')
     then_i_see_a_modal
     sleep 1
     and_then_i_click_close_modal
@@ -25,8 +43,8 @@ RSpec.describe 'A user can view an AJAX modal', type: :feature, js: true do
     end
   end
 
-  def and_click_show_ajax_modal
-    click_on 'Show AJAX Modal'
+  def and_click_show_ajax_modal(button_text)
+    click_on button_text
   end
 
   def then_i_see_a_modal

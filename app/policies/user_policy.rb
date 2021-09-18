@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :reek:TooManyMethods
 class UserPolicy < ApplicationPolicy
   def index?
     admin?
@@ -41,6 +42,14 @@ class UserPolicy < ApplicationPolicy
     admin? && !me? && accepted_invitation? && locked?
   end
 
+  def enable?
+    admin? && !me? && disabled?
+  end
+
+  def disable?
+    admin? && !me? && enabled?
+  end
+
   def permitted_attributes
     if admin? && !me?
       %i[email role]
@@ -65,5 +74,13 @@ class UserPolicy < ApplicationPolicy
 
   def locked?
     record.locked?
+  end
+
+  def enabled?
+    record.enabled?
+  end
+
+  def disabled?
+    record.disabled?
   end
 end

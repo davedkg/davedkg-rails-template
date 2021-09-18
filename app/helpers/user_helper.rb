@@ -12,13 +12,14 @@ module UserHelper
   end
 
   def user_status_badge(user)
-    case user.state
-    when :invited
+    if !user.accepted_invitation?
       content_tag(:span, 'invited', class: %w[badge badge-secondary])
-    when :active
-      content_tag(:span, 'active', class: %w[badge badge-success])
-    when :locked
+    elsif user.locked?
       content_tag(:span, 'locked', class: %w[badge badge-danger])
+    elsif user.disabled?
+      content_tag(:span, 'disabled', class: %w[badge badge-danger])
+    else
+      content_tag(:span, 'active', class: %w[badge badge-success])
     end
   end
 

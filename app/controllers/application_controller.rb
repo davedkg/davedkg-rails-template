@@ -12,7 +12,15 @@ class ApplicationController < ActionController::Base
   before_action :set_time_zone
   before_action :set_raven_context
   before_action :configure_permitted_parameters, if: :devise_controller?
-  after_action  :verify_authorized, unless: :devise_controller?
+  after_action  :verify_authorized, unless: -> { devise_controller? || application_controller? }
+
+  def root
+    if policy(:dashboard).show?
+      redirect_to dashboard_path
+    else
+      redirect_to user_path(current_user)
+    end
+  end
 
   private
 
@@ -35,6 +43,10 @@ class ApplicationController < ActionController::Base
 
   def prevent_action
     redirect_to root_path
+  end
+
+  def application_controller?
+    'application' == params[:controller]
   end
 
   def render_page_not_found

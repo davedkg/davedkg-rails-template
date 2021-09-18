@@ -325,6 +325,41 @@ jobs:
 
       - run: bundle exec scss-lint -c .scss-lint.yml
 
+  fasterer:
+    docker:
+      - image: circleci/ruby:2.6.8
+        environment:
+          BUNDLE_PATH: vendor/bundle
+          RAILS_ENV: test
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: Configure Bundler
+          command: |
+            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+            source $BASH_ENV
+            gem install bundler
+
+      # bundle install
+      - restore_cache:
+          keys:
+            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+            - v1-bundle-cache-
+      - run:
+          name: Running bundle install
+          command: |
+            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+      - save_cache:
+          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+          paths:
+            - vendor/bundle
+
+      - run: bundle exec fasterer
+
 workflows:
   version: 2
   test:
@@ -335,6 +370,7 @@ workflows:
       - brakeman
       - eslint
       - scss-lint
+      - fasterer
       - upload-codeclimate-coverage:
           requires:
             - rspec

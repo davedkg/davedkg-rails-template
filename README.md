@@ -1,4 +1,5 @@
 # davedkg-rails-template
+
 [![Maintainability](https://api.codeclimate.com/v1/badges/7703a00ebe9661c4685c/maintainability)](https://codeclimate.com/github/davedkg/davedkg-rails-template/maintainability)
 [![Test Coverage](https://api.codeclimate.com/v1/badges/7703a00ebe9661c4685c/test_coverage)](https://codeclimate.com/github/davedkg/davedkg-rails-template/test_coverage)
 [![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master)
@@ -6,27 +7,27 @@
 ## Local Setup
 
 ```bash
-$ brew install postgresql redis yarn imagemagick
-$ bundle && yarn
-$ cp .env.sample .env
-$ bundle exec rake db:setup db:seed
-$ rspec
-$ foreman start -f Procfile.dev
-$ open http://localhost:3000/
+brew install postgresql redis yarn imagemagick
+bundle && yarn
+cp .env.sample .env
+bundle exec rake db:setup db:seed
+rspec
+foreman start -f Procfile.dev
+open http://localhost:3000/
 ```
 
-#### Create First User
+### Create First User
 
 ```bash
-$ rails c
-$ <pry> User.invite!(email: "bob@bob.com")
-$ <pry> exit
-$ tail -200 log/development.log
+rails c
+<pry> User.invite!(email: "bob@bob.com")
+<pry> exit
+tail -200 log/development.log
 ```
 
 And then find the accept invitation link in the log.
 
-#### Development Rake Tasks
+### Development Rake Tasks
 
 | Task | Description |
 | --- | --- |
@@ -38,19 +39,14 @@ And then find the accept invitation link in the log.
 | fix | Run Auto-correctors for Linters |
 | lint | Run All Linters |
 
-#### Development Users
+### Development Users
 
 | Email | Password |
 | --- | --- |
 | user@example.com | users_password123 |
 | admin@example.com | admins_password123 |
 
-#### Sidekiq
-
-https://gist.github.com/wbotelhos/fb865fba2b4f3518c8e533c7487d5354
-https://github.com/mperham/sidekiq/wiki/API
-
-#### Rebrand App
+## Rebrand App
 
 | File | Change |
 | --- | --- |
@@ -79,13 +75,11 @@ git pull template master --allow-unrelated-histories
 
 ## Deploy to Heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
-
-#### Configuring
+### Configuring
 
 ```bash
-$ heroku buildpacks:add https://github.com/DuckyTeam/heroku-buildpack-imagemagick --index 1
-$ heroku buildpacks:add heroku/ruby --index 2
-$ heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
-$ heroku config:set APP_DOMAIN www.example.com
+heroku buildpacks:add https://github.com/DuckyTeam/heroku-buildpack-imagemagick --index 1
+heroku buildpacks:add heroku/ruby --index 2
+heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
+heroku config:set APP_DOMAIN www.example.com
 ```
