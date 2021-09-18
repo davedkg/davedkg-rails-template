@@ -42,7 +42,6 @@ jobs:
       - run:
           name: Running bundle install
           command: |
-            gem uninstall ffi
             bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
