@@ -10,8 +10,12 @@
 }
 
 .flatpickr-calendar {
-  .hasTime .noCalendar {
-    width: 266px;
+  .flatpickr-days {
+    border: 0;
+  }
+
+  &.hasTime.noCalendar {
+    width: 300px;
   }
 
   .flatpickr-weekday {
