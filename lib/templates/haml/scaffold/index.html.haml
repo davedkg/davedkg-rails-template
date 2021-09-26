@@ -1,0 +1,19 @@
+%header.content__title
+  %h1= page_title
+  .actions
+    - if policy(<%= singular_table_name.titleize %>).new?
+      %a.btn.btn-outline-primary{ href: new_<%= singular_table_name %>_path }
+        %i.fa.fa-plus
+        .d-none.d-sm-inline
+          <%= singular_table_name.titleize %>
+
+.card
+  .card-body
+    %table.table.table-striped.mb-0
+      %thead
+        %tr
+          %th &nbsp;
+      %tbody{ id: "<%= plural_table_name %>-body" }
+        = render '<%= plural_table_name %>'
+    %div{ id: "<%= plural_table_name %>-paginator" }
+      = render "paginator"
