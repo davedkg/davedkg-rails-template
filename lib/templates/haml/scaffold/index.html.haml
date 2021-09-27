@@ -12,8 +12,11 @@
     %table.table.table-striped.mb-0
       %thead
         %tr
+        <%- attributes.each do |attribute| -%>
+          %th <%= attribute.name.humanize %>
+        <%- end -%>
           %th &nbsp;
       %tbody{ id: "<%= plural_table_name %>-body" }
-        = render '<%= plural_table_name %>'
+        = render 'table_rows'
     %div{ id: "<%= plural_table_name %>-paginator" }
       = render "paginator"

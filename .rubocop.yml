@@ -18,6 +18,7 @@ AllCops:
     - 'vendor/**/*'
     - 'Guardfile'
     - 'app/helpers/quick_stats_chart_helper.rb'
+    - 'lib/templates/**/*'
 
 Bundler/DuplicatedGem:
   Include:
