@@ -28,6 +28,11 @@ module Haml
         end
       end
 
+      # TODO: destroy does not work here
+      def run_other_generators
+        generate "pundit:policy #{singular_table_name.titleize}"
+      end
+
       protected
 
       def available_views
