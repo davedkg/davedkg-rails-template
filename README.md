@@ -29,7 +29,7 @@ And then find the accept invitation link in the log.
 
 ### Custom Scaffold
 
-Custom scaffold generates controller, model, views, policy with custom rspec
+Custom scaffold generates controller, model, policy, views with corresponding rspec files
 
 ```bash
 rails g scaffold Object attribute1 attribute2
