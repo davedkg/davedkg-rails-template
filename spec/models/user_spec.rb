@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe User do
+describe User, type: :model do
   let(:user_attributes) { attributes_for(:user) }
 
   it_behaves_like 'paranoidal'
