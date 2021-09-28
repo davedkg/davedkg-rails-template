@@ -36,7 +36,7 @@ module Haml
       protected
 
       def available_views
-        %w[index edit show new _paginator _table_rows]
+        %w[index edit show new _paginator _table_rows _overview]
       end
 
       def available_js_views
