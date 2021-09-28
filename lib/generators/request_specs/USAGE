@@ -1,0 +1,5 @@
+Description:
+    Create request specs for Model
+
+Example:
+    rails generate request_specs Model

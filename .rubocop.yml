@@ -19,6 +19,7 @@ AllCops:
     - 'Guardfile'
     - 'app/helpers/quick_stats_chart_helper.rb'
     - 'lib/templates/**/*'
+    - 'lib/generators/**/*'
 
 Bundler/DuplicatedGem:
   Include:
