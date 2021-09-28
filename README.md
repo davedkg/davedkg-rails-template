@@ -61,7 +61,6 @@ rails g request_specs Object
 | File | Change |
 | --- | --- |
 | .circleci/config.yml | database name |
-| app/mailers/application_mailer.rb | default from: 'email address' |
 | config/initializers/constants.rb | PLATFORM_NAME |
 | config/application.rb | Rails::Application module name |
 | config/database.yml | database names |
