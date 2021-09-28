@@ -1,0 +1,7 @@
+.card
+  .card-body
+  <%- attributes.each do |attribute| -%>
+    %dl
+      %dt <%= attribute.name.humanize %>
+      %dd= @<%= singular_table_name %>.<%= attribute.name %>
+  <%- end -%>

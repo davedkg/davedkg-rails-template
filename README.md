@@ -27,6 +27,16 @@ tail -200 log/development.log
 
 And then find the accept invitation link in the log.
 
+### Custom Scaffold
+
+Custom scaffold generates controller, model, views, policy with custom rspec
+
+```bash
+rails g scaffold Object attribute1 attribute2
+rails g pundit:policy Object
+rails g request_specs Object
+```
+
 ### Development Rake Tasks
 
 | Task | Description |

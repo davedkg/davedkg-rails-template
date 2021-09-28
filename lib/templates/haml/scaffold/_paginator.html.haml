@@ -1,0 +1,5 @@
+.mt-4
+  .text-center
+    = page_entries_info @<%= plural_table_name %>
+  .mt-4
+    = paginate @<%= plural_table_name %>, remote: true

@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe UserPolicy do
+describe UserPolicy, type: :policy do
   subject { described_class.new(user, record) }
 
   let(:user) { create(:user) }
