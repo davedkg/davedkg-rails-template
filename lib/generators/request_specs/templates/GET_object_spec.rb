@@ -6,7 +6,7 @@ describe 'GET <%= plural_name.singularize %>_path', type: :request do
   subject { get <%= plural_name.singularize %>_path(record) }
 
   let(:user) { create(:user) }
-  let(:record) { create(:episode) }
+  let(:record) { create(:<%= plural_name.singularize %>) }
 
   before do
     sign_in user
