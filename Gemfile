@@ -27,7 +27,7 @@ gem 'mailgun-ruby', '~>1.1.6'
 gem 'mini_magick', '~> 4.10.1'
 gem 'paranoia', '~> 2.4.2'
 gem 'pundit', '~> 2.1.0'
-gem 'sidekiq', '~> 6.1.1'
+gem 'sidekiq', '~> 6.2.1'
 gem 'simple_form', '~> 5.0.1'
 gem 'turbo-rails', '~> 0.7.14'
 
