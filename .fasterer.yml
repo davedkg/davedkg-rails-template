@@ -1,2 +1,4 @@
 exclude_paths:
   - 'vendor/**/*.rb'
+  - 'lib/templates/**/*'
+  - 'lib/generators/**/*'

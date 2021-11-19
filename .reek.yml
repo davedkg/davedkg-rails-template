@@ -31,3 +31,4 @@ exclude_paths:
   - app/helpers/quick_stats_chart_helper.rb
   - lib/generators
   - lib/rails
+  - lib/templates
