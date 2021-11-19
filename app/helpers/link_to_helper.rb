@@ -17,9 +17,7 @@ module LinkToHelper
     return html_options if nil == html_options || true != html_options[:modal]
 
     html_options.delete(:modal)
-    (html_options[:data] ||= {}).merge!(
-      "turbo-frame": "modal"
-    )
+    (html_options[:data] ||= {})['turbo-frame'] = 'modal'
 
     html_options
   end
