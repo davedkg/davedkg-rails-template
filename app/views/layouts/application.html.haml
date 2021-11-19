@@ -24,5 +24,6 @@
         #progress-wheel
         = render 'breadcrumbs'
         = yield
-        = render 'toast'
-        = yield :javascript
+    = turbo_frame_tag "modal"
+    = render 'application/toast'
+    = yield :javascript

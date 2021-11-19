@@ -17,12 +17,7 @@ module LinkToHelper
     return html_options if nil == html_options || true != html_options[:modal]
 
     html_options.delete(:modal)
-    html_options[:remote] = true
-    (html_options[:data] ||= {}).merge!(
-      turbolinks: false,
-      controller: 'ajax-modal',
-      action: 'ajax:success->ajax-modal#success ajax:error->ajax-modal#error'
-    )
+    (html_options[:data] ||= {})['turbo-frame'] = 'modal'
 
     html_options
   end
