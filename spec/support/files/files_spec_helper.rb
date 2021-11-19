@@ -3,6 +3,7 @@
 module FilesSpecHelper
   extend self
   extend ActionDispatch::TestProcess
+  include ActionDispatch::TestProcess::FixtureFile
 
   def png_150x150_name
     'image-150x150.png'
@@ -34,6 +35,6 @@ module FilesSpecHelper
 
   def upload(name, type)
     file_path = Rails.root.join('spec', 'support', 'files', name)
-    fixture_file_upload(file_path, type)
+    Rack::Test::UploadedFile.new(file_path, type)
   end
 end
