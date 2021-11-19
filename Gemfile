@@ -12,7 +12,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
 gem 'rails', '~> 6.1.0'
 gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 4.0'
+gem 'webpacker', '~> 5.4.3'
 
 gem 'active_storage_validations', '~> 0.8.8'
 gem 'autoprefixer-rails', '~> 6.7.2'

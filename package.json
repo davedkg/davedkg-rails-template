@@ -6,7 +6,8 @@
     "@rails/actiontext": "^6.0.2-1",
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
-    "@rails/webpacker": "4.2.2",
+    "@rails/webpacker": "5.4.3",
+    "@webpack-cli/serve": "^1.6.0",
     "animate.css": "^3.7.2",
     "autosize": "^4.0.2",
     "bootstrap": "^4.4.1",
@@ -21,10 +22,12 @@
     "select2": "^4.1.0-beta.0",
     "stimulus": "^1.1.1",
     "sweetalert2": "^10.16.3",
-    "trix": "^1.0.0"
+    "trix": "^1.0.0",
+    "webpack": "^4.46.0",
+    "webpack-cli": "^3.3.12"
   },
   "version": "0.1.0",
   "devDependencies": {
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3"
   }
 }
