@@ -413,7 +413,7 @@ GEM
       sidekiq (>= 3.0)
     sexp_processor (4.16.0)
     shellany (0.0.1)
-    sidekiq (6.2.1)
+    sidekiq (6.4.0)
       connection_pool (>= 2.2.2)
       rack (~> 2.0)
       redis (>= 4.2.0)
@@ -522,7 +522,7 @@ DEPENDENCIES
   sentry-rails (~> 4.6.4)
   sentry-ruby (~> 4.6.4)
   sentry-sidekiq (~> 4.6.4)
-  sidekiq (~> 6.2.1)
+  sidekiq (~> 6.4.0)
   simple_form (~> 5.0.1)
   simplecov (~> 0.17.1)
   spring
