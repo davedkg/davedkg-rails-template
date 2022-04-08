@@ -8,14 +8,13 @@
           Invite User
 
 .card
-  .card-body
-    %table.table.table-striped.mb-0
-      %thead
-        %tr
-          %th.d-none.d-md-table-cell{ width: "10px" } &nbsp;
-          %th Name
-          %th &nbsp;
-      %tbody{ id: "users-body" }
-        = render 'users'
-    %div{ id: "users-paginator" }
-      = render "paginator"
+  %table.table.table-striped.mb-0
+    %thead
+      %tr
+        %th.d-none.d-md-table-cell{ width: "10px" } &nbsp;
+        %th Name
+        %th &nbsp;
+    %tbody{ id: "users-body" }
+      = render 'users'
+  %div{ id: "users-paginator" }
+    = render "paginator"
