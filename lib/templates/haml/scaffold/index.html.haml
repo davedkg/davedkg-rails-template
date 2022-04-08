@@ -1,7 +1,7 @@
 %header.content__title
   %h1= page_title
   .actions
-    - if policy(<%= singular_table_name.titleize %>).new?
+    - if policy(<%= class_name %>).new?
       = link_to new_<%= singular_table_name %>_path, class: "btn btn-outline-primary btn-sm" do
         %i.fa.fa-plus
         .d-none.d-sm-inline
