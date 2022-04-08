@@ -2,7 +2,7 @@
   %h1= page_title
   .actions
     - if policy(<%= singular_table_name.titleize %>).new?
-      %a.btn.btn-outline-primary{ href: new_<%= singular_table_name %>_path }
+      = link_to new_<%= singular_table_name %>_path, class: "btn btn-outline-primary btn-sm" do
         %i.fa.fa-plus
         .d-none.d-sm-inline
           <%= singular_table_name.titleize %>
