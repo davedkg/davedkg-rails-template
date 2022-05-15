@@ -28,6 +28,10 @@
       "description": "Custom email domain name.",
       "required": false
     },
+    "PLATFORM_TITLE": {
+      "description": "Custom platform name.",
+      "required": false
+    },
     "WEB_CONCURRENCY": {
       "description": "The number of processes to run.",
       "value": "5"
