@@ -62,7 +62,7 @@ class UserPolicy < ApplicationPolicy
     if admin?
       { role: User.roles }
     else
-      { }
+      {}
     end
   end
 

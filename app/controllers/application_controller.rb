@@ -5,6 +5,7 @@ require 'action_text'
 class ApplicationController < ActionController::Base
   include PageTitleable
   include Pundit
+  include Pundit::Allowable
   include Turbo::Redirection
 
   helper ActionText::Engine.helpers
@@ -24,16 +25,6 @@ class ApplicationController < ActionController::Base
     else
       redirect_to user_path(current_user)
     end
-  end
-
-  def allowed_attributes(record, action = action_name)
-    policy = policy(record)
-    method_name = if policy.respond_to?("allowed_attribute_values_for_#{action}")
-      "allowed_attribute_values_for_#{action}"
-    else
-      "allowed_attribute_values"
-    end
-    permitted_attributes(record, action).allow(*policy.public_send(method_name))
   end
 
   private
