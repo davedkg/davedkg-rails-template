@@ -58,6 +58,14 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  def allowed_attribute_values
+    if admin?
+      { role: User.roles }
+    else
+      { }
+    end
+  end
+
   private
 
   def me?

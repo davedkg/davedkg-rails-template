@@ -15,6 +15,7 @@ gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.4.3'
 
 gem 'active_storage_validations', '~> 0.8.8'
+gem 'allowable', '~> 1.1.0'
 gem 'autoprefixer-rails', '~> 6.7.2'
 gem 'devise', '~> 4.7.1'
 gem 'devise_invitable', '~> 2.0.0'
