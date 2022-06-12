@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
   def create
     @user = authorize User.new
-    @user.attributes               = allowed_attributes(@user)
+    @user.attributes               = permitted_attributes_and_values(@user)
     @user.invited_by               = current_user
     @user.skip_password_validation = true
 

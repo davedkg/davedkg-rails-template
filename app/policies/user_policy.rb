@@ -58,7 +58,7 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
-  def allowed_attribute_values
+  def permitted_attribute_values
     if admin?
       { role: User.roles }
     else
