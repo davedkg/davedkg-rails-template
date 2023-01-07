@@ -56,6 +56,12 @@ rails g request_specs Object
 | user@example.com | users_password123 |
 | admin@example.com | admins_password123 |
 
+### Other Commands
+
+```bash
+$ yarn yarn-audit-fix
+```
+
 ## Rebrand App
 
 | File | Change |
