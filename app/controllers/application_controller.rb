@@ -5,6 +5,7 @@ require 'action_text'
 class ApplicationController < ActionController::Base
   include PageTitleable
   include Pundit
+  include Turbo::Redirection
 
   helper ActionText::Engine.helpers
 
