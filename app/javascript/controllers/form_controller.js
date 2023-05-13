@@ -37,7 +37,7 @@ export default class extends Controller {
     if (this.isRemote) {
       Rails.fire(this.element, "submit");
     } else {
-      this.element.requestSubmit()();
+      this.element.requestSubmit();
     }
   }
 }
