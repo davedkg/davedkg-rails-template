@@ -4,7 +4,7 @@ module Pundit
   module Matchers
     RSpec::Matchers.define :permit_mass_assignment_of_exactly do |attributes|
       # Map single object argument to an array, if necessary
-      attributes = attributes.is_a?(Array) ? attributes : [attributes]
+      attributes = [attributes] unless attributes.is_a?(Array)
 
       match do |policy|
         attr_method = 'permitted_attributes'
@@ -23,15 +23,15 @@ module Pundit
       failure_message do |policy|
         if defined? @action
           "#{policy.class} expected to permit the mass assignment of " \
-            "exactly:\n#{attributes}\nwhen authorising the #{@action} " \
-            "action, but instead permitted the mass assignment of:\n" \
-            "#{policy_attributes}\nfor:\n" +
+          "exactly:\n#{attributes}\nwhen authorising the #{@action} " \
+          "action, but instead permitted the mass assignment of:\n" \
+          "#{policy_attributes}\nfor:\n" +
             policy.public_send(Pundit::Matchers.configuration.user_alias)
                   .inspect
         else
           "#{policy.class} expected to permit the mass assignment of " \
-            "exactly:\n#{attributes}\nbut instead permitted the mass " \
-            "assignment of:\n#{policy_attributes}\nfor:\n" +
+          "exactly:\n#{attributes}\nbut instead permitted the mass " \
+          "assignment of:\n#{policy_attributes}\nfor:\n" +
             policy.public_send(Pundit::Matchers.configuration.user_alias)
                   .inspect
         end
@@ -40,13 +40,13 @@ module Pundit
       failure_message_when_negated do |policy|
         if defined? @action
           "#{policy.class} expected not to permit the mass assignment of " \
-            "exactly:\n#{attributes}\nwhen authorising the #{@action} " \
-            "action, but permitted them instead, for:\n" +
+          "exactly:\n#{attributes}\nwhen authorising the #{@action} " \
+          "action, but permitted them instead, for:\n" +
             policy.public_send(Pundit::Matchers.configuration.user_alias)
                   .inspect
         else
           "#{policy.class} expected not to permit the mass assignment of " \
-            "exactly:\n#{attributes}\nbut permitted them instead, for:\n" +
+          "exactly:\n#{attributes}\nbut permitted them instead, for:\n" +
             policy.public_send(Pundit::Matchers.configuration.user_alias)
                   .inspect
         end

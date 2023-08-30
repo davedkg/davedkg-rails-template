@@ -3,18 +3,18 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.6.8'
+ruby '3.2.2'
 
 gem 'dotenv-rails', '~> 2.7.5', groups: %i[development test]
 
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.3'
+gem 'puma', '< 7'
 gem 'rails', '~> 6.1.0'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.4.3'
 
-gem 'active_storage_validations', '~> 0.8.8'
+gem 'active_storage_validations', '~> 1.0.4'
 gem 'autoprefixer-rails', '~> 6.7.2'
 gem 'devise', '~> 4.7.1'
 gem 'devise_invitable', '~> 2.0.0'
@@ -39,12 +39,11 @@ group :development, :test do
   gem 'eslintrb', '~> 2.1.0'
   gem 'factory_bot_rails', '~> 5.1.1'
   gem 'fasterer', '~> 0.9.0'
-  gem 'pry-byebug', '~> 3.9.0'
+  gem 'pry-byebug', '~> 3.10.0'
   gem 'reek', '~> 6.0.1'
   gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop', '~> 0.90.0' # FIXME: remove me when rubocop is fixed
-  gem 'rubocop-rails', '~> 2.5.2'
-  gem 'rubocop-rspec', '~> 1.39.0'
+  gem 'rubocop-rails', '~> 2.15.2'
+  gem 'rubocop-rspec', '~> 2.11.1'
   gem 'scss_lint', '~> 0.59.0'
 end
 
@@ -62,7 +61,7 @@ end
 
 group :test do
   gem 'database_cleaner', '~> 1.7.0'
-  gem 'faker', '~> 2.10.1'
+  gem 'faker', '~> 3.2'
   gem 'pundit-matchers', '~> 1.6.0'
   gem 'rspec_junit_formatter', '~> 0.4.1'
   gem 'simplecov', '~> 0.17.1', require: false

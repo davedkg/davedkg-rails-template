@@ -35,5 +35,5 @@ namespace :lint do
   end
 end
 
-task "fix": ['rubocop:auto_correct']
-task "lint": ['rubocop', 'eslint', 'lint:scss', 'lint:reek', 'lint:brakeman', 'lint:fasterer']
+task fix: ['rubocop:auto_correct']
+task lint: ['rubocop', 'eslint', 'lint:scss', 'lint:reek', 'lint:brakeman', 'lint:fasterer']

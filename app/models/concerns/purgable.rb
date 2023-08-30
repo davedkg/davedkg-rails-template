@@ -4,7 +4,7 @@ module Purgable
   extend ActiveSupport::Concern
 
   included do
-    scope :purgable, -> { unscope(where: :deleted_at).where('deleted_at < ?', Time.zone.now - 30.days) }
+    scope :purgable, -> { unscope(where: :deleted_at).where('deleted_at < ?', 30.days.ago) }
   end
 
   class_methods do

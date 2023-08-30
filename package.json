@@ -35,5 +35,8 @@
   },
   "resolutions": {
     "webpack-dev-server/**/selfsigned": "^1.10.8"
+  },
+  "engines": {
+    "node": "18.15.0"
   }
 }

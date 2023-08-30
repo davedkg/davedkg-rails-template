@@ -36,7 +36,7 @@ describe 'PATCH update_avatar_user_path', type: :request do
       it 'creates an ActiveStorage object' do
         expect do
           subject
-        end.to change { ActiveStorage::Attachment.count }
+        end.to change(ActiveStorage::Attachment, :count)
       end
     end
 
@@ -55,7 +55,7 @@ describe 'PATCH update_avatar_user_path', type: :request do
       it 'does not create an ActiveStorage object' do
         expect do
           subject
-        end.not_to change { ActiveStorage::Attachment.count }
+        end.not_to change(ActiveStorage::Attachment, :count)
       end
     end
   end

@@ -7,6 +7,8 @@ namespace :acceptance do
     Seeder.create_users
   end
 
+  # rubocop:disable Lint/EmptyBlock
   task teardown: :environment do
   end
+  # rubocop:enable Lint/EmptyBlock
 end
