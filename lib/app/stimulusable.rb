@@ -12,7 +12,7 @@ module Stimulusable
   private
 
   def add_stimulus_param_to_params(param, params)
-    params = (params || '').split(' ')
+    params = (params || '').split
 
     params << param unless params.include?(param)
 

@@ -73,9 +73,18 @@ Naming/FileName:
   Exclude:
     - 'spec/requests/**/*'
 
+Rails/I18nLocaleTexts:
+   Enabled: false
+
 Rails/LexicallyScopedActionFilter:
   Exclude:
     - 'app/controllers/invitations_controller.rb'
+
+Rails/RedundantPresenceValidationOnBelongsTo:
+   Enabled: false
+
+Rails/RenderInline:
+  Enabled: false
 
 # Paranoia adds a default scope that this cop is not taking into account
 Rails/UniqueValidationWithoutIndex:
@@ -86,6 +95,9 @@ RSpec/ExampleLength:
 
 RSpec/LetSetup:
   Enabled: false
+
+RSpec/MultipleMemoizedHelpers:
+   Enabled: false
 
 RSpec/NamedSubject:
   Enabled: false

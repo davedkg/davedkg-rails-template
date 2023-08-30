@@ -2,6 +2,7 @@
 
 require 'rails_helper'
 
+# rubocop:disable RSpec/VerifiedDoubleReference
 describe ApplicationCable::Connection, type: :channel do
   let(:user_id) { 1 }
   let(:user) { instance_double(User, id: user_id) }
@@ -31,3 +32,4 @@ describe ApplicationCable::Connection, type: :channel do
     end
   end
 end
+# rubocop:enable RSpec/VerifiedDoubleReference

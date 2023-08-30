@@ -6,9 +6,7 @@ module Capybara
 
     def resize_to_preset(preset)
       dimensions = case preset
-                   when :xs, :extra_small
-                     [576, 627]
-                   when :sm, :small
+                   when :xs, :extra_small, :sm, :small
                      [576, 627]
                    when :md, :medium
                      [768, 640]

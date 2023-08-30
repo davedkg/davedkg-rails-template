@@ -14,7 +14,7 @@ class ImageCropperInput < SimpleForm::Inputs::FileInput
   private
 
   def add_stimulus_action(data, action)
-    actions = (data[:action] || '').split(' ')
+    actions = (data[:action] || '').split
 
     actions << action unless actions.include?(action)
 
