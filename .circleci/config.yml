@@ -9,6 +9,7 @@ jobs:
     docker:
       - image: cimg/ruby:3.2.2-browsers
         environment:
+          NODE_OPTIONS: --openssl-legacy-provider
           PGHOST: 127.0.0.1
           PGUSER: db_user
           RAILS_ENV: test
