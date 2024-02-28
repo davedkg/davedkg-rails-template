@@ -10,7 +10,7 @@ gem 'dotenv-rails', '~> 2.7.5', groups: %i[development test]
 gem 'jbuilder', '~> 2.7'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '< 7'
-gem 'rails', '~> 6.1.0'
+gem 'rails', '~> 6.1.7'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 5.4.3'
 
