@@ -8,5 +8,7 @@
 .rspec
 .ruby-gemset
 .ruby-version
+.nvmrc
+.codeclimate.yml
 Procfile.dev
 README.md
