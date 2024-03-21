@@ -1,0 +1,20 @@
+%header.content__title
+  %h1= page_title
+  .actions
+    - if policy(User).new?
+      %a.btn.btn-outline-primary{ href: new_user_path }
+        %i.fa.fa-plus
+        .d-none.d-sm-inline
+          Invite User
+
+.card
+  %table.table.table-striped.mb-0
+    %thead
+      %tr
+        %th.d-none.d-md-table-cell{ width: "10px" } &nbsp;
+        %th Name
+        %th &nbsp;
+    %tbody{ id: "users-body" }
+      = render 'users'
+  %div{ id: "users-paginator" }
+    = render "paginator"

@@ -13,6 +13,12 @@ gem "jbuilder", '~> 2.11.5'
 
 gem 'devise', '~> 4.9.3'
 gem 'devise_invitable', '~> 2.0.9'
+gem "haml-rails", "~> 2.0"
+gem 'kaminari', '~> 1.2.2'
+gem 'loaf', '~> 0.10.0'
+gem 'paranoia', '~> 2.6.3'
+gem 'pundit', '~> 2.3.1'
+gem 'simple_form', '~> 5.3.0'
 
 # gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", '~> 1.18.3', require: false

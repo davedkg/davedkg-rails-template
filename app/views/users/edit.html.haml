@@ -1,0 +1,15 @@
+.row
+  .col-md-8.offset-md-2
+    .card
+      .card-body
+        %h4.card-title= page_title
+        #user-form
+          = render "user_form"
+
+.row
+  .col-md-8.offset-md-2
+    .card
+      .card-body
+        %h4.card-title Edit Password
+        #password-form
+          = render "password_form"

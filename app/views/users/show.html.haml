@@ -1,0 +1,59 @@
+.content__inner.content__inner--sm
+  %header.content__title
+    %h1
+      = user_name(@user)
+    %small
+      = user_status_badge(@user)
+
+    .actions
+      - if policy(@user).edit?
+        = link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-sm mr-2" do
+          %i.fa.fa-edit
+          .d-none.d-md-inline
+            Edit
+      - if policy(@user).unlock?
+        = link_to unlock_user_path(@user), class: "btn btn-outline-secondary btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to unlock this user?" } do
+          %i.fa.fa-lock-open
+          .d-none.d-md-inline
+            Unlock
+      - if policy(@user).resend_invitation_email?
+        = link_to resend_invitation_email_user_path(@user), class: "btn btn-outline-secondary btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to resend this invitation?" } do
+          %i.fa.fa-envelope-open
+          .d-none.d-md-inline
+            Resend Invitation
+      - if policy(@user).send_reset_password_email?
+        = link_to send_reset_password_email_user_path(@user), class: "btn btn-outline-secondary btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to send a password reset email?" } do
+          %i.fa.fa-envelope-open
+          .d-none.d-md-inline
+            Send Password Reset Email
+      - if policy(@user).enable?
+        = link_to enable_user_path(@user), class: "btn btn-outline-secondary btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to enable this user?" } do
+          %i.fa.fa-user-plus
+          .d-none.d-md-inline
+            Enable
+      - if policy(@user).disable?
+        = link_to disable_user_path(@user), class: "btn btn-outline-secondary btn-sm mr-2", data: { method: :post, confirm: "Are you sure you want to disable this user?" } do
+          %i.fa.fa-user-minus
+          .d-none.d-md-inline
+            Disable
+      - if policy(@user).destroy?
+        = link_to @user, class: "btn btn-outline-danger btn-sm", data: { method: :delete, confirm: "Are you sure you want to delete this user?" } do
+          %i.fa.fa-trash
+          .d-none.d-md-inline
+            Delete
+
+  .card.profile
+    .profile__img
+      = render "avatar"
+    .profile__info
+      %ul.icon-list
+        %li
+          %i.zmdi.zmdi-home
+          = @user.name || 'n/a'
+        %li
+          %i.zmdi.zmdi-email
+          = @user.email
+        %li
+          %i.fa.fa-user-shield
+          = @user.role
+

@@ -1,0 +1,11 @@
+.row
+  .col-md-8.offset-md-2
+    .card
+      .card-body
+        %h4.card-title= page_title
+        = simple_form_for(@user) do |f|
+          = f.error_notification
+          = f.input :email
+          = f.input :role, collection: User.roles, as: :radio_buttons
+          = f.button :submit, "Send Invitation", data: { "disable-with": "Sending Invitation..." }
+          = link_to "Cancel", users_path, class: "btn btn-default"

@@ -1,0 +1,4 @@
+= simple_form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
+  = f.error_notification
+  = f.input :email, autofocus: true, autocomplete: "email", wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
+  = f.button :submit, "Send Unlock Instructions", class: "btn-block", data: { "disable-with": "Sending Unlock Instructions..." }

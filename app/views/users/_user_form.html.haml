@@ -1,0 +1,6 @@
+= simple_form_for(@user, remote: true) do |f|
+  = f.error_notification
+  = f.input :name
+  = f.input :time_zone
+  = f.button :submit, "Update User", data: { "disable-with": "Updating User..." }
+  = link_to "Cancel", @user, class: "btn btn-default"
