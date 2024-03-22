@@ -17,7 +17,7 @@ class User < ApplicationRecord
 
   attr_accessor :skip_password_validation
 
-  validates :name,      presence: true
+  validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
 
   def send_invitation
