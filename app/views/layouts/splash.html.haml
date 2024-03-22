@@ -2,28 +2,22 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Template
+    %title= "#{page_title} | #{PLATFORM_TITLE}"
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
-    %link{:href => "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap", :rel => "stylesheet"}/
-    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css", :rel => "stylesheet"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
-  %body
-    %main#top.main
-      .container-fluid.bg-body-tertiary.dark__bg-gray-1200
-        .row.flex-center.position-relative.min-vh-100.g-0.py-5
-          .col-11.col-sm-10.col-xl-8
-            .card.border.border-translucent.auth-card
-              .card-body.pe-md-0
-                .row.align-items-center.gx-0.gy-7
-                  .col.mx-auto
-                    .auth-form-box
-                      .text-center.mb-3
-                        %h3.text-body-highlight= page_title
-                      = render 'flash'
-                      = yield
-                      = render 'splash/links'
+  %body.pace-top
+    #app.app.app-full-height.app-without-header
+      .login
+        .login-content
+          %h1.text-center= PLATFORM_TITLE
+          .text-body.text-opacity-50.text-center.mb-4= page_title
+          = render 'flash'
+          = yield
+          = render 'splash/links'
+
+
 
 
