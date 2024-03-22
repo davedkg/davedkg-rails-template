@@ -6,7 +6,37 @@
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
+    %link{:href => "https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&display=swap", :rel => "stylesheet"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_importmap_tags
   %body
-    = yield
+    %main#top.main
+      .container-fluid.bg-body-tertiary.dark__bg-gray-1200
+        .row.flex-center.position-relative.min-vh-100.g-0.py-5
+          .col-11.col-sm-10.col-xl-8
+            .card.border.border-translucent.auth-card
+              .card-body.pe-md-0
+                .row.align-items-center.gx-0.gy-7
+                  .col.mx-auto
+                    .auth-form-box
+                      .text-center.mb-7
+                        %h3.text-body-highlight Sign In
+                        %p.text-body-tertiary Get access to your account
+                      .mb-3.text-start
+                        %label.form-label{:for => "email"} Email address
+                        .form-icon-container
+                          %input#email.form-control.form-icon-input{:placeholder => "name@example.com", :type => "email"}/
+                          %span.fas.fa-user.text-body.fs-9.form-icon
+                      .mb-3.text-start
+                        %label.form-label{:for => "password"} Password
+                        .form-icon-container
+                          %input#password.form-control.form-icon-input{:placeholder => "Password", :type => "password"}/
+                          %span.fas.fa-key.text-body.fs-9.form-icon
+                      .row.flex-between-center.mb-7
+                        .col-auto
+                          .form-check.mb-0
+                            %input#basic-checkbox.form-check-input{:checked => "checked", :type => "checkbox"}/
+                            %label.form-check-label.mb-0{:for => "basic-checkbox"} Remember me
+                        .col-auto
+                          %a.fs-9.fw-semibold{:href => "../../../pages/authentication/card/forgot-password.html"} Forgot Password?
+                      %button.btn.btn-primary.w-100.mb-3 Sign In
