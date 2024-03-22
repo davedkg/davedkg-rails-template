@@ -1,4 +1,4 @@
 = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
-  = f.input :email, autofocus: true, autocomplete: "email", wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
+  = f.input :email, autofocus: true, autocomplete: "email"
   = f.button :submit, "Email Reset Password Instructions", class: "btn-theme btn-lg d-block w-100 fw-semibold", data: { "disable-with": "Emailing Reset Password Instructions..." }
