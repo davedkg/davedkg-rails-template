@@ -22,6 +22,7 @@ gem 'kaminari', '~> 1.2.2'
 gem 'loaf', '~> 0.10.0'
 gem 'paranoia', '~> 2.6.3'
 gem 'pundit', '~> 2.3.1'
+gem 'sidekiq', '~> 7.2.2'
 gem 'simple_form', '~> 5.3.0'
 
 gem 'bootsnap', '~> 1.18.3', require: false

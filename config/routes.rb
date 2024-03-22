@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     post  'unlock',                    on: :member
     post  'enable',                    on: :member
     post  'disable',                   on: :member
-    patch 'update-avatar',             on: :member
     patch 'update-password',           on: :member
   end
 
@@ -24,6 +23,10 @@ Rails.application.routes.draw do
   }, path: '', skip: %i[confirmations omniauth_callbacks registrations]
 
   root to: 'application#root'
+
+  authenticate :user, ->(u) { u.admin? } do
+    mount Sidekiq::Web => 'sidekiq'
+  end
 
   get 'up' => 'rails/health#show', as: :rails_health_check
 end
