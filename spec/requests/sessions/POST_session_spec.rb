@@ -2,15 +2,15 @@
 
 require 'rails_helper'
 
-describe 'POST user_session_path', type: :request do
-  subject { post user_session_path, params: { user: user_params } }
+describe 'POST user_session_path' do
+  subject(:request) { post user_session_path, params: { user: user_params } }
 
-  let!(:user) { create(:user) }
+  let(:user) { create(:user) }
   let(:user_email) { user.email }
   let(:user_password) { user.password }
   let(:user_params) { { email: user_email, password: user_password } }
 
-  before { subject }
+  before { request }
 
   it 'returns redirect status' do
     expect(response).to have_http_status(:redirect)
@@ -37,7 +37,7 @@ describe 'POST user_session_path', type: :request do
   end
 
   context 'when user is disabled' do
-    let!(:user) { create(:user, :disabled) }
+    let(:user) { create(:user, :disabled) }
 
     it 'returns redirect status' do
       expect(response).to have_http_status(:redirect)

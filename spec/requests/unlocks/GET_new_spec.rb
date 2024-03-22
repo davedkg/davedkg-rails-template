@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-describe 'GET new_user_unlock_path', type: :request do
-  subject { get new_user_unlock_path }
+describe 'GET new_user_unlock_path' do
+  subject(:request) { get new_user_unlock_path }
 
-  before { subject }
+  before { request }
 
   it 'returns ok status' do
     expect(response).to have_http_status(:ok)

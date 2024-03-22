@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe 'GET accept_user_invitation_path', type: :request do
-  subject { get accept_user_invitation_path(user, invitation_token: raw_invitation_token) }
+describe 'GET accept_user_invitation_path' do
+  subject(:request) { get accept_user_invitation_path(user, invitation_token: raw_invitation_token) }
 
   let(:user) { create(:user, :invitation_not_accepted) }
   let(:raw_invitation_token) do
@@ -11,7 +11,7 @@ describe 'GET accept_user_invitation_path', type: :request do
     user.raw_invitation_token
   end
 
-  before { subject }
+  before { request }
 
   it 'returns ok status' do
     expect(response).to have_http_status(:ok)

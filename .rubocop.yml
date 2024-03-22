@@ -1,0 +1,29 @@
+require:
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-rails
+  - rubocop-rspec
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'db/**/*'
+
+Layout/LineLength:
+  Exclude:
+    - 'config/**/*'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/**/*'
+
+Naming/FileName:
+  Exclude:
+    - 'spec/requests/**/*'
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false

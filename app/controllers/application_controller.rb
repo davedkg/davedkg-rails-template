@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   include PageTitleable
   include Pundit::Authorization
@@ -26,7 +28,7 @@ class ApplicationController < ActionController::Base
   end
 
   def application_controller?
-    'application' == params[:controller]
+    params[:controller] == 'application'
   end
 
   def set_time_zone

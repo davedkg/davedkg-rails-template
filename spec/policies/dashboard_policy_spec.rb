@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe DashboardPolicy, type: :policy do
-  subject { described_class.new(user, :dashboard) }
+  subject(:policy) { described_class.new(user, :dashboard) }
 
   let(:user) { create(:user) }
 

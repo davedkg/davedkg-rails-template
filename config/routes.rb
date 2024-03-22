@@ -1,6 +1,7 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  resource :dashboard, only: [ :show ], controller: :dashboard
+Rails.application.routes.draw do
+  resource :dashboard, only: [:show], controller: :dashboard
 
   resources :users do
     post  'resend-invitation-email',   on: :member
@@ -24,6 +25,5 @@ Rails.application.routes.draw do
 
   root to: 'application#root'
 
-  get "up" => "rails/health#show", as: :rails_health_check
-
+  get 'up' => 'rails/health#show', as: :rails_health_check
 end

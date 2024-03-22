@@ -2,14 +2,14 @@
 
 require 'rails_helper'
 
-describe 'GET dashboard_path', type: :request do
-  subject { get dashboard_path }
+describe 'GET dashboard_path' do
+  subject(:request) { get dashboard_path }
 
   let(:user) { create(:user) }
 
   before do
     sign_in user
-    subject
+    request
   end
 
   it 'returns ok status' do
