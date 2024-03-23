@@ -1,0 +1,319 @@
+// ----------------------------------------------
+// RTL Spacing Style
+// ----------------------------------------------
+
+// button groups
+.btn-group {
+  // Prevent double borders when buttons are next to each other
+  > .btn:not(:first-child),
+  > .btn-group:not(:first-child) {
+    margin-right: -$btn-border-width;
+  }
+
+  // Reset rounded corners
+  > .btn:not(:last-child):not(.dropdown-toggle),
+  > .btn-group:not(:last-child) > .btn {
+    @include border-start-radius(0);
+    @include border-end-radius(5px);
+  }
+
+  // The left radius should be 0 if the button is:
+  // - the "third or more" child
+  // - the second child and the previous element isn't `.btn-check` (making it the first child visually)
+  // - part of a btn-group which isn't the first child
+  > .btn:nth-child(n + 3),
+  > :not(.btn-check) + .btn,
+  > .btn-group:not(:first-child) > .btn {
+    @include border-end-radius(0);
+    @include border-start-radius(5px);
+  }
+}
+
+// stylelint-disable declaration-no-important
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .float#{$infix}-start {
+      float: right !important;
+    }
+
+    .float#{$infix}-end {
+      float: left !important;
+    }
+
+    .float#{$infix}-none {
+      float: none !important;
+    }
+  }
+}
+
+// scss-docs-start responsive-breakpoints
+// We deliberately hardcode the `bs-` prefix because we check
+// this custom property in JS to determine Popper's positioning
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .dropdown-menu#{$infix}-start {
+      --bs-position: start;
+      right: 0 #{"/* rtl:ignore */"};
+      left: auto #{"/* rtl:ignore */"};
+    }
+
+    .dropdown-menu#{$infix}-end {
+      --bs-position: end;
+      right: auto #{"/* rtl:ignore */"};
+      left: 0 #{"/* rtl:ignore */"};
+    }
+  }
+}
+
+// Margin and Padding
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $length in $spacers {
+        .#{$abbrev}#{$infix}-#{$size} {
+          #{$prop}: $length !important;
+        }
+
+        .#{$abbrev}t#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-top: $length !important;
+        }
+
+        .#{$abbrev}e#{$infix}-#{$size} {
+          #{$prop}-right: unset !important;
+          #{$prop}-left: $length !important;
+        }
+
+        .#{$abbrev}b#{$infix}-#{$size},
+        .#{$abbrev}y#{$infix}-#{$size} {
+          #{$prop}-bottom: $length !important;
+        }
+
+        .#{$abbrev}s#{$infix}-#{$size} {
+          #{$prop}-left: unset !important;
+          #{$prop}-right: $length !important;
+        }
+      }
+    }
+
+    // Negative margins (e.g., where `.mb-n1` is negative version of `.mb-1`)
+    @each $size, $length in $spacers {
+      @if $size !=0 {
+        .m#{$infix}-n#{$size} {
+          margin: -$length !important;
+        }
+
+        .mt#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-top: -$length !important;
+        }
+
+        .me#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-right: unset !important;
+          margin-left: -$length !important;
+        }
+
+        .mb#{$infix}-n#{$size},
+        .my#{$infix}-n#{$size} {
+          margin-bottom: -$length !important;
+        }
+
+        .ms#{$infix}-n#{$size},
+        .mx#{$infix}-n#{$size} {
+          margin-left: unset !important;
+          margin-right: -$length !important;
+        }
+      }
+    }
+
+    // Some special margin utils
+    .m#{$infix}-auto {
+      margin: auto !important;
+    }
+
+    .mt#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-top: auto !important;
+    }
+
+    .me#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-right: unset !important;
+      margin-left: auto !important;
+    }
+
+    .mb#{$infix}-auto,
+    .my#{$infix}-auto {
+      margin-bottom: auto !important;
+    }
+
+    .ms#{$infix}-auto,
+    .mx#{$infix}-auto {
+      margin-left: unset !important;
+      margin-right: auto !important;
+    }
+  }
+}
+
+// Responsive alignment
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    .text#{$infix}-start {
+      text-align: right !important;
+    }
+
+    .text#{$infix}-end {
+      text-align: left !important;
+    }
+
+    .text#{$infix}-center {
+      text-align: center !important;
+    }
+  }
+}
+
+//
+// Border
+//
+.border-start.border-2.border-info {
+  border-right: 2px solid $info !important;
+  border-left: 0 !important;
+}
+
+.border-start.border-2.border-warning {
+  border-right: 2px solid $warning !important;
+  border-left: 0 !important;
+}
+
+.border-start.border-2.border-danger {
+  border-right: 2px solid $danger !important;
+  border-left: 0 !important;
+}
+
+.border-start.border-2.border-primary {
+  border-right: 2px solid $primary !important;
+  border-left: 0 !important;
+}
+
+.border-start.border-2.border-success {
+  border-right: 2px solid $success !important;
+  border-left: 0 !important;
+}
+
+.border-start {
+  border-right: $border-width solid $border-color !important;
+  border-left: 0 !important;
+}
+
+.border-end {
+  border-left: $border-width solid $border-color !important;
+  border-right: 0 !important;
+}
+
+.border-end-0 {
+  border-left: 0 !important;
+}
+
+.border-start-0 {
+  border-right: 0 !important;
+}
+
+//
+// Border-radius
+//
+.rounded-right {
+  border-top-left-radius: $border-radius !important;
+  border-bottom-left-radius: $border-radius !important;
+}
+
+.rounded-left {
+  border-top-right-radius: $border-radius !important;
+  border-bottom-right-radius: $border-radius !important;
+}
+
+// absolute
+.end-0 {
+  right: unset !important;
+  left: 0;
+}
+
+//
+// Card groups
+//
+
+.card-group {
+  // The child selector allows nested `.card` within `.card-group`
+  // to display properly.
+  > .card {
+    margin-bottom: $card-group-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-flow: row wrap;
+
+    // The child selector allows nested `.card` within `.card-group`
+    // to display properly.
+    > .card {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-right: 0;
+        border-left: 1px solid $border-color;
+      }
+
+      // Handle rounded corners
+      @if $enable-rounded {
+        &:last-child {
+          @include border-start-radius(20px);
+          @include border-end-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-left-radius: 0;
+          }
+
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-left-radius: 0;
+          }
+        }
+
+        &:first-child {
+          @include border-start-radius(0);
+          @include border-end-radius(20px);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-right-radius: 0;
+          }
+
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-right-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}

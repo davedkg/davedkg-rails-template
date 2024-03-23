@@ -3,11 +3,10 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
-    %meta{:content => "#ffffff", :name => "theme-color"}/
     %title= "#{page_title} | #{PLATFORM_TITLE}"
     = csrf_meta_tags
     = csp_meta_tag
-    -# %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css", :rel => "stylesheet"}/
+    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css", :rel => "stylesheet"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
   %body

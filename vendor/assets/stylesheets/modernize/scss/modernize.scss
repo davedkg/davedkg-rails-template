@@ -1,0 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600;700;800&display=swap");
+
+@import "./variables/variables";
+@import "./variables/theme_variables";
+@import "./variables/variables-dark";
+
+// theme colors
+@import "./variables/variables-blue";
+// @import "./variables/variables-aqua";
+// @import "./variables/variables-purple";
+// @import "./variables/variables-green";
+// @import "./variables/variables-cyan";
+// @import "./variables/variables-orange";
+
+// Import Bootstrap source files (Required file)
+// @import "../../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "bootstrap/scss/bootstrap.scss";
+
+@import "./layouts/layouts";
+@import "./layouts/sidebar";
+@import "./layouts/header";
+@import "./layouts/horizontal";
+@import "./layouts/customizer";
+@import "./layouts/spinner";
+
+@import "./components/buttons";
+@import "./components/cards";
+@import "./components/dropdown-animation";
+@import "./components/tabs";
+@import "./components/form";
+@import "./components/table";
+
+@import "./utilities/icon-size";
+@import "./utilities/icon-hover";
+@import "./utilities/background";
+@import "./utilities/override";
+
+// @import "./layouts/rtl";
+
+// Scrollbar style (Required file)
+// @import "../../../node_modules/simplebar/dist/simplebar.min.css";
+@import "simplebar/dist/simplebar.min.css";
+
+// Tabler Icons style
+// @import "../fonts/tabler-icons/tabler-icons.css";
+@import "tabler-icons/tabler-icons.css";

@@ -1,0 +1,3 @@
+.table> :not(caption)>*>* {
+    border-color: var(--bs-table-border-color);
+}
