@@ -2,12 +2,14 @@
 
 require 'rails_helper'
 
-describe 'GET root_path', type: :request do
+describe 'GET root_path' do
+  subject(:request) { get root_path }
+
   let(:user) { create(:user) }
 
   before do
     sign_in user
-    get root_path
+    request
   end
 
   it 'returns redirect status' do
@@ -19,7 +21,7 @@ describe 'GET root_path', type: :request do
   end
 
   context 'when user is disabled' do
-    let!(:user) { create(:user, :disabled) }
+    let(:user) { create(:user, :disabled) }
 
     it 'returns redirect status' do
       expect(response).to have_http_status(:redirect)

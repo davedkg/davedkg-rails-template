@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe 'POST users_path', type: :request do
-  subject { post users_path params: { user: user_params } }
+describe 'POST users_path' do
+  subject(:request) { post users_path params: { user: user_params } }
 
   let(:user_params) { attributes_for(:user) }
   let(:user) { create(:user) }
@@ -14,7 +14,7 @@ describe 'POST users_path', type: :request do
 
   context 'when role is user' do
     it 'returns not_found status' do
-      subject
+      request
       expect(response).to have_http_status(:not_found)
     end
   end
@@ -23,19 +23,19 @@ describe 'POST users_path', type: :request do
     let(:user) { create(:user, :admin) }
 
     it 'returns redirect status' do
-      subject
+      request
       expect(response).to have_http_status(:redirect)
     end
 
     it 'creates a user' do
       expect do
-        subject
+        request
       end.to change(User, :count).by(1)
     end
 
     it 'sends an email' do
       expect do
-        subject
+        request
       end.to change { Devise.mailer.deliveries.size }.by(1)
     end
 
@@ -43,7 +43,7 @@ describe 'POST users_path', type: :request do
       before { user_params[:email] = nil }
 
       it 'returns unprocessable_entity status' do
-        subject
+        request
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end
@@ -52,7 +52,7 @@ describe 'POST users_path', type: :request do
       before { user_params[:email] = 'invalid' }
 
       it 'returns unprocessable_entity status' do
-        subject
+        request
         expect(response).to have_http_status(:unprocessable_entity)
       end
     end

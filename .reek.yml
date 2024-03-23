@@ -3,20 +3,12 @@
 detectors:
   Attribute:
     enabled: false
-  ControlParameter:
-    enabled: false
   DataClump:
     exclude:
       - "UserMailer"
-  FeatureEnvy:
-    enabled: false
   IrresponsibleModule:
     enabled: false
   InstanceVariableAssumption:
-    enabled: false
-  MissingSafeMethod:
-    enabled: false
-  NilCheck:
     enabled: false
   RepeatedConditional:
     exclude:
@@ -26,9 +18,6 @@ detectors:
   UtilityFunction:
     enabled: false
 exclude_paths:
+  - bin
   - db
   - vendor
-  - app/helpers/quick_stats_chart_helper.rb
-  - lib/generators
-  - lib/rails
-  - lib/templates

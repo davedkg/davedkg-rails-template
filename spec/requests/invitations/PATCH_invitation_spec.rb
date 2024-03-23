@@ -2,18 +2,18 @@
 
 require 'rails_helper'
 
-describe 'PATCH user_invitation_path', type: :request do
-  subject { patch user_invitation_path, params: { user: user_params } }
+describe 'PATCH user_invitation_path' do
+  subject(:request) { patch user_invitation_path, params: { user: user_params } }
 
   let(:user) { create(:user, :invitation_not_accepted) }
-  let(:user_params) { { password: password, invitation_token: raw_invitation_token } }
+  let(:user_params) { { password:, invitation_token: raw_invitation_token } }
   let(:password) { user.password }
   let(:raw_invitation_token) do
     user.invite! { |u| u.skip_invitation = true }
     user.raw_invitation_token
   end
 
-  before { subject }
+  before { request }
 
   it 'returns redirect status' do
     expect(response).to have_http_status(:redirect)

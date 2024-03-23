@@ -1,30 +1,9 @@
+# See https://git-scm.com/docs/gitattributes for more about git attribute files.
 
-# Set default behaviour, in case users don't have core.autocrlf set.
-* text=auto
+# Mark the database schema as having been generated.
+db/schema.rb linguist-generated
 
-# Declare files that will always have LF line endings on checkout.
-*.rb      text eol=lf
-*.yml     text eol=lf
-*.erb     text eol=lf
-*.haml    text eol=lf
-*.html    text eol=lf
-*.coffee  text eol=lf
-*.js      text eol=lf
-*.less    text eol=lf
-*.builder text eol=lf
-*.xml     text eol=lf
-Gemfile*  text eol=lf
-Rakefile  text eol=lf
-README    text eol=lf
-*.ru      text eol=lf
-.rvmrc    text eol=lf
-*.txt     text eol=lf
-.gitattributes  text eol=lf
-.gitignore      text eol=lf
-.rspec          text eol=lf
-
-
-# Denote all files that are truly binary and should not be modified.
-*.png binary
-*.jpg binary
-*.gif binary
+# Mark any vendored files as having been vendored.
+vendor/* linguist-vendored
+config/credentials/*.yml.enc diff=rails_credentials
+config/credentials.yml.enc diff=rails_credentials

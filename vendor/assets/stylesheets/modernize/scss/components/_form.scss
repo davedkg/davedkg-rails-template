@@ -1,0 +1,322 @@
+// ----------------------------------------------
+// Form Style
+// ----------------------------------------------
+
+.attendance {
+    .form-select {
+        max-width: 120px;
+    }
+}
+
+.form-check-input.success:checked {
+    background-color: var(--bs-success);
+    border: var(--bs-success);
+}
+
+.form-check-input.danger:checked {
+    background-color: var(--bs-danger);
+    border: var(--bs-danger);
+}
+
+.form-check-input.warning:checked {
+    background-color: var(--bs-warning);
+    border: var(--bs-warning);
+}
+
+.form-check-input.primary:checked {
+    background-color: var(--bs-primary);
+    border: var(--bs-primary);
+}
+
+.form-check-input.secondary:checked {
+    background-color: var(--bs-secondary);
+    border: var(--bs-secondary);
+}
+
+
+
+
+// ----------------------------------------------
+// Form row Separator
+// ----------------------------------------------
+.r-separator .form-group {
+    border-bottom: 1px solid var(--bs-border-color);
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.striped-rows .row:nth-child(odd) {
+    background-color: var(--bs-gray-200);
+}
+
+.b-form .row {
+    border-bottom: 1px solid var(--bs-border-color);
+    margin-bottom: 0;
+    padding: 15px 0;
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+.b-label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+//
+// Floating Input Page
+//
+.floating-labels .form-control {
+    box-shadow: none;
+}
+
+.floating-labels .form-group {
+    position: relative;
+}
+
+.floating-labels .form-control {
+    padding: 10px 10px 10px 0;
+    display: block;
+    border: none;
+    font-family: var(--bs-body-font-family);
+    border-radius: 0px;
+    border-bottom: 1px solid var(--bs-gray-300);
+
+    &:focus {
+        box-shadow: none;
+    }
+}
+
+.floating-labels select.form-control>option {
+    font-size: 14px;
+}
+
+.floating-labels .has-error .form-control {
+    border-bottom: 1px solid var(--bs-danger) !important;
+}
+
+.floating-labels .has-warning .form-control {
+    border-bottom: 1px solid var(--bs-warning) !important;
+}
+
+.floating-labels .has-success .form-control {
+    border-bottom: 1px solid var(--bs-success) !important;
+}
+
+.floating-labels .form-control:focus {
+    outline: none;
+    border: none;
+}
+
+.floating-labels label {
+    color: var(--bs-body-color-rgb);
+
+    position: absolute;
+    cursor: auto;
+    top: 5px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.floating-labels .focused label {
+    top: -20px;
+    font-size: 12px;
+    color: var(--bs-dark);
+}
+
+.floating-labels .bar {
+    position: relative;
+    display: block;
+}
+
+.floating-labels .bar:before,
+.floating-labels .bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: var(--bs-primary);
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.floating-labels .bar:before {
+    left: 50%;
+}
+
+.floating-labels .bar:after {
+    right: 50%;
+}
+
+.floating-labels .form-control:focus~.bar:before,
+.floating-labels .form-control:focus~.bar:after {
+    width: 50%;
+}
+
+.floating-labels .highlight {
+    position: absolute;
+    height: 60%;
+    width: 100px;
+    top: 25%;
+    left: 0;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.floating-labels .input-lg~label,
+.floating-labels .input-lg {
+    font-size: 24px;
+}
+
+.floating-labels .input-sm~label,
+.floating-labels .input-sm {
+    font-size: 16px;
+}
+
+.has-warning .bar:before,
+.has-warning .bar:after {
+    background: var(--bs-warning);
+}
+
+.has-success .bar:before,
+.has-success .bar:after {
+    background: var(--bs-success);
+}
+
+.has-error .bar:before,
+.has-error .bar:after {
+    background: var(--bs-danger);
+}
+
+
+//
+// Input Material form state
+//
+
+.form-control-danger,
+.form-control-success,
+.form-control-warning {
+    padding-right: 2.25rem;
+    background-repeat: no-repeat;
+    background-position: center right 0.5625rem;
+    -webkit-background-size: 1.125rem 1.125rem;
+    background-size: 1.125rem 1.125rem;
+}
+
+.has-success .col-form-label,
+.has-success .custom-control,
+.has-success .form-check-label,
+.has-success .form-control-feedback,
+.has-success .form-control-label {
+    color: var(--bs-success);
+}
+
+.has-success .form-control-success {
+    background-image: url(../.././assets/images/svgs/success.svg);
+}
+
+.has-success .form-control {
+    border-color: var(--bs-success);
+}
+
+.has-warning .col-form-label,
+.has-warning .custom-control,
+.has-warning .form-check-label,
+.has-warning .form-control-feedback,
+.has-warning .form-control-label {
+    color: var(--bs-warning);
+}
+
+.has-warning .form-control-warning {
+    background-image: url(../.././assets/images/svgs/warning.svg);
+}
+
+.has-warning .form-control {
+    border-color: var(--bs-warning);
+}
+
+.has-danger .col-form-label,
+.has-danger .custom-control,
+.has-danger .form-check-label,
+.has-danger .form-control-feedback,
+.has-danger .form-control-label {
+    color: var(--bs-danger);
+}
+
+.has-danger .form-control-danger {
+    background-image: url(../.././assets/images/svgs/danger.svg);
+}
+
+.has-danger .form-control {
+    border-color: var(--bs-danger);
+}
+
+
+// #########################################
+// Form Image Cropper
+// #########################################
+.docs-buttons .btn,
+.docs-data .input-group {
+    margin-bottom: 5px;
+}
+
+// #########################################
+// Form dropzone
+// #########################################
+
+.dropzone {
+    border-style: dotted;
+    border-color: var(--bs-border-color);
+}
+
+
+// #########################################
+// Form Bootstrap Datepicker
+// #########################################
+
+.datepicker .day,
+.datepicker .dow {
+    padding: 5px 10px;
+}
+
+// #########################################
+// Form material-datepicker
+// #########################################
+
+.dtp {
+    .material-icons {
+        display: none;
+    }
+}
+
+
+// #########################################
+// Form custom  validation
+// #########################################
+.error {
+    .form-control {
+        border-color: var(--bs-danger);
+    }
+
+    .help-block {
+        color: var(--bs-danger);
+    }
+}
+
+.validate {
+    .form-control {
+        border-color: var(--bs-success);
+    }
+
+    .help-block {
+        color: var(--bs-success);
+    }
+}

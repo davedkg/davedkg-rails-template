@@ -1,0 +1,21 @@
+// ----------------------------------------------
+// Tabs Style
+// ----------------------------------------------
+
+.user-profile-tab {
+    .nav-item {
+        .nav-link {
+            color: var(--bs-muted);
+
+            &.active {
+                color: var(--bs-primary);
+                border-bottom: 2px solid var(--bs-primary);
+            }
+        }
+    }
+}
+
+.nav-tabs,
+.nav-tabs .nav-link {
+    border-radius: 10px;
+}

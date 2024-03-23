@@ -10,8 +10,7 @@ namespace :development do
   task reset: [
     'db:reset',
     'development:seed',
-    'tmp:cache:clear',
-    'assets:clean'
+    'tmp:cache:clear'
   ] do
     # nothing
   end

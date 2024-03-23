@@ -1,0 +1,37 @@
+// ----------------------------------------------
+// Background Style
+// ----------------------------------------------
+
+.radial-gradient {
+    position: relative;
+
+    &::before {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        opacity: 0.3;
+        background: radial-gradient(rgb(210, 241, 223), rgb(211, 215, 250), rgb(186, 216, 244)) 0% 0% / 400% 400%;
+        animation: 15s ease 0s infinite normal none running gradient;
+    }
+}
+
+.linear-gradient {
+    background-image: linear-gradient(rgb(80, 178, 252), rgb(244, 76, 102));
+}
+
+.bg-light-dark {
+    background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.bg-hover-primary {
+    &:hover {
+        color: var(--bs-primary) !important;
+    }
+}
+
+.bg-hover-light-black {
+    &:hover {
+        background: var(--bs-light);
+    }
+}

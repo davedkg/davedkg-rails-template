@@ -17,11 +17,8 @@ class User < ApplicationRecord
 
   attr_accessor :skip_password_validation
 
-  has_one_attached :avatar
-
-  validates :name,      presence: true, uniqueness: { case_sensitive: false }, on: :update
+  validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
-  validates :avatar,    dimension: { width: 200, height: 200 }, content_type: %r{\Aimage/.*\z}
 
   def send_invitation
     self.invitation_sent_at = Time.zone.now
@@ -38,8 +35,8 @@ class User < ApplicationRecord
 
   ## *** Devise Overrides
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, id, *args).deliver_later
+  def send_devise_notification(notification, *)
+    devise_mailer.send(notification, id, *).deliver_later
   end
 
   def active_for_authentication?

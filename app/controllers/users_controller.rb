@@ -11,11 +11,11 @@ class UsersController < ApplicationController
     @users = authorize User.order(name: :asc).page(params[:page])
   end
 
+  def show; end
+
   def new
     @user = authorize User.new
   end
-
-  def show; end
 
   def edit; end
 
@@ -43,10 +43,10 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    if @user.update(permitted_attributes(@user))
-      bypass_sign_in(@user)
-      redirect_to @user, notice: 'Password was successfully updated.'
-    end
+    return unless @user.update(permitted_attributes(@user))
+
+    bypass_sign_in(@user)
+    redirect_to @user, notice: 'Password was successfully updated.'
   end
 
   def update_avatar

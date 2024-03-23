@@ -1,0 +1,57 @@
+.btn {
+  &.bg-primary-subtle {
+    &:hover {
+      background-color: var(--bs-primary) !important;
+      color: var(--bs-white) !important;
+    }
+  }
+
+  &.bg-secondary-subtle {
+    &:hover {
+      background-color: var(--bs-secondary) !important;
+      color: var(--bs-white) !important;
+    }
+  }
+
+  &.bg-warning-subtle {
+    &:hover {
+      background-color: var(--bs-warning) !important;
+      color: var(--bs-white) !important;
+    }
+  }
+
+  &.bg-danger-subtle {
+    &:hover {
+      background-color: var(--bs-danger) !important;
+      color: var(--bs-white) !important;
+    }
+  }
+
+  &.bg-success-subtle {
+    &:hover {
+      background-color: var(--bs-success) !important;
+      color: var(--bs-white) !important;
+    }
+  }
+}
+
+.btn-default {
+  background-color: var(--bs-primary);
+  color: var(--bs-white);
+}
+
+.button-group .btn {
+  margin-bottom: 8px;
+  margin-right: 8px;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

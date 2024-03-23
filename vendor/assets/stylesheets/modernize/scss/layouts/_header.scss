@@ -1,0 +1,147 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--bs-body-bg);
+  z-index: 9;
+  padding: 0 25px;
+  .navbar {
+    min-height: $headerHeight;
+    .navbar-toggler:focus {
+      box-shadow: none;
+    }
+    .navbar-nav {
+      .dropdown-menu {
+        position: absolute;
+        min-width: 200px;
+
+        .dropdown-item {
+          border-radius: 8px;
+        }
+
+        @include media-breakpoint-up(md) {
+          &.content-dd {
+            width: $dropdown-width;
+          }
+        }
+      }
+      .nav-item {
+        .nav-link {
+          display: flex;
+          align-items: center;
+          line-height: 70px;
+          height: 70px;
+          padding: $linkSpacer;
+          font-size: 14px;
+          color: var(--bs-link-color);
+          i {
+            font-size: $linkFontSize;
+          }
+
+          @include media-breakpoint-up(lg) {
+            line-height: 36px;
+            height: 36px;
+          }
+        }
+      }
+      &.quick-links {
+        .nav-item {
+          .nav-link {
+            line-height: 70px;
+            height: 70px;
+            position: relative;
+            z-index: 2;
+            @include media-breakpoint-up(lg) {
+              line-height: 36px;
+            height: 36px;
+            }
+            &:hover {
+              transition: all 0.1s ease-in-out;
+              color: var(--bs-primary) !important;
+
+              &:before {
+                content: "";
+                position: absolute;
+                left: 0;
+                right: 0;
+                height: 36px;
+                width: 100%;
+                border-radius: var(--bs-border-radius);
+                background: var(--bs-primary-bg-subtle);
+                z-index: -1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.message-body {
+  max-height: 360px;
+}
+
+.hover-dd {
+  position: static;
+
+  .dropdown-menu-nav {
+    max-width: 860px;
+    width: 100%;
+  }
+
+  &:hover {
+    .dropdown-menu {
+      display: block;
+    }
+  }
+}
+
+// notification badge
+.notification {
+  content: "";
+  position: absolute;
+  top: 4px;
+  right: 9px;
+  width: 8px;
+  height: 8px;
+  @include media-breakpoint-down(lg) {
+    top: 16px;
+  }
+}
+
+.popup-badge {
+  width: 18px;
+  height: 18px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -2px;
+  right: 6px;
+  @include media-breakpoint-down(lg) {
+    top: 14px;
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .topbar {
+    .navbar-nav {
+      .dropdown-menu {
+        position: absolute;
+        width: 100%;
+      }
+      .nav-item.dropdown {
+        position: static;
+      }
+    }
+  }
+}
+
+
+@include media-breakpoint-down(lg) {
+  .topbar .navbar .navbar-collapse {
+    border-top: 1px solid var(--bs-border-color);
+  }
+}

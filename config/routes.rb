@@ -1,8 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-
-  resource :dashboard, only: [ :show ], controller: :dashboard
+  resource :dashboard, only: [:show], controller: :dashboard
 
   resources :users do
     post  'resend-invitation-email',   on: :member
@@ -10,12 +9,7 @@ Rails.application.routes.draw do
     post  'unlock',                    on: :member
     post  'enable',                    on: :member
     post  'disable',                   on: :member
-    patch 'update-avatar',             on: :member
     patch 'update-password',           on: :member
-  end
-
-  resources :web_components, only: [:index], path: :"web-components" do
-    get :modal, on: :collection
   end
 
   devise_for :users, controllers: {
@@ -34,5 +28,5 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => 'sidekiq'
   end
 
-  mount LetterOpenerWeb::Engine, at: '/letter-opener' if Rails.env.development?
+  get 'up' => 'rails/health#show', as: :rails_health_check
 end

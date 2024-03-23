@@ -3,7 +3,9 @@
 class InvitationsController < Devise::InvitationsController
   layout 'splash'
 
+  # rubocop:disable Rails/LexicallyScopedActionFilter
   before_action :prevent_action, only: %i[new create destroy]
+  # rubocop:enable Rails/LexicallyScopedActionFilter
 
   private
 

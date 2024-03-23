@@ -3,7 +3,7 @@
 #
 # Uncomment this and change the path if necessary to include your own
 # components.
-# See https://github.com/plataformatec/simple_form#custom-components to know
+# See https://github.com/heartcombo/simple_form#custom-components to know
 # more about custom components.
 # Dir[Rails.root.join('lib/components/**/*.rb')].each { |f| require f }
 #
@@ -113,7 +113,7 @@ SimpleForm.setup do |config|
   # You can define the class to use on all labels. Default is nil.
   # config.label_class = nil
 
-  # You can define the default class to be used on forms. Can be overriden
+  # You can define the default class to be used on forms. Can be overridden
   # with `html: { :class }`. Defaulting to none.
   # config.default_form_class = nil
 
@@ -174,20 +174,4 @@ SimpleForm.setup do |config|
   # Defines validation classes to the input_field. By default it's nil.
   # config.input_field_valid_class = 'is-valid'
   # config.input_field_error_class = 'is-invalid'
-end
-
-module SimpleForm
-  module Components
-    module Errors
-      def valid?
-        (!has_errors? && has_value?) || has_custom_valid?
-      end
-
-      private
-
-      def has_custom_valid?
-        options[:valid]
-      end
-    end
-  end
 end

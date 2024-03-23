@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe UserMailer, type: :mailer do
+describe UserMailer do
   let(:record) { create(:user) }
   let(:token) { SecureRandom.uuid }
 
@@ -11,38 +11,39 @@ describe UserMailer, type: :mailer do
   # end
 
   describe '#reset_password_instructions' do
-    subject { described_class.reset_password_instructions(record.id, token) }
+    subject(:reset_password_instructions) { described_class.reset_password_instructions(record.id, token) }
 
     it "sends to user's email" do
-      expect(subject.to).to contain_exactly(record.email)
+      expect(reset_password_instructions.to).to contain_exactly(record.email)
     end
 
     it 'contains edit_user_password_url' do
-      expect(subject.body).to have_link(nil, href: edit_user_password_url(reset_password_token: token))
+      expect(reset_password_instructions.body).to have_link(nil,
+                                                            href: edit_user_password_url(reset_password_token: token))
     end
   end
 
   describe '#invitation_instructions' do
-    subject { described_class.invitation_instructions(record.id, token) }
+    subject(:invitation_instructions) { described_class.invitation_instructions(record.id, token) }
 
     it "sends to user's email" do
-      expect(subject.to).to contain_exactly(record.email)
+      expect(invitation_instructions.to).to contain_exactly(record.email)
     end
 
     it 'contains accept_user_invitation_url' do
-      expect(subject.body).to have_link(nil, href: accept_user_invitation_url(invitation_token: token))
+      expect(invitation_instructions.body).to have_link(nil, href: accept_user_invitation_url(invitation_token: token))
     end
   end
 
   describe '#unlock_instructions' do
-    subject { described_class.unlock_instructions(record.id, token) }
+    subject(:unlock_instructions) { described_class.unlock_instructions(record.id, token) }
 
     it "sends to user's email" do
-      expect(subject.to).to contain_exactly(record.email)
+      expect(unlock_instructions.to).to contain_exactly(record.email)
     end
 
     it 'contains user_unlock_url' do
-      expect(subject.body).to have_link(nil, href: user_unlock_url(unlock_token: token))
+      expect(unlock_instructions.body).to have_link(nil, href: user_unlock_url(unlock_token: token))
     end
   end
 end

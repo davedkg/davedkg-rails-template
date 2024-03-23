@@ -1,0 +1,21 @@
+.nav-icon-hover {
+  position: relative;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: var(--bs-primary) !important;
+    &::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      height: 40px;
+      width: 40px;
+      z-index: -1;
+      border-radius: 100px;
+      transition: all 0.3s ease-in-out;
+      background-color: var(--bs-primary-bg-subtle);
+    }
+  }
+}

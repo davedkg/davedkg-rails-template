@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-describe 'PATCH user_path', type: :request do
-  subject { patch user_path(record), params: { user: user_params } }
+describe 'PATCH user_path' do
+  subject(:request) { patch user_path(record), params: { user: user_params } }
 
   let(:user_params) { attributes_for(:user) }
   let(:user) { create(:user) }
@@ -15,7 +15,7 @@ describe 'PATCH user_path', type: :request do
 
   context 'when role is user' do
     it 'returns not_found status' do
-      subject
+      request
       expect(response).to have_http_status(:not_found)
     end
 
@@ -23,14 +23,14 @@ describe 'PATCH user_path', type: :request do
       let(:record) { user }
 
       it 'returns redirect status' do
-        subject
+        request
         expect(response).to have_http_status(:redirect)
       end
 
       it 'updates record' do
         expect do
-          subject
-        end.to change { record.reload.updated_at }
+          request
+        end.to(change { record.reload.updated_at })
       end
     end
   end
@@ -39,7 +39,7 @@ describe 'PATCH user_path', type: :request do
     let(:user) { create(:user, :admin) }
 
     it 'returns not_found status' do
-      subject
+      request
       expect(response).to have_http_status(:not_found)
     end
   end

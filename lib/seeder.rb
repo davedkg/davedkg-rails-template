@@ -2,7 +2,7 @@
 
 class Seeder
   def self.create_users
-    users_file = File.read(Rails.root.join('db/seeds/users.json'))
+    users_file = Rails.root.join('db/seeds/users.json').read
     JSON.parse(users_file).each do |user_json|
       build_user(user_json).save
     end
@@ -17,7 +17,7 @@ class Seeder
       password: user_json['password'],
       confirmed_at: time_current,
       invitation_accepted_at: time_current,
-      role: (user_json['role'] || User.roles[:user])
+      role: user_json['role'] || User.roles[:user]
     )
   end
 end
