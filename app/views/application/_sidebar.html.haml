@@ -1,0 +1,13 @@
+.brand-logo.d-flex.align-items-center.justify-content-between
+  = link_to root_path, class: "text-nowrap" do
+    = PLATFORM_TITLE
+  %a.sidebartoggler.ms-auto.text-decoration-none.fs-5.d-block.d-xl-none{:href => "javascript:void(0)"}
+    %i.fa.fa-x
+
+%nav.sidebar-nav.scroll-sidebar{"data-simplebar" => ""}
+  %ul#sidebarnav
+    %li.sidebar-item
+      = link_to dashboard_path, class: "sidebar-link" do
+        %span
+          %i.fa.fa-tachometer-alt
+        %span.hide-menu Dashboard

@@ -1,4 +1,7 @@
-// Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
+require("@rails/ujs").start()
+
 import "@hotwired/turbo-rails"
+import "bootstrap"
+import "./modernize/sidebarmenu"
+import "./modernize/theme"
 import "./controllers"
-import * as bootstrap from "bootstrap"

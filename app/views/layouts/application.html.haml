@@ -1,13 +1,22 @@
 !!!
-%html
+%html{"data-boxed-layout" => "boxed", "data-bs-theme" => "light", "data-card" => "shadow", "data-color-theme" => "Blue_Theme", "data-layout" => "vertical", :dir => "ltr", :lang => "en"}
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     %title= "#{page_title} | #{PLATFORM_TITLE}"
     = csrf_meta_tags
     = csp_meta_tag
-    %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css", :rel => "stylesheet"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
-  %body
-    = yield
+  %body{ "data-sidebartype" => "full" }
+    #main-wrapper
+      %aside.left-sidebar.with-vertical
+        %div
+          = render 'sidebar'
+      .page-wrapper
+        %header.topbar
+          .with-vertical
+            = render 'navbar'
+        .body-wrapper
+          .container-fluid
+            = yield

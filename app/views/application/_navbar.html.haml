@@ -1,0 +1,37 @@
+%nav.navbar.navbar-expand-lg.p-0
+  %ul.navbar-nav
+    %li.nav-item
+      %a#headerCollapse.nav-link.sidebartoggler.nav-icon-hover.ms-n3{:href => "javascript:void(0)"}
+        %i.ti.ti-menu-2
+  .d-block.d-lg-none
+    = PLATFORM_TITLE
+  %a.navbar-toggler.nav-icon-hover.p-0.border-0{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :href => "javascript:void(0)"}
+    %span.p-2
+      %i.ti.ti-dots.fs-7
+  #navbarNav.collapse.navbar-collapse.justify-content-end
+    .d-flex.align-items-center.justify-content-between
+      %a.nav-link.d-flex.d-lg-none.align-items-center.justify-content-center{"aria-controls" => "offcanvasWithBothOptions", "data-bs-target" => "#mobilenavbar", "data-bs-toggle" => "offcanvas", :href => "javascript:void(0)", :type => "button"}
+        %i.ti.ti-align-justified.fs-7
+      %ul.navbar-nav.flex-row.ms-auto.align-items-center.justify-content-center
+        %li.nav-item.dropdown
+          %a#drop1.nav-link.pe-0{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "javascript:void(0)"}
+            .d-flex.align-items-center
+              .user-profile-img
+                %img.rounded-circle{ height: 35, src: image_url('profile.jpg'), width: 35}/
+          .dropdown-menu.content-dd.dropdown-menu-end.dropdown-menu-animate-up{"aria-labelledby" => "drop1"}
+            .profile-dropdown.position-relative
+              .py-3.px-7.pb-0
+                %h5.mb-0.fs-5.fw-semibold Profile
+              .d-flex.align-items-center.py-9.mx-7.border-bottom
+                %img.rounded-circle{height: 80, src: image_url('profile.jpg'), width: 80}/
+                .ms-3
+                  %h5.mb-1.fs-3= current_user.name
+                  %p.mb-0.d-flex.align-items-center
+                    %i.ti.ti-mail.fs-4
+                    = current_user.email
+              .d-grid.py-4.px-7.pt-8
+                = link_to destroy_user_session_path, class: "btn btn-outline-primary", data: { method: :delete } do
+                  %i.fa.fa-sign-out-alt
+                  Sign Out
+
+
