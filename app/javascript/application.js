@@ -4,6 +4,7 @@ import Rails from '@rails/ujs'
 import "@hotwired/turbo-rails"
 import "./modernize/sidebarmenu"
 import "./modernize/sidebar"
+import "./lib/toast"
 import "./controllers"
 
 Rails.start();
