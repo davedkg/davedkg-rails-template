@@ -1,11 +1,17 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
-  def active_sidebar_link_for_path(path)
+  def append_active_if_path(css, path)
     if request.path.start_with?(path)
-      'sidebar-link active'
+      "#{css} active"
     else
-      'sidebar-link'
+      css
     end
+  end
+
+  def active_admin_tab_class
+    'active' if [
+      web_components_path
+    ].include?(request.path)
   end
 end

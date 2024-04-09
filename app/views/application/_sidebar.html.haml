@@ -6,8 +6,22 @@
 
 %nav.sidebar-nav.scroll-sidebar{"data-simplebar" => ""}
   %ul#sidebarnav
-    %li.sidebar-item
-      = link_to dashboard_path, class: active_sidebar_link_for_path(dashboard_path) do
-        %span
-          %i.fa.fa-tachometer-alt
-        %span.hide-menu Dashboard
+    - if policy(:dashboard).show?
+      %li.sidebar-item
+        = link_to dashboard_path, class: append_active_if_path('sidebar-link', dashboard_path) do
+          %span
+            %i.fa.fa-tachometer-alt
+          %span.hide-menu Dashboard
+    - if current_user.admin?
+      %li.sidebar-item
+        %a.sidebar-link.has-arrow{class: active_admin_tab_class, href: "javascript:void(0)"}
+          %span.d-flex
+            %i.fa.fa-user-shield
+          %span.hide-menu Admin
+        %ul.collapse.first-level
+          - if policy(:web_components).show?
+            %li.sidebar-item
+              = link_to web_components_path, class: append_active_if_path('sidebar-link', web_components_path) do
+                .round-16.d-flex.align-items-center.justify-content-center
+                  %i.ti.ti-circle
+                %span.hide-menu Web Components

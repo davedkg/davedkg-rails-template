@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     sign_out: 'sign-out'
   }, path: '', skip: %i[confirmations omniauth_callbacks registrations]
 
+  resource :web_components, only: [:show], path: :'web-components'
+
   root to: 'application#root'
 
   authenticate :user, ->(u) { u.admin? } do
