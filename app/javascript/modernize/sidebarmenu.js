@@ -1,6 +1,4 @@
 document.addEventListener("DOMContentLoaded", function () {
-  "use strict";
-
   function findMatchingElement() {
     var currentUrl = window.location.href;
     var anchors = document.querySelectorAll("#sidebarnav a");

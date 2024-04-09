@@ -1,7 +1,9 @@
-require("@rails/ujs").start()
+import * as bootstrap from "bootstrap"
+import Rails from '@rails/ujs'
 
 import "@hotwired/turbo-rails"
-import "bootstrap"
 import "./modernize/sidebarmenu"
-import "./modernize/theme"
+import "./modernize/sidebar"
 import "./controllers"
+
+Rails.start();
