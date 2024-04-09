@@ -1,0 +1,177 @@
+- collection = 3.times.map { |i| ["option text #{i}", i] }
+
+= simple_form_for :form do |f|
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Checkboxes
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  collection: collection, as: :check_boxes, required: false
+  -#         = f.input :disabled, collection: collection, as: :check_boxes, required: false, disabled: true
+  -#         = f.input :valid,    collection: collection, as: :check_boxes, required: false, valid: true
+  -#         = f.input :invalid,  collection: collection, as: :check_boxes, required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, collection: collection, as: :check_boxes"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Date Picker
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  as: :date, required: false
+  -#         = f.input :disabled, as: :date, required: false, disabled: true
+  -#         = f.input :valid,    as: :date, required: false, valid: true
+  -#         = f.input :invalid,  as: :date, required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, as: :date"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Date Time Picker
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  as: :datetime, required: false
+  -#         = f.input :disabled, as: :datetime, required: false, disabled: true
+  -#         = f.input :valid,    as: :datetime, required: false, valid: true
+  -#         = f.input :invalid,  as: :datetime, required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, as: :datetime"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title File
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  as: :file, required: false
+  -#         = f.input :disabled, as: :file, required: false, disabled: true
+  -#         = f.input :valid,    as: :file, required: false, valid: true
+  -#         = f.input :invalid,  as: :file, required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, as: :file"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Floating Label Text
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  wrapper: :floating_labels_form, required: false
+  -#         = f.input :disabled, wrapper: :floating_labels_form, required: false, disabled: true
+  -#         = f.input :valid,    wrapper: :floating_labels_form, required: false, valid: true
+  -#         = f.input :invalid,  wrapper: :floating_labels_form, required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, wrapper: :floating_labels_form"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Radio Group
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default_radio_group,  collection: collection, as: :radio_buttons, required: false, label: "Default"
+  -#         = f.input :disabled_radio_group, collection: collection, as: :radio_buttons, required: false, label: "Disabled", disabled: true
+  -#         = f.input :valid_radio_group,    collection: collection, as: :radio_buttons, required: false, label: "Valid",    valid: true
+  -#         = f.input :invalid_radio_group,  collection: collection, as: :radio_buttons, required: false, label: "Invalid",  error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, collection: collection, as: :radio_buttons"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Rich Text Area
+  -#     %h6.card-subtitle Requires :attribute to be an ActionText object
+  -#     .row
+  -#       .col
+  -#         = f.input :trix_default,  as: :rich_text_area, placeholder: "start typing here...", label: "Default",  required: false
+  -#         = f.input :trix_disabled, as: :rich_text_area, placeholder: "start typing here...", label: "Disabled", required: false, disabled: true
+  -#         = f.input :trix_valid,    as: :rich_text_area, placeholder: "start typing here...", label: "Valid",    required: false, valid: true
+  -#         = f.input :trix_invalid,  as: :rich_text_area, placeholder: "start typing here...", label: "Invalid",  required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, as: :rich_text_area"
+
+  .card
+    .card-body
+      %h5.card-title Single Select
+      .pb-4.pt-3
+        %code
+          = "= f.input :attribute, collection: collection"
+      .row
+        .col-md-6
+          = f.input :default,  collection: collection, required: false
+          = f.input :disabled, collection: collection, required: false, disabled: true
+          = f.input :valid,    collection: collection, required: false, valid: true
+          = f.input :invalid,  collection: collection, required: false, error: "Invalid message"
+
+
+  -#     %br/
+  -#     %hr/
+  -#     %br/
+  -#     %h6.card-subtitle Multi-Select
+
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default_multiple,  collection: collection, multiple: true, label: "Default",  required: false
+  -#         = f.input :disabled_multiple, collection: collection, multiple: true, label: "Disabled", required: false, disabled: true
+  -#         = f.input :valid_multiple,    collection: collection, multiple: true, label: "Valid",    required: false, valid: true
+  -#         = f.input :invalid_multiple,  collection: collection, multiple: true, label: "Invalid",  required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, collection: collection, multiple: true"
+
+  .card
+    .card-body
+      %h5.card-title Text
+      .pb-4.pt-3
+        %code
+          = "= f.input :attribute"
+      .row
+        .col-md-6
+          = f.input :default,  placeholder: "start typing here...", required: false
+          = f.input :disabled, placeholder: "start typing here...", required: false, disabled: true
+          = f.input :valid,    placeholder: "start typing here...", required: false, valid: true
+          = f.input :invalid,  placeholder: "start typing here...", required: false, error: "Invalid message"
+
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Text Area
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  as: :text, placeholder: "start typing here...", required: false
+  -#         = f.input :disabled, as: :text, placeholder: "start typing here...", required: false, disabled: true
+  -#         = f.input :valid,    as: :text, placeholder: "start typing here...", required: false, valid: true
+  -#         = f.input :invalid,  as: :text, placeholder: "start typing here...", required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, as: :text"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Time Picker
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  as: :time, required: false
+  -#         = f.input :disabled, as: :time, required: false, disabled: true
+  -#         = f.input :valid,    as: :time, required: false, valid: true
+  -#         = f.input :invalid,  as: :time, required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, as: :time"
+
+  -# .card
+  -#   .card-body
+  -#     %h4.card-title Toggle Switch
+  -#     .row
+  -#       .col-md-6
+  -#         = f.input :default,  as: :boolean, required: false
+  -#         = f.input :disabled, as: :boolean, required: false, disabled: true
+  -#         = f.input :valid,    as: :boolean, required: false, valid: true
+  -#         = f.input :invalid,  as: :boolean, required: false, error: "Invalid message"
+  -#     .pt-4
+  -#       %pre
+  -#         = "= f.input :attribute, as: :boolean"
