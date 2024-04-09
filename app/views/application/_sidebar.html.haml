@@ -7,7 +7,7 @@
 %nav.sidebar-nav.scroll-sidebar{"data-simplebar" => ""}
   %ul#sidebarnav
     %li.sidebar-item
-      = link_to dashboard_path, class: "sidebar-link" do
+      = link_to dashboard_path, class: active_sidebar_link_for_path(dashboard_path) do
         %span
           %i.fa.fa-tachometer-alt
         %span.hide-menu Dashboard
