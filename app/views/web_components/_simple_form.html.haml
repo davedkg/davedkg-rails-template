@@ -137,18 +137,18 @@
           = f.input :invalid,  placeholder: "start typing here...", required: false, error: "Invalid message"
 
 
-  -# .card
-  -#   .card-body
-  -#     %h4.card-title Text Area
-  -#     .row
-  -#       .col-md-6
-  -#         = f.input :default,  as: :text, placeholder: "start typing here...", required: false
-  -#         = f.input :disabled, as: :text, placeholder: "start typing here...", required: false, disabled: true
-  -#         = f.input :valid,    as: :text, placeholder: "start typing here...", required: false, valid: true
-  -#         = f.input :invalid,  as: :text, placeholder: "start typing here...", required: false, error: "Invalid message"
-  -#     .pt-4
-  -#       %pre
-  -#         = "= f.input :attribute, as: :text"
+  .card
+    .card-body
+      %h5.card-title Text Area
+      .pb-4.pt-3
+        %code
+          = "= f.input :attribute, as: :text"
+      .row
+        .col-md-6
+          = f.input :default,  as: :text, placeholder: "start typing here...", required: false
+          = f.input :disabled, as: :text, placeholder: "start typing here...", required: false, disabled: true
+          = f.input :valid,    as: :text, placeholder: "start typing here...", required: false, valid: true
+          = f.input :invalid,  as: :text, placeholder: "start typing here...", required: false, error: "Invalid message"
 
   -# .card
   -#   .card-body

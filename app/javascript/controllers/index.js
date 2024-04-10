@@ -9,3 +9,7 @@ import { application } from "./application"
 // Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
 // import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
 // lazyLoadControllersFrom("controllers", application)
+
+import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
+const context = require.context(".", true, /\.js$/)
+application.load(definitionsFromContext(context))
