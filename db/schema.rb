@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2021_05_24_224540) do
+ActiveRecord::Schema[7.1].define(version: 2020_01_26_002834) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -43,10 +43,10 @@ ActiveRecord::Schema[7.1].define(version: 2021_05_24_224540) do
     t.string "name"
     t.string "role", default: "user", null: false
     t.string "time_zone", default: "Eastern Time (US & Canada)", null: false
+    t.string "state", default: "enabled", null: false
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "state", default: "enabled", null: false
     t.index ["deleted_at", "confirmation_token"], name: "index_users_on_deleted_at_and_confirmation_token", unique: true
     t.index ["deleted_at", "email"], name: "index_users_on_deleted_at_and_email", unique: true
     t.index ["deleted_at", "invitation_token"], name: "index_users_on_deleted_at_and_invitation_token", unique: true

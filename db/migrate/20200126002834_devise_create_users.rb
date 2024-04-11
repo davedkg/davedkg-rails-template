@@ -45,6 +45,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
       t.string :role,      null: false, default: User.roles[:user]
       t.string :time_zone, null: false, default: 'Eastern Time (US & Canada)'
 
+      t.string :state, default: User.states[:enabled], null: false
+
       ## Timestamps
       t.datetime :deleted_at, precision: 6
       t.timestamps null: false
