@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("turbo:load", function () {
   document.querySelectorAll(".sidebartoggler").forEach(function (element) {
     element.addEventListener("click", function () {
       document.querySelectorAll(".sidebartoggler").forEach(function (el) {

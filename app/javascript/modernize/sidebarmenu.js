@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("turbo:load", function () {
   function findMatchingElement() {
     var currentUrl = window.location.href;
     var anchors = document.querySelectorAll("#sidebarnav a");
