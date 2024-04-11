@@ -35,6 +35,7 @@ jobs:
             source $BASH_ENV
             gem install bundler
             bundle config set path 'vendor/bundle'
+            bundle config set without 'development production'
 
       # bundle install
       - restore_cache:
@@ -45,7 +46,7 @@ jobs:
           name: Running bundle install
           command: |
             sudo ln -s /usr/lib/x86_64-linux-gnu/libffi.so.7 /usr/lib/x86_64-linux-gnu/libffi.so.6
-            bundle install --jobs=4 --retry=3 --without development production
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
@@ -167,7 +168,7 @@ jobs:
       - run:
           name: Running bundle install
           command: |
-            bundle install --jobs=4 --retry=3 --without development production
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
@@ -202,7 +203,7 @@ jobs:
       - run:
           name: Running bundle install
           command: |
-            bundle install --jobs=4 --retry=3 --without development production
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
@@ -237,7 +238,7 @@ jobs:
       - run:
           name: Running bundle install
           command: |
-            bundle install --jobs=4 --retry=3 --without development production
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
@@ -273,7 +274,7 @@ jobs:
           name: Running bundle install
           command: |
             sudo ln -s /usr/lib/x86_64-linux-gnu/libffi.so.7 /usr/lib/x86_64-linux-gnu/libffi.so.6
-            bundle install --jobs=4 --retry=3 --without development production
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
@@ -321,7 +322,7 @@ jobs:
       - run:
           name: Running bundle install
           command: |
-            bundle install --jobs=4 --retry=3 --without development production
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
@@ -356,7 +357,7 @@ jobs:
       - run:
           name: Running bundle install
           command: |
-            bundle install --jobs=4 --retry=3 --without development production
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
