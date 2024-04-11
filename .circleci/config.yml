@@ -7,7 +7,7 @@ jobs:
   rspec:
 
     docker:
-      - image: cimg/ruby:3.2.2-browsers
+      - image: cimg/ruby:3.3.0-browsers
         environment:
           NODE_OPTIONS: --openssl-legacy-provider
           PGHOST: 127.0.0.1
