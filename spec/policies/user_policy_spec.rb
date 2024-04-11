@@ -10,14 +10,14 @@ describe UserPolicy, type: :policy do
 
   context 'when role is user' do
     it { is_expected.to forbid_actions(%i[index new create show edit update destroy]) }
-    it { is_expected.to forbid_actions(%i[update_password update_avatar]) }
+    it { is_expected.to forbid_actions(%i[update_password]) }
     it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email unlock enable disable]) }
     it { is_expected.to permit_mass_assignment_of_exactly(%i[name time_zone password password_confirmation avatar]) }
 
     context 'when record is me' do
       let(:record) { user }
 
-      it { is_expected.to permit_actions(%i[show edit update update_password update_avatar]) }
+      it { is_expected.to permit_actions(%i[show edit update update_password]) }
     end
   end
 
@@ -25,7 +25,7 @@ describe UserPolicy, type: :policy do
     let(:user) { create(:user, :admin) }
 
     it { is_expected.to permit_actions(%i[index new create show destroy]) }
-    it { is_expected.to forbid_actions(%i[edit update update_password update_avatar]) }
+    it { is_expected.to forbid_actions(%i[edit update update_password]) }
     it { is_expected.to permit_mass_assignment_of_exactly(%i[email role]) }
 
     context 'when record has accepted invitation' do

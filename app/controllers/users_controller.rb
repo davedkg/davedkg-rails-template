@@ -33,7 +33,11 @@ class UsersController < ApplicationController
   end
 
   def update
-    redirect_to @user, notice: 'User was successfully updated.' if @user.update(permitted_attributes(@user))
+    if @user.update(permitted_attributes(@user))
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render 'update_user_failed'
+    end
   end
 
   def destroy
@@ -43,17 +47,11 @@ class UsersController < ApplicationController
   end
 
   def update_password
-    return unless @user.update(permitted_attributes(@user))
-
-    bypass_sign_in(@user)
-    redirect_to @user, notice: 'Password was successfully updated.'
-  end
-
-  def update_avatar
     if @user.update(permitted_attributes(@user))
-      redirect_to @user, notice: 'Avatar was successfully updated.'
+      bypass_sign_in(@user)
+      redirect_to @user, notice: 'Password was successfully updated.'
     else
-      redirect_to @user, error: 'Avatar was unsuccessfully updated.'
+      render 'update_password_failed'
     end
   end
 
@@ -96,7 +94,8 @@ class UsersController < ApplicationController
   def page_title_hash
     super.merge({
                   new: 'Invite User',
-                  create: 'Invite User'
+                  create: 'Invite User',
+                  show: @user&.display_name
                 })
   end
 end

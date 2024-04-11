@@ -1,5 +1,5 @@
 - if 0 != breadcrumb_trail.count
-  .breadcrumb
+  .breadcrumb.mb-4
     - breadcrumb_trail do |crumb|
       .breadcrumb-item
         = link_to crumb.name, crumb.url

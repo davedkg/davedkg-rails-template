@@ -1,19 +1,18 @@
-%header.content__title
-  %h1= page_title
-  .actions
-    - if policy(User).new?
-      %a.btn.btn-outline-primary{ href: new_user_path }
-        %i.fa.fa-plus
-        .d-none.d-sm-inline
-          Invite User
+.action-btn.layout-top-spacing.mb-7.d-flex.align-items-center.justify-content-between.flex-wrap.gap-6
+  %h5.mb-0.fs-5= page_title
+  - if policy(User).new?
+    = link_to new_user_path, class: "btn btn-primary" do
+      %i.fa.fa-plus
+      .d-none.d-sm-inline
+        Invite User
 
 .card
   .table-responsive
     %table.table.border.text-nowrap.mb-0.align-middle
       %thead.text-dark.fs-4
         %tr
-          %th.d-none.d-md-table-cell{ width: "10px" } &nbsp;
           %th Name
+          %th.d-none.d-md-table-cell State
           %th &nbsp;
       %tbody{ id: "body" }
         = render 'users'

@@ -20,6 +20,10 @@ class User < ApplicationRecord
   validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
 
+  def display_name
+    name.blank? ? email : name
+  end
+
   def send_invitation
     self.invitation_sent_at = Time.zone.now
     deliver_invitation
