@@ -47,6 +47,7 @@ end
 group :development do
   gem 'bullet', '~> 7.1.6'
   gem 'foreman', '~> 0.87.2', require: false
+  gem 'letter_opener_web', '~> 2.0'
   gem 'rack-mini-profiler', '~> 3.3.1'
   gem 'web-console', '~> 4.2.1'
 end
