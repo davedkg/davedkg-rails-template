@@ -12,6 +12,12 @@
           %span
             %i.fa.fa-tachometer-alt
           %span.hide-menu Dashboard
+    - if policy(User).show?
+      %li.sidebar-item
+        = link_to users_path, class: append_active_if_path('sidebar-link', users_path) do
+          %span
+            %i.fa.fa-users
+          %span.hide-menu Users
     - if current_user.admin?
       %li.sidebar-item
         %a.sidebar-link.has-arrow{class: active_admin_tab_class, href: "javascript:void(0)"}
