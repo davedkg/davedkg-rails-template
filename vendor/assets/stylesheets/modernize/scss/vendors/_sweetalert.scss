@@ -1,0 +1,41 @@
+//
+// Sweetalert
+//
+body {
+
+  div {
+    &:where(.swal2-container) {
+      button {
+        &:where(.swal2-styled).swal2-confirm {
+          background-color: var(--bs-primary) !important;
+          border-radius: 25px;
+
+          &:focus {
+            box-shadow: unset;
+          }
+        }
+
+        &:where(.swal2-styled).swal2-cancel {
+          background-color: $danger !important;
+          border-radius: 25px;
+        }
+      }
+
+      h2 {
+        &:where(.swal2-title) {
+          color: var(--bs-heading-color);
+        }
+      }
+    }
+
+    &:where(.swal2-icon).swal2-success {
+      .swal2-success-ring {
+        border: 0.25em solid rgba($color: $success, $alpha: 0.3);
+      }
+
+      [class^="swal2-success-line"] {
+        background-color: var(--bs-success);
+      }
+    }
+  }
+}
