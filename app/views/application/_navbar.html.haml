@@ -28,6 +28,7 @@
                     %img.rounded-circle{height: 80, src: image_url('profile.jpg'), width: 80}/
                     .ms-3
                       %h5.mb-1.fs-3= current_user.name
+                      %span.mb-1.d-block= current_user.role
                       %p.mb-0.d-flex.align-items-center
                         %i.ti.ti-mail.fs-4
                         = current_user.email
