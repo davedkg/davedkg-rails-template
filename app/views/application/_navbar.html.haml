@@ -15,6 +15,24 @@
           %a.nav-link.d-flex.d-lg-none.align-items-center.justify-content-center{"aria-controls" => "offcanvasWithBothOptions", "data-bs-target" => "#mobilenavbar", "data-bs-toggle" => "offcanvas", :href => "javascript:void(0)", :type => "button"}
             %i.ti.ti-align-justified.fs-7
           %ul.navbar-nav.flex-row.ms-auto.align-items-center.justify-content-center
+
+            %li.nav-item.dropdown{ "data-controller" => "theme" }
+              %button#bd-theme.btn.btn-link.nav-link.py-2.px-0.px-lg-2.dropdown-toggle.d-flex.align-items-center{"aria-expanded" => "false", "aria-label" => "Toggle theme (auto)", "data-bs-display" => "static", "data-bs-toggle" => "dropdown", :type => "button"}
+                %i.fa.fa-circle-half-stroke{ "data-theme-target" => "dropdownButtonIcon" }
+              %ul.dropdown-menu.dropdown-menu-end
+                %li
+                  %button.dropdown-item.d-flex.align-items-center{"data-theme-target" => "lightButton", "aria-pressed" => "false", "data-bs-theme-value" => "light", :type => "button", "data-action" =>"click->theme#changeTheme"}
+                    %i.fa.fa-sun.me-2
+                    Light
+                %li
+                  %button.dropdown-item.d-flex.align-items-center{"data-theme-target" => "darkButton", "aria-pressed" => "false", "data-bs-theme-value" => "dark", :type => "button", "data-action" =>"click->theme#changeTheme"}
+                    %i.fa.fa-moon.me-2
+                    Dark
+                %li
+                  %button.dropdown-item.d-flex.align-items-center{"data-theme-target" => "autoButton", "aria-pressed" => "true", "data-bs-theme-value" => "auto", :type => "button", "data-action" =>"click->theme#changeTheme" }
+                    %i.fa.fa-circle-half-stroke.me-2
+                    Auto
+
             %li.nav-item.dropdown
               %a#drop1.nav-link.pe-0{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "javascript:void(0)"}
                 .d-flex.align-items-center
