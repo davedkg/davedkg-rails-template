@@ -33,7 +33,7 @@
                         %i.ti.ti-mail.fs-4
                         = current_user.email
                   .d-grid.py-4.px-7.pt-8
-                    = link_to destroy_user_session_path, class: "btn btn-outline-primary", data: { method: :delete } do
+                    = link_to destroy_user_session_path, class: "btn btn-outline-primary", "data-turbo-method": :delete do
                       %i.fa.fa-sign-out-alt
                       Sign Out
 

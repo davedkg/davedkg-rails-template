@@ -1,19 +1,9 @@
-const Toast = {
-  success: function (message) {
-    return this.show(message, "success");
-  },
-  warning: function (message) {
-    return this.show(message, "warning");
-  },
-  error: function (message) {
-    return this.show(message, "danger");
-  },
-  info: function (message) {
-    return this.show(message, "info");
-  },
-  show: function (body, type) {
-    return alert(body);
-  },
-};
+import { Toast } from "bootstrap";
 
-window.Toast = Toast;
+document.addEventListener("turbo:load", function () {
+  var toastElList = [].slice.call(document.querySelectorAll(".toast"));
+  var toastList = toastElList.map(function (toastEl) {
+    return new Toast(toastEl);
+  });
+  toastList.forEach((toast) => toast.show());
+});
