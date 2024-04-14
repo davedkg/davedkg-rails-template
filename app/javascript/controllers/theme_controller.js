@@ -24,27 +24,60 @@ export default class extends Controller {
     localStorage.setItem("theme", theme);
   }
 
-  set currentTheme(theme) {
-    this.storedTheme = theme;
-
-    document.documentElement.setAttribute("data-bs-theme", theme);
-    this.setActiveThemeButton(theme);
-    this.setDropdownButtonIcon(theme);
-  }
-
   // *** Lifecycle
 
   connect() {
-    this.currentTheme = this.storedTheme || this.browserTheme;
+    const theme = this.storedTheme || this.browserTheme;
+
+    if ("auto" === theme) {
+      document.documentElement.setAttribute("data-bs-theme", this.browserTheme);
+    } else {
+      document.documentElement.setAttribute("data-bs-theme", theme);
+    }
+
+    this.setDropdownButtonIcon(theme);
+    this.setActiveThemeButton(theme);
+
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .addEventListener("change", (e) =>
+        this.handlePrefersColorSchemeChanged(e)
+      );
+  }
+
+  disconnect() {
+    window
+      .matchMedia("(prefers-color-scheme: dark)")
+      .removeEventListener("change", this.handlePrefersColorSchemeChanged);
   }
 
   // *** Actions
 
   changeTheme(event) {
-    this.currentTheme = event.target.getAttribute("data-bs-theme-value");
+    const theme = event.target.getAttribute("data-bs-theme-value");
+
+    if ("auto" === theme) {
+      document.documentElement.setAttribute("data-bs-theme", this.browserTheme);
+    } else {
+      document.documentElement.setAttribute("data-bs-theme", theme);
+    }
+
+    this.storedTheme = theme;
+    this.setDropdownButtonIcon(theme);
+    this.setActiveThemeButton(theme);
   }
 
   // *** Helpers
+
+  handlePrefersColorSchemeChanged({ matches }) {
+    if ("auto" === this.storedTheme) {
+      if (matches) {
+        document.documentElement.setAttribute("data-bs-theme", "dark");
+      } else {
+        document.documentElement.setAttribute("data-bs-theme", "light");
+      }
+    }
+  }
 
   setDropdownButtonIcon(theme) {
     if ("auto" === theme) {
