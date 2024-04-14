@@ -9,6 +9,7 @@ AllCops:
   Exclude:
     - 'bin/**/*'
     - 'db/**/*'
+    - 'vendor/**/*'
 
 Layout/LineLength:
   Exclude:
