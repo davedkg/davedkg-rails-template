@@ -13,8 +13,8 @@ describe 'GET web_components_path' do
   end
 
   context 'when role is user' do
-    it 'returns redirect status' do
-      expect(response).to have_http_status(:redirect)
+    it 'returns not_found status' do
+      expect(response).to have_http_status(:not_found)
     end
   end
 

@@ -2,6 +2,6 @@
 
 WebComponentsPolicy = Struct.new(:user, :dashboard) do
   def show?
-    true
+    user.admin?
   end
 end

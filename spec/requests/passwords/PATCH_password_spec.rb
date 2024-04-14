@@ -24,9 +24,9 @@ describe 'PATCH user_password_path' do
   context 'when passwords are invalid' do
     let(:new_password) { nil }
 
-    it 'returns ok status' do
+    it 'returns unprocessable_entity status' do
       request
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:unprocessable_entity)
     end
 
     it "does not update the user's password" do
@@ -37,9 +37,9 @@ describe 'PATCH user_password_path' do
   context 'when reset_password_token is incorrect' do
     let(:reset_password_token) { nil }
 
-    it 'returns ok status' do
+    it 'returns unprocessable_entity status' do
       request
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:unprocessable_entity)
     end
 
     it "does not update the user's password" do

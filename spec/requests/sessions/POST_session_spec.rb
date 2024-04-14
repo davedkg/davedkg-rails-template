@@ -23,16 +23,16 @@ describe 'POST user_session_path' do
   context 'when email is invalid' do
     let(:user_email) { 'invalid@example.com' }
 
-    it 'returns ok status' do
-      expect(response).to have_http_status(:ok)
+    it 'returns unprocessable_entity status' do
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 
   context 'when password is invalid' do
     let(:user_password) { 'invalid_password' }
 
-    it 'returns ok status' do
-      expect(response).to have_http_status(:ok)
+    it 'returns unprocessable_entity status' do
+      expect(response).to have_http_status(:unprocessable_entity)
     end
   end
 

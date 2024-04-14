@@ -26,8 +26,8 @@ describe 'PATCH user_invitation_path' do
   context 'when password is invalid' do
     let(:password) { nil }
 
-    it 'returns ok status' do
-      expect(response).to have_http_status(:ok)
+    it 'returns unprocessable_entity status' do
+      expect(response).to have_http_status(:unprocessable_entity)
     end
 
     it 'does not mark user as invitation_accepted?' do
@@ -38,8 +38,8 @@ describe 'PATCH user_invitation_path' do
   context 'when invitation_token is incorrect' do
     let(:raw_invitation_token) { nil }
 
-    it 'returns ok status' do
-      expect(response).to have_http_status(:ok)
+    it 'returns unprocessable_entity status' do
+      expect(response).to have_http_status(:unprocessable_entity)
     end
 
     it 'does not mark user as invitation_accepted?' do
