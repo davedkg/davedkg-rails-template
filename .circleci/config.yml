@@ -82,20 +82,6 @@ jobs:
           name: Running rake db:schema:load db:seed
           command: bundle exec rake db:schema:load db:seed
 
-      # compile assets
-      - restore_cache:
-          keys:
-            - v1-asset-cache-{{ arch }}-{{ .Branch }}
-            - v1-asset-cache-
-      - run: bundle exec rake assets:precompile
-      - save_cache:
-          key: v1-asset-cache-{{ arch }}-{{ .Branch }}-{{ epoch }}
-          paths:
-            - public/assets
-            - public/packs
-            - public/packs-test
-            - tmp/cache/assets/sprockets
-
       # run rspec
       - run:
           name: Running rspec
