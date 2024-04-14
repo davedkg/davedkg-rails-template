@@ -82,6 +82,9 @@ jobs:
           name: Running rake db:schema:load db:seed
           command: bundle exec rake db:schema:load db:seed
 
+      # compile assets
+      - run: yarn build:css
+
       # run rspec
       - run:
           name: Running rspec
