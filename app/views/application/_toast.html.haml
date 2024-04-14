@@ -1,4 +1,4 @@
-.toast.align-items-center{"aria-atomic" => "true", "aria-live" => "assertive", :role => "alert", class: (:success == type ? "text-bg-success" : "text-bg-danger") }
+.toast.align-items-center{"data-controller" => "toast", "aria-atomic" => "true", "aria-live" => "assertive", :role => "alert", class: (:success == type ? "text-bg-success" : "text-bg-danger") }
   .d-flex
     .toast-body
       = message
