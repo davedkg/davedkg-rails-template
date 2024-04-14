@@ -1,10 +1,10 @@
-$fa-font-path: ".";
-@import "@fortawesome/fontawesome-free/scss/fontawesome";
-@import "@fortawesome/fontawesome-free/scss/solid";
-@import "@fortawesome/fontawesome-free/scss/regular";
+$fa-font-path: '.';
+@import '@fortawesome/fontawesome-free/scss/fontawesome';
+@import '@fortawesome/fontawesome-free/scss/solid';
+@import '@fortawesome/fontawesome-free/scss/regular';
 
-$ti-font-path: ".";
-@import "tabler-icons/iconfont/tabler-icons";
+$ti-font-path: '.';
+@import 'tabler-icons/iconfont/tabler-icons';
 
 @import '../../../vendor/assets/stylesheets/modernize/scss/modernize';
-@import "modernize/inputs";
+@import 'modernize/inputs';

@@ -24,6 +24,11 @@ namespace :lint do
     sh 'reek -c .reek.yml'
   end
 
+  task scss: :environment do
+    puts 'Running SCSS-Lint...'
+    sh 'scss-lint -c .scss-lint.yml'
+  end
+
   task fasterer: :environment do
     puts 'Running Fasterer...'
     sh 'fasterer'
@@ -31,4 +36,4 @@ namespace :lint do
 end
 
 task fix: ['rubocop:autocorrect_all']
-task lint: ['rubocop', 'eslint', 'lint:reek', 'lint:brakeman', 'lint:fasterer']
+task lint: ['rubocop', 'eslint', 'lint:scss', 'lint:reek', 'lint:brakeman', 'lint:fasterer']

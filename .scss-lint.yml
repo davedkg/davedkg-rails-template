@@ -1,0 +1,17 @@
+scss_files: 'app/assets/stylesheets/**/*.scss'
+
+linters:
+  LeadingZero:
+    enabled: true
+    style: include_zero
+
+  NestingDepth:
+    enabled: true
+    max_depth: 5
+
+  SelectorDepth:
+    enabled: true
+    max_depth: 5
+
+  SelectorFormat:
+    enabled: false
