@@ -3,13 +3,13 @@
 require 'rails_helper'
 
 describe 'GET web_components_path' do
-  subject { get web_components_path }
+  subject(:request) { get web_components_path }
 
   let(:user) { create(:user) }
 
   before do
     sign_in user
-    subject
+    request
   end
 
   context 'when role is user' do

@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validates :time_zone, presence: true, time_zone: true
 
   def display_name
-    name.blank? ? email : name
+    name.presence || email
   end
 
   def send_invitation

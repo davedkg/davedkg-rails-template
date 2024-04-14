@@ -179,17 +179,15 @@ end
 module SimpleForm
   module Components
     module Errors
-
       def valid?
-        (!has_errors? && has_value?) || has_custom_valid?
+        (!has_errors? && has_value?) || custom_valid?
       end
 
       private
 
-      def has_custom_valid?
+      def custom_valid?
         options[:valid]
       end
-
     end
   end
 end
