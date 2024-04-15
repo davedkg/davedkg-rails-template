@@ -17,7 +17,7 @@ module ApplicationHelper
     ].include?(request.path)
   end
 
-  def form_for(record, options = {}, &block)
+  def form_for(record, options = {}, &)
     data = options[:data] || {}
 
     add_stimulus_controller(data, 'form')
