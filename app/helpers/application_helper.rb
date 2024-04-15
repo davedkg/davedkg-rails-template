@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 module ApplicationHelper
+  include Stimulusable
+
   def append_active_if_path(css, path)
     if request.path.start_with?(path)
       "#{css} active"
@@ -13,5 +15,15 @@ module ApplicationHelper
     'active' if [
       web_components_path
     ].include?(request.path)
+  end
+
+  def form_for(record, options = {}, &block)
+    data = options[:data] || {}
+
+    add_stimulus_controller(data, 'form')
+
+    options[:data] = data
+
+    super
   end
 end

@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import FormController from "./form_controller"
+application.register("form", FormController)
+
 import Inputs__TextInputController from "./inputs/text_input_controller"
 application.register("inputs--text-input", Inputs__TextInputController)
 
