@@ -1,0 +1,11 @@
+.card
+  .card-body
+    %h5.card-title Remote Modal
+    .pb-4.pt-3
+      %code
+        = "= link_to \"Modal\", modal_web_components_path, modal: true"
+
+    = link_to "Small", modal_web_components_path(size: :small), modal: true, class: "btn btn-primary me-2"
+    = link_to "Default", modal_web_components_path, modal: true, class: "btn btn-primary me-2"
+    = link_to "Large", modal_web_components_path(size: :large), modal: true, class: "btn btn-primary me-2"
+    = link_to "Extra Large", modal_web_components_path(size: :xl), modal: true, class: "btn btn-primary me-2"

@@ -10,8 +10,14 @@ application.register("form", FormController)
 import Inputs__TextInputController from "./inputs/text_input_controller"
 application.register("inputs--text-input", Inputs__TextInputController)
 
+import ModalController from "./modal_controller"
+application.register("modal", ModalController)
+
 import ThemeController from "./theme_controller"
 application.register("theme", ThemeController)
 
 import ToastController from "./toast_controller"
 application.register("toast", ToastController)
+
+import TurboController from "./turbo_controller"
+application.register("turbo", TurboController)

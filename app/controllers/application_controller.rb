@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def set_modal_size(modal_size)
+    @modal_size = modal_size
+  end
+
   def prevent_action
     redirect_to root_path
   end

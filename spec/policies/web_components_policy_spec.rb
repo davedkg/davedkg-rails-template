@@ -7,11 +7,11 @@ RSpec.describe WebComponentsPolicy, type: :policy do
 
   let(:user) { create(:user) }
 
-  it { is_expected.to forbid_actions(%i[show]) }
+  it { is_expected.to forbid_actions(%i[show modal]) }
 
   context 'when user is admin' do
     let(:user) { create(:user, :admin) }
 
-    it { is_expected.to permit_actions(%i[show]) }
+    it { is_expected.to permit_actions(%i[show modal]) }
   end
 end

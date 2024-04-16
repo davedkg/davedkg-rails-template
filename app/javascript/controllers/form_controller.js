@@ -10,7 +10,7 @@ export default class extends Controller {
   // *** Lifecycle
 
   connect() {
-    this.submitButton.addEventListener("click", (e) =>
+    this.submitButton?.addEventListener("click", (e) =>
       this.submitButtonClicked(e)
     );
   }

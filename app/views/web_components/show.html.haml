@@ -1,1 +1,10 @@
-= render 'simple_form'
+%ul#myTab.nav.nav-tabs.pb-4{:role => "tablist"}
+  %li.nav-item{:role => "presentation"}
+    %button#simple-form-tab.nav-link.active{"aria-controls" => "simple-form", "aria-selected" => "true", "data-bs-target" => "#simple-form", "data-bs-toggle" => "tab", :role => "tab", :type => "button"} Simple Form
+  %li.nav-item{:role => "presentation"}
+    %button#remote-modal-tab.nav-link{"aria-controls" => "modal", "aria-selected" => "false", "data-bs-target" => "#remote-modal", "data-bs-toggle" => "tab", :role => "tab", :type => "button"} Remote Modals
+#myTabContent.tab-content
+  #simple-form.tab-pane.fade.show.active{"aria-labelledby" => "simple-form-tab", :role => "tabpanel"}
+    = render 'simple_form'
+  #remote-modal.tab-pane.fade{"aria-labelledby" => "remote-modal-tab", :role => "tabpanel"}
+    = render 'remote_modal'
