@@ -14,7 +14,6 @@
     "postcss": "^8.4.38",
     "postcss-cli": "^11.0.0",
     "sass": "^1.72.0",
-    "simplebar": "^6.2.5",
     "sweetalert2": "^11.10.7",
     "tabler-icons": "^1.35.0"
   },
