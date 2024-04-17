@@ -26,5 +26,11 @@ Naming/FileName:
 Rails/I18nLocaleTexts:
   Enabled: false
 
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/NoExpectationExample:
+  Enabled: false
+
 Style/Documentation:
   Enabled: false

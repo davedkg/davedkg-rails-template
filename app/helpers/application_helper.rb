@@ -3,6 +3,12 @@
 module ApplicationHelper
   include Stimulusable
 
+  MODAL_SIZES = {
+    xl: 'modal-xl',
+    large: 'modal-lg',
+    small: 'modal-sm'
+  }.freeze
+
   def append_active_if_path(css, path)
     if request.path.start_with?(path)
       "#{css} active"
@@ -18,14 +24,7 @@ module ApplicationHelper
   end
 
   def modal_size_class(modal_size)
-    case modal_size
-    when :xl
-      'modal-xl'
-    when :large
-      'modal-lg'
-    when :small
-      'modal-sm'
-    end
+    MODAL_SIZES[modal_size]
   end
 
   def form_for(record, options = {}, &)
@@ -48,12 +47,14 @@ module ApplicationHelper
 
   private
 
+  # :reek:NilCheck
   def merge_html_options(html_options)
     return html_options if html_options.nil? || html_options[:modal] != true
 
     html_options.delete(:modal)
-    (html_options[:data] ||= {})['controller'] = 'turbo'
-    (html_options[:data] ||= {})['turbo-prefetch'] = false
+    html_options[:data] ||= {}
+    html_options[:data]['controller'] = 'turbo'
+    html_options[:data]['turbo-prefetch'] = false
 
     html_options
   end

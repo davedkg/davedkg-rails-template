@@ -23,9 +23,11 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # rubocop:disable Naming/AccessorMethodName
   def set_modal_size(modal_size)
     @modal_size = modal_size
   end
+  # rubocop:enable Naming/AccessorMethodName
 
   def prevent_action
     redirect_to root_path

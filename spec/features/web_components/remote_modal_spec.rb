@@ -67,6 +67,6 @@ RSpec.describe 'A user can view an remote modal', :js do
   end
 
   def then_i_cannot_see_modal
-    expect(page).not_to have_css '.modal'
+    expect(page).to have_no_css '.modal'
   end
 end

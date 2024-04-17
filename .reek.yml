@@ -6,6 +6,8 @@ detectors:
   DataClump:
     exclude:
       - "UserMailer"
+  DuplicateMethodCall:
+    enabled: false
   FeatureEnvy:
     enabled: false
   IrresponsibleModule:
