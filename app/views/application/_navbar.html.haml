@@ -12,8 +12,6 @@
           %i.ti.ti-dots.fs-7
       #navbarNav.collapse.navbar-collapse.justify-content-end
         .d-flex.align-items-center.justify-content-between
-          %a.nav-link.d-flex.d-lg-none.align-items-center.justify-content-center{"aria-controls" => "offcanvasWithBothOptions", "data-bs-target" => "#mobilenavbar", "data-bs-toggle" => "offcanvas", :href => "javascript:void(0)", :type => "button"}
-            %i.ti.ti-align-justified.fs-7
           %ul.navbar-nav.flex-row.ms-auto.align-items-center.justify-content-center
 
             %li.nav-item.dropdown{ "data-controller" => "theme" }
@@ -37,14 +35,11 @@
               %a#drop1.nav-link.pe-0{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "javascript:void(0)"}
                 .d-flex.align-items-center
                   .user-profile-img
-                    %img.rounded-circle{ height: 35, src: image_url('profile.jpg'), width: 35}/
+                    %i.fa.fa-user-circle
               .dropdown-menu.content-dd.dropdown-menu-end.dropdown-menu-animate-up{"aria-labelledby" => "drop1"}
                 .profile-dropdown.position-relative
-                  .py-3.px-7.pb-0
-                    %h5.mb-0.fs-5.fw-semibold Profile
-                  .d-flex.align-items-center.py-9.mx-7.border-bottom
-                    %img.rounded-circle{height: 80, src: image_url('profile.jpg'), width: 80}/
-                    .ms-3
+                  .d-flex.align-items-center.py-9.mx-7
+                    %div
                       %h5.mb-1.fs-3= current_user.name
                       %span.mb-1.d-block= current_user.role
                       %p.mb-0.d-flex.align-items-center
