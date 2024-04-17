@@ -32,6 +32,6 @@ export default class extends Controller {
   }
 
   reallySubmitForm() {
-    this.element.submit();
+    this.element.requestSubmit();
   }
 }
