@@ -1,4 +1,0 @@
-web: bundle exec rails s -p 3000
-worker: bundle exec sidekiq -C config/sidekiq.yml
-webpacker: ./bin/webpack-dev-server
-guard: bundle exec guard -P livereload --no-interactions
