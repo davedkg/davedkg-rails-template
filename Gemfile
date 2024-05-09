@@ -22,6 +22,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "foreman", "~> 0.88.1"
   gem "web-console", "~> 4.2.1"
   gem "rack-mini-profiler", "~> 3.3.1"
 
