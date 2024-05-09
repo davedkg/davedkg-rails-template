@@ -12,6 +12,8 @@ gem "stimulus-rails", "~> 1.3.3"
 gem "jbuilder", "~> 2.11.5"
 gem "redis", ">= 4.0.1"
 
+gem "haml-rails", "~> 2.0"
+
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", "~> 1.18.3", require: false
 
