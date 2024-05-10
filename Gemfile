@@ -15,6 +15,7 @@ gem "redis", ">= 4.0.1"
 gem "autoprefixer-rails", '~> 10.4.16.0'
 gem 'dartsass-sprockets', '~> 3.1.0'
 gem "haml-rails", "~> 2.0"
+gem 'simple_form', '~> 5.3.0'
 
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", "~> 1.18.3", require: false
