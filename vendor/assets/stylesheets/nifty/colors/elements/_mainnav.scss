@@ -1,0 +1,36 @@
+/* MAINNAV COLORED */
+/* ---------------------------------------------- */
+%mainnav--primary {
+   --#{ $nifty-prefix }mainnav-bg:                          #{ var( --#{ $prefix }primary ) };
+   --#{ $nifty-prefix }mainnav-color:                       #{ var( --#{ $prefix }primary-color ) };
+   --#{ $nifty-prefix }mainnav-secondary-color:             #{ rgba( var( --#{ $prefix }primary-color-rgb ), .4 ) };
+
+   --#{ $nifty-prefix }mainnav-link-color:                  #{ rgba(var( --#{ $prefix }primary-color-rgb ), .7)};
+   --#{ $nifty-prefix }mainnav-link-hover:                  #{ var( --#{ $prefix }primary-color ) };
+   --#{ $nifty-prefix }mainnav-link-active:                 #{ var( --#{ $prefix }primary-color ) };
+   --#{ $nifty-prefix }mainnav-link-active-underline-color: #{ rgba( var( --#{ $prefix }primary-color-rgb ), .3 ) };
+
+   --#{ $nifty-prefix }mainnav-icon-color:                  #{ var( --#{ $prefix }primary-color )};
+   --#{ $nifty-prefix }mainnav-heading-color:               #{ var( --#{ $prefix }primary-color ) };
+   --#{ $nifty-prefix }mainnav-border-color:                #{ var( --#{ $prefix }primary-border ) };
+
+
+   // Submenu
+   // ---------------------------------------------------------------------------------
+   --#{ $nifty-prefix }mainnav-submenu-active-bg:           #{ rgba(0,0,0, .25) };
+   --#{ $nifty-prefix }mainnav-submenu-dashed-color:        #{ var( --#{ $prefix }primary-border )};
+
+
+   // Mini nav mode
+   // ---------------------------------------------------------------------------------
+   --#{ $nifty-prefix }mainnav-min-icon-color:           #{ var( --#{ $prefix }primary-color ) };
+   --#{ $nifty-prefix }mainnav-min-icon-active-color:    #{ var( --#{ $prefix }primary-color ) };
+
+   --#{ $nifty-prefix }mainnav-min-submenu-active-bg:    #{ rgba(0,0,0, .25) };
+   --#{ $nifty-prefix }mainnav-min-submenu-active-color: #{ var( --#{ $prefix }primary-color ) };
+   --#{ $nifty-prefix }mainnav-min-shadow:               #{ 0 1rem 2rem rgba($black, .5) };
+}
+
+.mainnav--primary {
+   @extend %mainnav--primary;
+}

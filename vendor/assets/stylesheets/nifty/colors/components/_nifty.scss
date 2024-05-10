@@ -1,0 +1,42 @@
+/* -- COLOR COMPONENTS -- */
+/* ---------------------------------------------- */
+
+@each $key, $background in $color-schemes {
+   @if $background != "$primary" {
+
+      /* ---------------------------------------------- */
+      /* #{$key} color scheme */
+
+      [data-scheme= "#{$key}"] {
+         $current-primary-ratio: contrast-ratio( $background, $component-bg  );
+
+         @if $content-title-color == "var(--#{ $prefix }primary)" or $content-title-color == $primary {
+            @if $current-primary-ratio <= $min-contrast-ratio {
+               --#{ $nifty-prefix }content-title-color : #{ shade-color( $background, 20% ) };
+            }
+         }
+      }
+
+
+      @if $enable-dark-mode {
+         @include color-mode(dark, true) {
+            &[data-scheme= "#{$key}"] {
+               $current-primary-ratio: contrast-ratio( $background, $component-bg-dark  );
+
+               --#{ $nifty-prefix }content-title-ratio : #{ $current-primary-ratio };
+
+               @if $content-title-color == "var(--#{ $prefix }primary)" or $content-title-color == $primary {
+                  @if $current-primary-ratio <= $min-contrast-ratio {
+                     --#{ $nifty-prefix }content-title-color : #{ tint-color( $background, 20% ) };
+                  } @else {
+                     --#{ $nifty-prefix }content-title-color: #{ $content-title-color };
+                  }
+               }
+            }
+         }
+      }
+
+      /* End #{$key} color scheme */
+
+   }
+}

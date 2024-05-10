@@ -1,0 +1,11 @@
+/* -- BADGES -- */
+/* ---------------------------------------------- */
+
+// The element is aligned with the superscript baseline of the parent
+// ---------------------------------------------------------------------------------
+.badge-super {
+   position: absolute !important;
+   inset: .15rem auto auto 100% !important;
+   transform: translate( Max( -0.625rem, -50% ), -50% );
+   z-index: 1;
+}

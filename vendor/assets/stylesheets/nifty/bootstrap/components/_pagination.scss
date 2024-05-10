@@ -1,0 +1,41 @@
+/* -- PAGINATION -- */
+/* --------------------------------------------------------------------------------- */
+
+.page-link {
+   position: relative;
+   transition: $pagination-transition;
+   z-index: 1;
+
+   @at-root {
+
+      #{&}:hover {
+         background-color: var(--#{$prefix}pagination-hover-bg);
+         border-color: $pagination-hover-border-color;
+         box-shadow: $pagination-hover-box-shadow;
+         color: var(--#{$prefix}pagination-hover-color);
+         z-index: 5;
+      }
+
+      #{&}:focus {
+         background-color: var(--#{$prefix}pagination-focus-bg);
+         border-color: $pagination-focus-bg;
+         box-shadow: $pagination-focus-box-shadow !important;
+         color: var(--#{$prefix}pagination-focus-color);
+         z-index: 5;
+      }
+
+      @at-root {
+         #{&}:active, .active > #{&} {
+            background-color: var(--#{$prefix}pagination-active-bg);
+            border-color: $pagination-active-border-color;
+            box-shadow: $pagination-active-box-shadow !important;
+            color: var(--#{$prefix}pagination-active-color);
+            z-index: 5;
+         }
+      }
+
+      .disabled > #{&} {
+         opacity: .5;
+      }
+   }
+}

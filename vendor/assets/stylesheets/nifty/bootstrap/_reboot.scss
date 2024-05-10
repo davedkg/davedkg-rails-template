@@ -1,0 +1,56 @@
+/* -- REBOOT -- */
+/* ---------------------------------------------- */
+
+// Anchor tag with headings classes
+// ---------------------------------------------------------------------------------
+a:where( .h1, .h2, .h3, .h4, .h5, .h6 ):hover {
+   color: var( --#{ $prefix }link-hover-color );
+}
+
+
+
+// Horizontal Line
+// ---------------------------------------------------------------------------------
+hr {
+   border-color: var( --#{ $prefix }border-color );
+   opacity: 1;
+}
+
+
+
+// Link
+// ---------------------------------------------------------------------------------
+a {
+   &:hover:not(.btn):not(.btn-link) {
+      text-decoration-thickness: 2px !important;
+   }
+}
+
+
+
+// Strong
+// ---------------------------------------------------------------------------------
+strong {
+   color: var( --#{ $prefix }emphasis-color );
+}
+
+
+// Selection
+// ---------------------------------------------------------------------------------
+::selection {
+   color: var( --#{ $prefix }primary-text-emphasis );
+   background-color: var( --#{ $prefix }primary-bg-subtle );
+}
+
+
+// Highlight  syntax
+// ---------------------------------------------------------------------------------
+.highlight {
+   margin-bottom: 2rem;
+
+   pre {
+      padding: 1rem;
+      border-radius: var( --#{ $prefix }border-radius );
+      margin-bottom: 0;
+   }
+}

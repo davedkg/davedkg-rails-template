@@ -1,0 +1,78 @@
+/* -- PRIMARY BRAND -- */
+/* ---------------------------------------------- */
+.tm--primary-brand {
+   --#{ $nifty-prefix }header-shadow: #{ var( --#{ $prefix }box-shadow-sm ) };
+
+   .header__inner  {
+      padding-inline-start: 0
+   }
+
+
+   // Brand
+   // ---------------------------------------------------------------------------------
+   .header__brand {
+      @extend %header-brand--primary;
+      padding-inline: $content-gutter-x;
+   }
+
+   $up-breakpoint: false;
+   @each $breakpoint, $value in $content-gutters-x {
+      @if $breakpoint == $mainnav-max-available-at { $up-breakpoint: true }
+      @if $up-breakpoint == false {
+         @include media-breakpoint-only($breakpoint) {
+            .header__brand {
+               padding-inline: $value;
+            }
+         }
+      }@else {
+         @include media-breakpoint-only($breakpoint) {
+            .tm--primary-brand:not(.mn--min):not(.mn--max) {
+               .header__brand {
+                  padding-inline: $value;
+               }
+            }
+         }
+      }
+   }
+}
+
+
+
+// Disable border radius on large device
+// ---------------------------------------------------------------------------------
+@if $mainnav-max-available-at == $mainnav-min-available-at {
+   @include media-breakpoint-up( $mainnav-max-available-at ) {
+      .tm--primary-brand{
+         &.mn--min, &.mn--max {
+            .header__brand {
+               border-radius: 0;
+            }
+         }
+         &.mn--max .header__brand {
+            padding-inline: calc(#{ calc(map-get( $content-gutters-x, $mainnav-max-available-at ) /2)} + #{ var( --#{ $nifty-prefix }mainnav-link-padding-x ) } ) 0;
+         }
+      }
+   }
+} @else {
+   @include media-breakpoint-up( $mainnav-max-available-at ) {
+      .tm--primary-brand{
+         &.mn--max {
+            .header__brand {
+               border-radius: 0;
+               padding-inline: #{ map-get( $content-gutters-x, $mainnav-max-available-at )} 0;
+            }
+         }
+      }
+   }
+
+   @include media-breakpoint-up( $mainnav-min-available-at ) {
+      .tm--primary-brand{
+         &.mn--min {
+            .header__brand {
+               border-radius: 0;
+               padding-inline: #{ map-get( $content-gutters-x, $mainnav-min-available-at )} 0;
+            }
+         }
+      }
+   }
+}

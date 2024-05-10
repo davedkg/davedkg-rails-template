@@ -1,0 +1,16 @@
+/* -- BREADCRUMBS -- */
+/* --------------------------------------------------------------------------------- */
+
+.breadcrumb-item > a {
+   font-weight: $breadcrumb-font-weight;
+   text-decoration: none;
+
+   &:hover {
+      text-decoration: none;
+
+      @if $breadcrumb-hover-underline ==true {
+         text-decoration: none;
+         box-shadow: 0 2px;
+      }
+   }
+}

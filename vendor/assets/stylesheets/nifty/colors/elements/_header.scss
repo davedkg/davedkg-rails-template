@@ -1,0 +1,21 @@
+/* COLORED HEADER */
+/* ---------------------------------------------- */
+%header--primary {
+   --#{ $nifty-prefix }header-bg:              #{ var( --#{ $prefix }primary ) };
+   --#{ $nifty-prefix }header-color:           #{ rgba( var( --#{ $prefix }primary-color-rgb ), .75 ) };
+   --#{ $nifty-prefix }header-secondary-color: #{ rgba( var( --#{ $prefix }primary-color-rgb ), .35 ) };
+   --#{ $nifty-prefix }header-border-color:    #{ var( --#{ $prefix }primary-border ) };
+   --#{ $nifty-prefix }header-shadow:          #{ var(--#{ $prefix }box-shadow-sm) };
+
+   --#{ $nifty-prefix }header-btn-hover-bg:    #{ rgba(0,0,0, .2) };
+   --#{ $nifty-prefix }header-btn-hover-color: #{ var( --#{ $prefix }primary-color ) };
+
+   // Brand
+   // ---------------------------------------------------------------------------------
+   --#{ $nifty-prefix }brand-bg:               #{ initial };
+   --#{ $nifty-prefix }brand-color:            #{ var( --#{ $prefix }primary-color )};
+}
+
+.header--primary {
+   @extend %header--primary;
+}

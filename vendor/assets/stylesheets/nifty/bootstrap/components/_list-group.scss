@@ -1,0 +1,30 @@
+/* -- LIST GROUP -- */
+/* --------------------------------------------------------------------------------- */
+
+// Active items
+// ---------------------------------------------------------------------------------
+.list-group-item.active {
+   font-weight: bold;
+
+   :where( h1, h2, h3, h4, h5, h6 ) {
+      color: inherit;
+   }
+
+   :where( p, span, small, div ){
+      font-weight: normal
+   }
+}
+
+
+
+// List group borderless
+// ---------------------------------------------------------------------------------
+.list-group-borderless {
+   > .list-group-item {
+      border: 0
+   }
+
+   > .list-group-item-action {
+      border-radius: $list-group-border-radius;
+   }
+}

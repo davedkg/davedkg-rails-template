@@ -1,0 +1,76 @@
+/* -- ALERTS -- */
+/* --------------------------------------------------------------------------------- */
+
+// Callouts
+// ---------------------------------------------------------------------------------
+.alert-callout {
+   --#{$prefix}alert-callout-border-width: #{$alert-callout-border-width};
+   --#{$prefix}alert-callout-border-radius: #{$alert-callout-border-radius};
+
+   border-radius: var(--#{$prefix}alert-callout-border-radius);
+   border-left: var(--#{$prefix}alert-callout-border-width) solid var(--#{$prefix}alert-callout-border-color, var(--#{$prefix}gray-300));
+}
+
+
+
+// Variations
+// ---------------------------------------------------------------------------------
+@each $variant in map-keys($theme-colors) {
+   .alert-#{$variant}.alert-callout {
+      --#{$prefix}alert-callout-border-color: var(--#{$prefix}#{$variant}-border-subtle);
+   }
+}
+
+.alert-link {
+   border-bottom: 1px dotted;
+   text-decoration: none;
+
+   &:hover {
+      box-shadow: 0 2px;
+   }
+
+   &:focus {
+      box-shadow: 0 1px;
+   }
+}
+
+
+
+// Dark Mode
+// ---------------------------------------------------------------------------------
+@if $enable-dark-mode {
+   @include color-mode(dark, true) {
+
+      .alert-link:hover {
+         color: var(--#{$prefix}alert-link-hover-color);
+      }
+
+      .alert .btn-close {
+         filter: none;
+      }
+
+      // Variations
+      @each $state, $value in $theme-colors {
+
+         $alert-bg: desaturate(lighten(change-color($value, $blackness: 50%), 20%), 10%);
+         $alert-color: shift-color($value, 65%);
+         $alert-link: shift-color($value, 70%);
+
+
+         @if $state =="dark" {
+            $alert-bg: desaturate(lighten($value, 10%), 5%);
+         }
+
+         @if (contrast-ratio($value, $alert-color) < $min-contrast-ratio) {
+            $alert-color: shift-color($value, -65%);
+            $alert-link: shift-color($value, -70%);
+         }
+
+         .alert-#{$state} {
+            --#{$prefix}alert-bg: #{$alert-bg};
+            --#{$prefix}alert-color: #{$alert-color};
+            --#{$prefix}alert-link-color: #{$alert-link};
+         }
+      }
+   }
+}

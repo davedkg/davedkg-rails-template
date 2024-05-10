@@ -1,0 +1,132 @@
+:root {
+   --#{$prefix}component-bg: #{$component-bg};
+   --#{$prefix}component-bg-rgb: #{to-rgb($component-bg)};
+   --#{$prefix}component-color: #{$component-color};
+   --#{$prefix}component-color-rgb: #{to-rgb($component-color)};
+
+   --#{$prefix}component-hover-bg: #{$component-hover-bg};
+   --#{$prefix}component-hover-bg-rgb: #{to-rgb($component-hover-bg)};
+   --#{$prefix}component-hover-color: #{$component-hover-color};
+   --#{$prefix}component-hover-color-rgb: #{to-rgb($component-hover-color)};
+
+   --#{$prefix}component-alt-bg: #{ $component-alt-bg };
+   --#{$prefix}component-alt-active-bg: #{ $component-alt-active-bg };
+
+   --#{$prefix}form-disabled-opacity: #{$input-disabled-opacity};
+
+   --#{$prefix}box-shadow-color: #{$box-shadow-color};
+   --#{$prefix}box-shadow-alpha: #{$box-shadow-alpha};
+   --#{$prefix}box-shadow-alpha-xs: #{$box-shadow-alpha-xs};
+   --#{$prefix}box-shadow-alpha-sm: #{$box-shadow-alpha-sm};
+   --#{$prefix}box-shadow-alpha-lg: #{$box-shadow-alpha-lg};
+   --#{$prefix}box-shadow-alpha-inset: #{$box-shadow-alpha-inset};
+
+   --#{$prefix}primary-color: #{color-contrast($primary)};
+   --#{$prefix}primary-color-rgb: #{to-rgb(color-contrast($primary))};
+   --#{$prefix}primary-border: #{tint-color($primary, 15%)};
+
+
+   @if contrast-ratio( $primary  ) <= $min-contrast-ratio {
+      .text-primary {
+         color: rgba(#{to-rgb(shade-color($primary, 25%))}, var(--#{$prefix}text-opacity, 1));
+      }
+
+      .link-primary {
+         --#{$prefix}link-primary-color: rgba(#{to-rgb(shade-color($primary, 25%))}, var(--#{$prefix}link-opacity, 1));
+         --#{$prefix}link-primary-underline-color: rgba(#{to-rgb(shade-color($primary, 25%))}, var(--#{$prefix}link-underline-opacity, 1));
+
+         --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(shade-color($primary, 10%))}, var(--#{$prefix}link-opacity, 1));
+         --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(shade-color($primary, 10%))}, var(--#{$prefix}link-underline-opacity, 1));
+      }
+   } @else {
+      .text-primary {
+         color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}text-opacity, 1));
+      }
+
+      .link-primary {
+         --#{$prefix}link-primary-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-opacity, 1));
+         --#{$prefix}link-primary-underline-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-underline-opacity, 1));
+
+         --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(tint-color($primary, $link-shade-percentage))}, var(--#{$prefix}link-opacity, 1));
+         --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(tint-color($primary, $link-shade-percentage))}, var(--#{$prefix}link-underline-opacity, 1));
+      }
+   }
+}
+
+
+
+/* Dark Mode */
+/* ---------------------------------------------- */
+@if $enable-dark-mode {
+   @include color-mode(dark, true) {
+      color-scheme: dark;
+
+      --#{$prefix}component-bg: #{$component-bg-dark};
+      --#{$prefix}component-bg-rgb: #{to-rgb($component-bg-dark)};
+      --#{$prefix}component-color: #{$component-color-dark};
+      --#{$prefix}component-color-rgb: #{to-rgb($component-color-dark)};
+
+      --#{$prefix}component-hover-bg: #{$component-hover-bg-dark};
+      --#{$prefix}component-hover-bg-rgb: #{to-rgb($component-hover-bg-dark)};
+      --#{$prefix}component-hover-color: #{$component-hover-color-dark};
+      --#{$prefix}component-hover-color-rgb: #{to-rgb($component-hover-color-dark)};
+
+      --#{$prefix}form-disabled-opacity: #{$input-disabled-opacity-dark};
+
+      --#{$prefix}box-shadow-color: #{$box-shadow-color-dark};
+      --#{$prefix}box-shadow-alpha: #{$box-shadow-alpha-dark};
+      --#{$prefix}box-shadow-alpha-xs: #{$box-shadow-alpha-xs-dark};
+      --#{$prefix}box-shadow-alpha-sm: #{$box-shadow-alpha-sm-dark};
+      --#{$prefix}box-shadow-alpha-lg: #{$box-shadow-alpha-lg-dark};
+      --#{$prefix}box-shadow-alpha-inset: #{$box-shadow-alpha-inset-dark};
+
+
+      @if contrast-ratio( $primary, $component-bg-dark  ) <= $min-contrast-ratio {
+         .text-primary {
+            color: rgba(#{to-rgb(tint-color($primary, 30%))}, var(--#{$prefix}text-opacity, 1)) !important;
+         }
+
+         .link-primary {
+            --#{$prefix}link-primary-color: rgba(#{to-rgb(tint-color($primary, 30%))}, var(--#{$prefix}link-opacity, 1));
+            --#{$prefix}link-primary-underline-color: rgba(#{to-rgb(tint-color($primary, 30%))}, var(--#{$prefix}link-underline-opacity, 1));
+
+            --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(tint-color($primary, 45%))}, var(--#{$prefix}link-opacity, 1));
+            --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(tint-color($primary, 45%))}, var(--#{$prefix}link-underline-opacity, 1));
+         }
+      } @else {
+         .text-primary {
+            color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}text-opacity, 1));
+         }
+
+         .link-primary {
+            --#{$prefix}link-primary-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-opacity, 1));
+            --#{$prefix}link-primary-underline-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-underline-opacity, 1));
+
+            --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(tint-color($primary, $link-shade-percentage))}, var(--#{$prefix}link-opacity, 1));
+            --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(tint-color($primary, $link-shade-percentage))}, var(--#{$prefix}link-underline-opacity, 1));
+         }
+      }
+
+      .btn-outline-primary {
+         @if lightness( $primary ) > 55% {
+            --#{$prefix}btn-color: #{tint-color($primary, 45%)};
+         } @else {
+            --#{$prefix}btn-color: #{lighten($primary, 19%)};
+            --#{$prefix}btn-border-color: #{lighten($primary, 19%)};
+         }
+      }
+
+      .btn-outline-secondary {
+         --#{$prefix}btn-border-color: #{shade-color($secondary, 45%)};
+      }
+
+      .btn-outline-light {
+         --#{$prefix}btn-border-color: #{$border-color-dark};
+      }
+
+      .dropdown-menu {
+         --#{$prefix}dropdown-bg: #{tint-color($component-bg-dark, 2%)};
+      }
+   }
+
+}

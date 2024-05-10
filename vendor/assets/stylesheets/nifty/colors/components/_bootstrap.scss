@@ -1,0 +1,143 @@
+/* -- COLOR COMPONENTS -- */
+/* ---------------------------------------------- */
+
+@each $key, $background in $color-schemes {
+   @if $background != $primary {
+
+      /* ---------------------------------------------- */
+      /* #{$key} color scheme */
+
+      [data-scheme= "#{$key}"] {
+         $current-primary-ratio: contrast-ratio( $background, $component-bg  );
+
+
+         --#{$prefix}primary: #{ $background };
+         --#{$prefix}primary-rgb: #{ to-rgb($background) };
+         --#{$prefix}primary-color: #{color-contrast($background)};
+         --#{$prefix}primary-color-rgb: #{to-rgb(color-contrast($background))};
+         --#{$prefix}primary-border: #{tint-color($background, 15%)};
+
+         --#{$prefix}primary-bg-subtle: #{ tint-color($background, 80%) };
+         --#{$prefix}primary-border-subtle: #{ tint-color($background, 60%) };
+         --#{$prefix}primary-text-emphasis: #{ shade-color($background, 60%) };
+
+         @if $current-primary-ratio <= $min-contrast-ratio {
+            --#{$prefix}link-color: #{ shade-color($background, 20%) };
+            --#{$prefix}link-color-rgb: #{to-rgb(shade-color($background, 20%))};
+            --#{$prefix}link-hover-color: #{ tint-color($background, 40%) };
+            --#{$prefix}link-hover-color-rgb: #{to-rgb(tint-color($background, 40%))};
+         } @else {
+            --#{$prefix}link-color: #{ $background };
+            --#{$prefix}link-color-rgb: #{ to-rgb($background) };
+            --#{$prefix}link-hover-color: #{ tint-color($background, 25%) };
+            --#{$prefix}link-hover-color-rgb: #{to-rgb(tint-color($background, 25%))};
+         }
+
+         .form-range {
+            --#{$prefix}form-range-thumb-active-bg: #{tint-color($background, 35%)};
+         }
+
+         .pagination {
+            --#{$prefix}pagination-hover-bg: #{shade-color($background, 10%)};
+         }
+
+         .btn-primary {
+            --#{$prefix}btn-primary-hover-bg: #{if(color-contrast($background) == $color-contrast-light, shade-color($background, $btn-hover-bg-shade-amount), tint-color($background, $btn-hover-bg-tint-amount))};
+            --#{$prefix}btn-primary-active-bg: #{if(color-contrast($background) == $color-contrast-light, shade-color($background, $btn-active-bg-shade-amount), tint-color($background, $btn-active-bg-tint-amount))};
+         }
+
+         @if contrast-ratio( $background  ) <= $min-contrast-ratio {
+            .text-primary {
+               color: rgba(#{to-rgb(shade-color($background, 25%))}, var(--#{$prefix}text-opacity, 1)) !important;
+            }
+
+            .link-primary {
+               --#{$prefix}link-primary-color: rgba(#{to-rgb(shade-color($background, 25%))}, var(--#{$prefix}link-opacity, 1));
+               --#{$prefix}link-primary-underline-color: rgba(#{to-rgb(shade-color($background, 25%))}, var(--#{$prefix}link-underline-opacity, 1));
+
+               --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(shade-color($background, 10%))}, var(--#{$prefix}link-opacity, 1));
+               --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(shade-color($background, 10%))}, var(--#{$prefix}link-underline-opacity, 1));
+            }
+         } @else {
+            .text-primary {
+               color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}text-opacity, 1)) !important;
+            }
+
+            .link-primary {
+               --#{$prefix}link-primary-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-opacity, 1));
+               --#{$prefix}link-primary-underline-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-underline-opacity, 1));
+
+               --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(tint-color($background, $link-shade-percentage))}, var(--#{$prefix}link-opacity, 1));
+               --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(tint-color($background, $link-shade-percentage))}, var(--#{$prefix}link-underline-opacity, 1));
+            }
+         }
+
+
+         @if lightness($background ) > 55% {
+            --#{$prefix}primary-color: #{shade-color($background, 45%)};
+
+            .btn-outline-primary {
+               --#{$prefix}btn-color : #{shade-color($background, 25%)};
+               --#{$prefix}btn-border-color : #{shade-color($background, 15%)};
+            }
+         }
+      }
+
+
+      @if $enable-dark-mode {
+         @include color-mode(dark, true) {
+            &[data-scheme= "#{$key}"] {
+               $current-primary-ratio: contrast-ratio( $background, $component-bg-dark  );
+
+               --#{$prefix}primary-text-emphasis: #{ tint-color($background, 59%) };
+               --#{$prefix}primary-bg-subtle: #{ shade-color($background,35%) };
+               --#{$prefix}primary-border-subtle: #{ shade-color0($background, 20%) };
+
+               @if $current-primary-ratio <= $min-contrast-ratio {
+                  .text-primary {
+                     color: rgba(#{to-rgb(tint-color($background, 25%))}, var(--#{$prefix}text-opacity, 1)) !important;
+                  }
+
+                  .link-primary {
+                     --#{$prefix}link-primary-color: rgba(#{to-rgb(tint-color($background, 25%))}, var(--#{$prefix}link-opacity, 1));
+                     --#{$prefix}link-primary-underline-color: rgba(#{to-rgb(tint-color($background, 25%))}, var(--#{$prefix}link-underline-opacity, 1));
+
+                     --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(tint-color($background, 10%))}, var(--#{$prefix}link-opacity, 1));
+                     --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(tint-color($background, 10%))}, var(--#{$prefix}link-underline-opacity, 1));
+                  }
+               } @else {
+                  .text-primary {
+                     color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}text-opacity, 1)) !important;
+                  }
+
+                  .link-primary {
+                     --#{$prefix}link-primary-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-opacity, 1));
+                     --#{$prefix}link-primary-underline-color: rgba(var(--#{$prefix}primary-rgb), var(--#{$prefix}link-underline-opacity, 1));
+
+                     --#{$prefix}link-primary-hover-color: rgba(#{to-rgb(tint-color($background, $link-shade-percentage))}, var(--#{$prefix}link-opacity, 1));
+                     --#{$prefix}link-primary-underline-hover-color: rgba(#{to-rgb(tint-color($background, $link-shade-percentage))}, var(--#{$prefix}link-underline-opacity, 1));
+                  }
+               }
+
+               .btn-outline-primary {
+                  @if $current-primary-ratio <= $min-contrast-ratio {
+                     --#{$prefix}btn-color: #{tint-color($background, 45%)};
+                  }@else {
+                     --#{$prefix}btn-color: #{lighten($background, 19%)};
+                     --#{$prefix}btn-border-color: #{lighten($background, 19%)};
+                  }
+               }
+
+               .alert-primary {
+                  --#{$prefix}alert-bg: #{ desaturate(lighten(change-color($background, $blackness: 50%), 20%), 10%)};
+                  --#{$prefix}alert-color: #{shift-color($background, 65%)};
+                  --#{$prefix}alert-link: #{shift-color($background, 70%)};
+               }
+            }
+         }
+      }
+
+      /* End #{$key} color scheme */
+
+   }
+}

@@ -1,0 +1,29 @@
+// SIZING
+// ---------------------------------------------------------------------------------
+$utilities: map-merge($utilities,
+   (
+
+      // Additional text decoration style
+      // ---------------------------------------------------------------------------------
+      "text-decorations": (
+         property: text-decoration,
+         class: text-decoration,
+         values: $text-decoration-values
+      ),
+
+
+      "link-decorations": (
+         property: text-decoration,
+         class: link-underline,
+         values: $text-decoration-values
+      ),
+
+
+      "link-underline-hovers": (
+         property: text-decoration,
+         class: link-underline,
+         state: hover,
+         values: $text-decoration-values
+      )
+   )
+);

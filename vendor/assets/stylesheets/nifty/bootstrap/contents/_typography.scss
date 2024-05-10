@@ -1,0 +1,28 @@
+/* -- TYPOGRAPHY -- */
+/* --------------------------------------------------------------------------------- */
+
+/* Blockquote */
+/* ---------------------------------------------- */
+.blockquote {
+   color: var( --#{ $prefix }emphasis-color );
+
+   .quote {
+      &:before, &:after {
+         display: inline-block;
+         content: '\201C';
+         font-size: 350%;
+         font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+         height: .25em;
+         line-height: 1ex;
+         vertical-align: middle;
+         margin-inline-end: 2%;
+         opacity: .55;
+      }
+
+      &:after {
+         content: '\201D';
+         line-height: 1.7ex;
+         margin-inline: 2% 0;
+      }
+   }
+}
