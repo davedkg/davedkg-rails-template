@@ -26,6 +26,7 @@ gem "bootsnap", "~> 1.18.3", require: false
 
 group :development, :test do
   gem "debug", "~> 1.9.2", platforms: %i[ mri windows ]
+  gem 'pry-byebug', '~> 3.10.1'
   gem "rspec-rails", "~> 6.1.2"
   gem "factory_bot_rails", "~> 6.4.3"
 end

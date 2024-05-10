@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resource :dashboard, only: [:show], controller: :dashboard
 
   devise_for :users, controllers: {
     passwords: 'passwords',
