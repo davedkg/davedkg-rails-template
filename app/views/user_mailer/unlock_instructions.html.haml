@@ -1,0 +1,15 @@
+%table{:border => "0", :cellpadding => "0", :cellspacing => "0", :role => "presentation"}
+  %tr
+    %td
+      %p= "Hello #{@resource.email}!"
+      %p Your account has been locked due to an excessive number of unsuccessful sign in attempts.
+      %p Click the link below to unlock your account:
+      %table.btn.btn-primary{:border => "0", :cellpadding => "0", :cellspacing => "0", :role => "presentation"}
+        %tbody
+          %tr
+            %td{:align => "left"}
+              %table{:border => "0", :cellpadding => "0", :cellspacing => "0", :role => "presentation"}
+                %tbody
+                  %tr
+                    %td
+                      = link_to 'Unlock my account', unlock_url(@resource, unlock_token: @token)

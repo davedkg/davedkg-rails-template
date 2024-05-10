@@ -1,5 +1,5 @@
 !!!
-%html{ data: {bs_theme: "light", scheme: "navy" } }
+%html{ data: { bs_theme: "light", scheme: "navy" } }
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Template
@@ -11,6 +11,7 @@
   %body.out-quart
     #root.root.mn--max.tm--expanded-hd
       %section.content#content
+        = debug flash
         = yield
       = render 'header'
       = render 'sidebar'

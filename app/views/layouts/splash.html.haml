@@ -1,0 +1,23 @@
+!!!
+%html{ data: { bs_theme: "light", scheme: "navy" } }
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Template
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body
+    #root.root.front-container
+      %section#content.content
+        .content__boxed.w-100.min-vh-100.d-flex.flex-column.align-items-center.justify-content-center
+          .content__wrap
+            .card.shadow-lg{ style: "width: 400px" }
+              .card-body.p-4
+                .text-center
+                  %h1.h3= PLATFORM_TITLE
+                  %p= page_title
+                = render 'flash'
+                = yield
+                = render 'splash/links'
