@@ -28,6 +28,10 @@ class User < ApplicationRecord
     invitation_accepted_at?
   end
 
+  def locked?
+    access_locked?
+  end
+
   ## *** Devise Overrides
 
   def send_devise_notification(notification, *args)
