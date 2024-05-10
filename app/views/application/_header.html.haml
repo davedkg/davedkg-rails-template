@@ -1,0 +1,247 @@
+%header.header
+  .header__inner
+    / Brand
+    .header__brand
+      .brand-wrap
+        / Brand logo
+        %a.brand-img.stretched-link{:href => "index.html"}
+          %img.Nifty.logo{:alt => "Nifty Logo", :height => "16", :src => image_path('logo.svg'), :width => "16"}/
+        / Brand title
+        .brand-title Nifty
+        / You can also use IMG or SVG instead of a text element.
+        /
+          <div class="brand-title">
+          <img src="./assets/img/brand-title.svg" alt="Brand Title">
+          </div>
+    / End - Brand
+    .header__content
+      / Content Header - Left Side:
+      .header__content-start
+        / Navigation Toggler
+        %button.nav-toggler.header__btn.btn.btn-icon.btn-sm{"aria-label" => "Nav Toggler", :type => "button"}
+          %i.psi-list-view
+        .vr.mx-1.d-none.d-md-block
+        / Searchbox
+        .header-searchbox
+          / Searchbox toggler for small devices
+          %label.header__btn.d-md-none.btn.btn-icon.rounded-pill.shadow-none.border-0.btn-sm{:for => "header-search-input", :type => "button"}
+            %i.psi-magnifi-glass
+          / Searchbox input
+          %form.searchbox.searchbox--auto-expand.searchbox--hide-btn.input-group
+            %input#header-search-input.searchbox__input.form-control.bg-transparent{"aria-label" => "Search", :placeholder => "Type for search . . .", :type => "search"}/
+            .searchbox__backdrop
+              %button.searchbox__btn.header__btn.btn.btn-icon.rounded.shadow-none.border-0.btn-sm{:type => "button"}
+                %i.pli-magnifi-glass
+      / End - Content Header - Left Side
+      / Content Header - Right Side:
+      .header__content-end
+        / Mega Dropdown
+        .dropdown
+          / Toggler
+          %button.header__btn.btn.btn-icon.btn-sm{"aria-expanded" => "false", "aria-label" => "Megamenu dropdown", "data-bs-auto-close" => "outside", "data-bs-toggle" => "dropdown", :type => "button"}
+            %i.psi-layout-grid
+          / Mega Dropdown Menu
+          .dropdown-menu.dropdown-menu-end.p-3.mega-dropdown
+            .row
+              .col-md-3
+                / Pages List Group
+                .list-group.list-group-borderless
+                  .list-group-item.d-flex.align-items-center.border-bottom.mb-2
+                    .flex-shrink-0.me-2
+                      %i.pli-file.fs-4
+                    %h5.flex-grow-1.m-0 Pages
+                  %a.list-group-item.list-group-item-action{:href => "#"} Profile
+                  %a.list-group-item.list-group-item-action{:href => "#"} Search Result
+                  %a.list-group-item.list-group-item-action{:href => "#"} FAQ
+                  %a.list-group-item.list-group-item-action{:href => "#"} Screen Lock
+                  %a.list-group-item.list-group-item-action{:href => "#"} Maintenance
+                  %a.list-group-item.list-group-item-action{:href => "#"} Invoices
+                  %a.list-group-item.list-group-item-action.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled Item
+              .col-md-3
+                / Mailbox list group
+                .list-group.list-group-borderless.mb-3
+                  .list-group-item.d-flex.align-items-center.border-bottom.mb-2
+                    .flex-shrink-0.me-2
+                      %i.pli-mail.fs-4
+                    %h5.flex-grow-1.m-0 Mailbox
+                  %a.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center{:href => "#"}
+                    Inbox
+                    %span.badge.bg-danger.rounded-pill 14
+                  %a.list-group-item.list-group-item-action{:href => "#"} Read Messages
+                  %a.list-group-item.list-group-item-action{:href => "#"} Compose
+                  %a.list-group-item.list-group-item-action{:href => "#"} Template
+                / News
+                .list-group.list-group-borderless.bg-warning-subtle.py-2
+                  .list-group-item.d-flex.align-items-center.border-bottom.text-warning-emphasis
+                    .flex-shrink-0.me-2
+                      %i.pli-calendar-4.fs-4
+                    %h5.flex-grow-1.m-0.text-reset News
+                  %small.list-group-item.text-warning-emphasis
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic dolore unde autem, molestiae eum laborum aliquid at commodi cum? Blanditiis.
+              .col-md-3
+                / List Group
+                .list-group.list-group-borderless
+                  .list-group-item.list-group-item-action.d-flex.align-items-start.mb-3
+                    .flex-shrink-0.me-3
+                      %i.pli-data-settings.fs-1
+                    .flex-grow-1
+                      .d-flex.justify-content-between.align-items-start
+                        %a.h5.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Data Backup
+                        %span.badge.bg-success.rounded-pill.ms-auto 40%
+                      %small.text-body-secondary Current usage of disks for backups.
+                  .list-group-item.list-group-item-action.d-flex.align-items-start.mb-3
+                    .flex-shrink-0.me-3
+                      %i.pli-support.fs-1
+                    .flex-grow-1
+                      %a.h5.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Support
+                      %small.text-body-secondary Have any questions ? please don't hesitate to ask.
+                  .list-group-item.list-group-item-action.d-flex.align-items-start.mb-3
+                    .flex-shrink-0.me-3
+                      %i.pli-computer-secure.fs-1
+                    .flex-grow-1
+                      %a.h5.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Security
+                      %small.text-body-secondary Our devices are secure and up-to-date.
+                  .list-group-item.list-group-item-action.d-flex.align-items-start
+                    .flex-shrink-0.me-3
+                      %i.pli-map-2.fs-1
+                    .flex-grow-1
+                      %a.h5.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Location
+                      %small.text-body-secondary From our location up here, we kept in close touch.
+              .col-md-3
+                / Simple gallery
+                .d-grid.gap-2.pt-4.pt-md-0
+                  .row.g-1.rounded-3.overflow-hidden
+                    .col-6.mt-0
+                      %img.img-fluid{:alt => "thumbnails", :loading => "lazy", :src => image_path("megamenu/img-1.jpg")}/
+                    .col-6.mt-0
+                      %img.img-fluid{:alt => "thumbnails", :loading => "lazy", :src => image_path("megamenu/img-3.jpg")}/
+                    .col-6
+                      %img.img-fluid{:alt => "thumbnails", :loading => "lazy", :src => image_path("megamenu/img-2.jpg")}/
+                    .col-6
+                      %img.img-fluid{:alt => "thumbnails", :loading => "lazy", :src => image_path("megamenu/img-4.jpg")}/
+                  %a.btn.btn-primary{:href => "#"} Browse Gallery
+        / End - Mega Dropdown
+        / Notification Dropdown
+        .dropdown
+          / Toggler
+          %button.header__btn.btn.btn-icon.btn-sm{"aria-expanded" => "false", "aria-label" => "Notification dropdown", "data-bs-toggle" => "dropdown", :type => "button"}
+            %span.d-block.position-relative
+              %i.psi-bell
+              %span.badge.badge-super.rounded-pill.bg-danger.p-1
+                %span.visually-hidden unread messages
+              / Set custom notification count
+              /
+                <span class="badge badge-super rounded-pill bg-danger p-1">
+                19<span class="visually-hidden">unread messages</span>
+                </span>
+          / Notification dropdown menu
+          .dropdown-menu.dropdown-menu-end.w-md-300px
+            .border-bottom.px-3.py-2.mb-3
+              %h5 Notifications
+            .list-group.list-group-borderless
+              / List item
+              .list-group-item.list-group-item-action.d-flex.align-items-center.mb-3
+                .flex-shrink-0.me-3
+                  %i.psi-data-settings.text-danger.fs-2
+                .flex-grow-1
+                  %a.h6.fw-normal.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Your storage is full
+                  %small.text-body-secondary Local storage is nearly full.
+              / List item
+              .list-group-item.list-group-item-action.d-flex.align-items-center.mb-3
+                .flex-shrink-0.me-3
+                  %i.psi-pen-5.text-info.fs-2
+                .flex-grow-1
+                  %a.h6.fw-normal.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Writing a New Article
+                  %small.text-body-secondary Wrote a news article for the John Mike
+              / List item
+              .list-group-item.list-group-item-action.d-flex.align-items-start.mb-3
+                .flex-shrink-0.me-3
+                  %i.psi-speech-bubble-3.text-success.fs-2
+                .flex-grow-1
+                  .d-flex.justify-content-between.align-items-start
+                    %a.h6.fw-normal.mb-0.stretched-link.text-decoration-none{:href => "#"} Comment sorting
+                    %span.badge.bg-info.rounded.ms-auto NEW
+                  %small.text-body-secondary You have 1,256 unsorted comments.
+              / List item
+              .list-group-item.list-group-item-action.d-flex.align-items-start.mb-3
+                .flex-shrink-0.me-3
+                  %img.img-xs.rounded-circle{:alt => "Profile Picture", :loading => "lazy", :src => image_path("profile-photos/7.png")}/
+                .flex-grow-1
+                  %a.h6.fw-normal.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Lucy Sent you a message
+                  %small.text-body-secondary 30 minutes ago
+              / List item
+              .list-group-item.list-group-item-action.d-flex.align-items-start.mb-3
+                .flex-shrink-0.me-3
+                  %img.img-xs.rounded-circle{:alt => "Profile Picture", :loading => "lazy", :src => image_path("profile-photos/3.png")}/
+                .flex-grow-1
+                  %a.h6.fw-normal.d-block.mb-0.stretched-link.text-decoration-none{:href => "#"} Jackson Sent you a message
+                  %small.text-body-secondary 1 hours ago
+              .text-center.mb-2
+                %a.btn-link.text-primary.icon-link.icon-link-hover{:href => "#"}
+                  Show all Notifications
+                  %i.bi.psi-arrow-out-right
+        / End - Notification dropdown
+        / User dropdown
+        .dropdown
+          / Toggler
+          %button.header__btn.btn.btn-icon.btn-sm{"aria-expanded" => "false", "aria-label" => "User dropdown", "data-bs-toggle" => "dropdown", :type => "button"}
+            %i.psi-male
+          / User dropdown menu
+          .dropdown-menu.dropdown-menu-end.w-md-450px
+            / User dropdown header
+            .d-flex.align-items-center.border-bottom.px-3.py-2
+              .flex-shrink-0
+                %img.img-sm.rounded-circle{:alt => "Profile Picture", :loading => "lazy", :src => image_path("profile-photos/4.png")}/
+              .flex-grow-1.ms-3
+                %h5.mb-0 Aaron Chavez
+                %span.text-body-secondary.fst-italic aaron_chavez@example.com
+            .row
+              .col-md-7
+                / Simple widget and reports
+                .list-group.list-group-borderless.mb-3
+                  .list-group-item.text-center.border-bottom.mb-3
+                    %p.h1.display-1.text-primary.fw-semibold 17
+                    %p.h6.mb-0
+                      %i.pli-basket-coins.fs-3.me-2
+                      New orders
+                    %small.text-body-secondary You have new orders
+                  .list-group-item.py-0.d-flex.justify-content-between.align-items-center
+                    Today Earning
+                    %small.fw-bolder $578
+                  .list-group-item.py-0.d-flex.justify-content-between.align-items-center
+                    Tax
+                    %small.fw-bolder.text-danger - $28
+                  .list-group-item.py-0.d-flex.justify-content-between.align-items-center
+                    Total Earning
+                    %span.fw-bolder.text-body-emphasis $6,578
+              .col-md-5
+                / User menu link
+                .list-group.list-group-borderless.h-100.py-3
+                  %a.list-group-item.list-group-item-action.d-flex.justify-content-between.align-items-center{:href => "#"}
+                    %span
+                      %i.pli-mail.fs-5.me-2
+                      Messages
+                    %span.badge.bg-danger.rounded-pill 14
+                  %a.list-group-item.list-group-item-action{:href => "#"}
+                    %i.pli-male.fs-5.me-2
+                    Profile
+                  %a.list-group-item.list-group-item-action{:href => "#"}
+                    %i.pli-gear.fs-5.me-2
+                    Settings
+                  %a.list-group-item.list-group-item-action.mt-auto{:href => "#"}
+                    %i.pli-computer-secure.fs-5.me-2
+                    Lock screen
+                  %a.list-group-item.list-group-item-action{:href => "#"}
+                    %i.pli-unlock.fs-5.me-2
+                    Logout
+        / End - User dropdown
+        .vr.mx-1.d-none.d-md-block
+        .form-check.form-check-alt.form-switch.mx-md-2
+          %input#headerThemeToggler.form-check-input.mode-switcher{:role => "switch", :type => "checkbox"}/
+          %label.form-check-label.ps-1.fw-bold.d-none.d-md-flex.align-items-center{:for => "headerThemeToggler"}
+            %i.mode-switcher-icon.icon-light.psi-sun.fs-5
+            %i.mode-switcher-icon.icon-dark.d-none.psi-half-moon
+        .vr.mx-1.d-none.d-md-block
+        / Sidebar Toggler
+        %button.sidebar-toggler.header__btn.btn.btn-icon.btn-sm{"aria-label" => "Sidebar button", :type => "button"}
+          %i.psi-dot-vertical

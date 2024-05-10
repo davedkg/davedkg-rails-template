@@ -12,7 +12,6 @@ gem "stimulus-rails", "~> 1.3.3"
 gem "jbuilder", "~> 2.11.5"
 gem "redis", ">= 4.0.1"
 
-gem 'bootstrap', '~> 5.3.3'
 gem 'dartsass-sprockets', '~> 3.1.0'
 gem "haml-rails", "~> 2.0"
 

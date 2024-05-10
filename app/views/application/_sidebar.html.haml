@@ -1,0 +1,189 @@
+%nav#mainnav-container.mainnav
+  .mainnav__inner
+    / Navigation menu
+    .mainnav__top-content.scrollable-content.pb-5
+      / Profile Widget
+      .mainnav__widget.my-3.hv-outline-parent
+        / Profile picture
+        .mininav-toggle.text-center.py-2
+          %img.mainnav__avatar.img-md.rounded-circle.hv-oc{:alt => "Profile Picture", :src => image_path("profile-photos/1.png")}/
+        .mininav-content.collapse.d-mn-max
+          .arrow{"data-popper-arrow" => ""}
+          .d-grid
+            / User name and position
+            %button.mainnav-widget-toggle.d-block.btn.border-0.p-2.collapsed{"aria-controls" => "usernav", "aria-expanded" => "false", "data-bs-target" => "#usernav", "data-bs-toggle" => "collapse"}
+              %span.dropdown-toggle.d-flex.justify-content-center.align-items-center
+                %h6.mb-0.me-3 Aaron Chavez
+              %small.text-body-secondary Administrator
+            / Collapsed user menu
+            #usernav.nav.flex-column.collapse
+              %a.nav-link.d-flex.justify-content-between.align-items-center{:href => "#"}
+                %span
+                  %i.pli-mail.fs-5.me-2
+                  %span.ms-1 Messages
+                %span.badge.bg-danger.rounded-pill 14
+              %a.nav-link{:href => "#"}
+                %i.pli-male.fs-5.me-2
+                %span.ms-1 Profile
+              %a.nav-link{:href => "#"}
+                %i.pli-gear.fs-5.me-2
+                %span.ms-1 Settings
+              %a.nav-link{:href => "#"}
+                %i.pli-computer-secure.fs-5.me-2
+                %span.ms-1 Lock screen
+              %a.nav-link{:href => "#"}
+                %i.pli-unlock.fs-5.me-2
+                %span.ms-1 Logout
+      / End - Profile widget
+      .mainnav__categoriy.py-3
+        %h6.mainnav__caption.mt-0.px-3.fw-bold Links
+        %ul.mainnav__menu.nav.flex-column
+          %li.nav-item
+            %a.nav-link.mininav-toggle.collapsed{:href => "#"}
+              %i.pli-bar-chart.fs-5.me-2
+              %span.nav-label.mininav-content.ms-1
+                %span.arrow{"data-popper-arrow" => ""}
+                Regular link
+          %li.nav-item
+            %a.nav-link.mininav-toggle.active{:href => "#"}
+              %i.pli-home.fs-5.me-2
+              %span.nav-label.mininav-content.ms-1.collapse.show{:style => ""}
+                %span.arrow{"data-popper-arrow" => ""}>
+                Active state
+          %li.nav-item
+            %a.nav-link.mininav-toggle.collapsed{:href => "#"}
+              %i.pli-brush.fs-5.me-2
+              %span.nav-label.mininav-content.ms-1.fw-semibold
+                %span.arrow{"data-popper-arrow" => ""}
+                Bolder
+          %li.nav-item
+            %a.nav-link.mininav-toggle.collapsed{:href => "#"}
+              %i.pli-roller.fs-5.me-2
+              %span.nav-label.mininav-content.ms-1.flex-fill
+                %span.d-flex.flex-row.w-100
+                  %span.arrow{"data-popper-arrow" => ""}
+                  Badge
+                  %span.badge.bg-info.ms-auto NEW
+      .mainnav__categoriy.py-3
+        %h6.mainnav__caption.mt-0.px-3.fw-bold Submenus
+        %ul.mainnav__menu.nav.flex-column
+          %li.nav-item.has-sub
+            %a.mininav-toggle.nav-link.collapsed{:href => "#"}
+              %i.pli-data-center.fs-5.me-2
+              %span.nav-label.ms-1 Regular
+            %ul.mininav-content.nav.collapse
+              %li.arrow{"data-popper-arrow" => ""}
+              %li.nav-item
+                %a.nav-link{:href => "#"} Submenu Items
+              %li.nav-item
+                %a.nav-link{:href => "#"} Submenu Items
+              %li.nav-item
+                %a.nav-link{:href => "#"} Submenu Items
+          %li.nav-item.has-sub
+            %a.mininav-toggle.nav-link.active{:href => "#"}
+              %i.pli-idea.fs-5.me-2
+              %span.nav-label.ms-1 Active Item
+            %ul.mininav-content.nav.collapse.show{:style => ""}
+              %li.arrow{"data-popper-arrow" => ""}
+              %li.nav-item
+                %a.nav-link{:href => "#"} Submenu Items
+              %li.nav-item
+                %a.nav-link.active{:href => "#"} Active state
+              %li.nav-item
+                %a.nav-link{:href => "#"} Submenu Items
+          %li.nav-item.has-sub
+            %a.mininav-toggle.nav-link.collapsed{:href => "#"}
+              %i.pli-pizza-slice.fs-5.me-2
+              %span.nav-label.ms-1 Badge
+            %ul.mininav-content.nav.collapse
+              %li.arrow{"data-popper-arrow" => ""}
+              %li.nav-item
+                %a.nav-link{:href => "#"} Submenu Items
+              %li.nav-item
+                %a.nav-link{:href => "#"} Submenu Items
+              %li.nav-item
+                %a.nav-link.d-flex.align-items-center{:href => "#"}
+                  Badge
+                  %span.badge.bg-danger.ms-auto NEW
+      .mainnav__categoriy.py-3
+        %h6.mainnav__caption.mt-0.px-3.fw-bold Multi Level
+        %ul.mainnav__menu.nav.flex-column
+          %li.nav-item.has-sub
+            %a.mininav-toggle.nav-link.collapsed{:href => "#"}
+              %i.pli-tactic.fs-5.me-2
+              %span.nav-label.ms-1 Menu Levels
+            %ul.mininav-content.nav.collapse
+              %li.arrow{"data-popper-arrow" => ""}
+              %li.nav-item
+                %a.nav-link{:href => "#"} Menu Link
+              %li.nav-item
+                %a.nav-link{:href => "#"} Menu Link
+              %li.nav-item
+                %a.nav-link{:href => "#"} Menu Link
+              %li.nav-item.has-sub
+                %a.mininav-toggle.nav-link.collapsed{:href => "#"} Submenu
+                %ul.mininav-content.nav.collapse
+                  %li.arrow{"data-popper-arrow" => ""}
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+              %li.nav-item.has-sub
+                %a.mininav-toggle.nav-link.collapsed{:href => "#"} Submenu
+                %ul.mininav-content.nav.collapse
+                  %li.arrow{"data-popper-arrow" => ""}
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+                  %li.nav-item
+                    %a.nav-link{:href => "#"} Menu Link
+      / Widget
+      .mainnav__widget
+        / Widget buttton form small navigation
+        .mininav-toggle.text-center.py-2.d-mn-min
+          %i.pli-monitor-2
+        .d-mn-max.mt-5
+        / Widget content
+        .mininav-content.collapse.d-mn-max
+          %span.arrow{"data-popper-arrow" => ""}
+          %h6.mainnav__caption.px-3.fw-bold Server Status
+          %ul.list-group.list-group-borderless
+            %li.list-group-item.text-reset
+              .d-flex.justify-content-between.align-items-start
+                %p.mb-2.me-auto CPU Usage
+                %span.badge.bg-info.rounded 35%
+              .progress.progress-md
+                .progress-bar.bg-info{"aria-label" => "CPU Progress", "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "35", :role => "progressbar", :style => "width: 35%"}
+            %li.list-group-item.text-reset
+              .d-flex.justify-content-between.align-items-start
+                %p.mb-2.me-auto Bandwidth
+                %span.badge.bg-warning.rounded 73%
+              .progress.progress-md
+                .progress-bar.bg-warning{"aria-label" => "Bandwidth Progress", "aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "73", :role => "progressbar", :style => "width: 73%"}
+          .d-grid.px-3.mt-3
+            %a.btn.btn-sm.btn-success{:href => "#"} View Details
+      / End - Profile widget
+    / End - Navigation menu
+    / Bottom navigation menu
+    .mainnav__bottom-content.border-top.pb-2
+      %ul#mainnav.mainnav__menu.nav.flex-column
+        %li.nav-item.has-sub
+          %a.nav-link.mininav-toggle.collapsed{"aria-expanded" => "false", :href => "#"}
+            %i.pli-unlock.fs-5.me-2
+            %span.nav-label.ms-1 Logout
+          %ul.mininav-content.nav.flex-column.collapse
+            %span.arrow{"data-popper-arrow" => ""}
+            %li.nav-item
+              %a.nav-link{:href => "#"} This device only
+            %li.nav-item
+              %a.nav-link{:href => "#"} All Devices
+            %li.nav-item
+              %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Lock screen
+    / End - Bottom navigation menu
