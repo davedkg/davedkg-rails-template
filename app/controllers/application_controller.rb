@@ -1,14 +1,15 @@
 class ApplicationController < ActionController::Base
   include PageTitleable
+  include Pundit::Authorization
 
-  # rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
+  rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
   rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
 
   before_action :authenticate_user!
   before_action :set_time_zone
   before_action :set_raven_context
   before_action :configure_permitted_parameters, if: :devise_controller?
-  # after_action  :verify_authorized, unless: -> { devise_controller? || application_controller?
+  after_action  :verify_authorized, unless: :devise_controller?
 
   private
 
