@@ -1,0 +1,76 @@
+/* -- SIDEBAR UNITE -- */
+/* ---------------------------------------------- */
+
+.root {
+   --#{ $nifty-prefix }sidebar-unite-bg:                  #{ $sidebar-unite-bg };
+   --#{ $nifty-prefix }sidebar-unite-color:               #{ $sidebar-unite-color };
+   --#{ $nifty-prefix }sidebar-unite-secondary-color:     #{ $sidebar-unite-secondary-color };
+   --#{ $nifty-prefix }sidebar-unite-active-bg:           #{ $sidebar-unite-active-bg };
+   --#{ $nifty-prefix }sidebar-unite-active-color:        #{ $sidebar-unite-active-color };
+   --#{ $nifty-prefix }sidebar-unite-border-color:        #{ $sidebar-unite-border-color };
+   --#{ $nifty-prefix }sidebar-unite-outer-border-radius: #{ $sidebar-unite-outer-border };
+}
+
+.sb--unite {
+   .sidebar {
+      --#{ $prefix }border-color: var( --#{ $nifty-prefix }sidebar-unite-border-color );
+      --#{ $prefix }secondary-color: var( --#{ $nifty-prefix }sidebar-unite-secondary-color );
+      --#{ $prefix }emphasis-color: var( --#{ $nifty-prefix }sidebar-unite-active-color );
+
+      background-color: var( --#{ $nifty-prefix }sidebar-unite-bg );
+      color: var( --#{ $nifty-prefix }sidebar-unite-color );
+
+      %active-color {
+         color: var( --#{ $nifty-prefix }sidebar-unite-active-color );
+      }
+
+      :where( h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 ) {
+         @extend %active-color;
+      }
+
+
+      // A new color when the component color equals the primary color.
+      // ---------------------------------------------------------------------------------
+      .btn-primary, .form-check-input:checked {
+         background-color: #{ rgba( black, .25 ) };
+         border-color: #{ rgba( black, .25 ) };
+      }
+
+      .btn-link {
+         color: inherit;
+      }
+
+
+
+      // Nav links
+      // ---------------------------------------------------------------------------------
+      .nav-link{
+         color: var( --#{ $nifty-prefix }sidebar-unite-color );
+
+         i, .nav-icon {
+            color: rgba( var( --#{ $nifty-prefix }sidebar-unite-color ), .65 ) !important;
+         }
+
+         &.active, &:hover, &:focus {
+            @extend %active-color;
+         }
+      }
+
+
+
+      // List group
+      // ---------------------------------------------------------------------------------
+      .list-group-item-action {
+         @at-root {
+            #{&}, .sb--unite .sidebar .list-group-item {
+               color: var( --#{ $nifty-prefix }sidebar-unite-color );
+            }
+         }
+
+         &:hover, &:focus {
+            background-color: var( --#{ $nifty-prefix }sidebar-unite-active-bg );
+            color: var( --#{ $nifty-prefix }sidebar-unite-active-color );
+         }
+      }
+   }
+}

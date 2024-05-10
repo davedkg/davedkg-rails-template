@@ -1,0 +1,30 @@
+/* -- SIDEBAR - STUCK -- */
+/* ---------------------------------------------- */
+
+// The sidebar will stay stuck in place until you click the close button.
+// ---------------------------------------------------------------------------------
+.sidebar__stuck {
+   display: none;
+}
+
+.sb--stuck {
+   &.sb--show {
+
+      // Disable the backdrop
+      &:before {
+         opacity: 0;
+         pointer-events: none;
+         visibility: hidden;
+      }
+
+      // Add a shadow to the sidebar.
+      &:not(.sb--pinned) .sidebar {
+         box-shadow: var( --#{ $nifty-prefix }sidebar-shadow );
+      }
+   }
+
+   // Display the content when the sidebar shows up.
+   .sidebar__stuck {
+      display: flex;
+   }
+}

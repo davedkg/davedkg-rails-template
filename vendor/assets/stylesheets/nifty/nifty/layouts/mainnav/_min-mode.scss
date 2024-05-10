@@ -1,0 +1,246 @@
+/* -- MAIN NAVIGATION - MINI / COLLAPSED MODE -- */
+/* ---------------------------------------------- */
+
+@include media-breakpoint-up( $mainnav-min-available-at ) {
+   .mn--min {
+      --#{ $nifty-prefix }mainnav-min-icon-color:             #{ $mainnav-min-icon-color };
+      --#{ $nifty-prefix }mainnav-min-icon-active-color:      #{ $mainnav-min-icon-active-color };
+
+      --#{ $nifty-prefix }mainnav-min-submenu-padding-x:      #{ $mainnav-min-submenu-padding-x };
+      --#{ $nifty-prefix }mainnav-min-submenu-padding-y:      #{ $mainnav-min-submenu-padding-y };
+      --#{ $nifty-prefix }mainnav-min-submenu-active-bg:      #{ $mainnav-min-submenu-active-bg };
+      --#{ $nifty-prefix }mainnav-min-submenu-active-color:   #{ $mainnav-min-submenu-active-color };
+      --#{ $nifty-prefix }mainnav-min-shadow:                 #{ $mainnav-min-shadow };
+
+      --#{ $nifty-prefix }mainnav-min-submenu-link-padding-x: #{ $mainnav-min-submenu-link-padding-x };
+      --#{ $nifty-prefix }mainnav-min-submenu-link-padding-y: #{ $mainnav-min-submenu-link-padding-y };
+
+      $nav-padding: #{ calc( (var( --#{ $nifty-prefix }mainnav-min-width ) - #{ calc(var( --#{ $prefix }body-font-size ) + 1.5rem)}) / 2) };
+      padding: 0 !important;
+
+
+
+      // Navigation mini mode.
+      // ---------------------------------------------------------------------------------
+      .mainnav {
+         max-width: var( --#{ $nifty-prefix }mainnav-min-width );
+         transition: max-width var( --#{ $nifty-prefix }mainnav-min-transition-duration ) var( --#{ $nifty-prefix }mainnav-min-transition-timing );
+         z-index: $z-index-mainnav;
+      }
+
+      .mainnav__inner {
+         .mainnav__menu > .nav-item > .nav-link {
+            padding: .59rem;
+         }
+      }
+
+      .mainnav__bottom-content,
+      .mainnav__top-content {
+         padding-inline: $nav-padding;
+      }
+
+
+      // Set all of the header components to mini mode.
+      // ---------------------------------------------------------------------------------
+      .header__inner {
+         padding-left: 0;
+      }
+
+      .header__brand {
+         justify-content: center;
+         max-width: var( --#{ $nifty-prefix }mainnav-min-width );
+         padding-inline-start: 0;
+         transition: max-width var( --#{ $nifty-prefix }mainnav-min-transition-duration ) var( --#{ $nifty-prefix }mainnav-min-transition-timing );
+         width: 100%;
+      }
+
+
+      // Sticky header with sticky navigation
+      // ---------------------------------------------------------------------------------
+      &.mn--sticky.hd--expanded {
+         .content__header::before {
+            z-index: 100;
+         }
+
+         .mainnav {
+            z-index: 99;
+         }
+      }
+
+
+      // Sticky header
+      // ---------------------------------------------------------------------------------
+      &.hd--sticky .mainnav__inner {
+         top: var( --#{ $nifty-prefix }header-height );
+         z-index: auto; // Prevent overlapping with listgroup active
+
+         @at-root {
+            .mn--sticky#{&} {
+               height: calc( 100vh - #{ var( --#{ $nifty-prefix }header-height ) } );
+            }
+         }
+      }
+
+
+      // Caption
+      // ---------------------------------------------------------------------------------
+      .mainnav__caption {
+         display: block;
+         max-height: 0;
+         overflow: hidden;
+         visibility: hidden;
+      }
+
+
+      // Widget for the navigation.
+      // ---------------------------------------------------------------------------------
+      .mainnav__widget .mininav-content {
+         min-width: 13rem;
+
+         .mainnav-widget-toggle[data-bs-toggle="collapse"] {
+            pointer-events: none;
+         }
+
+         .nav {
+            display: block !important;
+         }
+      }
+
+      .mainnav__avatar {
+         height: auto;
+         width: 2rem;
+      }
+
+
+      .mainnav__categoriy {
+         border-bottom: 1px solid var( --#{ $nifty-prefix }mainnav-border-color );
+      }
+
+
+      // Menu
+      // ---------------------------------------------------------------------------------
+      .mainnav__menu {
+
+
+         // Hide all the components when the current navigation mode is in Mini.
+         @at-root {
+            .mn--min .d-mn-min {
+               display: block;
+            }
+            .mn--min .d-mn-max,
+            .mn--min .d-mn-max:not( .show ),
+            .mn--min .brand-title,
+            #{ & } > .has-sub > .nav-link:after,
+            #{ & } > .nav-item > .nav-link .nav-label:not( .show ) {
+               display: none;
+            }
+         }
+
+         > .nav-item {
+            > .nav-link {
+               justify-content: center;
+
+               i, .nav-icon {
+                  color: var( --#{ $nifty-prefix }mainnav-min-icon-color ) !important;
+               }
+
+               &.active {
+                  background-color: var( --#{ $nifty-prefix }mainnav-min-submenu-active-bg );
+                  color: var( --#{ $nifty-prefix }mainnav-min-submenu-active-color );
+
+                  i, .nav-icon {
+                     color: var( --#{ $nifty-prefix }mainnav-min-icon-active-color ) !important;
+                  }
+               }
+            }
+
+            &, & > .nav-link i { margin: 0 !important }
+            & {
+               margin-bottom: .25rem !important;
+               width: 100%;
+            }
+         }
+
+         > .has-sub .has-sub > .nav-link { gap: 2.5rem }
+      }
+
+
+      // Submenu togglers
+      // ---------------------------------------------------------------------------------
+      .mininav-toggle {
+         cursor: pointer;
+
+         .nav-label {
+            color: var( --#{ $nifty-prefix }mainnav-color );
+         }
+      }
+
+
+      // Collapsed submenus and hidden contents
+      // ---------------------------------------------------------------------------------
+      .mininav-content {
+         background-color: var( --#{ $nifty-prefix }mainnav-bg );
+         border-radius: var( --#{ $nifty-prefix }mainnav-submenu-border-radius );
+         box-shadow: var( --#{ $nifty-prefix }mainnav-min-shadow );
+         margin-inline-start: $nav-padding !important;
+         max-width: 19rem;
+         min-width: 11rem;
+         padding: var( --#{ $nifty-prefix }mainnav-min-submenu-padding-y ) var( --#{ $nifty-prefix }mainnav-min-submenu-padding-x );
+         white-space: nowrap;
+
+         .nav-link {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding: var( --#{ $nifty-prefix }mainnav-min-submenu-link-padding-y ) var( --#{ $nifty-prefix }mainnav-min-submenu-link-padding-x );
+         }
+
+         &:not(.show) {
+            display: none;
+         }
+
+         &.show {
+            position: fixed;
+            top: -100rem;
+            //transition: transform .25s ease .05s;
+            z-index: 100;
+         }
+
+         .arrow {
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 7px 7px 7px 0;
+            border-color: transparent var( --#{ $nifty-prefix }mainnav-bg ) transparent transparent;
+            left: -6px;
+         }
+
+         &:not(.nav) {
+            padding: .75rem .25rem;
+         }
+
+         &.nav-label {
+            //padding: .75rem #{ .5rem + $nav-link-padding-x };
+            padding: .75rem #{ var( --#{ $prefix }nav-link-padding-x )};
+         }
+
+         &.collapsing {
+            transition: 0s !important;
+         }
+      }
+
+      .mainnav__top-content {
+         flex: 1 1 0;
+         min-height: 0 !important;
+      }
+
+
+
+      // Nav content that sticks to the bottom
+      // ---------------------------------------------------------------------------------
+      .mainnav__bottom-content{
+         z-index: 100;
+      }
+   }
+}

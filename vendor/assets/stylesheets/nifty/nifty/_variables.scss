@@ -1,0 +1,327 @@
+
+// Prefix for :root CSS variables
+// ---------------------------------------------------------------------------------
+$nifty-prefix:                            nf- !default;
+
+
+
+// HEADERS
+// ---------------------------------------------------------------------------------
+$header-bg:                               var( --#{ $prefix }component-bg ) !default;
+$header-color:                            var( --#{ $prefix }component-color ) !default;
+$header-secondary-color:                  var( --#{ $prefix }secondary-color );
+$header-border-color:                     var( --#{ $prefix }border-color );
+
+$header-btn-hover-bg:                     rgba(var( --#{ $prefix }body-color-rgb ), .1) !default;
+$header-btn-hover-color:                  var( --#{ $prefix }heading-color ) !default;
+$header-btn-border-radius:                calc( var( --#{ $prefix }border-radius ) * 2 ) !default;
+
+$header-height:                           3.125rem !default;
+$header-shadow:                           var( --#{ $prefix }box-shadow-sm ) !default;
+$header-transition-duration:              .35s !default;
+$header-transition-timing:                ease !default;
+
+
+// Expanded Header
+$header-expand-bg:                        var( --#{ $prefix }primary ) !default;
+$header-expand-color:                     rgba(var( --#{ $prefix }primary-color-rgb ), .65 ) !default;
+$header-expand-title-color:               var( --#{ $prefix }primary-color ) !default;
+$header-expand-headings-color:            $header-expand-title-color !default;
+$header-expand-height:                    37.5vh !default;
+$header-expand-border-radius:             0% 0% 50% 50% / 0% 0% 12vh 12vh !default;
+$header-expand-use-start-ouside-radius:   true !default;
+
+
+
+// BRAND
+// ---------------------------------------------------------------------------------
+$brand-bg:                                transparent !default;
+$brand-color:                             var( --#{ $nifty-prefix }header-color ) !default;
+$brand-size:                              16px !default;
+$brand-img-margin:                        .475rem .5rem !default;
+$brand-font-size:                         1.25rem !default;
+$brand-font-weight:                       500 !default;
+$brand-font-family:                       "Ubuntu", sans-serif !default;
+
+
+
+// MAIN NAVIGATION
+// ---------------------------------------------------------------------------------
+$mainnav-bg:                              var( --#{ $prefix }component-bg ) !default;
+$mainnav-color:                           var( --#{ $prefix }body-color ) !default;
+$mainnav-secondary-color:                 var( --#{ $prefix }secondary-color ) !default;
+
+$mainnav-link-color:                      $mainnav-color !default;
+$mainnav-link-hover:                      var( --#{ $prefix }link-hover-color ) !default;
+$mainnav-link-active:                     var( --#{ $prefix }heading-color ) !default;
+$mainnav-link-active-underline:           underline dotted !default;
+$mainnav-link-active-underline-color:     rgba(var( --#{ $prefix }body-color-rgb ), .5) !default;
+$mainnav-link-padding-x:                  1.25rem !default;
+$mainnav-link-padding-y:                  .59rem !default;
+
+$mainnav-icon-color:                      var( --#{ $prefix }primary-text-emphasis ) !default;
+$mainnav-border-color:                    var( --#{ $prefix }border-color ) !default;
+$mainnav-headings-color:                  var( --#{ $prefix }heading-color ) !default;
+
+$mainnav-padding:                         .75rem !default;
+$mainnav-content-gutter:                  true !default;
+$mainnav-transition-duration:             .35s !default;
+$mainnav-transition-timing:               ease !default;
+
+
+// Active link and submenu 1st level.
+$mainnav-submenu-active-bg:               $component-active-bg !default;
+$mainnav-submenu-active-color:            $component-active-color !default;
+$mainnav-submenu-active-shadow:           none !default; // Example - Add a border to the left : inset 5px 0 0 0px $component-active-bg;
+
+
+// Submenus
+$mainnav-submenu-indent:                  2.25em !default;
+$mainnav-submenu-indent-lv2:              .75em !default;
+$mainnav-submenu-border-radius:           var( --#{ $prefix }border-radius ) !default;
+$mainnav-submenu-dashed-margin:           2.25em !default;
+$mainnav-submenu-dashed-color:            var( --#{ $prefix }primary-border-subtle ) !default;
+
+
+// Max Mode
+$mainnav-max-width:                       13.75rem !default; //220px;
+$mainnav-max-max-width:                   75vw !default; // 75% of screen width
+$mainnav-max-available-at:                "lg" !default;
+$mainnav-max-transition-duration:         $mainnav-transition-duration !default;
+$mainnav-max-transition-timing:           $mainnav-transition-timing !default;
+
+
+// Min Mode
+$mainnav-min-icon-color:                  var( --#{ $prefix }primary-text-emphasis ) !default;
+$mainnav-min-icon-active-color:           $mainnav-submenu-active-color !default;
+$mainnav-min-submenu-padding-x:           .5rem !default;
+$mainnav-min-submenu-padding-y:           .5rem !default;
+$mainnav-min-submenu-active-bg:           $mainnav-submenu-active-bg !default;
+$mainnav-min-submenu-active-color:        $mainnav-submenu-active-color !default;
+$mainnav-min-submenu-link-padding-x:      .75rem !default;
+$mainnav-min-submenu-link-padding-y:      .7rem !default;
+$mainnav-min-width:                       3.75rem !default;
+$mainnav-min-available-at:                "lg" !default;
+$mainnav-min-shadow:                      var( --#{ $prefix }box-shadow-lg ) ;
+$mainnav-min-transition-duration:         $mainnav-transition-duration !default;
+$mainnav-min-transition-timing:           $mainnav-transition-timing !default;
+
+
+// Offcanvas : Push mode
+$mainnav-slide-width:                     13.75rem !default; //220px;
+$mainnav-slide-max-width:                 75vw !default;
+$mainnav-slide-transition-duration:       $mainnav-transition-duration !default;
+$mainnav-slide-transition-timing:         $mainnav-transition-timing !default;
+
+
+// Offcanvas : Push mode
+$mainnav-push-width:                      13.75rem !default; //220px;
+$mainnav-push-max-width:                  75vw !default;
+$mainnav-push-transition-duration:        $mainnav-transition-duration !default;
+$mainnav-push-transition-timing:          $mainnav-transition-timing !default;
+
+
+// Offcanvas : Reveal mode
+$mainnav-reveal-width:                    13.75rem !default; //220px;
+$mainnav-reveal-max-width:                75vw !default;
+$mainnav-reveal-transition-duration:      $mainnav-transition-duration !default;
+$mainnav-reveal-transition-timing:        $mainnav-transition-timing !default;
+
+
+
+// SIDEBAR
+// ---------------------------------------------------------------------------------
+$sidebar-bg:                              var( --#{ $prefix }component-bg ) !default;
+$sidebar-color:                           var( --#{ $prefix }body-color ) !default;
+$sidebar-width:                           17.1875rem !default;
+$sidebar-padding-y:                       1rem !default;
+$sidebar-padding-x:                       .75rem !default;
+$sidebar-transition-duration:             .35s !default;
+$sidebar-transition-timing:               ease !default;
+$sidebar-content-gutter:                  true !default;
+$sidebar-shadow:                          var( --#{ $prefix }box-shadow-lg ) !default;
+
+// Pinned sidebar
+$sidebar-pinned-available-at:             1195px !default;
+
+// Unite sidebar
+$sidebar-unite-bg:                        var( --#{ $nifty-prefix }header-bg ) !default;
+$sidebar-unite-color:                     var( --#{ $nifty-prefix }header-color ) !default;
+$sidebar-unite-secondary-color:           var( --#{ $nifty-prefix }header-secondary-color ) !default;
+$sidebar-unite-active-bg:                 var( --#{ $nifty-prefix }header-btn-hover-bg ) !default;
+$sidebar-unite-active-color:              var( --#{ $nifty-prefix }header-btn-hover-color ) !default;
+$sidebar-unite-border-color:              var( --#{ $nifty-prefix }header-border-color ) !default;
+$sidebar-unite-outer-border:              calc( var( --#{ $prefix }border-radius ) * 1.5 ) !default;
+
+
+
+// CONTENTS
+// ---------------------------------------------------------------------------------
+$content-title-size:                      2.25rem !default;
+$content-title-color:                     var( --#{ $prefix }primary ) !default;
+$content-title-weight:                    500 !default;
+
+$content-gutter-x:                        1rem !default;
+$content-gutter-y:                        1rem !default;
+$content-gutters-x : (
+   "md": 1.5rem,
+   "lg": 1.25rem,
+   "xl": 1.25rem,
+   "xxl": 2.5rem
+) !default;
+
+
+
+// COMPONENTS
+// ---------------------------------------------------------------------------------
+// Scroll to top button
+// ---------------------------------------------------------------------------------
+$button-scroll-bg:                        $component-active-bg !default;
+$button-scroll-color:                     $component-active-color !default;
+$button-scroll-border:                    3px solid var( --#{ $prefix }body-bg ) !default;
+$button-scroll-border-radius:             50% !default;
+$button-scroll-size:                      4em !default;
+$button-scroll-right-margin:              1rem !default;
+$button-scroll-bottom-margin:             1rem !default;
+$button-scroll-show-after-scrolldown:     15.75rem !default;
+$button-scroll-use-css-chevron-icon:      true !default;
+
+
+
+// Searchbox
+// ---------------------------------------------------------------------------------
+$searchbox-focus-bg:                      rgba( 0,0,0, .15 ) !default;
+$searchbox-collapsed-width:               20vw !default;
+$searchbox-expanded-width:                35vw !default;
+
+$searchbox-transition-duration:           .35s !default;
+$searchbox-transition-delay:              .15s !default;
+$searchbox-transition-timing:             ease !default;
+
+
+
+// Backdrop
+// ---------------------------------------------------------------------------------
+$backdrop-bg:                             $modal-backdrop-bg !default;
+$backdrop-opacity:                        $modal-backdrop-opacity !default;
+$backdrop-z-index:                        9998 !default;
+
+
+
+// Timeline
+// ---------------------------------------------------------------------------------
+$timeline-point-color:                    var(--#{$prefix}primary ) !default;
+$timeline-point-gap:                      .25rem !default;
+$timeline-point-size:                     .5rem !default;
+$timeline-point-margin-top:               .75ex !default;
+$timeline-point-media-size:               2.25rem !default;
+
+$timeline-line-color:                     $timeline-point-color !default;
+$timeline-line-width:                     2px !default;
+$timeline-line-style:                     solid !default;
+
+$timeline-entry-gap-x:                    .75rem !default;
+$timeline-entry-gap-y:                    1.5rem !default;
+
+
+
+// Bubble speech
+// ---------------------------------------------------------------------------------
+$bubble-border-radius:                    1.5rem !default;
+$bubble-max-width:                        Min( 400px, 80% ) !default;
+$bubble-primary-bg:                       var( --#{ $prefix }primary ) !default;
+$bubble-primary-color:                    var( --#{ $prefix }primary-color ) !default;
+$bubble-secondary-bg:                     var( --#{ $prefix }white ) !default;
+$bubble-secondary-color:                  var( --#{ $prefix }dark ) !default;
+$bubble-padding-y:                        .75rem !default;
+$bubble-padding-x:                        1rem !default;
+$bubble-arrow-width:                      7px !default;
+$bubble-arrow-height:                     5px !default;
+
+
+
+// LAYOUTS
+// ---------------------------------------------------------------------------------
+
+// Boxed Layout
+// ---------------------------------------------------------------------------------
+$boxed-layout-bg:                         rgba(var( --#{ $prefix }primary-rgb ), .7) !default;
+$boxed-layout-bg-repeat:                  no-repeat !default;
+$boxed-layout-bg-image:                   none !default; // EXAMPLE : url("/assets/img/sample-img/img-1.jpg");
+$boxed-layout-bg-size:                    cover !default;
+$boxed-layout-bg-attachment:              fixed !default;
+
+$boxed-layout-padding-y:                  2rem !default;
+$boxed-layout-max-width:                  1200px !default;
+$boxed-layout-border-radius:              .75rem !default;
+
+
+
+// Centered layout
+// ---------------------------------------------------------------------------------
+$centered-layout-max-width:               900px !default;
+$centered-layout-min-viewport:            1300px !default;
+
+
+
+// MEDIA PRINT
+// ---------------------------------------------------------------------------------
+$print-bg:                                #fff !default;
+$print-color:                             #555e69 !default;
+$print-black:                             #30353b !default;
+$print-gray:                              #ecf1f4 !default;
+$print-muted:                             #727e8c !default;
+
+
+
+// Z-INDEX
+// ---------------------------------------------------------------------------------
+$z-index-header:                          1001 !default;
+$z-index-mainnav:                         1000 !default;
+$z-index-sidebar:                         1002 !default;
+
+
+
+// TRANSITION TIMINGS
+// ---------------------------------------------------------------------------------
+$transition-timings : (
+   "in-quart":                            cubic-bezier(0.755, 0.045, 0.915, 0.135),
+   "out-quart":                           cubic-bezier(0.015, 0.770, 0.040, 0.985),
+   "in-back":                             cubic-bezier(0.705, -0.155, 0.735, 0.045),
+   "out-back":                            cubic-bezier(0.280, 1.020, 0.360, 1.145),
+   "in-out-back":                         cubic-bezier(1.000, -0.280, 0.000, 1.275),
+   "steps":                               cubic-bezier(0.000, 0.955, 1.000, 0.045),
+   "jumping":                             cubic-bezier(0.960, 0.005, 0.000, 1.075),
+   "rubber":                              cubic-bezier(0.135, 1.525, 0.000, 0.900)
+) !default;
+
+
+
+// SCROLLBARS
+// ---------------------------------------------------------------------------------
+$scrollbar-width:                         auto !default;
+$scrollbar-color:                         rgba(black, .25) !default;
+
+$scrollbar-webkit-width:                  .35rem !default;
+$scrollbar-webkit-track-bg:               transparent !default;
+$scrollbar-webkit-handle-bg:              $scrollbar-color !default;
+$scrollbar-webkit-handle-hover-bg:        rgba(black, .5) !default;
+$scrollbar-webkit-handle-border-radius:   1rem !default;
+
+
+$scrollbar-color-dark:                    rgba(white, .25) !default;
+$scrollbar-webkit-track-bg-dark:          transparent !default;
+$scrollbar-webkit-handle-bg-dark:         $scrollbar-color-dark !default;
+$scrollbar-webkit-handle-hover-bg-dark:   rgba(white, .5) !default;
+
+
+
+// HOVER TRANSITION EFFECTS
+// ---------------------------------------------------------------------------------
+$hv-transition-duration:                  .35s;
+$hv-transition-timing:                    ease;
+$hv-grow-scale:                           1.07;
+$hv-outline-color:                        rgba( var( --#{ $prefix }link-hover-color-rgb ), 0);
+$hv-outline-color-active:                 rgba( var( --#{ $prefix }link-hover-color-rgb ), 1);
+$hv-outline-width:                        .125rem;    // 2px
+$hv-outline-offset:                       .3125rem;   // 5px

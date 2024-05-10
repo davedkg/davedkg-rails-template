@@ -1,0 +1,37 @@
+/* -- SINGLE CONTENT VIEW -- */
+/* ---------------------------------------------- */
+
+// Single Content
+// ---------------------------------------------------------------------------------
+.body-sc {
+   > .root {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      z-index: 999999;
+   }
+
+   .sidebar, .header, .content__header:after {
+      z-index: 0 !important;
+   }
+}
+
+
+
+@each $breakpoint, $val in $grid-breakpoints {
+   @if $breakpoint == "xs" {
+      .single-content {
+         display: flex;
+         min-height: 0 !important;
+         flex: 1 1 0;
+      }
+   }@else{
+      @include media-breakpoint-up($breakpoint) {
+         .single-content-#{$breakpoint} {
+               display: flex;
+               min-height: 0 !important;
+               flex: 1 1 0;
+         }
+      }
+   }
+}

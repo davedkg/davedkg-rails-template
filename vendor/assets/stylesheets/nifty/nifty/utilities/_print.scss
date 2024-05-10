@@ -1,0 +1,98 @@
+/* -- MEDIA PRINT -- */
+/* ---------------------------------------------- */
+
+// @page {
+//    margin: 0cm auto;
+//    size: 8.5in 11in;
+// }
+
+@media print {
+   html, body, #root, .content {
+      background-color: transparent;
+   }
+
+   #root {
+      background-color: $print-bg;
+      color: $print-color;
+      display: block;
+   }
+
+   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+      color: $print-black;
+   }
+
+   .content {
+      color: inherit !important;
+   }
+
+   .badge, .btn {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+   }
+
+   .card {
+      background-color: transparent;
+      box-shadow: none;
+   }
+
+   .bg-light {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      background-color: $print-gray !important;
+   }
+
+   .text-muted, .text-body-secondary {
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+      color: $print-muted !important;
+   }
+
+   .table {
+      border-color: $print-gray !important;
+      color: $print-black !important;
+
+      thead {
+         tr, th {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            background-color: transparent !important;
+            color: $print-black !important;
+         }
+      }
+
+      tbody {
+         tr, td {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            border-color: $print-gray;
+            color: $print-black !important;
+         }
+         td {
+            background-color: transparent;
+            box-shadow: none;
+         }
+      }
+
+      &.table-striped {
+         tbody tr:nth-child(odd) td {
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+            background-color: $print-gray;
+         }
+      }
+
+   }
+
+   .header, .sidebar, #mainnav-container,
+   .content__header, footer, .scroll-container, #_dm-settingsToggler {
+      display: none !important;
+   }
+
+   .content__header.overlapping + .content__boxed {
+      margin-top: 0 !important;
+   }
+
+   .d-md-flex, .d-lg-flex, .d-xl-flex {
+      display: flex !important;
+   }
+}

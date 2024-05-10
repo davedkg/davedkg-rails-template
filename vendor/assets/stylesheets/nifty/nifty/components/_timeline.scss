@@ -1,0 +1,163 @@
+/* -- TIMELINE -- */
+/* ---------------------------------------------- */
+
+.timeline {
+   --#{ $nifty-prefix }timeline-line-color:        #{ $timeline-line-color };
+   --#{ $nifty-prefix }timeline-line-style:        #{ $timeline-line-style };
+   --#{ $nifty-prefix }timeline-line-width:        #{ $timeline-line-width };
+
+   --#{ $nifty-prefix }timeline-point-color:       #{ $timeline-point-color };
+   --#{ $nifty-prefix }timeline-point-gap:         #{ $timeline-point-gap };
+   --#{ $nifty-prefix }timeline-point-size:        #{ $timeline-point-size };
+   --#{ $nifty-prefix }timeline-point-media-size:  #{ $timeline-point-media-size };
+
+
+   --#{ $nifty-prefix }timeline-entry-gap-x:       #{ $timeline-entry-gap-x };
+   --#{ $nifty-prefix }timeline-entry-gap-y:       #{ $timeline-entry-gap-y };
+
+
+   display: flex;
+   flex-direction: column;
+   gap: var(--#{ $nifty-prefix }timeline-entry-gap-y);
+
+
+
+   // Timeline Time
+   // ---------------------------------------------------------------------------------
+   .tl-time {
+      &:not( :empty ) {
+         min-width: 7rem;
+         text-align: end;
+      }
+
+      .tl-date {
+         font-size: 90%;
+      }
+
+      .tl-time {
+         color: var( --#{ $prefix }heading-color );
+         font-weight: $font-weight-bold;
+      }
+   }
+
+
+
+   // Timeline entry
+   // ---------------------------------------------------------------------------------
+   .tl-entry {
+      display: flex;
+      gap: var( --#{ $nifty-prefix }timeline-entry-gap-x );
+   }
+
+
+
+   // Timeline point
+   // ---------------------------------------------------------------------------------
+   .tl-point {
+      &:before {
+         background-color: var( --#{ $nifty-prefix }timeline-point-color );
+         border-radius: 50%;
+         content: "";
+         display: block;
+         height: var( --#{ $nifty-prefix }timeline-point-size );
+         transform:  translateY( $timeline-point-margin-top );
+         width: var( --#{ $nifty-prefix }timeline-point-size );
+      }
+
+      &:after {
+         border-inline-start: var( --#{ $nifty-prefix }timeline-line-width ) var( --#{ $nifty-prefix }timeline-line-style ) var( --#{ $nifty-prefix }timeline-line-color );
+         content: "";
+         display: block;
+         height: calc(( 100% - var( --#{ $nifty-prefix }timeline-point-size) - ( var( --#{ $nifty-prefix }timeline-point-gap ) * 2 )) + var( --#{ $nifty-prefix }timeline-entry-gap-y ));
+         inset: calc( #{ $timeline-point-margin-top } + #{var(--#{ $nifty-prefix }timeline-point-gap )}) auto auto calc( 50% - ( var( --#{ $nifty-prefix }timeline-line-width ) / 2 ));
+         position: relative;
+      }
+   }
+
+
+
+   // Timeline media for icons and images
+   // ---------------------------------------------------------------------------------
+   .tl-media {
+      flex: 0 0 var( --#{ $nifty-prefix }timeline-point-media-size );
+
+      i {
+         align-items: center;
+         display: flex;
+         justify-content: center;
+      }
+
+      &:after {
+         border-inline-start: var( --#{ $nifty-prefix }timeline-line-width ) var( --#{ $nifty-prefix }timeline-line-style ) var( --#{ $nifty-prefix }timeline-line-color );
+         content: "";
+         display: block;
+         height: calc(( 100% - var( --#{ $nifty-prefix }timeline-point-media-size ) - ( var( --#{ $nifty-prefix }timeline-point-gap ) * 2)) + var( --#{ $nifty-prefix }timeline-entry-gap-y ));
+         inset: #{ var( --#{ $nifty-prefix }timeline-point-gap )} auto auto calc( 50% - ( var( --#{ $nifty-prefix }timeline-line-width ) / 2));
+         position: relative;
+      }
+   }
+
+
+
+   // Active state
+   // ---------------------------------------------------------------------------------
+   .tl-entry.active {
+      .tl-icon .ratio {
+         box-shadow: 0 0 0 var( --#{ $nifty-prefix }timeline-line-width ),
+         0 0 0 calc( var( --#{ $nifty-prefix }timeline-line-width ) * 2 ) var( --#{ $nifty-prefix }timeline-line-color );
+      }
+
+      .tl-point {
+         &:before {
+            background-color: transparent;
+            box-shadow: 0 0 0 var( --#{ $nifty-prefix }timeline-line-width ) var( --#{ $nifty-prefix }timeline-point-color );
+         }
+
+         &:after {
+            height: calc(( 100% - var( --#{ $nifty-prefix }timeline-line-width ) - var( --#{ $nifty-prefix }timeline-point-size ) - ( var( --#{ $nifty-prefix }timeline-point-gap ) * 2 )) + var( --#{ $nifty-prefix }timeline-entry-gap-y ));
+            top:  calc( #{ $timeline-point-margin-top } + var( --#{ $nifty-prefix }timeline-point-gap ) + var( --#{ $nifty-prefix }timeline-line-width ));
+         }
+      }
+   }
+
+
+
+   // Last entry with dashed border
+   // ---------------------------------------------------------------------------------
+   .tl-entry:last-child {
+      .tl-point:after, .tl-media:after {
+         border-color: var( --#{ $prefix }secondary );
+         border-inline-start-style: dotted;
+      }
+   }
+}
+
+
+
+// Two column timeline
+// ---------------------------------------------------------------------------------
+.timeline-two-column {
+   .tl-entry > .tl-time, .tl-content {
+      width: 50%;
+   }
+
+   .tl-content > * {
+      display: inline-flex;
+      flex-direction: column;
+   }
+
+   .tl-entry-start {
+      flex-direction: row-reverse;
+
+      .tl-time {
+         text-align: start;
+      }
+
+      .tl-content {
+         align-items: flex-end;
+         display: inline-flex;
+         flex-direction: column;
+         justify-content: end;
+      }
+   }
+}

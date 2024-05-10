@@ -1,0 +1,12 @@
+/* -- TRANSITION TIMING FUNCTIONS -- */
+/* ---------------------------------------------- */
+
+@each $name, $transition-timing in $transition-timings {
+   .#{$name} {
+      &.centered-layout .content__header:before,
+      .mn--reveal.mn--show:before,
+      :where( .mainnav, .content, .header, .header__brand, .sidebar, .offcanvas, .collapsing, .searchbox__input, .dropdown-menu, .mininav-toggle:after, .sb--pinned .content__boxed ) {
+         transition-timing-function: $transition-timing !important;
+      }
+   }
+}

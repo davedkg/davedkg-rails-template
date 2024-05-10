@@ -1,0 +1,45 @@
+/* -- MAIN NAVIGATION - OFF CANVAS / PUSH MODE -- */
+/* ---------------------------------------------- */
+
+.mn--push {
+   --#{ $nifty-prefix }mainnav-push-width:               #{ $mainnav-push-width };
+   --#{ $nifty-prefix }mainnav-push-transition-duration: #{ $mainnav-push-transition-duration };
+   --#{ $nifty-prefix }mainnav-push-transition-timing:   #{ $mainnav-push-transition-timing };
+
+
+   .mainnav {
+      max-width: $mainnav-push-max-width;
+      width: var( --#{ $nifty-prefix }mainnav-push-width );
+      transform: translateX( Max(#{-$mainnav-push-max-width}, calc( #{ calc(var( --#{ $nifty-prefix }mainnav-push-width ) * -1 )} - .0625rem )));
+   }
+
+
+   // Push transition
+   // ---------------------------------------------------------------------------------
+   @at-root {
+      &, &.mn--show {
+         .mainnav, .content, .header {
+            transition: transform var( --#{ $nifty-prefix }mainnav-push-transition-duration ) var( --#{ $nifty-prefix }mainnav-push-transition-timing );
+            // will-change: transform;
+         }
+      }
+   }
+
+
+   // Off-Canvas show state
+   // ---------------------------------------------------------------------------------
+   &.mn--show {
+      .mainnav {
+         transform: translateX( 0 );
+         z-index: $backdrop-z-index + 1;
+      }
+
+      .content, .header {
+         transform: translateX( Min($mainnav-push-max-width, var( --#{ $nifty-prefix }mainnav-push-width )));
+      }
+
+      &.sb--show.sb--pinned .sidebar {
+         transform: translateX( Min($mainnav-push-max-width, var( --#{ $nifty-prefix }mainnav-push-width )));
+      }
+   }
+}

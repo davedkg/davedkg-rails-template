@@ -1,0 +1,54 @@
+/* -- OPTIMIZE -- */
+/* ---------------------------------------------- */
+
+// Improve initial load time by skipping the rendering of offscreen content.
+// ---------------------------------------------------------------------------------
+.offcanvas-body,
+.dropdown-menu,
+.sidebar {
+   content-visibility: auto;
+}
+
+
+
+// Hide the IMG element during initial load and show it when needed.
+// ---------------------------------------------------------------------------------
+%hide-lazy-img {
+   img[ loading="lazy"] {
+      display: none;
+   }
+}
+
+%show-lazy-img {
+   img[ loading="lazy"] {
+      display: unset;
+   }
+}
+
+.dropdown-menu, .offcanvas {
+   @extend %hide-lazy-img;
+
+   &.show {
+      @extend %show-lazy-img;
+   }
+}
+
+.sidebar {
+   @extend %hide-lazy-img;
+
+   @at-root {
+      .sb--show #{&} {
+         @extend %show-lazy-img;
+      }
+   }
+}
+
+
+
+@media ( min-width : $sidebar-pinned-available-at ) {
+   .sb--pinned .sidebar {
+      img[ loading="lazy"] {
+         display: unset;
+      }
+   }
+}

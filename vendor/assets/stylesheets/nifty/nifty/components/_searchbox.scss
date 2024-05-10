@@ -1,0 +1,88 @@
+/* -- SEARCHBOX -- */
+/* ---------------------------------------------- */
+
+.searchbox {
+   --#{ $nifty-prefix }search-focus-bg:             #{ $searchbox-focus-bg };
+   --#{ $nifty-prefix }search-collapsed-width:      #{ $searchbox-collapsed-width };
+   --#{ $nifty-prefix }search-expanded-width:       #{ $searchbox-expanded-width };
+   --#{ $nifty-prefix }search-transition-duration:  #{ $searchbox-transition-duration };
+   --#{ $nifty-prefix }search-transition-delay:     #{ $searchbox-transition-delay };
+   --#{ $nifty-prefix }search-transition-timing:    #{ $searchbox-transition-timing };
+
+   width: auto;
+
+
+   // Search input / .form-control
+   // ---------------------------------------------------------------------------------
+   .searchbox__input {
+      padding-right: calc( 1ex + #{ ( $btn-padding-x * 2 ) } );
+      transition: width var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing ) var( --#{ $nifty-prefix }search-transition-delay ), background-color var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing ) var( --#{ $nifty-prefix }search-transition-delay );
+
+      &:focus {
+         transition: width var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing ) var( --#{ $nifty-prefix }search-transition-delay ), background-color var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing ) var( --#{ $nifty-prefix }search-transition-delay );
+      }
+
+      &.bg-transparent {
+         background-color: transparent !important;
+         border: 0;
+         box-shadow: none !important;
+         color: inherit;
+
+         &:focus {
+            background-color: var( --#{ $nifty-prefix }search-focus-bg ) !important;
+         }
+      }
+   }
+
+
+
+   // Override Bootstrap's border-radius for input groups
+   // ---------------------------------------------------------------------------------
+   &.input-group:not( .has-validation ) > .searchbox__input:not( :last-child ):not( .dropdown-toggle ):not( .dropdown-menu ) {
+      border-radius: $input-border-radius;
+   }
+
+
+
+   // Search button
+   // ---------------------------------------------------------------------------------
+   .searchbox__btn {
+      font-size: 1rem;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      transition: opacity var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing ) var( --#{ $nifty-prefix }search-transition-delay ), visibility var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing ) var( --#{ $nifty-prefix }search-transition-delay );
+      z-index: 5;
+   }
+
+
+
+   // Auto expand the search box while focusing.
+   // ---------------------------------------------------------------------------------
+   &.searchbox--auto-expand .searchbox__input {
+      width: var( --#{ $nifty-prefix }search-collapsed-width );
+      &:focus {
+         width: var( --#{ $nifty-prefix }search-expanded-width );
+      }
+   }
+
+
+
+   // Only show the search button while the input is in focus.
+    // ---------------------------------------------------------------------------------
+   &.searchbox--hide-btn {
+      .searchbox__btn {
+         opacity: 0;
+         visibility: hidden;
+      }
+
+      .searchbox__input:focus {
+         ~ .searchbox__btn, ~ div > .searchbox__btn {
+            opacity: 1;
+            transition: opacity var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing ), visibility var( --#{ $nifty-prefix }search-transition-duration ) var( --#{ $nifty-prefix }search-transition-timing );
+            visibility: visible;
+         }
+      }
+   }
+}

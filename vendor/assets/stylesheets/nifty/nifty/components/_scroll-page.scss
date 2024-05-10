@@ -1,0 +1,64 @@
+/* -- SCROLL PAGE TO TOP -- */
+/* ---------------------------------------------- */
+
+// Scroll Container
+// ---------------------------------------------------------------------------------
+.scroll-container {
+   --#{ $nifty-prefix }btn-scroll-bg:              #{ $button-scroll-bg };
+   --#{ $nifty-prefix }btn-scroll-color:           #{ $button-scroll-color };
+   --#{ $nifty-prefix }btn-scroll-border:          #{ $button-scroll-border };
+   --#{ $nifty-prefix }btn-scroll-border-radius:   #{ $button-scroll-border-radius };
+   --#{ $nifty-prefix }btn-scroll-size:            #{ $button-scroll-size };
+   --#{ $nifty-prefix }btn-scroll-right-margin:    #{ $button-scroll-right-margin };
+   --#{ $nifty-prefix }btn-scroll-bottom-margin:   #{ $button-scroll-bottom-margin };
+
+   min-height: var( --#{ $nifty-prefix }btn-scroll-size );
+   pointer-events: none;
+   position: absolute;
+   right: var(--#{ $nifty-prefix }btn-scroll-right-margin);
+   top: Min( calc( 100% - #{ var( --#{ $nifty-prefix }btn-scroll-size )} ), 120vh );
+   bottom: var( --#{ $nifty-prefix }btn-scroll-size );
+   clip-path: inset( 0 0 0 0 );
+   z-index: 999;
+}
+
+
+
+// Scroll Button
+// ---------------------------------------------------------------------------------
+.scroll-page {
+   align-items: center;
+   background-color: var( --#{ $nifty-prefix }btn-scroll-bg );
+   border: var(--#{ $nifty-prefix }btn-scroll-border );
+   border-radius: var( --#{ $nifty-prefix }btn-scroll-border-radius );
+   color: var( --#{ $nifty-prefix }btn-scroll-color ) !important;
+   cursor: pointer;
+   display: flex;
+   justify-content: center;
+   pointer-events: visible;
+   position: sticky;
+   right: var( --#{ $nifty-prefix }btn-scroll-right-margin );
+   text-decoration: none;
+   top: calc( 100vh - #{ var( --#{ $nifty-prefix }btn-scroll-size ) } - #{ var( --#{ $nifty-prefix }btn-scroll-bottom-margin )});
+   width: var( --#{ $nifty-prefix }btn-scroll-size );
+   z-index: 99999;
+
+
+   // Draw a chevron icon when the $button-scroll-use-css-chevron-icon variable is true.
+   @if $button-scroll-use-css-chevron-icon {
+      &:after {
+         border-style: solid;
+         border-width: 3px 3px 0 0;
+         content: '';
+         display: inline-block;
+         height: 30%;
+         left: 35%;
+         pointer-events: none;
+         position: absolute;
+         top: 43%;
+         transform-origin: center center;
+         transform: rotate( -45deg );
+         width: 30%;
+      }
+   }
+}

@@ -1,0 +1,27 @@
+/* -- ROOT -- */
+/* ---------------------------------------------- */
+
+.root {
+   display: grid;
+   gap: 0 0;
+   grid-template-columns: min-content 1fr;
+   grid-template-rows: min-content 1fr;
+   min-height: 100vh;
+   width: 100%;
+}
+
+
+body {
+   overflow-x: hidden;
+   position: relative;
+   background-size: cover;
+   background-attachment: fixed;
+}
+
+
+:root {
+   --#{ $nifty-prefix }backdrop-bg: rgba(#{ to-rgb($backdrop-bg), $backdrop-opacity });
+   --#{ $nifty-prefix }content-title-size: #{ $content-title-size };
+   --#{ $nifty-prefix }content-title-color: #{ $content-title-color };
+   --#{ $nifty-prefix }content-title-weight: #{ $content-title-weight };
+}

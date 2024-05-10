@@ -1,0 +1,90 @@
+/* -- SIDEBARS -- */
+/* ---------------------------------------------- */
+
+.root {
+   --#{ $nifty-prefix }sidebar-bg:                  #{ $sidebar-bg };
+   --#{ $nifty-prefix }sidebar-color:               #{ $sidebar-color };
+   --#{ $nifty-prefix }sidebar-width:               #{ $sidebar-width };
+   --#{ $nifty-prefix }sidebar-shadow:              #{ $sidebar-shadow };
+
+   --#{ $nifty-prefix }sidebar-padding-x:           #{ $sidebar-padding-x };
+   --#{ $nifty-prefix }sidebar-padding-y:           #{ $sidebar-padding-y };
+
+   --#{ $nifty-prefix }sidebar-transition-duration: #{ $sidebar-transition-duration };
+   --#{ $nifty-prefix }sidebar-transition-timing:   #{ $sidebar-transition-timing };
+
+}
+
+.sidebar {
+   align-items: stretch;
+   background-color: var( --#{ $nifty-prefix }sidebar-bg );
+   box-sizing: content-box;
+   color: var( --#{ $nifty-prefix }sidebar-color );
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+   position: absolute;
+   right: 0;
+   top: 0;
+   transform: translateX( #{ var( --#{ $nifty-prefix }sidebar-width ) } );
+   visibility: hidden;
+   width: 0;
+   z-index: $z-index-sidebar;
+
+   .scrollable-content {
+      scrollbar-width: none;
+   }
+}
+
+.sidebar__inner {
+   height: 100vh;
+   overflow-x: hidden;
+   padding-block: var( --#{ $nifty-prefix }sidebar-padding-y );
+   position: sticky;
+   top: 0;
+}
+
+.sidebar__wrap {
+   padding-inline: var( --#{ $nifty-prefix }sidebar-padding-x );
+}
+
+
+
+// Sidebar show state
+// ---------------------------------------------------------------------------------
+@mixin sb--shows {
+   .sidebar {
+      overflow: visible;
+      transform: translateX(0);
+      visibility: visible;
+      width: var( --#{ $nifty-prefix }sidebar-width );
+      z-index: $backdrop-z-index + 1 ;
+   }
+
+
+   // Sidebar transitions
+   @at-root {
+      .sidebar {
+         transition: visibility var( --#{ $nifty-prefix }sidebar-transition-duration ), width 0s linear var( --#{ $nifty-prefix }sidebar-transition-duration ), padding var( --#{ $nifty-prefix }sidebar-transition-duration ) var( --#{ $nifty-prefix }sidebar-transition-timing ), transform var( --#{ $nifty-prefix }sidebar-transition-duration ) var( --#{ $nifty-prefix }sidebar-transition-timing );
+      }
+
+      #{&} .sidebar {
+         transition: visibility var( --#{ $nifty-prefix }sidebar-transition-duration ), padding var( --#{ $nifty-prefix }sidebar-transition-duration ) var( --#{ $nifty-prefix }sidebar-transition-timing ), transform var( --#{ $nifty-prefix }sidebar-transition-duration ) var( --#{ $nifty-prefix }sidebar-transition-timing );
+      }
+   }
+}
+
+
+
+.sb--show { @include sb--shows; }
+@media ( min-width : $sidebar-pinned-available-at ) {
+   .sb--pinned { @include sb--shows; }
+}
+
+
+
+// Hide stuck content and display it in Stuck mode
+// ---------------------------------------------------------------------------------
+.sidebar__stuck {
+   display: none;
+}

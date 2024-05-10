@@ -1,0 +1,87 @@
+/* -- HOVER EFFECTS -- */
+/* ---------------------------------------------- */
+
+%hv-transition-transform {
+   transition: transform var( --#{ $nifty-prefix }hv-transition-duration ) var( --#{ $nifty-prefix }hv-transition-timing );
+}
+
+%hv-transition-outline {
+   transition:
+      outline var( --#{ $nifty-prefix }hv-transition-duration ) var( --#{ $nifty-prefix }hv-transition-timing ),
+      outline-offset var( --#{ $nifty-prefix }hv-transition-duration ) var( --#{ $nifty-prefix }hv-transition-timing ),
+      transform var( --#{ $nifty-prefix }hv-transition-duration ) var( --#{ $nifty-prefix }hv-transition-timing );
+}
+
+%hv-grow {
+   @extend %hv-transition-transform;
+   backface-visibility: hidden;
+   transform: scale( var( --#{ $nifty-prefix }hv-grow-scale ) ) translateZ(0);
+   //will-change: transform;
+}
+
+
+
+// CSS Variables
+// ---------------------------------------------------------------------------------
+.hv-grow, .hv-outline {
+   &, &-parent {
+      --#{ $nifty-prefix }hv-transition-duration: #{ $hv-transition-duration };
+      --#{ $nifty-prefix }hv-transition-timing: #{ $hv-transition-timing };
+   }
+}
+
+
+.hv-grow {
+   &, &-parent {
+      --#{ $nifty-prefix }hv-grow-scale: #{ $hv-grow-scale };
+   }
+}
+
+
+.hv-outline {
+   &, &-parent {
+      --#{ $nifty-prefix }hv-outline-width: #{ $hv-outline-width };
+      --#{ $nifty-prefix }hv-outline-offset: #{ $hv-outline-offset };
+      --#{ $nifty-prefix }hv-outline-color: #{ $hv-outline-color };
+      --#{ $nifty-prefix }hv-outline-color-active: #{ $hv-outline-color-active };
+   }
+}
+
+
+
+// Grow
+// ---------------------------------------------------------------------------------
+.hv-grow {
+   &, &-parent .hv-gc {
+      @extend %hv-transition-transform;
+   }
+
+
+   &:hover, &-parent:hover .hv-gc  {
+      @extend %hv-grow;
+   }
+}
+
+
+
+// Outline
+// ---------------------------------------------------------------------------------
+.hv-outline {
+   &, &-parent .hv-oc {
+      @extend %hv-transition-outline;
+      outline: var( --#{ $nifty-prefix }hv-outline-width ) solid var( --#{ $nifty-prefix }hv-outline-color );
+      outline-offset: 0;
+   }
+
+
+   &:hover, &-parent:hover .hv-oc {
+      @extend %hv-transition-outline;
+      outline: var( --#{ $nifty-prefix }hv-outline-width ) solid;
+      outline-color: var( --#{ $nifty-prefix }hv-outline-color-active );
+      outline-offset: var( --#{ $nifty-prefix }hv-outline-offset );
+   }
+
+   &.hv-outline-inherit, &-parent.hv-outline-inherit {
+      --#{ $nifty-prefix }hv-outline-color-active: inherit;
+   }
+}
