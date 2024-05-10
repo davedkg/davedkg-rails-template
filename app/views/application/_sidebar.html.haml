@@ -180,10 +180,8 @@
             %span.nav-label.ms-1 Logout
           %ul.mininav-content.nav.flex-column.collapse
             %span.arrow{"data-popper-arrow" => ""}
+
             %li.nav-item
-              %a.nav-link{:href => "#"} This device only
-            %li.nav-item
-              %a.nav-link{:href => "#"} All Devices
-            %li.nav-item
-              %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Lock screen
+              = link_to destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete } do
+                Sign Out
     / End - Bottom navigation menu
