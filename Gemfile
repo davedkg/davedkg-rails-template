@@ -26,17 +26,19 @@ gem "bootsnap", "~> 1.18.3", require: false
 
 group :development, :test do
   gem "debug", "~> 1.9.2", platforms: %i[ mri windows ]
+  gem "rspec-rails", "~> 6.1.2"
+  gem "factory_bot_rails", "~> 6.4.3"
 end
 
 group :development do
   gem "foreman", "~> 0.88.1"
   gem "web-console", "~> 4.2.1"
   gem "rack-mini-profiler", "~> 3.3.1"
-
-  # gem "spring"
 end
 
 group :test do
+  gem 'pundit-matchers', '~> 3.1.2'
   gem "capybara", "~> 3.40.0"
   gem "selenium-webdriver", "~> 4.19.0"
+  gem "faker", "~> 3.3.1"
 end
