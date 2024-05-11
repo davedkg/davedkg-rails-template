@@ -55,7 +55,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec reek -c .reek.yml
+      - run: bundle exec rake lint:reek
 
 workflows:
   version: 2
