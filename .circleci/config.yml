@@ -6,7 +6,7 @@ orbs:
 executors:
   rails-executor:
     docker:
-      - image: cimg/ruby:3.3.0-browsers
+      - image: cimg/ruby:3.3.1-browsers
       - image: cimg/postgres:16.2
         environment:
           POSTGRES_DB: davedkg_template_test
@@ -22,7 +22,7 @@ executors:
       REDIS_URL: redis://127.0.0.1:6379/0
   ruby-executor:
     docker:
-      - image: cimg/ruby:3.3.0-browsers
+      - image: cimg/ruby:3.3.1-browsers
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
@@ -34,7 +34,6 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-
   rspec:
     executor:
       name: rails-executor
@@ -48,7 +47,6 @@ jobs:
           name: Setup DB
           command: bundle exec rake db:schema:load db:seed --trace
       - ruby/rspec-test
-
   reek:
     executor:
       name: ruby-executor
@@ -56,7 +54,6 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bundle exec reek -c .reek.yml
-
   rubocop:
     executor:
       name: ruby-executor
@@ -64,7 +61,6 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bundle exec rubocop -c .rubocop.yml
-
   brakeman:
     executor:
       name: ruby-executor
@@ -72,7 +68,6 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bundle exec brakeman
-
   fasterer:
     executor:
       name: ruby-executor
