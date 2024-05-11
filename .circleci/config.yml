@@ -6,7 +6,7 @@ orbs:
 jobs:
   rspec:
     docker:
-      - image: cimg/ruby:3.3.0-browsers
+      - image: cimg/ruby:3.3-browsers
         environment:
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
@@ -14,7 +14,7 @@ jobs:
           RAILS_ENV: test
           REDIS_URL: redis://127.0.0.1:6379/0
           TEST_REDIS_PORT: 6379
-      - image: cimg/postgres:16.2.0
+      - image: cimg/postgres:16.2
         environment:
           POSTGRES_DB: davedkg_template_test
           POSTGRES_PASSWORD: ""
