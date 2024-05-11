@@ -8,3 +8,4 @@ detectors:
 exclude_paths:
   - config
   - db
+  - vendor
