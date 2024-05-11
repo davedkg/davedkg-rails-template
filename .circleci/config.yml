@@ -65,6 +65,22 @@ jobs:
       - ruby/install-deps
       - run: bundle exec rubocop -c .rubocop.yml
 
+  brakeman:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec brakeman
+
+  fasterer:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec fasterer
+
 workflows:
   version: 2
   test:
@@ -77,5 +93,11 @@ workflows:
           requires:
             - build
       - rubocop:
+          requires:
+            - build
+      - brakeman:
+          requires:
+            - build
+      - fasterer:
           requires:
             - build
