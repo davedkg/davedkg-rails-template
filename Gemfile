@@ -27,6 +27,7 @@ gem 'bootsnap', '~> 1.18.3', require: false
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
+  gem 'brakeman', '~> 6.1.2'
   gem 'debug', '~> 1.9.2', platforms: %i[mri windows]
   gem 'factory_bot_rails', '~> 6.4.3'
   gem 'pry-byebug', '~> 3.10.1'
