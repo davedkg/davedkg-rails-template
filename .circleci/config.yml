@@ -1,7 +1,5 @@
 version: 2.1
 
-working_directory: ~/repo
-
 orbs:
   ruby: circleci/ruby@2.1.1
 
@@ -16,77 +14,43 @@ executors:
           POSTGRES_USER: db_user
       - image: cimg/redis:6.2.6
     environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
       PGHOST: 127.0.0.1
       PGUSER: db_user
       RAILS_ENV: test
       REDIS_URL: redis://127.0.0.1:6379/0
 
 jobs:
+  build:
+    docker:
+      - image: cimg/ruby:3.3.0
+        environment:
+          BUNDLE_JOBS: "3"
+          BUNDLE_RETRY: "3"
+    steps:
+      - checkout
+      - ruby/install-deps
+
   rspec:
     executor:
       name: rails-executor
-
     steps:
       - checkout
-
-      # bundle install
-      - restore_cache:
-          keys:
-            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-            - v1-bundle-cache-
-      - run:
-          name: Running bundle install
-          command: |
-            bundle config set path 'vendor/bundle'
-            bundle config set without 'development production'
-            bundle install --jobs=4 --retry=3
-      - save_cache:
-          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
-
-      # install code climate test reporter
-      - run:
-          name: Install Code Climate Test Reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-
-      # Wait for DB
+      - ruby/install-deps
       - run:
           name: Wait for DB to Boot
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
-
-      # setup database
       - run:
           name: Running rake db:schema:load db:seed
-          command: bundle exec rake db:schema:load db:seed
-
-      # run rspec
-      - run:
-          name: Running rspec
-          command: |
-              mkdir /tmp/test-results
-              ./cc-test-reporter before-build
-              TEST_FILES="$(circleci tests glob "spec/**/*_spec.rb" | circleci tests split --split-by=timings)"
-              bundle exec rspec --format progress \
-                                --format RspecJunitFormatter \
-                                --out /tmp/test-results/rspec.xml \
-                                $TEST_FILES
-
-      # run code climate test coverage
-      - run:
-          name: Run Code Climate Test Coverage
-          command: |
-            ./cc-test-reporter format-coverage -t simplecov -o "coverage/codeclimate.$CIRCLE_NODE_INDEX.json"
-
-      # save code climate test coverage to workspace
-      - persist_to_workspace:
-          root: coverage
-          paths:
-            - codeclimate.*.json
+          command: bundle exec rake db:schema:load db:seed --trace
+      - ruby/rspec-test
 
 workflows:
+  version: 2
   test:
     jobs:
-      - rspec
+      - build
+      - rspec:
+          requires:
+            - build
