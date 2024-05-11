@@ -49,11 +49,22 @@ jobs:
           command: bundle exec rake db:schema:load db:seed --trace
       - ruby/rspec-test
 
+  reek:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec reek -c .reek.yml
+
 workflows:
   version: 2
   test:
     jobs:
       - build
       - rspec:
+          requires:
+            - build
+      - reek:
           requires:
             - build
