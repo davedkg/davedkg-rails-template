@@ -39,6 +39,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bullet', '~> 7.1.6'
   gem 'foreman', '~> 0.88.1'
   gem 'rack-mini-profiler', '~> 3.3.1'
   gem 'web-console', '~> 4.2.1'
