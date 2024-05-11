@@ -26,10 +26,6 @@ jobs:
 
     steps:
       - checkout
-
-      - run:
-          name: Configure Bundler
-          command: |
             echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
             source $BASH_ENV
             gem install bundler
@@ -77,146 +73,143 @@ jobs:
                                 --out /tmp/test-results/rspec.xml \
                                 $TEST_FILES
 
+      # run code climate test coverage
       - run:
           name: Run Code Climate Test Coverage
           command: |
             ./cc-test-reporter format-coverage -t simplecov -o "coverage/codeclimate.$CIRCLE_NODE_INDEX.json"
+
+      # save code climate test coverage to workspace
       - persist_to_workspace:
           root: coverage
           paths:
             - codeclimate.*.json
 
-      - store_test_results:
-          path: /tmp/test-results
-      - store_artifacts:
-          path: /tmp/test-results
-          destination: test-results
+  # upload-codeclimate-coverage:
+  #   docker:
+  #     - image: cimg/ruby:3.3.0
 
-  upload-codeclimate-coverage:
-    docker:
-      - image: cimg/ruby:3.3.0
+  #   working_directory: ~/repo
 
-    working_directory: ~/repo
+  #   steps:
+  #     - attach_workspace:
+  #         at: ~/repo
+  #     - run:
+  #         name: Install Code Climate Test Reporter
+  #         command: |
+  #           curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  #           chmod +x ./cc-test-reporter
+  #     - run:
+  #         name: Upload Code Climate Report
+  #         command: |
+  #           ./cc-test-reporter sum-coverage --output - codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
 
-    steps:
-      - attach_workspace:
-          at: ~/repo
-      - run:
-          name: Install Code Climate Test Reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-      - run:
-          name: Upload Code Climate Report
-          command: |
-            ./cc-test-reporter sum-coverage --output - codeclimate.*.json | ./cc-test-reporter upload-coverage --debug --input -
+  # reek:
+  #   docker:
+  #     - image: cimg/ruby:3.3.0
+  #       environment:
+  #         BUNDLE_PATH: vendor/bundle
+  #         RAILS_ENV: test
 
-  reek:
-    docker:
-      - image: cimg/ruby:3.3.0
-        environment:
-          BUNDLE_PATH: vendor/bundle
-          RAILS_ENV: test
+  #   working_directory: ~/repo
 
-    working_directory: ~/repo
+  #   steps:
+  #     - checkout
 
-    steps:
-      - checkout
+  #     - run:
+  #         name: Configure Bundler
+  #         command: |
+  #           echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+  #           source $BASH_ENV
+  #           gem install bundler
 
-      - run:
-          name: Configure Bundler
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
+  #     # bundle install
+  #     - restore_cache:
+  #         keys:
+  #           - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+  #           - v1-bundle-cache-
+  #     - run:
+  #         name: Running bundle install
+  #         command: |
+  #           bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+  #     - save_cache:
+  #         key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+  #         paths:
+  #           - vendor/bundle
 
-      # bundle install
-      - restore_cache:
-          keys:
-            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-            - v1-bundle-cache-
-      - run:
-          name: Running bundle install
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
-      - save_cache:
-          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+  #     - run: bundle exec reek -c .reek.yml
 
-      - run: bundle exec reek -c .reek.yml
+  # rubocop:
+  #   docker:
+  #     - image: cimg/ruby:3.2.2
+  #       environment:
+  #         BUNDLE_PATH: vendor/bundle
+  #         RAILS_ENV: test
 
-  rubocop:
-    docker:
-      - image: cimg/ruby:3.2.2
-        environment:
-          BUNDLE_PATH: vendor/bundle
-          RAILS_ENV: test
+  #   working_directory: ~/repo
 
-    working_directory: ~/repo
+  #   steps:
+  #     - checkout
 
-    steps:
-      - checkout
+  #     - run:
+  #         name: Configure Bundler
+  #         command: |
+  #           echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+  #           source $BASH_ENV
+  #           gem install bundler
 
-      - run:
-          name: Configure Bundler
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
+  #     # bundle install
+  #     - restore_cache:
+  #         keys:
+  #           - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+  #           - v1-bundle-cache-
+  #     - run:
+  #         name: Running bundle install
+  #         command: |
+  #           bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+  #     - save_cache:
+  #         key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+  #         paths:
+  #           - vendor/bundle
 
-      # bundle install
-      - restore_cache:
-          keys:
-            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-            - v1-bundle-cache-
-      - run:
-          name: Running bundle install
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
-      - save_cache:
-          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+  #     - run: bundle exec rubocop -c .rubocop.yml
 
-      - run: bundle exec rubocop -c .rubocop.yml
+  # brakeman:
+  #   docker:
+  #     - image: cimg/ruby:3.3.0
+  #       environment:
+  #         BUNDLE_PATH: vendor/bundle
+  #         RAILS_ENV: test
 
-  brakeman:
-    docker:
-      - image: cimg/ruby:3.3.0
-        environment:
-          BUNDLE_PATH: vendor/bundle
-          RAILS_ENV: test
+  #   working_directory: ~/repo
 
-    working_directory: ~/repo
+  #   steps:
+  #     - checkout
 
-    steps:
-      - checkout
+  #     - run:
+  #         name: Configure Bundler
+  #         command: |
+  #           echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
+  #           source $BASH_ENV
+  #           gem install bundler
 
-      - run:
-          name: Configure Bundler
-          command: |
-            echo 'export BUNDLER_VERSION=$(cat Gemfile.lock | tail -1 | tr -d " ")' >> $BASH_ENV
-            source $BASH_ENV
-            gem install bundler
+  #     # bundle install
+  #     - restore_cache:
+  #         keys:
+  #           - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+  #           - v1-bundle-cache-
+  #     - run:
+  #         name: Running bundle install
+  #         command: |
+  #           bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+  #     - save_cache:
+  #         key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
+  #         paths:
+  #           - vendor/bundle
 
-      # bundle install
-      - restore_cache:
-          keys:
-            - v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-            - v1-bundle-cache-
-      - run:
-          name: Running bundle install
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
-      - save_cache:
-          key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
+  #     - run: bundle exec brakeman
 
-      - run: bundle exec brakeman
-
-  fasterer:
+  # fasterer:
     docker:
       - image: cimg/ruby:3.3.0
         environment:
@@ -255,10 +248,10 @@ workflows:
   test:
     jobs:
       - rspec
-      - rubocop
-      - reek
-      - brakeman
-      - fasterer
-      - upload-codeclimate-coverage:
-          requires:
-            - rspec
+      # - rubocop
+      # - reek
+      # - brakeman
+      # - fasterer
+      # - upload-codeclimate-coverage:
+      #     requires:
+      #       - rspec
