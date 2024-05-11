@@ -1,28 +1,27 @@
 version: 2.1
 
+working_directory: ~/repo
+
 orbs:
   ruby: circleci/ruby@2.1.1
 
-jobs:
-  rspec:
+executors:
+  rails-executor:
     docker:
       - image: cimg/ruby:3.3.0-browsers
-        environment:
-          BUNDLE_PATH: vendor/bundle
-          PGHOST: 127.0.0.1
-          PGUSER: db_user
-          RAILS_ENV: test
-          REDIS_URL: redis://127.0.0.1:6379/0
-          TEST_REDIS_PORT: 6379
       - image: cimg/postgres:16.2
-        environment:
-          POSTGRES_DB: davedkg_template_test
-          POSTGRES_PASSWORD: ""
-          POSTGRES_USER: db_user
-          POSTGRES_HOST_AUTH_METHOD: trust
       - image: cimg/redis:6.2.6
+    environment:
+      PGHOST: 127.0.0.1
+      PGUSER: db_user
+      RAILS_ENV: test
+      REDIS_URL: redis://127.0.0.1:6379/0
+      TEST_REDIS_PORT: 6379
 
-    working_directory: ~/repo
+jobs:
+  rspec:
+    executor:
+      name: rails-executor
 
     steps:
       - checkout
