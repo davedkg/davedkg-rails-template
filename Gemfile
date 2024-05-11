@@ -29,6 +29,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 group :development, :test do
   gem 'brakeman', '~> 6.1.2'
   gem 'debug', '~> 1.9.2', platforms: %i[mri windows]
+  gem 'dotenv', '~> 3.1.2'
   gem 'factory_bot_rails', '~> 6.4.3'
   gem 'fasterer', '~> 0.11.0'
   gem 'pry-byebug', '~> 3.10.1'
