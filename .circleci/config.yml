@@ -22,7 +22,7 @@ executors:
       REDIS_URL: redis://127.0.0.1:6379/0
   ruby-executor:
     docker:
-      - image: cimg/ruby:3.3.0
+      - image: cimg/ruby:3.3.0-browsers
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
@@ -55,7 +55,15 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec rake lint:reek
+      - run: bundle exec reek -c .reek.yml
+
+  rubocop:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec rubocop -c .rubocop.yml
 
 workflows:
   version: 2
@@ -66,5 +74,8 @@ workflows:
           requires:
             - build
       - reek:
+          requires:
+            - build
+      - rubocop:
           requires:
             - build
