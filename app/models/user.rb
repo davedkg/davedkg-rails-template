@@ -16,6 +16,7 @@ class User < ApplicationRecord
     disabled: 'disabled'
   }
 
+  # :reek:Attribute
   attr_accessor :skip_password_validation
 
   validates :name,      presence: true, on: :update

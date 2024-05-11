@@ -30,6 +30,7 @@ group :development, :test do
   gem 'debug', '~> 1.9.2', platforms: %i[mri windows]
   gem 'factory_bot_rails', '~> 6.4.3'
   gem 'pry-byebug', '~> 3.10.1'
+  gem 'reek', '~> 6.3.0'
   gem 'rspec-rails', '~> 6.1.2'
   gem 'rubocop-rails', '~> 2.24.1'
   gem 'rubocop-rspec', '~> 2.29.2'

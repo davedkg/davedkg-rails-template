@@ -5,6 +5,7 @@ module Capybara
     CAPYBARA_WINDOW_SIZES = %i[xs sm md lg xl].freeze
 
     # rubocop:disable Metrics/MethodLength
+    # :reek:TooManyStatements
     def resize_to_preset(preset)
       dimensions = case preset
                    when :xs, :extra_small, :sm, :small

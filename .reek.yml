@@ -1,0 +1,10 @@
+
+detectors:
+  IrresponsibleModule:
+    enabled: false
+  UtilityFunction:
+    enabled: false
+
+exclude_paths:
+  - config
+  - db
