@@ -6,7 +6,7 @@ orbs:
 jobs:
   rspec:
     docker:
-      - image: cimg/ruby:3.3-browsers
+      - image: cimg/ruby:3.3.0-browsers
         environment:
           BUNDLE_PATH: vendor/bundle
           PGHOST: 127.0.0.1
@@ -35,7 +35,9 @@ jobs:
       - run:
           name: Running bundle install
           command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle --without development production
+            bundle config set path 'vendor/bundle'
+            bundle config set without 'development production'
+            bundle install --jobs=4 --retry=3
       - save_cache:
           key: v1-bundle-cache-{{ checksum "Gemfile.lock" }}
           paths:
