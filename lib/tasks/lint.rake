@@ -22,5 +22,5 @@ namespace :lint do
   end
 end
 
-task fix: ['rubocop:auto_correct']
+task fix: ['rubocop:autocorrect_all']
 task lint: ['rubocop', 'lint:reek', 'lint:brakeman', 'lint:fasterer']

@@ -28,6 +28,7 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
   gem 'brakeman', '~> 6.1.2'
+  gem 'bullet', '~> 7.1.6'
   gem 'debug', '~> 1.9.2', platforms: %i[mri windows]
   gem 'dotenv', '~> 3.1.2'
   gem 'factory_bot_rails', '~> 6.4.3'
@@ -40,7 +41,6 @@ group :development, :test do
 end
 
 group :development do
-  gem 'bullet', '~> 7.1.6'
   gem 'foreman', '~> 0.88.1'
   gem 'rack-mini-profiler', '~> 3.3.1'
   gem 'web-console', '~> 4.2.1'
