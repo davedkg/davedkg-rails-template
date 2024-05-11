@@ -20,14 +20,17 @@ executors:
       PGUSER: db_user
       RAILS_ENV: test
       REDIS_URL: redis://127.0.0.1:6379/0
+  ruby-executor:
+    docker:
+      - image: cimg/ruby:3.3.0
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
 
 jobs:
   build:
-    docker:
-      - image: cimg/ruby:3.3.0
-        environment:
-          BUNDLE_JOBS: "3"
-          BUNDLE_RETRY: "3"
+    executor:
+      name: ruby-executor
     steps:
       - checkout
       - ruby/install-deps
@@ -42,7 +45,7 @@ jobs:
           name: Wait for DB to Boot
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
-          name: Running rake db:schema:load db:seed
+          name: Setup DB
           command: bundle exec rake db:schema:load db:seed --trace
       - ruby/rspec-test
 
