@@ -168,6 +168,8 @@ GEM
       activesupport (>= 6.1)
     google-protobuf (4.26.1-x86_64-darwin)
       rake (>= 13)
+    google-protobuf (4.26.1-x86_64-linux)
+      rake (>= 13)
     haml (6.3.0)
       temple (>= 0.8.2)
       thor
@@ -218,6 +220,8 @@ GEM
       net-protocol
     nio4r (2.7.1)
     nokogiri (1.16.4-x86_64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.16.4-x86_64-linux)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     parallel (1.24.0)
@@ -360,6 +364,8 @@ GEM
     rubyzip (2.3.2)
     sass-embedded (1.77.0-x86_64-darwin)
       google-protobuf (>= 3.25, < 5.0)
+    sass-embedded (1.77.0-x86_64-linux-gnu)
+      google-protobuf (>= 3.25, < 5.0)
     sassc-embedded (1.76.0)
       sass-embedded (~> 1.76)
     selenium-webdriver (4.19.0)
@@ -416,6 +422,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin
+  x86_64-linux
 
 DEPENDENCIES
   autoprefixer-rails (~> 10.4.16.0)
