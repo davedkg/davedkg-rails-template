@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AppConfig
   def self.email_domain
     ENV['MAILGUN_DOMAIN'] || ENV['EMAIL_DOMAIN'] || AppConfig.app_domain

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :development do
   task seed: :environment do
     require_relative Rails.root.join('lib/seeder.rb')

@@ -2,10 +2,10 @@
 
 require 'rails_helper'
 
-describe 'GET new_user_invitation_path', type: :request do
-  subject { get new_user_invitation_path }
+describe 'GET new_user_invitation_path' do
+  subject(:request) { get new_user_invitation_path }
 
-  before { subject }
+  before { request }
 
   it 'returns redirect status' do
     expect(response).to have_http_status(:redirect)

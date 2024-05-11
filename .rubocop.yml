@@ -1,0 +1,24 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'db/**/*'
+
+Naming/FileName:
+  Exclude:
+    - 'spec/requests/**/*'
+
+Rails/LexicallyScopedActionFilter:
+  Exclude:
+    - 'app/controllers/invitations_controller.rb'
+
+Style/Documentation:
+  Enabled: false

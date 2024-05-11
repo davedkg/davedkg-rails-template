@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
@@ -16,7 +18,7 @@ class User < ApplicationRecord
 
   attr_accessor :skip_password_validation
 
-  validates :name,      presence: true, uniqueness: { case_sensitive: false }, on: :update
+  validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
 
   def send_invitation
@@ -34,8 +36,8 @@ class User < ApplicationRecord
 
   ## *** Devise Overrides
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, id, *args).deliver_later
+  def send_devise_notification(notification, *)
+    devise_mailer.send(notification, id, *).deliver_later
   end
 
   def active_for_authentication?
