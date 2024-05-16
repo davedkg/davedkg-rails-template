@@ -2,6 +2,6 @@
 
 WebComponentsPolicy = Struct.new(:user, :web_components) do
   def index?
-    user.admin?
+    user.admin? || Rails.env.development?
   end
 end

@@ -43,6 +43,7 @@ end
 
 group :development do
   gem 'foreman', '~> 0.88.1'
+  gem 'letter_opener_web', '~> 3.0.0'
   gem 'rack-mini-profiler', '~> 3.3.1'
   gem 'web-console', '~> 4.2.1'
 end

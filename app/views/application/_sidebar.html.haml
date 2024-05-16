@@ -24,12 +24,15 @@
                 = link_to dashboard_path, class: active_sidebar_tab_for_path(dashboard_path) do
                   %i.fa.fa-tachometer-alt.fs-5.me-2
                   %span.nav-label.ms-1 Dashboard
-        - if current_user.admin?
+        - if Rails.env.development?
           .mainnav__categoriy.py-3
-            %h6.mainnav__caption.fw-bold Admin
+            %h6.mainnav__caption.fw-bold Development
             %ul.mainnav__menu.nav.flex-column
-              - if policy(:web_components).index?
-                %li.nav-item
-                  = link_to web_components_path, class: active_sidebar_tab_for_path(web_components_path) do
-                    %i.fa.fa-code.fs-5.me-2
-                    %span.nav-label.ms-1 Web Components
+              %li.nav-item
+                = link_to '/letter-opener', class: "nav-link mininav-toggle", target: "_blank" do
+                  %i.fa.fa-inbox.fs-5.me-2
+                  %span.nav-label.ms-1 Letter Opener
+              %li.nav-item
+                = link_to web_components_path, class: active_sidebar_tab_for_path(web_components_path) do
+                  %i.fa.fa-code.fs-5.me-2
+                  %span.nav-label.ms-1 Web Components
