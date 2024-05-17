@@ -29,6 +29,10 @@
             %h6.mainnav__caption.fw-bold Development
             %ul.mainnav__menu.nav.flex-column
               %li.nav-item
+                = link_to '/rails/mailers', class: "nav-link mininav-toggle", target: "_blank" do
+                  %i.fa.fa-envelope.fs-5.me-2
+                  %span.nav-label.ms-1 Email Previews
+              %li.nav-item
                 = link_to '/letter-opener', class: "nav-link mininav-toggle", target: "_blank" do
                   %i.fa.fa-inbox.fs-5.me-2
                   %span.nav-label.ms-1 Letter Opener
