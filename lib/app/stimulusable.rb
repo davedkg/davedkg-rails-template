@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :reek::FeatureEnvy
 module Stimulusable
   def add_stimulus_controller(data, controller)
     data[:controller] = add_stimulus_param_to_params(controller, data[:controller])
