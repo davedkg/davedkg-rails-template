@@ -1,5 +1,7 @@
 
 detectors:
+  FeatureEnvy:
+    enabled: false
   InstanceVariableAssumption:
     enabled: false
   IrresponsibleModule:
