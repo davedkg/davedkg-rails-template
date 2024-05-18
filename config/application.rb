@@ -27,6 +27,7 @@ module Template
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-    config.eager_load_paths += %W[#{config.root}/spec/mailers/previews]
+    config.eager_load_paths << "#{config.root}/lib/app"
+    config.eager_load_paths << "#{config.root}/spec/mailers/previews" if Rails.env.development?
   end
 end
