@@ -4,6 +4,8 @@ detectors:
     enabled: false
   IrresponsibleModule:
     enabled: false
+  TooManyMethods:
+    enabled: false
   TooManyStatements:
     enabled: false
   UtilityFunction:
