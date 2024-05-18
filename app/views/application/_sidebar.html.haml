@@ -37,6 +37,10 @@
                   %i.fa.fa-inbox.fs-5.me-2
                   %span.nav-label.ms-1 Letter Opener
               %li.nav-item
+                = link_to '/sidekiq', class: "nav-link mininav-toggle", target: "_blank" do
+                  %i.fa.fa-trowel-bricks.fs-5.me-2
+                  %span.nav-label.ms-1 Sidekiq
+              %li.nav-item
                 = link_to web_components_path, class: active_sidebar_tab_for_path(web_components_path) do
                   %i.fa.fa-code.fs-5.me-2
                   %span.nav-label.ms-1 Web Components

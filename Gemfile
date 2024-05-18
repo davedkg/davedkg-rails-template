@@ -22,6 +22,7 @@ gem 'font-awesome-sass', '~> 6.5.2'
 gem 'haml-rails', '~> 2.0'
 gem 'paranoia', '~> 2.6.3'
 gem 'pundit', '~> 2.3.1'
+gem 'sidekiq', '~> 7.2'
 gem 'simple_form', '~> 5.3.0'
 
 gem 'bootsnap', '~> 1.18.3', require: false
