@@ -12,6 +12,9 @@
                 %h6.mb-0.me-3= current_user.name
               %small.text-body-secondary= current_user.email
             #usernav.nav.flex-column.collapse
+              = link_to user_path(current_user), class: "nav-link" do
+                %i.pli-user.fs-5.me-2
+                %span.ms-1 Profile
               = link_to destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete } do
                 %i.pli-unlock.fs-5.me-2
                 %span.ms-1 Sign out
