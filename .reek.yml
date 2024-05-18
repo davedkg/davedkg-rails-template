@@ -1,5 +1,7 @@
 
 detectors:
+  InstanceVariableAssumption:
+    enabled: false
   IrresponsibleModule:
     enabled: false
   UtilityFunction:

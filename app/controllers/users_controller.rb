@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# :reek::TooManyStatements:
 class UsersController < ApplicationController
   before_action :set_user, except: %i[index new create]
 
