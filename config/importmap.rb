@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "nifty", to: "nifty.js"
 pin "bootstrap"
 pin "@popperjs/core", to: "popper.js"
+pin "sweetalert2" # @11.11.0
