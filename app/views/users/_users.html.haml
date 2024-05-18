@@ -1,0 +1,11 @@
+- @users.each do |user|
+  %tr
+    %td= user_name(user)
+    %td.d-none.d-md-table-cell
+      = user_status_badge(user)
+    %td.text-end
+      - if policy(user).show?
+        = link_to user_path(user), class: "btn btn-outline-primary btn-sm" do
+          %i.fa.fa-eye
+          .d-none.d-sm-inline
+            Show

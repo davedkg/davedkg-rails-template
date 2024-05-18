@@ -11,7 +11,9 @@
   %body.out-quart
     #root.root.mn--max.tm--expanded-hd.sb--stuck
       %section.content#content
-        = yield
+        .content__boxed
+          .content__wrap
+            = yield
       = render 'header'
       = render 'sidebar'
     = render 'flash'
