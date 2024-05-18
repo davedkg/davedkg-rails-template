@@ -17,6 +17,9 @@ Naming/FileName:
   Exclude:
     - 'spec/requests/**/*'
 
+Rails/I18nLocaleTexts:
+  Enabled: false
+
 Rails/LexicallyScopedActionFilter:
   Exclude:
     - 'app/controllers/invitations_controller.rb'
