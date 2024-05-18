@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :reek::TooManyStatements
 class UserPolicy < ApplicationPolicy
   def index?
     admin?

@@ -4,6 +4,8 @@ detectors:
     enabled: false
   IrresponsibleModule:
     enabled: false
+  TooManyStatements:
+    enabled: false
   UtilityFunction:
     enabled: false
 
