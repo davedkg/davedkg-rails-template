@@ -42,6 +42,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 6.1.2'
   gem 'rubocop-rails', '~> 2.24.1'
   gem 'rubocop-rspec', '~> 2.29.2'
+  gem 'scss_lint', '~> 0.60.0', require: false
 end
 
 group :development do

@@ -75,6 +75,13 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bundle exec fasterer
+  scss:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec scss-lint --config .scss-lint.yml
 
 workflows:
   version: 2
@@ -94,5 +101,8 @@ workflows:
           requires:
             - build
       - fasterer:
+          requires:
+            - build
+      - scss:
           requires:
             - build
