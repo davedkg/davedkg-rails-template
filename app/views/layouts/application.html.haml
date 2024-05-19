@@ -2,7 +2,7 @@
 %html{ data: { bs_theme: "light", scheme: "navy" } }
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Template
+    %title= "#{page_title} | #{PLATFORM_TITLE}"
     %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
@@ -11,9 +11,9 @@
   %body.out-quart
     #root.root.mn--max.tm--expanded-hd.sb--stuck
       %section.content#content
+        = render 'page_header'
         .content__boxed
           .content__wrap
-            = render 'breadcrumbs'
             = yield
       = render 'header'
       = render 'sidebar'

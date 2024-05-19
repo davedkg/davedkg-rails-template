@@ -1,7 +1,6 @@
-.action-btn.layout-top-spacing.mb-7.d-flex.align-items-center.justify-content-between.flex-wrap.gap-6
-  %h5.mb-0.fs-5= page_title
-  - if policy(User).new?
-    = link_to new_user_path, class: "btn btn-primary" do
+- if policy(User).new?
+  - content_for(:page_actions) do
+    = link_to new_user_path, class: "btn btn-success btn-lg fw-semibold" do
       %i.fa.fa-plus
       .d-none.d-sm-inline
         Invite User

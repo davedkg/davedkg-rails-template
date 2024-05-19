@@ -2,7 +2,7 @@
 
 = simple_form_for :form do |f|
 
-  .card
+  .card.mb-4
     .card-body
       %h4.card-title Checkboxes
       .row
@@ -15,7 +15,7 @@
         %pre
           = "= f.input :attribute, collection: collection, as: :check_boxes"
 
-  .card
+  .card.mb-4
     .card-body
       %h4.card-title File
       .row
@@ -28,7 +28,7 @@
         %pre
           = "= f.input :attribute, as: :file"
 
-  .card
+  .card.mb-4
     .card-body
       %h4.card-title Radio Group
       .row
@@ -41,7 +41,7 @@
         %pre
           = "= f.input :attribute, collection: collection, as: :radio_buttons"
 
-  .card
+  .card.mb-4
     .card-body
       %h4.card-title Select
       %h6.card-subtitle Single Select
@@ -55,7 +55,7 @@
         %pre
           = "= f.input :attribute, collection: collection"
 
-  .card
+  .card.mb-4
     .card-body
       %h4.card-title Text
       .row
@@ -68,7 +68,7 @@
         %pre
           = "= f.input :attribute"
 
-  .card
+  .card.mb-4
     .card-body
       %h4.card-title Toggle Switch
       .row
