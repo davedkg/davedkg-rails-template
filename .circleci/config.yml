@@ -90,7 +90,7 @@ jobs:
       - ruby/install-deps
       - run:
           name: Compile Assets
-          command: RAILS_ENV=production bundle exec rails assets:precompile
+          command: bundle exec rails assets:precompile
 
 workflows:
   version: 2
