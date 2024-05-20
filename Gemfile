@@ -67,6 +67,7 @@ end
 
 group :production do
   gem 'newrelic_rpm', '~> 9.9.0'
+  gem 'rails_12factor', '~> 0.0.3'
   gem 'sentry-rails', '~> 5.17.3'
   gem 'sentry-ruby', '~> 5.17.3'
   gem 'sentry-sidekiq', '~> 5.17.3'
