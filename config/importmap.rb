@@ -9,3 +9,4 @@ pin "nifty", to: "nifty.js"
 pin "bootstrap"
 pin "@popperjs/core", to: "popper.js"
 pin "sweetalert2" # @11.11.0
+pin "autosize" # @6.0.1

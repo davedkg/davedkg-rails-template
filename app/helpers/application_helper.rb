@@ -24,6 +24,7 @@ module ApplicationHelper
     "nav-link mininav-toggle #{request.path.start_with?(path) ? 'active' : nil}"
   end
 
+  # :reek:DuplicateMethodCall
   def link_to(name = nil, options = nil, html_options = {}, &)
     if block_given?
       html_options = options
@@ -37,6 +38,7 @@ module ApplicationHelper
   private
 
   # :reek:NilCheck
+  # :reek:DuplicateMethodCall
   def merge_html_options(html_options)
     return html_options if html_options.nil? || html_options[:modal] != true
 
