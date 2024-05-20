@@ -23,6 +23,12 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # rubocop:disable Naming/AccessorMethodName
+  def set_modal_size(modal_size)
+    @modal_size = modal_size
+  end
+  # rubocop:enable Naming/AccessorMethodName
+
   def application_controller?
     params[:controller] == 'application'
   end
