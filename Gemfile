@@ -64,3 +64,10 @@ group :test do
   gem 'capybara', '~> 3.40.0'
   gem 'selenium-webdriver', '~> 4.19.0'
 end
+
+group :production do
+  gem 'newrelic_rpm', '~> 9.9.0'
+  gem 'sentry-rails', '~> 5.17.3'
+  gem 'sentry-ruby', '~> 5.17.3'
+  gem 'sentry-sidekiq', '~> 5.17.3'
+end
