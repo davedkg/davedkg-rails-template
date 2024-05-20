@@ -1,9 +1,8 @@
 require "active_support/core_ext/integer/time"
+require_relative Rails.root.join('lib', 'app_config.rb')
 
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
-  require_relative Rails.root.join('lib', 'app_config.rb')
 
   # Code is not reloaded between requests.
   config.enable_reloading = false
@@ -98,18 +97,4 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-
-
-  config.action_mailer.default_url_options = {
-    host: AppConfig.app_domain
-  }
-
-  ActionMailer::Base.smtp_settings = {
-    port:           ENV['MAILGUN_SMTP_PORT'],
-    address:        ENV['MAILGUN_SMTP_SERVER'],
-    user_name:      ENV['MAILGUN_SMTP_LOGIN'],
-    password:       ENV['MAILGUN_SMTP_PASSWORD'],
-    domain:         AppConfig.app_domain,
-    authentication: :plain
-  }
-  ActionMailer::Base.delivery_method = :smtp
+end
