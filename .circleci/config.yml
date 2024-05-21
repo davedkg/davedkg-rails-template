@@ -82,15 +82,6 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bundle exec scss-lint --config .scss-lint.yml
-  assets:
-    executor:
-      name: rails-executor
-    steps:
-      - checkout
-      - ruby/install-deps
-      - run:
-          name: Compile Assets
-          command: bundle exec rails assets:precompile
 
 workflows:
   version: 2
@@ -113,8 +104,5 @@ workflows:
           requires:
             - build
       - scss:
-          requires:
-            - build
-      - assets:
           requires:
             - build
