@@ -1,4 +1,4 @@
-= turbo_stream.replace "body" do
+= turbo_stream.update "users-table-rows" do
   = render 'users'
-= turbo_stream.replace "paginator" do
+= turbo_stream.update "users-paginator" do
   = render "paginator"

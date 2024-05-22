@@ -15,14 +15,7 @@
             %th <%= attribute.name.humanize %>
           <%- end -%>
             %th &nbsp;
-        %tbody{ id: "<%= plural_table_name %>-body" }
+        %tbody{ id: "<%= plural_table_name %>-table-rows" }
           = render 'table_rows'
       %div{ id: "<%= plural_table_name %>-paginator" }
         = render "paginator"
-
-- if policy(User).new?
-  - content_for(:page_actions) do
-    = link_to new_user_path, class: "btn btn-success btn-lg fw-semibold" do
-      %i.fa.fa-plus
-      .d-none.d-sm-inline
-        Invite User

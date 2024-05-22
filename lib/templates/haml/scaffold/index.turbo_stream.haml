@@ -1,4 +1,4 @@
-= turbo_stream.replace "body" do
-  = render <%= plural_table_name %>
-= turbo_stream.replace "paginator" do
+= turbo_stream.update "<%= plural_table_name %>-table-rows" do
+  = render 'table_rows'
+= turbo_stream.update "<%= plural_table_name %>-paginator" do
   = render "paginator"
