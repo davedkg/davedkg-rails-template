@@ -16,4 +16,7 @@ detectors:
 exclude_paths:
   - config
   - db
+  - lib/generators
+  - lib/rails
+  - lib/templates
   - vendor
