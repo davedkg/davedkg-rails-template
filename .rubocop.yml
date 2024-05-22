@@ -11,6 +11,9 @@ AllCops:
     - 'bin/**/*'
     - 'config/**/*'
     - 'db/**/*'
+    - 'lib/generators/**/*'
+    - 'lib/rails/**/*'
+    - 'lib/templates/**/*'
     - 'vendor/**/*'
 
 Naming/FileName:

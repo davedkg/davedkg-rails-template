@@ -1,6 +1,8 @@
 /.circleci
 /config/enviornments/development.rb
 /config/enviornments/test.rb
+/lib/generators
+/lib/rails
 /lib/templates
 /spec
 /storage
