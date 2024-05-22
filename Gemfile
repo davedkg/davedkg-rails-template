@@ -66,6 +66,7 @@ group :test do
 end
 
 group :production do
+  gem 'mailgun-ruby', '~>1.2.14'
   gem 'newrelic_rpm', '~> 9.9.0'
   gem 'rails_12factor', '~> 0.0.3'
   gem 'sentry-rails', '~> 5.17.3'
