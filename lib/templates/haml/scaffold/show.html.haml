@@ -1,0 +1,15 @@
+= content_for(:page_actions) do
+  - if policy(@<%= singular_table_name %>).edit?
+    = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-secondary btn-sm me-2" do
+      %i.fa.fa-edit
+      .d-none.d-md-inline
+        Edit
+  - if policy(@<%= singular_table_name %>).destroy?
+    = link_to <%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-danger btn-sm", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this <%= singular_table_name %>?" do
+      %i.fa.fa-trash
+      .d-none.d-md-inline
+        Delete
+
+.card
+  .card-body
+    = debug @<%= singular_table_name %>

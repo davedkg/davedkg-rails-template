@@ -1,0 +1,11 @@
+- @<%= plural_table_name %>.each do |<%= singular_table_name %>|
+  %tr
+<%- attributes.each do |attribute| -%>
+    %td= <%= singular_table_name %>.<%= attribute.name %>
+<%- end -%>
+    %td.text-right
+      - if policy(<%= singular_table_name %>).show?
+        = link_to <%= singular_table_name %>_path(<%= singular_table_name %>), class: "btn btn-outline-secondary btn-sm" do
+          %i.fa.fa-eye
+          .d-none.d-sm-inline
+            Show
