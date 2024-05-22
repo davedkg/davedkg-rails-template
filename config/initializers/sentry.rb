@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 if ENV['SENTRY_DSN'] && defined?(Sentry)
+  require 'active_support/parameter_filter'
+
   Sentry.init do |config|
     config.dsn                = ENV['SENTRY_DSN']
     config.enable_tracing     = true
