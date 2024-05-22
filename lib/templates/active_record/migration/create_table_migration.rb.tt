@@ -17,6 +17,7 @@ class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Mi
       t.timestamps
 <% end -%>
     end
+    add_index :<%= table_name %>, :deleted_at
 <% attributes.select(&:token?).each do |attribute| -%>
     add_index :<%= table_name %>, :<%= attribute.index_name %><%= attribute.inject_index_options %>, unique: true
 <% end -%>
