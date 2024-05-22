@@ -53,6 +53,16 @@ class UserPolicy < ApplicationPolicy
     end
   end
 
+  class Scope < Scope
+    def resolve
+      if user.admin?
+        scope
+      else
+        scope.where(id: user.id)
+      end
+    end
+  end
+
   private
 
   def me?

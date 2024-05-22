@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update]
 
   def index
-    @users = authorize User.order(name: :asc).page(params[:page])
+    @users = authorize policy_scope(User).order(name: :asc).page(params[:page])
   end
 
   def show; end
@@ -87,7 +87,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = authorize User.find(params[:id])
+    @user = authorize policy_scope(User).find(params[:id])
   end
 
   def page_title_hash
