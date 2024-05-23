@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'POST <%= plural_name %>_path', type: :request do
-  subject { post <%= plural_name %>_path, params: { <%= plural_name.singularize %>: <%= plural_name.singularize %>_params } }
+  subject(:request) { post <%= plural_name %>_path, params: { <%= plural_name.singularize %>: <%= plural_name.singularize %>_params } }
 
   let(:<%= plural_name.singularize %>_params) { attributes_for(:<%= plural_name.singularize %>) }
   let(:user) { create(:user) }
@@ -13,13 +13,13 @@ describe 'POST <%= plural_name %>_path', type: :request do
   end
 
   it 'returns redirect status' do
-    subject
+    request
     expect(response).to have_http_status(:redirect)
   end
 
   it 'creates a record' do
     expect do
-      subject
+      request
     end.to change(<%= plural_name.singularize.titleize %>, :count).by(1)
   end
 end

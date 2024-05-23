@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'DELETE <%= plural_name.singularize %>_path', type: :request do
-  subject { delete <%= plural_name.singularize %>_path(record) }
+  subject(:request) { delete <%= plural_name.singularize %>_path(record) }
 
   let(:user) { create(:user) }
   let(:record) { create(:<%= plural_name.singularize %>) }
@@ -11,13 +11,13 @@ describe 'DELETE <%= plural_name.singularize %>_path', type: :request do
   end
 
   it 'returns redirect status' do
-    subject
+    request
     expect(response).to have_http_status(:redirect)
   end
 
   it 'deletes record' do
     expect do
-      subject
+      request
     end.to change { record.reload.deleted_at }
   end
 end
