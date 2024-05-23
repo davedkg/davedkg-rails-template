@@ -1,83 +1,75 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.2.2'
+ruby '3.3.1'
 
-gem 'dotenv-rails', '~> 2.7.5', groups: %i[development test]
+gem 'importmap-rails', '~> 2.0.1'
+gem 'jbuilder', '~> 2.11.5'
+gem 'pg', '~> 1.1'
+gem 'puma', '>= 5.0'
+gem 'rails', '~> 7.1.3', '>= 7.1.3.2'
+gem 'redis', '>= 4.0.1'
+gem 'sprockets-rails', '~> 3.4.2'
+gem 'stimulus-rails', '~> 1.3.3'
+gem 'turbo-rails', '~> 2.0.5'
 
-gem 'jbuilder', '~> 2.7'
-gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '< 7'
-gem 'rails', '~> 6.1.0'
-gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 5.4.3'
-
-gem 'active_storage_validations', '~> 1.0.4'
-gem 'autoprefixer-rails', '~> 6.7.2'
-gem 'devise', '~> 4.7.1'
+gem 'autoprefixer-rails', '~> 10.4.16.0'
+gem 'dartsass-sprockets', '~> 3.1.0'
+gem 'devise', '~> 4.9.4'
 gem 'devise_invitable', '~> 2.0.0'
-gem 'groupdate', '~> 5.0.0'
+gem 'font-awesome-sass', '~> 6.5.2'
 gem 'haml-rails', '~> 2.0'
-gem 'image_processing', '~> 1.12.2'
-gem 'kaminari', '~> 1.2.1'
+gem 'kaminari', '~> 1.2.2'
 gem 'loaf', '~> 0.10.0'
-gem 'mailgun-ruby', '~>1.1.6'
-gem 'mini_magick', '~> 4.10.1'
-gem 'paranoia', '~> 2.4.2'
-gem 'pundit', '~> 2.1.0'
-gem 'sidekiq', '~> 6.5.10'
-gem 'simple_form', '~> 5.0.1'
-gem 'turbo-rails', '~> 1.4.0'
+gem 'paranoia', '~> 2.6.3'
+gem 'pundit', '~> 2.3.1'
+gem 'sidekiq', '~> 7.2'
+gem 'simple_form', '~> 5.3.0'
 
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'bootsnap', '~> 1.18.3', require: false
+gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
-  gem 'action-cable-testing', '~> 0.6.1'
-  gem 'brakeman', '~> 5.1.1'
-  gem 'eslintrb', '~> 2.1.0'
-  gem 'factory_bot_rails', '~> 5.1.1'
-  gem 'fasterer', '~> 0.9.0'
-  gem 'pry-byebug', '~> 3.10.0'
-  gem 'reek', '~> 6.0.1'
-  gem 'rspec-rails', '~> 4.0'
-  gem 'rubocop-rails', '~> 2.15.2'
-  gem 'rubocop-rspec', '~> 2.11.1'
-  gem 'scss_lint', '~> 0.59.0'
+  gem 'brakeman', '~> 6.1.2'
+  gem 'bullet', '~> 7.1.6'
+  gem 'debug', '~> 1.9.2', platforms: %i[mri windows]
+  gem 'dotenv', '~> 3.1.2'
+  gem 'factory_bot_rails', '~> 6.4.3'
+  gem 'fasterer', '~> 0.11.0'
+  gem 'pry-byebug', '~> 3.10.1'
+  gem 'reek', '~> 6.3.0'
+  gem 'rspec-rails', '~> 6.1.2'
+  gem 'rubocop-rails', '~> 2.24.1'
+  gem 'rubocop-rspec', '~> 2.29.2'
+  gem 'scss_lint', '~> 0.60.0', require: false
 end
 
 group :development do
-  gem 'bullet', '~> 7.0.2'
-  gem 'foreman', '~> 0.87.1', require: false
-  gem 'guard-livereload', '~> 2.5', require: false
-  gem 'letter_opener_web', '~> 1.0'
-  gem 'listen', '>= 3.0.5', '< 3.2'
-  gem 'rack-livereload', '~> 0.3.17'
-  gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'web-console', '>= 3.3.0'
+  gem 'foreman', '~> 0.88.1'
+  gem 'letter_opener_web', '~> 3.0.0'
+  gem 'rack-mini-profiler', '~> 3.3.1'
+  gem 'web-console', '~> 4.2.1'
 end
 
 group :test do
-  gem 'database_cleaner', '~> 1.7.0'
-  gem 'faker', '~> 3.2'
-  gem 'pundit-matchers', '~> 1.6.0'
-  gem 'rspec_junit_formatter', '~> 0.4.1'
-  gem 'simplecov', '~> 0.17.1', require: false
+  gem 'faker', '~> 3.3.1'
+  gem 'pundit-matchers', '~> 3.1.2'
+
+  # Code Climate Code Coverage
+  gem 'rspec_junit_formatter', '~> 0.6.0', require: false
+  gem 'simplecov', '~> 0.22.0', require: false
 
   # Feature Tests
-  gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
+  gem 'capybara', '~> 3.40.0'
+  gem 'selenium-webdriver', '~> 4.19.0'
 end
 
 group :production do
-  gem 'newrelic_rpm', '~> 7.1.0'
+  gem 'mailgun-ruby', '~>1.2.14'
+  gem 'newrelic_rpm', '~> 9.9.0'
   gem 'rails_12factor', '~> 0.0.3'
-  gem 'sentry-rails', '~> 4.6.4'
-  gem 'sentry-ruby', '~> 4.6.4'
-  gem 'sentry-sidekiq', '~> 4.6.4'
+  gem 'sentry-rails', '~> 5.17.3'
+  gem 'sentry-ruby', '~> 5.17.3'
+  gem 'sentry-sidekiq', '~> 5.17.3'
 end
-
-# gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

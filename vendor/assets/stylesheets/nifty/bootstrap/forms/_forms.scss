@@ -1,0 +1,128 @@
+/* -- FORMS -- */
+/* --------------------------------------------------------------------------------- */
+
+// Form floating
+/// ---------------------------------------------------------------------------------
+.form-floating {
+   >.form-control:focus,
+   >.form-control:not(:placeholder-shown),
+   >.form-control-plaintext,
+   >.form-select {
+      ~label {
+         &:after {
+            background-color: transparent;
+         }
+      }
+   }
+}
+
+
+
+// Form disabled
+// ---------------------------------------------------------------------------------
+.form-control, .form-control-plaintext, .form-select {
+   &:disabled {
+      opacity: var(--#{$prefix}form-disabled-opacity);
+   }
+}
+
+.form-check-input:not(:checked):not(:indeterminate):disabled {
+   background-color: $input-disabled-bg;
+}
+
+
+
+// Form switch
+// ---------------------------------------------------------------------------------
+.form-switch {
+   align-items: center;
+   display: flex;
+   margin: 0;
+
+   .form-check-input {
+      margin-top: 0;
+      height: $form-switch-height;
+
+      &:hover, + .form-check-label:hover {
+         cursor: pointer;
+      }
+
+      &:not(:checked) {
+         background-color: $form-switch-bg-color;
+         border-color: $form-switch-border-color;
+      }
+   }
+}
+
+
+
+// Form range
+// ---------------------------------------------------------------------------------
+.form-range {
+   --#{$prefix}form-range-thumb-active-bg: #{shade-color( $primary, 15% )};
+}
+
+.range-bubble {
+   background: var(--#{ $prefix }primary);
+   border-radius: var(--#{ $prefix }border-radius);
+   color: var(--#{ $prefix }primary-color);
+   left: 50%;
+   padding: $tooltip-padding-y $tooltip-padding-x;
+   position: absolute;
+   transform: translateX(-50%) translateY(calc(-100% - 10px));
+
+   &::after {
+      content: "";
+      position: absolute;
+      inset: auto auto -4px 50%;
+      width: 0;
+      height: 0;
+      transform: translateX(-50%);
+      border-style: solid;
+      border-width: 5px 5px 0 5px;
+      border-color: var(--#{ $prefix }primary) transparent transparent transparent;
+   }
+}
+
+
+
+// Form alternate
+// ---------------------------------------------------------------------------------
+.form-check.form-check-alt {
+   .form-check-input {
+      background-color: var( --#{$prefix}component-alt-bg );
+      border-color: var( --#{$prefix}component-alt-bg );
+      &:checked {
+         background-color: var( --#{$prefix}component-alt-active-bg );
+         border-color: var( --#{$prefix}component-alt-active-bg );
+      }
+   }
+}
+
+
+
+// Input Group
+// ---------------------------------------------------------------------------------
+// Prevent multi-border coloring when using alpha.
+.input-group > .input-group-text {
+   &:first-child {
+         border-right-width: 0;
+   }
+
+   &:last-child {
+      border-left-width: 0;
+   }
+
+   &:not(:first-child):not(:last-child) {
+      border-left-width: 0;
+      border-right-width: 0;
+   }
+
+   &:first-child + .input-group-text {
+      border-left-width: var(--#{ $prefix }border-width);
+   }
+
+   & + .input-group-text:last-child {
+      border-left-width: var(--#{ $prefix }border-width);
+   }
+}

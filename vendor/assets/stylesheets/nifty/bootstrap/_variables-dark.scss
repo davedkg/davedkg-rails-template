@@ -1,0 +1,34 @@
+// Dark color mode variables
+// ---------------------------------------------------------------------------------
+// Custom variables for the `[data-bs-theme="dark"]` theme.
+
+// Global colors
+// ---------------------------------------------------------------------------------
+$body-color-dark:                   #a6abb2 !default;
+$body-bg-dark:                      #23292f !default;
+$body-secondary-color-dark:         rgba($body-color-dark, .75) !default;
+$body-secondary-bg-dark:            tint-color($body-bg-dark, 5%) !default;
+$body-tertiary-bg-dark:             tint-color($body-bg-dark, 12%) !default;
+$body-tertiary-color-dark:          rgba($body-color-dark, .5) !default;
+$body-emphasis-color-dark:          $white !default;
+$border-color-dark:                 #4f5154 !default; //#3a3d41 !default;
+$border-color-translucent-dark:     rgba($white, .15) !default;
+$headings-color-dark:               $white !default;
+$link-color-dark:                   $blue !default;
+$link-hover-color-dark:             tint-color($blue, 25%) !default;
+$code-color-dark:                   tint-color($pink, 15%) !default;
+$mark-color-dark:                   $body-color-dark !default;
+$mark-bg-dark:                      $yellow-800 !default;
+$input-disabled-opacity-dark:       .3 !default;
+
+$component-bg-dark:                 #293038 !default;
+$component-color-dark:              shade-color( $light, 15% ) !default;
+$component-hover-bg-dark:           $body-tertiary-bg-dark !default;
+$component-hover-color-dark:        $body-emphasis-color-dark !default;
+
+$box-shadow-color-dark:             to-rgb(#000) !default;
+$box-shadow-alpha-dark:             .25 !default;
+$box-shadow-alpha-xs-dark:          .175 !default;
+$box-shadow-alpha-sm-dark:          .225 !default;
+$box-shadow-alpha-lg-dark:          .4 !default;
+$box-shadow-alpha-inset-dark:       .5 !default;

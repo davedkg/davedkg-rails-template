@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 class WebComponentsController < ApplicationController
-  before_action :authenticate_admin!
-  skip_after_action :verify_authorized
-
-  def index; end
+  def show
+    authorize :web_components, :show?
+  end
 
   def modal
-    @page_title = 'AJAX Modal'
+    authorize :web_components, :modal?
+
+    @page_title = 'Modal'
 
     set_modal_size(size.to_sym) if size
 

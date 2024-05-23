@@ -1,0 +1,50 @@
+/* -- COLORS -- */
+/* --------------------------------------------------------------------------------- */
+
+.text-bg-primary {
+   color: var(--#{$prefix}primary-color) if($enable-important-utilities, !important, null);
+}
+
+
+// Colors map
+// ---------------------------------------------------------------------------------
+$colors-map: (
+  "blue":       $blues,
+  "indigo":     $indigos,
+  "purple":     $purples,
+  "pink":       $pinks,
+  "red":        $reds,
+  "orange":     $oranges,
+  "yellow":     $yellows,
+  "green":      $greens,
+  "teal":       $teals,
+  "cyan":       $cyans,
+  "gray":       $grays
+) !default;
+
+
+// Colors Variant
+// ---------------------------------------------------------------------------------
+@each $map-name, $map-val in $colors-map {
+   $counter : 0;
+   $extBgClass: "";
+   $extTxClass: "";
+   @each $color, $val in $map-val {
+      $counter: $counter + 1;
+      @if $counter == 5 {
+         $extBgClass: ", .bg-" + $map-name;
+         $extTxClass: ", .text-" + $map-name;
+      }@else {
+         $extBgClass: "";
+         $extTxClass: "";
+      }
+      .bg-#{ $map-name + "-" }#{ $counter + "00" }#{ $extBgClass } {
+         --#{ $prefix }bg-opacity: 1;
+         background-color: unquote('rgba(#{ to-rgb($val) }, var(--#{ $prefix }bg-opacity))') !important;
+      }
+      .text-#{ $map-name + "-" }#{ $counter + "00" }#{ $extTxClass } {
+         --#{ $prefix }text-opacity: 1;
+         color: unquote('rgba(#{ to-rgb($val) }, var(--#{ $prefix }text-opacity))') !important;
+      }
+   }
+}

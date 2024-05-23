@@ -1,0 +1,54 @@
+/* -- RIBBON -- */
+/* ---------------------------------------------- */
+
+.ribbon {
+   height: 75px;
+   overflow: hidden;
+   position: absolute;
+   right: -5px;
+   text-align: right;
+   top: -5px;
+   width: 75px;
+   z-index: 1;
+
+   span {
+      background: #e53f50;
+      box-shadow: 0 3px 10px -3px #{ rgba( var( --#{ $prefix }box-shadow-color ), 1) };
+      color: #fff;
+      display: block;
+      font-size: 10px;
+      font-weight: bold;
+      line-height: 20px;
+      position: absolute;
+      right: -21px;
+      text-align: center;
+      text-transform: uppercase;
+      top: 19px;
+      transform: rotate(45deg);
+      width: 100px;
+
+      &:before {
+         border-bottom: 3px solid transparent;
+         border-left: 3px solid #e53f50;
+         border-right: 3px solid transparent;
+         border-top: 3px solid #e53f50;
+         content: "";
+         left: 0px;
+         position: absolute;
+         top: 100%;
+         z-index: -1;
+      }
+
+      &:after {
+         border-bottom: 3px solid transparent;
+         border-left: 3px solid transparent;
+         border-right: 3px solid #e53f50;
+         border-top: 3px solid #e53f50;
+         content: "";
+         position: absolute;
+         right: 0px;
+         top: 100%;
+         z-index: -1;
+      }
+   }
+}

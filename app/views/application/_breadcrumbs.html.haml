@@ -1,7 +1,9 @@
 - if 0 != breadcrumb_trail.count
-  %nav.breadcrumb
-    - breadcrumb_trail do |crumb|
-      / - if crumb.current?
-      /   %span.breadcrumb-item.active= crumb.name
-      / - else
-      = link_to crumb.name, crumb.url, class: "breadcrumb-item"
+  %nav
+    %ol.breadcrumb
+      - breadcrumb_trail do |crumb|
+        -# - if crumb.current?
+        -#   %span.breadcrumb-item.active= crumb.name
+        -# - else
+        %li.breadcrumb-item
+          = link_to crumb.name, crumb.path

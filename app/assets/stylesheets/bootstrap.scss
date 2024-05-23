@@ -1,0 +1,164 @@
+// Override Bootstrap's Sass default variables
+// ---------------------------------------------------------------------------------
+// Nearly all variables in Bootstrap are written with the `!default` flag.
+// This allows you to override the default values of those variables.
+//
+// Overriding the default variable values is the best way to customize your
+// CSS without writing _new_ styles.
+
+
+// Bootstrap
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/mixins/banner';
+@import 'bootstrap/scss/mixins';
+// scss-lint:disable NameFormat
+@include bsBanner('');
+
+
+// Bootstrap functions
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/functions';
+
+
+
+// User custom styles
+// ---------------------------------------------------------------------------------
+// @import '../my-custom-styles/styles';
+
+
+
+// Colors system
+// ---------------------------------------------------------------------------------
+@import 'nifty/colors/palettes/default';
+@import 'nifty/colors/schemes/default';
+@import 'nifty/colors/variables';
+
+
+
+// Global variables
+// ---------------------------------------------------------------------------------
+@import 'nifty/bootstrap/variables';
+@import 'nifty/bootstrap/variables-dark';
+
+
+
+// Add new utilies classes
+// ---------------------------------------------------------------------------------
+@import 'nifty/bootstrap/utilities/opacity';
+@import 'nifty/bootstrap/utilities/sizing';
+@import 'nifty/bootstrap/utilities/spacing';
+@import 'nifty/bootstrap/utilities/underline';
+
+
+
+// Configuration
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/variables-dark';
+@import 'bootstrap/scss/maps';
+
+@import 'bootstrap/scss/utilities';
+
+
+
+// Content
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/root';
+@import 'nifty/bootstrap/root';
+
+@import 'bootstrap/scss/reboot';
+@import 'nifty/bootstrap/reboot';
+
+@import 'bootstrap/scss/type';
+@import 'nifty/bootstrap/contents/typography';
+
+@import 'bootstrap/scss/images';
+@import 'nifty/bootstrap/contents/images';
+
+@import 'bootstrap/scss/containers';
+@import 'bootstrap/scss/grid';
+
+@import 'bootstrap/scss/tables';
+@import 'nifty/bootstrap/contents/tables';
+
+@import 'nifty/bootstrap/contents/toolbars';
+
+
+
+// Forms
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/forms';
+@import 'nifty/bootstrap/forms/forms';
+
+
+
+// Components
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/buttons';
+@import 'nifty/bootstrap/components/buttons';
+
+@import 'bootstrap/scss/transitions';
+
+@import 'bootstrap/scss/dropdown';
+@import 'nifty/bootstrap/components/dropdowns';
+
+@import 'bootstrap/scss/button-group';
+
+@import 'bootstrap/scss/nav';
+@import 'nifty/bootstrap/components/nav';
+
+@import 'bootstrap/scss/navbar'; // Requires nav
+
+@import 'bootstrap/scss/card';
+@import 'nifty/bootstrap/components/cards';
+
+@import 'bootstrap/scss/breadcrumb';
+@import 'nifty/bootstrap/components/breadcrumb';
+
+@import 'bootstrap/scss/accordion';
+
+@import 'bootstrap/scss/pagination';
+@import 'nifty/bootstrap/components/pagination';
+
+@import 'bootstrap/scss/badge';
+@import 'nifty/bootstrap/components/badge';
+
+@import 'bootstrap/scss/alert';
+@import 'nifty/bootstrap/components/alerts';
+
+@import 'bootstrap/scss/progress';
+@import 'nifty/bootstrap/components/progress';
+
+@import 'bootstrap/scss/list-group';
+@import 'nifty/bootstrap/components/list-group';
+
+@import 'bootstrap/scss/close';
+@import 'bootstrap/scss/toasts';
+@import 'bootstrap/scss/modal'; // Requires transitions
+@import 'bootstrap/scss/tooltip';
+@import 'bootstrap/scss/popover';
+@import 'bootstrap/scss/carousel';
+@import 'bootstrap/scss/spinners';
+@import 'bootstrap/scss/offcanvas'; // Requires transitions
+@import 'bootstrap/scss/placeholders';
+
+
+
+// Helpers
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/helpers';
+@import 'nifty/bootstrap/helpers/colors';
+@import 'nifty/bootstrap/helpers/colored-links';
+@import 'nifty/bootstrap/helpers/links';
+
+
+
+// Utilities
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/utilities/api';
+
+
+
+// Color components
+// ---------------------------------------------------------------------------------
+@import 'nifty/colors/components/bootstrap';

@@ -1,0 +1,77 @@
+/* -- BOXED LAYOUT -- */
+/* ---------------------------------------------- */
+
+@media ( min-width : Max( 1024px, #{ $boxed-layout-max-width } ) ) {
+   .boxed-layout {
+
+      --#{ $nifty-prefix }boxed-layout-bg:            #{ $boxed-layout-bg };
+      --#{ $nifty-prefix }boxed-layout-bg-repeat:     #{ $boxed-layout-bg-repeat };
+      --#{ $nifty-prefix }boxed-layout-bg-image:      #{ $boxed-layout-bg-image };
+      --#{ $nifty-prefix }boxed-layout-bg-size:       #{ $boxed-layout-bg-size };
+      --#{ $nifty-prefix }boxed-layout-bg-attachment: #{ $boxed-layout-bg-attachment };
+
+      --#{ $nifty-prefix }boxed-layout-padding-y:     #{ $boxed-layout-padding-y };
+      --#{ $nifty-prefix }boxed-layout-max-width:     #{ $boxed-layout-max-width };
+      --#{ $nifty-prefix }boxed-layout-border-radius: #{ $boxed-layout-border-radius };
+
+
+      background-attachment: var( --#{ $nifty-prefix }boxed-layout-bg-attachment );
+      background-color: var( --#{ $nifty-prefix }boxed-layout-bg );
+      background-image: var( --#{ $nifty-prefix }boxed-layout-bg-image );
+      background-repeat: var( --#{ $nifty-prefix }boxed-layout-bg-repeat );
+      background-size: var( --#{ $nifty-prefix }boxed-layout-bg-size );
+      background-blend-mode: exclusion;
+      margin: 0 auto;
+      max-width: var( --#{ $nifty-prefix }boxed-layout-max-width );
+      padding-block: var( --#{ $nifty-prefix }boxed-layout-padding-y );
+      padding-inline-end: 0 !important;
+
+      &:not( .solid-bg ):after {
+         content: "";
+         position: fixed;
+         inset: 0;
+         background: linear-gradient(180deg, rgba(var( --#{ $prefix }dark-rgb), 0.79) 29%, rgba(var( --#{ $prefix }dark-rgb), 0.4) 75%);
+         pointer-events: none;
+         touch-action: none;
+         z-index: -1;
+      }
+
+
+      // Add clip path to the container.
+      // We use clip-path rather than overflow because overflow will break the sticky position for navigation and headers
+      .root {
+         -webkit-clip-path: inset( 0 0 0 0 round var( --#{ $nifty-prefix }boxed-layout-border-radius ) );
+         clip-path: inset( 0 0 0 0 round var( --#{ $nifty-prefix }boxed-layout-border-radius ) );
+      }
+
+
+      // Fix the backdrop when combining boxed-layout with reveal navigation.
+      > .mn--reveal.mn--show:before {
+         max-width: var( --#{ $nifty-prefix }boxed-layout-max-width );
+         margin: 0 auto;
+         transition: transform var( --#{ $nifty-prefix }mainnav-reveal-transition-duration ) var( --#{ $nifty-prefix }mainnav-reveal-transition-timing ) !important;
+         transform: translateX( calc( (100% - #{ var( --#{ $nifty-prefix }boxed-layout-max-width )} ) + #{ var( --#{ $nifty-prefix }mainnav-max-width )} ));
+      }
+
+      .mega-dropdown {
+         max-width: calc( 75 * #{ var( --#{ $nifty-prefix }boxed-layout-max-width )} / 100 );
+      }
+
+      .sidebar {
+         top: var( --#{ $nifty-prefix }boxed-layout-padding-y);
+      }
+
+      .searchbox.searchbox--auto-expand .searchbox__input {
+         max-width: calc( var( --#{ $nifty-prefix }boxed-layout-max-width ) / 2.2 );
+      }
+
+      > .sb--pinned .sidebar {
+         top: calc( var( --#{ $nifty-prefix }boxed-layout-padding-y ) + var( --#{ $nifty-prefix }header-height ) + .0625rem );
+      }
+
+      // Fix webkit gap edge
+      > .hd--sticky .header {
+         outline: 1px solid var( --#{ $nifty-prefix }header-bg );
+      }
+    }
+}

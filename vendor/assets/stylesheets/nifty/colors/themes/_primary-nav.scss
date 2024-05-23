@@ -1,0 +1,35 @@
+/* -- MAINNAV PRIMARY -- */
+/* ---------------------------------------------- */
+.tm--primary-mn {
+   @extend %mainnav--primary;
+   //@extend %header-brand--primary;
+
+
+   --#{ $nifty-prefix }header-shadow:              #{ var( --#{ $prefix }box-shadow-sm ) };
+
+
+   @include media-breakpoint-up($mainnav-max-available-at) {
+      &:where(.mn--min, .mn--max) {
+         --#{ $nifty-prefix }brand-bg: #{ var( --#{ $prefix }primary ) };
+         --#{ $nifty-prefix }brand-color: #{ var( --#{ $prefix }primary-color )};
+
+         // Header Shadow
+         // ---------------------------------------------------------------------------------
+         .header__content {
+            box-shadow: var( --#{ $nifty-prefix }header-shadow );
+         }
+      }
+   }
+
+
+   // Fixed WebKit bug with white border navigation
+   &.mn--reveal {
+      &:before{
+         outline: 1px solid var( --#{ $prefix }primary );
+      }
+      background-color: black;
+      .content {
+         background-color: #{ var( --#{ $prefix }body-bg ) };
+      }
+   }
+}

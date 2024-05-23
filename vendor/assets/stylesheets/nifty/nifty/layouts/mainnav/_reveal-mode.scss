@@ -1,0 +1,70 @@
+/* -- MAIN NAVIGATION - OFF CANVAS / REVEAL MODE -- */
+/* ---------------------------------------------- */
+
+.mn--reveal {
+   --#{ $nifty-prefix }mainnav-reveal-width:               #{ $mainnav-reveal-width };
+   --#{ $nifty-prefix }mainnav-reveal-transition-duration: #{ $mainnav-reveal-transition-duration };
+   --#{ $nifty-prefix }mainnav-reveal-transition-timing:   #{ $mainnav-reveal-transition-timing };
+
+
+   // Reveal navigation
+   // ---------------------------------------------------------------------------------
+   .mainnav {
+      max-width: $mainnav-reveal-max-width;
+      pointer-events: none;
+      transform: translateX( Max(#{-$mainnav-reveal-max-width}, calc( #{ calc(var( --#{ $nifty-prefix }mainnav-reveal-width ) * -1 )} - .0625rem )));
+      transform: translateX(0) !important;
+      width: var( --#{ $nifty-prefix }mainnav-reveal-width );
+      z-index: 5 !important;
+   }
+
+
+   // Set the default z-index
+   // ---------------------------------------------------------------------------------
+   .header {
+      z-index: 12;
+   }
+
+   .content, .sidebar {
+      z-index: 10;
+   }
+
+   &.sb--pinned .sidebar {
+      z-index: 11;
+   }
+
+
+
+   // Transition
+   // ---------------------------------------------------------------------------------
+   @at-root {
+      &, &.mn--show {
+         .content, .header {
+            transition: transform var( --#{ $nifty-prefix }mainnav-reveal-transition-duration ) var( --#{ $nifty-prefix }mainnav-reveal-transition-timing );
+            will-change: transform;
+         }
+      }
+   }
+
+
+
+   // Off-Canvas show state
+   // ---------------------------------------------------------------------------------
+   &.mn--show {
+      .mainnav {
+         pointer-events: visible;
+      }
+
+      &:before, .content, .header {
+         transform: translateX( Min($mainnav-push-max-width, var( --#{ $nifty-prefix }mainnav-reveal-width )) );
+      }
+
+      &:before {
+         transition: opacity var( --#{ $nifty-prefix }mainnav-reveal-transition-duration ), var( --#{ $nifty-prefix }mainnav-reveal-transition-duration ) !important;
+      }
+
+      &.sb--show.sb--pinned .sidebar {
+         transform: translateX( Min($mainnav-push-max-width, var( --#{ $nifty-prefix }mainnav-reveal-width )) );
+      }
+   }
+}

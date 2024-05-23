@@ -2,15 +2,13 @@
 
 require 'rails_helper'
 
-describe 'POST user_password_path', type: :request do
-  subject { post user_password_path, params: { user: { email: email } } }
+describe 'POST user_password_path' do
+  subject(:request) { post user_password_path, params: { user: { email: } } }
 
   let!(:user) { create(:user) }
   let(:email) { user.email }
 
-  before do
-    subject
-  end
+  before { request }
 
   it 'returns redirect status' do
     expect(response).to have_http_status(:redirect)

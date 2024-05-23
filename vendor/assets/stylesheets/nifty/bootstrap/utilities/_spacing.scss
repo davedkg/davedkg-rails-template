@@ -1,0 +1,65 @@
+// SPACING
+// ---------------------------------------------------------------------------------
+
+$utilities: map-merge($utilities,
+   (
+
+      // Additional fixed width and pixel values
+      // ---------------------------------------------------------------------------------
+      "spacing": (
+         responsive: true,
+         property: margin,
+         class: sp,
+         values: $spacing
+      ),
+
+
+      "spacing-x": (
+         responsive: true,
+         property: margin-right margin-left,
+         class: spx,
+         values: $spacing
+      ),
+
+
+      "spacing-y": (
+         responsive: true,
+         property: margin-top margin-bottom,
+         class: spy,
+         values: $spacing
+      ),
+
+
+      "spacing-top": (
+         responsive: true,
+         property: margin-top,
+         class: spt,
+         values: $spacing
+      ),
+
+
+      "spacing-end": (
+         responsive: true,
+         property: margin-right,
+         class: spe,
+         values: $spacing
+      ),
+
+
+      "spacing-bottom": (
+         responsive: true,
+         property: margin-bottom,
+         class: spb,
+         values: $spacing
+      ),
+
+
+      "spacing-start": (
+         responsive: true,
+         property: margin-left,
+         class: sps,
+         values: $spacing
+      )
+
+   )
+)

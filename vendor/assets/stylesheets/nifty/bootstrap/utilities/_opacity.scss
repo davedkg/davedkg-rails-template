@@ -1,0 +1,36 @@
+// OPACITY
+// ---------------------------------------------------------------------------------
+
+$utilities: map-merge($utilities,
+   (
+
+      // Add more values to the opacity classes.
+      // ---------------------------------------------------------------------------------
+      "opacity": (
+         property: opacity,
+         values: $opacity
+      ),
+
+
+      "bg-opacity": (
+         css-var: true,
+         class: bg-opacity,
+         values: $opacity
+      ),
+
+
+      "text-opacity": (
+         css-var: true,
+         class: text-opacity,
+         values: $opacity
+      ),
+
+
+      "link-opacity": (
+         css-var: true,
+         class: link-opacity,
+         state: hover,
+         values: $opacity
+      )
+   )
+);

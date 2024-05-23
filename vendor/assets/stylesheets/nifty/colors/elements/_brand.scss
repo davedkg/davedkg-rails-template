@@ -1,0 +1,10 @@
+/* COLORED BRAND */
+/* ---------------------------------------------- */
+%header-brand--primary {
+   --#{ $nifty-prefix }brand-bg: #{ var( --#{ $prefix }primary ) };
+   --#{ $nifty-prefix }brand-color: #{ var( --#{ $prefix }primary-color )};
+}
+
+.header-brand--primary {
+   @extend %header-brand--primary;
+}

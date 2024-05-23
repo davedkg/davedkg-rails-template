@@ -1,0 +1,43 @@
+/* -- CONTENTS -- */
+/* ---------------------------------------------- */
+
+.root:not(.hd--expanded) .content__header > .content__wrap {
+    padding-bottom: 0 !important;
+}
+
+
+// Content
+// ---------------------------------------------------------------------------------
+.content {
+   background-color: var( --#{ $prefix }body-bg );
+   color: var( --#{ $prefix }body-color );
+   display: flex;
+   flex-direction: column;
+   grid-area: 2 / 2 / 3 / 3;
+   width: 100%;
+   min-width: 0;
+   max-width: 100vw;
+
+   .page-title {
+      color: var( --#{ $nifty-prefix }content-title-color );
+      font-size: var( --#{ $nifty-prefix }content-title-size );
+      font-weight: var( --#{ $nifty-prefix }content-title-weight );
+      text-transform: capitalize;
+   }
+}
+
+.content__wrap {
+   padding: $content-gutter-y $content-gutter-x;
+}
+
+
+
+// Content Gutters
+// ---------------------------------------------------------------------------------
+@each $breakpoint, $value in $content-gutters-x {
+   @include media-breakpoint-up( $breakpoint ) {
+      .content__wrap {
+         padding-inline: $value;
+      }
+   }
+}

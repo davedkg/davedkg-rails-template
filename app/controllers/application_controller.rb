@@ -1,13 +1,8 @@
 # frozen_string_literal: true
 
-require 'action_text'
-
 class ApplicationController < ActionController::Base
   include PageTitleable
-  include Pundit
-  include Turbo::Redirection
-
-  helper ActionText::Engine.helpers
+  include Pundit::Authorization
 
   rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
   rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
@@ -28,40 +23,18 @@ class ApplicationController < ActionController::Base
 
   private
 
+  # rubocop:disable Naming/AccessorMethodName
   def set_modal_size(modal_size)
     @modal_size = modal_size
   end
+  # rubocop:enable Naming/AccessorMethodName
 
-  def set_use_full_width_layout
-    @use_full_width_layout = true
-  end
-
-  helper_method :use_full_width_layout?
-  def use_full_width_layout?
-    true == @use_full_width_layout
-  end
-
-  def authenticate_admin!
-    redirect_to root_path unless current_user.admin?
+  def application_controller?
+    params[:controller] == 'application'
   end
 
   def prevent_action
     redirect_to root_path
-  end
-
-  def application_controller?
-    'application' == params[:controller]
-  end
-
-  def render_page_not_found
-    respond_to do |format|
-      format.html do
-        render file: Rails.public_path.join('404.html'), layout: false, status: :not_found
-      end
-      format.any do
-        head :not_found
-      end
-    end
   end
 
   def set_time_zone
@@ -73,6 +46,17 @@ class ApplicationController < ActionController::Base
 
     Raven.user_context(id: current_user.id) if current_user
     Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+  end
+
+  def render_page_not_found
+    respond_to do |format|
+      format.html do
+        render file: Rails.public_path.join('404.html'), layout: false, status: :not_found
+      end
+      format.any do
+        head :not_found
+      end
+    end
   end
 
   ## *** Devise

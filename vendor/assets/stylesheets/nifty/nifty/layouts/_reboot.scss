@@ -1,0 +1,75 @@
+/* -- REBOOT -- */
+/* ---------------------------------------------- */
+
+/* -- Scrollbar -- */
+/* ---------------------------------------------- */
+// W3C standards scrollbar
+// ---------------------------------------------------------------------------------
+@supports (-moz-appearance:none) {
+   .scrollable-content {
+      scrollbar-color: $scrollbar-color transparent;
+      scrollbar-width: $scrollbar-width;
+   }
+}
+
+
+
+
+// Webkit Browsers
+// ---------------------------------------------------------------------------------
+html[data-overlayscrollbars]>body {
+   &::-webkit-scrollbar {
+      width: 0 !important;
+      visibility: hidden;
+   }
+}
+
+// Width
+::-webkit-scrollbar {
+   width: $scrollbar-webkit-width;
+   height: $scrollbar-webkit-width;
+}
+
+// Track
+::-webkit-scrollbar-track {
+   background-color: $scrollbar-webkit-track-bg;
+}
+
+// Handle
+::-webkit-scrollbar-thumb {
+   background: $scrollbar-webkit-handle-bg;
+   border-radius: $scrollbar-webkit-handle-border-radius;
+}
+
+// Handle on hover
+::-webkit-scrollbar-thumb:hover {
+   width: 2rem;
+   background: $scrollbar-webkit-handle-hover-bg;
+}
+
+
+@if $enable-dark-mode {
+   @include color-mode(dark, true) {
+      @supports (-moz-appearance:none) {
+         .scrollable-content {
+            scrollbar-color: $scrollbar-color-dark transparent;
+         }
+      }
+
+      // Track
+      ::-webkit-scrollbar-track {
+         background-color: $scrollbar-webkit-track-bg-dark;
+      }
+
+      // Handle
+      ::-webkit-scrollbar-thumb {
+         background: $scrollbar-webkit-handle-bg-dark;
+      }
+
+      // Handle on hover
+      ::-webkit-scrollbar-thumb:hover {
+         background: $scrollbar-webkit-handle-hover-bg-dark;
+      }
+
+   }
+}

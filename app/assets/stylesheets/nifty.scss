@@ -1,0 +1,127 @@
+// ---------------------------------------------------------------------------------
+// Nifty v4.0.0 (https://themeon.net/)
+// 2014-2024 ThemeOn Team
+// ---------------------------------------------------------------------------------
+
+
+// Functions and breakpoints mixins
+// ---------------------------------------------------------------------------------
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/mixins/breakpoints';
+@import 'bootstrap/scss/mixins/color-mode';
+
+
+
+// User variables
+// ---------------------------------------------------------------------------------
+// @import '../my-custom-styles/styles';
+
+
+
+// Colors system
+// ---------------------------------------------------------------------------------
+@import 'nifty/colors/palettes/default';
+@import 'nifty/colors/schemes/default';
+@import 'nifty/colors/variables';
+
+
+
+// Global variables
+// ---------------------------------------------------------------------------------
+@import 'nifty/bootstrap/variables';
+@import 'nifty/bootstrap/variables-dark';
+@import 'nifty/nifty/variables';
+
+
+
+
+// ---------------------------------------------------------------------------------
+// NIFTY STYLES
+// ---------------------------------------------------------------------------------
+
+// Contents
+// ---------------------------------------------------------------------------------
+@import 'nifty/nifty/layouts/root';
+@import 'nifty/nifty/layouts/reboot';
+@import 'nifty/nifty/layouts/front-container';
+@import 'nifty/nifty/layouts/content/content';
+@import 'nifty/nifty/layouts/content/content-view';
+@import 'nifty/nifty/layouts/content/content-single';
+
+
+
+// Components
+// ---------------------------------------------------------------------------------
+@import 'nifty/nifty/components/searchbox';
+@import 'nifty/nifty/components/scroll-page';
+@import 'nifty/nifty/components/backdrop';
+@import 'nifty/nifty/components/timeline';
+@import 'nifty/nifty/components/speech-bubble';
+
+
+
+// Headers
+// ---------------------------------------------------------------------------------
+@import 'nifty/nifty/layouts/header/header';
+
+
+
+// Main Navigation
+// ---------------------------------------------------------------------------------
+@import 'nifty/nifty/layouts/mainnav/menu-links';
+@import 'nifty/nifty/layouts/mainnav/min-mode';
+@import 'nifty/nifty/layouts/mainnav/max-mode';
+@import 'nifty/nifty/layouts/mainnav/default-nav';
+@import 'nifty/nifty/layouts/mainnav/slide-mode';
+@import 'nifty/nifty/layouts/mainnav/push-mode';
+@import 'nifty/nifty/layouts/mainnav/reveal-mode';
+
+
+
+// Sidebars
+// ---------------------------------------------------------------------------------
+@import 'nifty/nifty/layouts/sidebar/default-sidebar';
+@import 'nifty/nifty/layouts/sidebar/disable-backdrop';
+@import 'nifty/nifty/layouts/sidebar/position-static';
+@import 'nifty/nifty/layouts/sidebar/stuck';
+@import 'nifty/nifty/layouts/sidebar/unite';
+@import 'nifty/nifty/layouts/sidebar/pinned';
+
+
+
+// Color system
+// ---------------------------------------------------------------------------------
+@import 'nifty/colors/elements/header';
+@import 'nifty/colors/elements/brand';
+@import 'nifty/colors/elements/mainnav';
+
+@import 'nifty/colors/themes/expanded-hd';
+@import 'nifty/colors/themes/fair-hd';
+@import 'nifty/colors/themes/full-hd';
+@import 'nifty/colors/themes/primary-nav';
+@import 'nifty/colors/themes/primary-brand';
+@import 'nifty/colors/themes/tall-hd';
+
+
+
+// Utilities
+// ---------------------------------------------------------------------------------
+@import 'nifty/nifty/utilities/transition-timing';
+@import 'nifty/nifty/utilities/optimize';
+@import 'nifty/nifty/utilities/print';
+@import 'nifty/nifty/utilities/ribbon';
+@import 'nifty/nifty/utilities/error-code';
+@import 'nifty/nifty/utilities/hover';
+
+
+
+// Layouts
+// ---------------------------------------------------------------------------------
+@import 'nifty/nifty/layouts/boxed-layout';
+@import 'nifty/nifty/layouts/centered-layout';
+
+
+
+// Color components
+// ---------------------------------------------------------------------------------
+@import 'nifty/colors/components/nifty';

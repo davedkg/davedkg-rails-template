@@ -2,9 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Dashboard Features', type: :feature, js: true do
-  subject { visit root_path }
-
+RSpec.describe 'Dashboard Features', :js do
   let(:user) { create(:user) }
 
   before do
@@ -15,11 +13,11 @@ RSpec.describe 'Dashboard Features', type: :feature, js: true do
     context "when window size is #{window_size}" do
       before do
         page.current_window.resize_to_preset(window_size)
-        subject
+        visit dashboard_path
       end
 
       it 'A user can view the dashboard' do
-        expect(page).to have_content('DASHBOARD')
+        expect(page).to have_content('Dashboard')
       end
     end
   end

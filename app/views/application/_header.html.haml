@@ -1,9 +1,18 @@
 %header.header
-  .navigation-trigger{ "data-ma-action" => "aside-open", "data-ma-target" => ".sidebar", class: layout_navigation_trigger_class }
-    .navigation-trigger__inner
-      %i.navigation-trigger__line
-      %i.navigation-trigger__line
-      %i.navigation-trigger__line
-  .header__logo.hidden-sm-down
-    %h1
-      %a{ href: root_path }= PLATFORM_TITLE
+  .header__inner
+    .header__brand
+      .brand-wrap
+        = link_to root_path, class: "brand-img stretched-link" do
+          = image_tag('logo.svg', class: "logo", style: { width: 16, height: 16 })
+        .brand-title= PLATFORM_TITLE
+    .header__content
+      .header__content-start
+        %button.nav-toggler.header__btn.btn.btn-icon.btn-sm{"aria-label" => "Nav Toggler", :type => "button"}
+          %i.psi-list-view
+        .vr.mx-1.d-none.d-md-block
+      .header__content-end
+        .form-check.form-check-alt.form-switch.mx-md-2
+          %input#headerThemeToggler.form-check-input.mode-switcher{:role => "switch", :type => "checkbox"}/
+          %label.form-check-label.ps-1.fw-bold.d-none.d-md-flex.align-items-center{:for => "headerThemeToggler"}
+            %i.mode-switcher-icon.icon-light.psi-sun.fs-5
+            %i.mode-switcher-icon.icon-dark.d-none.psi-half-moon

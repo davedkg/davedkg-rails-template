@@ -1,27 +1,24 @@
 !!!
-%html
+%html{ data: { bs_theme: "light", scheme: "navy" } }
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:charset => "utf-8"}/
-    %meta{:content => "no-cache", :name => "turbo-cache-control"}/
-    - if native?
-      %meta{:content => "width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0", :name => "viewport"}/
-      %title= page_title
-    - else
-      %meta{:content => "width=device-width,initial-scale=1.0", :name => "viewport"}/
-      %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}/
-      %title= "#{page_title} | #{PLATFORM_TITLE}"
+    %title= "#{page_title} | #{PLATFORM_TITLE}"
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag 'application', media: 'all', 'data-turbo-track': 'reload'
-    = javascript_pack_tag 'application', 'data-turbo-track': 'reload'
-  %body{ class: "#{params[:controller]} #{params[:action]}", "data-ma-theme"=>"blue" }
-    .login
-      .login__block.active
-        .login__block__header
-          %i.zmdi.zmdi-account-circle
-          = page_title
-        .login__block__body
-          = render 'flash'
-          = yield
-          = render "splash/links"
+    %link{:href => "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Ubuntu:wght@400;500;700&display=swap", :rel => "stylesheet", "data-turbo-track": "reload"}/
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+  %body
+    #root.root.front-container
+      %section#content.content
+        .content__boxed.w-100.min-vh-100.d-flex.flex-column.align-items-center.justify-content-center
+          .content__wrap
+            .card.shadow-lg{ style: "width: 400px" }
+              .card-body.p-4
+                .text-center
+                  %h1.h3= PLATFORM_TITLE
+                  %p= page_title
+                = render 'splash/flash'
+                = yield
+                = render 'splash/links'

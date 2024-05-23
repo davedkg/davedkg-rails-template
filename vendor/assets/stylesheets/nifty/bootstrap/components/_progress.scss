@@ -1,0 +1,18 @@
+/* -- PROGRESS -- */
+/* --------------------------------------------------------------------------------- */
+
+// Add rounded corners to the progress bar.
+// ---------------------------------------------------------------------------------
+.progress-bar:last-child {
+   border-top-right-radius: $progress-border-radius;
+   border-bottom-right-radius: $progress-border-radius;
+}
+
+
+// Various heights for the Progress Bar.
+// ---------------------------------------------------------------------------------
+@each $size, $value in $progress-heights {
+   .progress-#{ $size }  {
+      height: $value;
+   }
+}

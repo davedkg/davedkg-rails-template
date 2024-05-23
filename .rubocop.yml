@@ -1,133 +1,31 @@
 require:
   - rubocop-rails
   - rubocop-rspec
+  - rubocop-capybara
+  - rubocop-factory_bot
+  - rubocop-rspec_rails
 
 AllCops:
-  TargetRubyVersion: 2.6
   NewCops: enable
   Exclude:
-    - '.git/**/*'
-    - 'bin/*'
+    - 'bin/**/*'
     - 'config/**/*'
-    - 'db/schema.rb'
-    - 'db/migrate/*'
-    - 'log/**/*'
-    - 'node_modules/**/*'
-    - 'public/**/*'
-    - 'tmp/**/*'
-    - 'vendor/**/*'
-    - 'Guardfile'
-    - 'app/helpers/quick_stats_chart_helper.rb'
-    - 'lib/templates/**/*'
+    - 'db/**/*'
     - 'lib/generators/**/*'
-
-Bundler/DuplicatedGem:
-  Include:
-    - '**/Gemfile'
-
-Bundler/InsecureProtocolSource:
-  Include:
-    - '**/Gemfile'
-
-Bundler/OrderedGems:
-  Include:
-    - '**/Gemfile'
-
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-
-Layout/SpaceAroundMethodCallOperator:
-  Enabled: true
-
-Layout/TrailingWhitespace:
-  Enabled: true
-  AutoCorrect: true
-
-Lint/AmbiguousBlockAssociation:
-  Exclude:
-    - 'spec/requests/**/*'
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Metrics/BlockLength:
-  Enabled: false
-
-Metrics/MethodLength:
-  Enabled: true
-  Max: 25
-
-Naming/AccessorMethodName:
-  Enabled: false
+    - 'lib/rails/**/*'
+    - 'lib/templates/**/*'
+    - 'vendor/**/*'
 
 Naming/FileName:
   Exclude:
     - 'spec/requests/**/*'
 
 Rails/I18nLocaleTexts:
-   Enabled: false
+  Enabled: false
 
 Rails/LexicallyScopedActionFilter:
   Exclude:
     - 'app/controllers/invitations_controller.rb'
 
-Rails/RedundantPresenceValidationOnBelongsTo:
-   Enabled: false
-
-Rails/RenderInline:
-  Enabled: false
-
-# Paranoia adds a default scope that this cop is not taking into account
-Rails/UniqueValidationWithoutIndex:
-  Enabled: false
-
-RSpec/ExampleLength:
-  Enabled: false
-
-RSpec/LetSetup:
-  Enabled: false
-
-RSpec/MultipleMemoizedHelpers:
-   Enabled: false
-
-RSpec/NamedSubject:
-  Enabled: false
-
 Style/Documentation:
-  Enabled: false
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/GuardClause:
-  Enabled: false
-
-Style/HashEachMethods:
-  Enabled: true
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Style/RedundantRegexpCharacterClass:
-  Enabled: true
-
-Style/RedundantRegexpEscape:
-  Enabled: true
-
-Style/SlicingWithRange:
-  Enabled: true
-
-Style/YodaCondition:
   Enabled: false

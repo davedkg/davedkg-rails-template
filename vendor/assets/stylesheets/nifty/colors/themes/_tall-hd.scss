@@ -1,0 +1,6 @@
+/* -- TALL HEADER -- */
+/* ---------------------------------------------- */
+.tm--tall-hd {
+   @extend %tm--expanded-hd;
+   @extend .tm--fair-hd;
+}

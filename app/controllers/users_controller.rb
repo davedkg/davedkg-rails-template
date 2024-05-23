@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :reek:TooManyMethods
 class UsersController < ApplicationController
   before_action :set_user, except: %i[index new create]
 
@@ -8,14 +7,14 @@ class UsersController < ApplicationController
   breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update]
 
   def index
-    @users = authorize User.order(name: :asc).page(params[:page])
+    @users = authorize policy_scope(User).order(name: :asc).page(params[:page])
   end
+
+  def show; end
 
   def new
     @user = authorize User.new
   end
-
-  def show; end
 
   def edit; end
 
@@ -33,27 +32,25 @@ class UsersController < ApplicationController
   end
 
   def update
-    redirect_to @user, notice: 'User was successfully updated.' if @user.update(permitted_attributes(@user))
+    if @user.update(permitted_attributes(@user))
+      redirect_to @user, notice: 'User was successfully updated.'
+    else
+      render 'update_user_failed'
+    end
   end
 
   def destroy
     @user.destroy
 
-    redirect_to users_path, notice: 'User was successfully deleted.'
+    redirect_to users_path(format: :html), notice: 'User was successfully deleted.'
   end
 
   def update_password
     if @user.update(permitted_attributes(@user))
       bypass_sign_in(@user)
       redirect_to @user, notice: 'Password was successfully updated.'
-    end
-  end
-
-  def update_avatar
-    if @user.update(permitted_attributes(@user))
-      redirect_to @user, notice: 'Avatar was successfully updated.'
     else
-      redirect_to @user, error: 'Avatar was unsuccessfully updated.'
+      render 'update_password_failed'
     end
   end
 
@@ -90,13 +87,14 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = authorize User.find(params[:id])
+    @user = authorize policy_scope(User).find(params[:id])
   end
 
   def page_title_hash
     super.merge({
                   new: 'Invite User',
-                  create: 'Invite User'
+                  create: 'Invite User',
+                  show: @user&.name || @user&.email
                 })
   end
 end

@@ -1,11 +1,11 @@
-import { Controller } from "stimulus"
+import { Controller } from "@hotwired/stimulus";
 
- export default class extends Controller {
-   connect() {
-     let $modal = $(this.element)
+export default class extends Controller {
+  connect() {
+    new bootstrap.Modal(this.element).show();
 
-     $modal.modal()
-
-     $modal.on("hidden.bs.modal", () => $modal.remove())
-   }
- }
+    this.element.addEventListener("hidden.bs.modal", () => {
+      this.element.remove();
+    });
+  }
+}

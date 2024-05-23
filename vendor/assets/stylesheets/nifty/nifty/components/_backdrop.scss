@@ -1,0 +1,29 @@
+/* -- BACKDROP FOR MAIN NAVIGATION AND SIDEBAR -- */
+/* ---------------------------------------------- */
+
+.root {
+	&:before {
+		background-color: var( --#{ $nifty-prefix }backdrop-bg );
+		content: "";
+		display: block;
+		inset: 0;
+		opacity: 0;
+		pointer-events: none;
+		position: fixed;
+		visibility: hidden;
+		z-index: -1;
+	}
+
+
+
+    // Show the backdrop when the container contains class .mn--show or .sb--show
+	&.mn--show, &.sb--show {
+		&:before {
+			cursor: pointer;
+			opacity: 1;
+			pointer-events: visible;
+			visibility: visible;
+			z-index: $backdrop-z-index;
+		}
+	}
+}

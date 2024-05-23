@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
-  devise :database_authenticatable, :confirmable, :invitable, :lockable,
-         :recoverable, :rememberable, :trackable, :validatable,
+  devise :invitable, :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable,
+         :confirmable, :lockable, :trackable,
          validate_on_invite: true
 
   enum role: {
@@ -15,13 +16,11 @@ class User < ApplicationRecord
     disabled: 'disabled'
   }
 
+  # :reek:Attribute
   attr_accessor :skip_password_validation
 
-  has_one_attached :avatar
-
-  validates :name,      presence: true, uniqueness: { case_sensitive: false }, on: :update
+  validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
-  validates :avatar,    dimension: { width: 200, height: 200 }, content_type: %r{\Aimage/.*\z}
 
   def send_invitation
     self.invitation_sent_at = Time.zone.now
@@ -38,8 +37,8 @@ class User < ApplicationRecord
 
   ## *** Devise Overrides
 
-  def send_devise_notification(notification, *args)
-    devise_mailer.send(notification, id, *args).deliver_later
+  def send_devise_notification(notification, *)
+    devise_mailer.send(notification, id, *).deliver_later
   end
 
   def active_for_authentication?

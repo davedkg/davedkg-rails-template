@@ -1,0 +1,36 @@
+/* -- MAIN NAVIGATION - OFF CANVAS / SLIDE MODE -- */
+/* ---------------------------------------------- */
+
+.mn--slide {
+   --#{ $nifty-prefix }mainnav-slide-width:               #{ $mainnav-slide-width };
+   --#{ $nifty-prefix }mainnav-slide-transition-duration: #{ $mainnav-slide-transition-duration };
+   --#{ $nifty-prefix }mainnav-slide-transition-timing:   #{ $mainnav-slide-transition-timing };
+
+
+   .mainnav {
+      max-width: $mainnav-slide-max-width;
+      width: var( --#{ $nifty-prefix }mainnav-slide-width );
+      transform: translateX( Max(#{-$mainnav-slide-max-width}, calc( #{ calc(var( --#{ $nifty-prefix }mainnav-slide-width ) * -1 )} - .0625rem )));
+   }
+
+
+   // slide transition
+   // ---------------------------------------------------------------------------------
+   @at-root {
+      &, &.mn--show {
+         .mainnav {
+            transition: transform var( --#{ $nifty-prefix }mainnav-slide-transition-duration ) var( --#{ $nifty-prefix }mainnav-slide-transition-timing );
+            // will-change: transform;
+         }
+      }
+   }
+
+
+   // Off-Canvas show state
+   // ---------------------------------------------------------------------------------
+   &.mn--show {
+      .mainnav {
+         transform: translateX( 0 );
+      }
+   }
+}

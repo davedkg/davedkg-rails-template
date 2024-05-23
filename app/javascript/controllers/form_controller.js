@@ -1,20 +1,18 @@
-import { Controller } from "stimulus";
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
   // *** Getters
 
-  get $submitButton() {
-    return $(this.element).find(":submit");
-  }
-
-  get isRemote() {
-    return this.element.dataset.remote || false;
+  get submitButton() {
+    return this.element.querySelectorAll("input[type=submit]")[0];
   }
 
   // *** Lifecycle
 
   connect() {
-    this.$submitButton.on("click", (e) => this.submitButtonClicked(e));
+    this.submitButton?.addEventListener("click", (e) =>
+      this.submitButtonClicked(e)
+    );
   }
 
   // *** Private Functions
@@ -34,10 +32,6 @@ export default class extends Controller {
   }
 
   reallySubmitForm() {
-    if (this.isRemote) {
-      Rails.fire(this.element, "submit");
-    } else {
-      this.element.requestSubmit();
-    }
+    this.element.requestSubmit();
   }
 }

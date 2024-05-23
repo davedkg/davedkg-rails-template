@@ -5,8 +5,8 @@ module Utils
     def render_json(partial, locals)
       ActiveSupport::JSON.decode(
         ApplicationController.renderer.render(
-          partial: partial,
-          locals: locals
+          partial:,
+          locals:
         )
       )
     end

@@ -1,0 +1,16 @@
+/* -- FULL HEADER -- */
+/* ---------------------------------------------- */
+.tm--full-hd {
+   @extend %header--primary;
+
+   --#{ $prefix }box-shadow-alpha-sm: .5;
+   --#{ $nifty-prefix }header-shadow: #{ $box-shadow-sm };
+
+   @at-root {
+      [ data-bs-theme="dark" ] #{ & } {
+         .header {
+            --#{ $prefix }box-shadow-alpha-sm: .1;
+         }
+      }
+   }
+}

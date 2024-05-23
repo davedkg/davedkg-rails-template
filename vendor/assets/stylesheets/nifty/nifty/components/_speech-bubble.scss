@@ -1,0 +1,59 @@
+/* -- SPEECH BUBBLE -- */
+/* ---------------------------------------------- */
+
+.bubble {
+   --#{ $nifty-prefix }bubble-border-radius:    #{ $bubble-border-radius };
+   --#{ $nifty-prefix }bubble-max-width:        #{ $bubble-max-width };
+   --#{ $nifty-prefix }bubble-primary-bg:       #{ $bubble-primary-bg };
+   --#{ $nifty-prefix }bubble-primary-color:    #{ $bubble-primary-color };
+   --#{ $nifty-prefix }bubble-secondary-bg:     #{ $bubble-secondary-bg };
+   --#{ $nifty-prefix }bubble-secondary-color:  #{ $bubble-secondary-color };
+   --#{ $nifty-prefix }bubble-padding-x:        #{ $bubble-padding-x };
+   --#{ $nifty-prefix }bubble-padding-y:        #{ $bubble-padding-y };
+
+
+   background-color: var( --#{ $nifty-prefix }bubble-secondary-bg );
+   border-radius: var( --#{ $nifty-prefix }bubble-border-radius );
+   border-end-start-radius: 0;
+   color: var( --#{ $nifty-prefix }bubble-secondary-color );
+   display: inline-flex;
+   flex-direction: column;
+   max-width: var( --#{ $nifty-prefix }bubble-max-width );
+   padding: var( --#{ $nifty-prefix }bubble-padding-y ) var( --#{ $nifty-prefix }bubble-padding-x );
+   position: relative;
+
+
+   // Arrow triangle
+   // ---------------------------------------------------------------------------------
+   &:after {
+      border-color: transparent transparent #{ var( --#{ $nifty-prefix }bubble-secondary-bg ) } transparent;
+      border-style: solid;
+      border-width: 0 0 $bubble-arrow-height $bubble-arrow-width;
+      bottom: 0;
+      content: "";
+      display: block;
+      left: -#{ $bubble-arrow-width };
+      position: absolute;
+      width: 0;
+      z-index: 1;
+   }
+
+
+   // Primary bubble at right side
+   // ---------------------------------------------------------------------------------
+   @at-root {
+      &.bubble-primary, .bubble-primary #{ & } {
+         background-color: var( --#{ $nifty-prefix }bubble-primary-bg );
+         border-radius: var( --#{ $nifty-prefix }bubble-border-radius );
+         border-end-end-radius: 0;
+         color: var( --#{ $nifty-prefix }bubble-primary-color );
+
+         &:after {
+            border-color: transparent transparent transparent #{ var( --#{ $nifty-prefix }bubble-primary-bg ) };
+            border-width: $bubble-arrow-height 0 0 $bubble-arrow-width;
+            left: auto;
+            right: -#{ $bubble-arrow-width };
+         }
+      }
+   }
+}

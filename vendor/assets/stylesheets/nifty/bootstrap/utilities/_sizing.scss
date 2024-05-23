@@ -1,0 +1,32 @@
+// SIZING
+// ---------------------------------------------------------------------------------
+
+$utilities: map-merge($utilities,
+   (
+
+      // Additional fixed width and pixel values
+      // ---------------------------------------------------------------------------------
+      "width-pixels": (
+         property: width,
+         class: w,
+         responsive: true,
+         values: $fixed-width,
+      ),
+
+      // Min width - Used to fix flex box overflow issues.
+      // ---------------------------------------------------------------------------------
+      "min-width": (
+         property: min-width,
+         class: min-w,
+         values: 0,
+      ),
+
+      // Min height - Used to fix flex box overflow issues.
+      // ---------------------------------------------------------------------------------
+      "min-height": (
+         property: min-height,
+         class: min-h,
+         values: 0,
+      )
+   )
+);

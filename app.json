@@ -28,13 +28,13 @@
       "description": "Custom email domain name.",
       "required": false
     },
-    "PLATFORM_TITLE": {
-      "description": "Custom platform name.",
-      "required": false
+    "RAILS_MAX_THREADS": {
+      "description": "The number of processes to run.",
+      "value": "5"
     },
     "WEB_CONCURRENCY": {
       "description": "The number of processes to run.",
-      "value": "5"
+      "value": "1"
     }
   },
   "addons": [
@@ -45,9 +45,6 @@
     "sentry"
   ],
   "buildpacks": [
-    {
-      "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick"
-    },
     {
       "url": "heroku/ruby"
     }

@@ -1,9 +1,9 @@
 = simple_form_for(resource, as: resource_name, url: invitation_path(resource_name), html: { method: :put }) do |f|
   = f.hidden_field :invitation_token
   = f.error_notification
-  = f.input :email, disabled: true, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
-  = f.input :name, autofocus: true, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
-  = f.input :time_zone, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
-  = f.input :password, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
-  = f.input :password_confirmation, wrapper: :floating_labels_form, wrapper_html: { class: "form-group--centered" }
-  = f.button :submit, t("devise.invitations.edit.submit_button"), class: "btn-block", data: { "disable-with": "Accepting Invitation..." }
+  = f.input :email, disabled: true
+  = f.input :name, autofocus: true
+  = f.input :time_zone
+  = f.input :password
+  = f.input :password_confirmation
+  = f.button :submit, t("devise.invitations.edit.submit_button"), class: "btn btn-primary w-100 py-8 mb-4 rounded-2", data: { "disable-with": "Accepting Invitation..." }

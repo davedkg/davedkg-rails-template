@@ -1,0 +1,223 @@
+/* -- MAINNAV MENU LINK -- */
+/* ---------------------------------------------- */
+
+// Menu caption
+// ---------------------------------------------------------------------------------
+.mainnav__caption {
+   color: var( --#{ $nifty-prefix }mainnav-heading-color );
+   padding-inline: calc( #{ calc( var( --#{ $nifty-prefix }mainnav-submenu-indent ) - var( --#{ $nifty-prefix }mainnav-submenu-dashed-margin )) } + #{ var( --#{ $nifty-prefix }mainnav-link-padding-x ) } );
+}
+
+
+
+// Menu Links active and icons
+// ---------------------------------------------------------------------------------
+.mainnav__inner {
+   .list-group-item, .px-m {
+      padding-inline: calc( #{ calc( var( --#{ $nifty-prefix }mainnav-submenu-indent ) - var( --#{ $nifty-prefix }mainnav-submenu-dashed-margin )) } + #{ var( --#{ $nifty-prefix }mainnav-link-padding-x ) } );
+   }
+
+   .mainnav__menu {
+
+      @at-root {
+         .root #{&} .nav-link:not(.active):not(:hover):not(:active), .mn--min #{&} .nav-link {
+            .nav-label:where( .fw-medium, .fw-semibold, .fw-bold, .fw-bolder ) {
+               color: var( --#{ $nifty-prefix }mainnav-heading-color );
+            }
+         }
+      }
+
+      .nav-link {
+         padding: var( --#{ $nifty-prefix }mainnav-link-padding-y ) var( --#{ $nifty-prefix }mainnav-link-padding-x );
+      }
+
+      > .nav-item > .nav-link {
+         display: flex;
+
+         &.active {
+            background-color: var( --#{ $nifty-prefix }mainnav-submenu-active-bg );
+            border-radius: var( --#{ $nifty-prefix }mainnav-submenu-border-radius );
+            box-shadow: var( --#{ $nifty-prefix }mainnav-submenu-active-shadow );
+            color: var( --#{ $nifty-prefix }mainnav-submenu-active-color );
+            font-weight: $font-weight-semibold;
+
+            i, .nav-icon {
+               color: inherit !important;
+            }
+         }
+      }
+   }
+
+   @at-root {
+      .root {
+         &.mn--min {
+            .nav-item:not(.has-sub) {
+               .nav-link.active > .nav-label {
+                  color: var( --#{ $nifty-prefix }mainnav-link-active );
+                  @if $mainnav-link-active-underline != none {
+                     text-decoration: var( --#{ $nifty-prefix }mainnav-link-active-underline ) var( --#{ $nifty-prefix }mainnav-link-active-underline-color );
+                     text-underline-offset: 5px;
+                  }
+                  &:hover {
+                     color: var( --#{ $nifty-prefix }mainnav-link-hover );
+                     text-decoration-color: currentColor;
+                  }
+               }
+            }
+         }
+
+         .mainnav__inner {
+            .nav-link {
+               color: var( --#{ $nifty-prefix }mainnav-link-color );
+
+               &.disabled {
+                  opacity: .4;
+               }
+
+               &:hover {
+                  color: var( --#{ $nifty-prefix }mainnav-link-hover );
+               }
+
+               &.active ~ .nav .active {
+                  color: var( --#{ $nifty-prefix }mainnav-link-active );
+                  @if $mainnav-link-active-underline != none {
+                     text-decoration: var( --#{ $nifty-prefix }mainnav-link-active-underline ) var( --#{ $nifty-prefix }mainnav-link-active-underline-color );
+                     text-underline-offset: 5px;
+                  }
+                  &:hover {
+                     color: var( --#{ $nifty-prefix }mainnav-link-hover );
+                     text-decoration-color: currentColor;
+                  }
+               }
+
+               i, .nav-icon {
+                  color: var( --#{ $nifty-prefix }mainnav-icon-color ) !important;
+               }
+            }
+         }
+      }
+   }
+}
+
+
+
+// Collapsed submenus and hidden contents
+// ---------------------------------------------------------------------------------
+.mainnav__menu {
+   .mininav-content  {
+      flex-direction: column;
+      flex-wrap: nowrap;
+   }
+
+   .mininav-toggle {
+      align-items: center;
+      display: flex;
+
+      > .nav-label, .nav-icon, i {
+         pointer-events: none;
+      }
+
+      .nav-label {
+         display: inline-block;
+      }
+
+      // Fixed : Regular link blinking when another collapse is triggered
+      > .nav-label.mininav-content {
+         height: auto !important;
+      }
+   }
+
+
+   // Submenu chevron icons
+   // ---------------------------------------------------------------------------------
+   .has-sub > .mininav-toggle {
+      &:not( .has-badge ):after {
+         border-style: solid;
+         border-width: 0.15em 0.15em 0 0;
+         content: '';
+         display: inline-block;
+         height: 0.55em;
+         margin-left: auto;
+         transform: rotate( 135deg );
+         transition: transform calc( var( --#{ $nifty-prefix }mainnav-transition-duration ) / 2);
+         width: 0.55em;
+      }
+
+      &.collapsed:after {
+         transform: rotate( 45deg );
+      }
+   }
+}
+
+
+
+// Disables annoying transitions in the open submenu when the page finishes loading.
+// ---------------------------------------------------------------------------------
+.root:not( .mn--min ) .mainnav__menu .has-sub:not(.opened) .mininav-toggle.active:not(.collapsed) {
+   + .mininav-content {
+      display: block;
+      height: auto !important;
+   }
+}
+
+
+
+// Submenu Indent
+// ---------------------------------------------------------------------------------
+@include media-breakpoint-down( $mainnav-min-available-at ) {
+   .root .mininav-content {
+      position: static !important;
+      transform: none !important;
+   }
+
+   .root .mainnav__menu > .nav-item {
+      &.has-sub .has-sub > .mininav-content {
+         > .nav-item > .nav-link {
+            padding-inline: .75em;
+         }
+
+         border-inline-start: 1px dashed var( --#{ $nifty-prefix }mainnav-submenu-dashed-color );
+         border-radius: 0;
+         margin-inline-start: calc( #{ calc( var( --#{ $nifty-prefix }mainnav-submenu-indent-lv2 ) - .5em ) } + #{ var( --#{ $nifty-prefix }mainnav-link-padding-x ) } ) !important;
+         padding-inline-start: .5rem;
+      }
+
+      &.has-sub > .mininav-content {
+         border-inline-start: 1px dashed var( --#{ $nifty-prefix }mainnav-submenu-dashed-color );
+         margin-inline-start: var( --#{ $nifty-prefix }mainnav-submenu-dashed-margin ) !important;
+      }
+
+      &.has-sub > .mininav-content > .nav-item > .nav-link {
+         padding-inline-start: calc( #{ calc( var( --#{ $nifty-prefix }mainnav-submenu-indent ) - var( --#{ $nifty-prefix }mainnav-submenu-dashed-margin )) } + #{ var( --#{ $nifty-prefix }mainnav-link-padding-x ) } );
+      }
+   }
+}
+
+
+@include media-breakpoint-up($mainnav-min-available-at) {
+   .root:not( .mn--min ) .mininav-content {
+      position: static !important;
+      transform: none !important;
+   }
+
+   .root:not( .mn--min ) .mainnav__menu > .nav-item {
+      &.has-sub .has-sub > .mininav-content {
+         > .nav-item > .nav-link {
+            padding-inline: .75em;
+         }
+
+         border-inline-start: 1px dashed var( --#{ $nifty-prefix }mainnav-submenu-dashed-color );
+         margin-inline-start: calc( #{ $mainnav-submenu-indent-lv2 - .5em } + #{ var( --#{ $nifty-prefix }mainnav-link-padding-x ) } ) !important;
+         padding-inline-start: .5rem;
+      }
+
+      &.has-sub > .mininav-content {
+         border-inline-start: 1px dashed var( --#{ $nifty-prefix }mainnav-submenu-dashed-color );
+         margin-inline-start: var( --#{ $nifty-prefix }mainnav-submenu-dashed-margin ) !important;
+      }
+
+      &.has-sub > .mininav-content > .nav-item > .nav-link {
+         padding-inline-start: calc( #{ calc( var( --#{ $nifty-prefix }mainnav-submenu-indent ) - var( --#{ $nifty-prefix }mainnav-submenu-dashed-margin )) } + #{ var( --#{ $nifty-prefix }mainnav-link-padding-x ) });
+      }
+   }
+}

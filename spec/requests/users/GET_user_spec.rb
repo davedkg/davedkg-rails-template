@@ -2,15 +2,15 @@
 
 require 'rails_helper'
 
-describe 'GET user_path', type: :request do
-  subject { get user_path(record) }
+describe 'GET user_path' do
+  subject(:request) { get user_path(record) }
 
   let(:user) { create(:user) }
   let(:record) { create(:user) }
 
   before do
     sign_in user
-    subject
+    request
   end
 
   context 'when role is user' do

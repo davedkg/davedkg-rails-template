@@ -1,0 +1,67 @@
+/* -- MAIN NAVIGATION - MAX / EXPANDED MODE -- */
+/* ---------------------------------------------- */
+
+@include media-breakpoint-up($mainnav-max-available-at) {
+   .mn--max {
+      .mainnav {
+         position: relative;
+      }
+
+      .mainnav__inner {
+         position: absolute;
+      }
+
+      .mainnav {
+         transition: max-width var( --#{ $nifty-prefix }mainnav-max-transition-duration ) var( --#{ $nifty-prefix }mainnav-max-transition-timing );
+         will-change: max-width;
+      }
+
+
+      // Widget
+      // ---------------------------------------------------------------------------------
+      .mainnav__widget .mininav-content {
+         height: max-content;
+      }
+
+
+      // Caption
+      // ---------------------------------------------------------------------------------
+      .mainnav__caption {
+         display: block;
+         overflow: hidden;
+         max-height: 3rem;
+         transition: max-height var(--#{ $nifty-prefix }mainnav-max-transition-duration) calc(var(--#{ $nifty-prefix }mainnav-max-transition-duration) * 1.5 );
+      }
+
+
+      // Header
+      // ---------------------------------------------------------------------------------
+      .header__inner {
+         padding-inline-start: 0;
+      }
+
+      $not-this-breakpoint: true;
+      @each $breakpoint, $value in $content-gutters-x {
+         @if $breakpoint == $mainnav-max-available-at { $not-this-breakpoint: false }
+         @if $not-this-breakpoint == false {
+            @include media-breakpoint-up( $breakpoint ) {
+               @at-root {
+                  #{&}, .mn--min {
+                     .header__content {
+                        top: $value;
+                        padding-inline-start: $value;
+                     }
+                  }
+               }
+            }
+         }
+      }
+
+      .header__brand {
+         padding-inline-start: calc( #{ calc( map-get( $content-gutters-x, $mainnav-max-available-at ) / 2)} + var( --#{ $nifty-prefix }mainnav-link-padding-x ) );
+         max-width: var( --#{ $nifty-prefix }mainnav-max-width );
+         width: var( --#{ $nifty-prefix }mainnav-max-width );
+         will-change: max-width;
+      }
+   }
+}

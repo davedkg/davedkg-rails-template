@@ -1,0 +1,49 @@
+/* -- CARDS -- */
+/* --------------------------------------------------------------------------------- */
+
+// Card shadows
+// ---------------------------------------------------------------------------------
+.card {
+   box-shadow: $card-box-shadow;
+
+   &:not([class *="border-"]) {
+      border: 0;
+   }
+
+   &-header {
+      min-height: $card-header-height;
+   }
+}
+
+
+
+// Card with background color
+// ---------------------------------------------------------------------------------
+.card[ class *= "bg-" ] {
+   .card-header {
+      background-color: rgba( 0,0,0, .03 );
+      border-bottom: $card-border-width solid $card-border-color;
+   }
+
+   :where( h1, h2, h3, h4, h5, h6 ) {
+      color: inherit;
+   }
+}
+
+
+
+// Card with tabs
+// ---------------------------------------------------------------------------------
+.card-header-tabs {
+   //margin-bottom: -1rem;
+   margin-top: -1px;
+}
+
+
+
+// Card header with pills tabs
+// ---------------------------------------------------------------------------------
+.card .toolbar-end .nav-pills {
+   transform: translateY(25%);
+   margin-top: calc( var(--#{$prefix}card-cap-padding-y) * -1);
+}

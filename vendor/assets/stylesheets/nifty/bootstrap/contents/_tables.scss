@@ -1,0 +1,75 @@
+/* -- TABLES -- */
+/* --------------------------------------------------------------------------------- */
+
+.table {
+
+   // Table header ( bottom bottom width )
+   // ---------------------------------------------------------------------------------
+   &:not( .table-borderless ):not( .table-bordered ) > :not( :last-child ) > :last-child > * {
+      border-bottom-width: 2px;
+   }
+}
+
+
+
+// Table primary
+// ---------------------------------------------------------------------------------
+.table-primary {
+   --#{$prefix}table-bg: var(--#{$prefix}primary-bg-subtle);
+}
+
+
+
+// Table Layout Fixed
+// ---------------------------------------------------------------------------------
+.table-bordered {
+   --#{$prefix}table-bordered-color: #{$table-bordered-color};
+   border-color: var(--#{$prefix}table-bordered-color);
+}
+
+
+// Table Layout Fixed
+// ---------------------------------------------------------------------------------
+.table-layout-fixed {
+   table-layout: fixed;
+}
+
+
+
+// Table Spaced
+// ---------------------------------------------------------------------------------
+.table-spaced {
+  --#{$prefix}table-spaced-spacing: #{$table-spaced-spacing};
+  --#{$prefix}table-spaced-color: #{$table-spaced-color};
+  --#{$prefix}table-spaced-bg: #{$table-spaced-bg};
+  --#{$prefix}table-spaced-border-radius: #{$table-spaced-border-radius};
+
+   border-collapse: separate;
+   border-spacing: 0 var(--#{$prefix}table-spaced-spacing);
+   overflow: visible;
+
+   td, th {
+      background-color: var(--#{$prefix}table-spaced-bg);
+      color: var(--#{$prefix}table-spaced-color);
+      border: 0;
+
+      &:first-child {
+         border-top-left-radius: var(--#{$prefix}table-spaced-border-radius);
+         border-bottom-left-radius: var(--#{$prefix}table-spaced-border-radius);
+      }
+
+      &:last-child {
+         border-top-right-radius: var(--#{$prefix}table-spaced-border-radius);
+         border-bottom-right-radius: var(--#{$prefix}table-spaced-border-radius);
+      }
+   }
+
+   &.bg-transparent {
+      --#{$prefix}table-spaced-bg: transparent !important;
+   }
+
+   &.table-dark {
+      --#{$prefix}table-spaced-bg: #{$dark};
+      --#{$prefix}table-spaced-color: #{color-contrast(opaque($body-bg, $dark))};
+   }
+}

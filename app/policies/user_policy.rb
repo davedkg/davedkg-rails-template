@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-# :reek:TooManyMethods
 class UserPolicy < ApplicationPolicy
   def index?
     admin?
@@ -19,10 +18,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def update_password?
-    me?
-  end
-
-  def update_avatar?
     me?
   end
 
@@ -54,7 +49,17 @@ class UserPolicy < ApplicationPolicy
     if admin? && !me?
       %i[email role]
     else
-      %i[name time_zone password password_confirmation avatar]
+      %i[name time_zone password password_confirmation]
+    end
+  end
+
+  class Scope < Scope
+    def resolve
+      if user.admin?
+        scope
+      else
+        scope.where(id: user.id)
+      end
     end
   end
 

@@ -1,0 +1,12 @@
+
+%ul.nav.nav-pills.mb-4.p-3.bg-body.rounded-2{:role => "tablist"}
+  %li.nav-item{:role => "presentation"}
+    %button.nav-link.px-3.active{"aria-controls" => "simple-form", "aria-selected" => "true", "data-bs-target" => "#simpleFormTab", "data-bs-toggle" => "tab", :role => "tab", :type => "button"} Simple Form
+  %li.nav-item{:role => "presentation"}
+    %button.nav-link.px-3{"aria-controls" => "remote-modals", "aria-selected" => "true", "data-bs-target" => "#modalsTab", "data-bs-toggle" => "tab", :role => "tab", :type => "button"} Modals
+.tab-content
+  #simpleFormTab.tab-pane.fade.show.active{"aria-labelledby" => "simple-form", :role => "tabpanel"}
+    = render 'simple_form'
+  #modalsTab.tab-pane.fade.show{"aria-labelledby" => "remote-modals", :role => "tabpanel"}
+    = render 'modals'
+

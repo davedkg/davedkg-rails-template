@@ -1,0 +1,27 @@
+/* -- COLORED LINKS -- */
+/* --------------------------------------------------------------------------------- */
+
+@each $color, $value in $theme-colors {
+   @if $color == "primary" {
+      .link-#{$color} {
+         color: var(--#{$prefix}link-#{$color}-color) !important;
+         text-decoration-color: var(--#{$prefix}link-#{$color}-underline-color) !important;
+
+         &:hover, &:focus {
+            color: var(--#{$prefix}link-#{$color}-hover-color) !important;
+            text-decoration-color: var(--#{$prefix}link-#{$color}-underline-hover-color) !important;
+         }
+      }
+   } @else {
+      @if $link-shade-percentage !=0 {
+         .link-#{$color} {
+            &:hover,
+            &:focus {
+               $hover-color: tint-color($value, $link-shade-percentage);
+               color: RGBA(#{to-rgb($hover-color)}, var(--#{$prefix}link-opacity, 1)) if($enable-important-utilities, !important, null);
+               text-decoration-color: RGBA(to-rgb($hover-color), var(--#{$prefix}link-underline-opacity, 1)) if($enable-important-utilities, !important, null);
+            }
+         }
+      }
+   }
+}
