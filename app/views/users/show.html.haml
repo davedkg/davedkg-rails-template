@@ -36,15 +36,13 @@
         Delete
 
 .card
-  = user_status_badge(@user)
-  .profile__info
-    %ul.icon-list
-      %li
-        %i.zmdi.zmdi-home
-        = @user.name || 'n/a'
-      %li
-        %i.zmdi.zmdi-email
-        = @user.email
-      %li
-        %i.fa.fa-user-shield
-        = @user.role
+  .card-body
+    %dl
+      %dt Status
+      %dd= user_status_badge(@user)
+      %dt Name
+      %dd= @user.name || 'n/a'
+      %dt Email
+      %dd= @user.email
+      %dt Role
+      %dd= @user.role

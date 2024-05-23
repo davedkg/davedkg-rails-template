@@ -12,4 +12,8 @@
 
 .card
   .card-body
-    = debug @<%= singular_table_name %>
+    %dl
+    <%- attributes.each do |attribute| -%>
+      %dt <%= attribute.name.humanize %>
+      %dd= @<%= singular_table_name %>.<%= attribute.name %>
+    <%- end -%>
