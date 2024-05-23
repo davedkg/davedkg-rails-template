@@ -3,12 +3,11 @@
 // 2014-2024 ThemeOn Team
 // ---------------------------------------------------------------------------------
 
-
 // Functions and breakpoints mixins
 // ---------------------------------------------------------------------------------
-@import 'bootstrap/scss/functions';
-@import 'bootstrap/scss/mixins/breakpoints';
-@import 'bootstrap/scss/mixins/color-mode';
+@import '../../../node_modules/bootstrap/scss/functions';
+@import '../../../node_modules/bootstrap/scss/mixins/breakpoints';
+@import '../../../node_modules/bootstrap/scss/mixins/color-mode';
 
 
 
