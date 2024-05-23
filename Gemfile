@@ -15,7 +15,6 @@ gem 'stimulus-rails', '~> 1.3.3'
 gem 'turbo-rails', '~> 2.0.5'
 
 gem 'autoprefixer-rails', '~> 10.4.16.0'
-gem 'bootstrap', '~> 5.3.3'
 gem 'dartsass-sprockets', '~> 3.1.0'
 gem 'devise', '~> 4.9.4'
 gem 'devise_invitable', '~> 2.0.0'
