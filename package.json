@@ -1,0 +1,16 @@
+{
+  "name": "template",
+  "private": true,
+  "dependencies": {
+    "@hotwired/stimulus": "^3.2.2",
+    "@hotwired/turbo-rails": "^8.0.4",
+    "@popperjs/core": "^2.11.8",
+    "autosize": "^6.0.1",
+    "bootstrap": "^5.3.3",
+    "esbuild": "^0.21.3",
+    "sweetalert2": "^11.11.0"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --format=esm --outdir=app/assets/builds --public-path=/assets"
+  }
+}

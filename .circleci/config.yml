@@ -2,6 +2,7 @@ version: 2.1
 
 orbs:
   ruby: circleci/ruby@2.1.1
+  node: circleci/node@5.2.0
 
 executors:
   rails-executor:
@@ -40,12 +41,18 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
+      - node/install:
+          install-yarn: true
+          node-version: '21.7'
       - run:
           name: Wait for DB to Boot
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
       - run:
           name: Setup DB
           command: bundle exec rake db:schema:load db:seed --trace
+      - run:
+          name: Compile Assets
+          command: bundle exec rake assets:precompile
       - ruby/rspec-test
   reek:
     executor:

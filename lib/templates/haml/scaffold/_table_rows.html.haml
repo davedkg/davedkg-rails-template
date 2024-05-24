@@ -3,9 +3,9 @@
 <%- attributes.each do |attribute| -%>
     %td= <%= singular_table_name %>.<%= attribute.name %>
 <%- end -%>
-    %td.text-right
+    %td.text-end
       - if policy(<%= singular_table_name %>).show?
-        = link_to <%= singular_table_name %>_path(<%= singular_table_name %>), class: "btn btn-outline-secondary btn-sm" do
+        = link_to <%= singular_table_name %>_path(<%= singular_table_name %>), class: "btn btn-primary btn-xs" do
           %i.fa.fa-eye
           .d-none.d-sm-inline
             Show
