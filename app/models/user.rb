@@ -6,12 +6,12 @@ class User < ApplicationRecord
          :confirmable, :lockable, :trackable,
          validate_on_invite: true
 
-  enum role: {
+  enum :role, {
     user: 'user',
     admin: 'admin'
   }
 
-  enum state: {
+  enum :state, {
     enabled: 'enabled',
     disabled: 'disabled'
   }
