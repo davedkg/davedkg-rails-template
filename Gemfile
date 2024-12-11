@@ -2,7 +2,7 @@
 
 source 'https://rubygems.org'
 
-ruby '3.3.1'
+ruby '3.3.6'
 
 gem 'importmap-rails', '~> 2.0.3'
 gem 'jbuilder', '~> 2.13.0'
