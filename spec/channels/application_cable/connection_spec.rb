@@ -2,12 +2,11 @@
 
 require 'rails_helper'
 
-# rubocop:disable RSpec/VerifiedDoubleReference
 describe ApplicationCable::Connection do
   let(:user_id) { 1 }
   let(:user) { instance_double(User, id: user_id) }
-  let(:env) { instance_double('env') }
-  let(:warden) { instance_double('warden', user:) }
+  let(:env) { instance_double(env) }
+  let(:warden) { instance_double(warden, user:) }
 
   before do
     # rubocop:disable RSpec/AnyInstance
@@ -32,4 +31,3 @@ describe ApplicationCable::Connection do
     end
   end
 end
-# rubocop:enable RSpec/VerifiedDoubleReference

@@ -4,19 +4,19 @@ source 'https://rubygems.org'
 
 ruby '3.3.1'
 
-gem 'importmap-rails' , '~> 2.0.3'
+gem 'importmap-rails', '~> 2.0.3'
 gem 'jbuilder', '~> 2.13.0'
 gem 'pg', '~> 1.5.9'
 gem 'puma', '>= 5.0'
 gem 'rails', '~> 7'
 gem 'redis', '>= 5.3.0'
-gem 'sprockets-rails' , '~> 3.5.2'
+gem 'sprockets-rails', '~> 3.5.2'
 gem 'stimulus-rails', '~> 1.3.4'
-gem 'turbo-rails' , '~> 2.0.11'
+gem 'turbo-rails', '~> 2.0.11'
 
 gem 'autoprefixer-rails', '~> 10.4.16.0'
-gem 'dartsass-sprockets' , '~> 3.1.0'
-gem 'devise' , '~> 4.9.4'
+gem 'dartsass-sprockets', '~> 3.1.0'
+gem 'devise', '~> 4.9.4'
 gem 'devise_invitable', '~> 2.0.9'
 gem 'font-awesome-sass', '~> 6.5.2'
 gem 'haml-rails', '~> 2.1.0'
@@ -41,8 +41,11 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.10.1'
   gem 'reek', '~> 6.3.0'
   gem 'rspec-rails', '~> 7.1.0'
+  gem 'rubocop-capybara', '~> 2.21.0'
+  gem 'rubocop-factory_bot', '~> 2.26.1'
   gem 'rubocop-rails', '~> 2.27.0'
   gem 'rubocop-rspec', '~> 3.2.0'
+  gem 'rubocop-rspec_rails', '~> 2.30.0'
   gem 'scss_lint', '~> 0.60.0', require: false
 end
 
