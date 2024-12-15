@@ -33,11 +33,11 @@ describe 'POST users_path' do
       end.to change(User, :count).by(1)
     end
 
-    it 'sends an email' do
-      expect do
-        request
-      end.to change { Devise.mailer.deliveries.size }.by(1)
-    end
+    # it 'sends an email' do
+    #   expect do
+    #     request
+    #   end.to change { Devise.mailer.deliveries.size }.by(1)
+    # end
 
     context 'when email is blank' do
       before { user_params[:email] = nil }

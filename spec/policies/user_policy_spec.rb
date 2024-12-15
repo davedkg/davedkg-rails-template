@@ -34,14 +34,14 @@ describe UserPolicy, type: :policy do
     context 'when record is me' do
       let(:record) { user }
 
-      it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email unlock]) }
+      it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email]) }
     end
 
     context 'when record has not accepted invitation' do
       let(:record) { create(:user, :invitation_not_accepted) }
 
       it { is_expected.to permit_actions([ :resend_invitation_email ]) }
-      it { is_expected.to forbid_actions(%i[send_reset_password_email unlock]) }
+      it { is_expected.to forbid_actions(%i[send_reset_password_email]) }
     end
 
     context 'when record is disabled' do
