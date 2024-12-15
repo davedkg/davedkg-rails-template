@@ -185,6 +185,8 @@ GEM
       racc (~> 1.4)
     ostruct (0.6.1)
     parallel (1.26.3)
+    paranoia (3.0.0)
+      activerecord (>= 6, < 8.1)
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
@@ -355,6 +357,7 @@ DEPENDENCIES
   importmap-rails (~> 2.0.3)
   jbuilder (~> 2.13.0)
   kamal
+  paranoia (~> 3.0.0)
   pg (~> 1.1)
   propshaft (~> 1.1.0)
   puma (>= 5.0)
