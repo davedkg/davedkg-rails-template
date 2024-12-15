@@ -11,3 +11,8 @@
           = link_to dashboard_path do
             %i.bi.bi-bar-chart-line
             %span.menu-text Dashboard
+      - if policy(User).index?
+        %li{ class: active_sidebar_tab_for_path(users_path) }
+          = link_to users_path do
+            %i.bi.bi-people
+            %span.menu-text Users

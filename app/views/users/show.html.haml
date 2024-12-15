@@ -1,0 +1,48 @@
+.p-4.bg-primary.mb-4.rounded-4
+  .d-flex.align-items-center.flex-row.flex-wrap
+    .ms-3.text-white
+      %h5.mb-1= @user.name || "Name?"
+      %h6.m-0.fw-light= user_status_badge(@user)
+    .d-flex.gap-3.text-white.ms-3
+      .px-3.d-flex.align-items-center.border-start
+        %i.bi.bi-envelope-open.fs-2.lh-1.me-2
+        %div
+          %h6.mb-1 Email
+          %p.m-0.fw-light.small= @user.email
+      - if current_user.admin?
+        .px-3.d-flex.align-items-center.border-start
+          %i.bi.bi-person-vcard.fs-2.lh-1.me-2
+          %div
+            %h6.mb-1 Role
+            %p.m-0.fw-light.small= @user.role
+    .ms-auto.d-flex.gap-2
+      - if policy(@user).edit?
+        = link_to edit_user_path(@user), class: "btn btn-secondary" do
+          %i.bi.bi-pencil
+          .d-none.d-md-inline.ms-1
+            Edit
+      - if policy(@user).resend_invitation_email?
+        = link_to resend_invitation_email_user_path(@user), class: "btn btn-secondary", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to resend this invitation?" do
+          %i.bi.bi-envelope-open
+          .d-none.d-md-inline.ms-1
+            Invitation
+      - if policy(@user).send_reset_password_email?
+        = link_to send_reset_password_email_user_path(@user), class: "btn btn-secondary", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to send a password reset email?" do
+          %i.bi.bi-envelope-open
+          .d-none.d-md-inline.ms-1
+            Password Reset
+      - if policy(@user).enable?
+        = link_to enable_user_path(@user), class: "btn btn-secondary", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to enable this user?" do
+          %i.bi.bi-person-check
+          .d-none.d-md-inline.ms-1
+            Enable
+      - if policy(@user).disable?
+        = link_to disable_user_path(@user), class: "btn btn-secondary", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to disable this user?" do
+          %i.bi.bi-person-exclamation
+          .d-none.d-md-inline.ms-1
+            Disable
+      - if policy(@user).destroy?
+        = link_to @user, class: "btn btn-danger", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this user?" do
+          %i.bi.bi-trash
+          .d-none.d-md-inline.ms-1
+            Delete

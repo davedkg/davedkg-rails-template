@@ -1,0 +1,24 @@
+.card.mb-3
+  .card-body
+    .row
+      .col.d-flex.justify-content-end
+        .d-flex.gap-2
+          - if policy(User).new?
+            = link_to new_user_path, class: "btn btn-primary fw-semibold" do
+              %i.bi.bi-plus
+              .d-none.d-sm-inline
+                Invite
+
+.card
+  .card-body
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+            %th Name
+            %th.d-none.d-md-table-cell State
+            %th &nbsp;
+        %tbody{ id: "users-table-rows" }
+          = render 'users'
+      %div{ id: "users-paginator" }
+        = render "paginator"

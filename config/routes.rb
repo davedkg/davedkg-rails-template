@@ -1,5 +1,12 @@
 Rails.application.routes.draw do
-  get "web_components/show"
+  resources :users do
+    post  "resend-invitation-email",   on: :member
+    post  "send-reset-password-email", on: :member
+    post  "enable",                    on: :member
+    post  "disable",                   on: :member
+    patch "update-password",           on: :member
+  end
+
   resource :dashboard, only: [ :show ], controller: :dashboard
 
   devise_for :users, controllers: {

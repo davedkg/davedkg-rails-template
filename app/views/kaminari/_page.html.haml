@@ -1,0 +1,6 @@
+- if page.current?
+  %li.page-item.active
+    = link_to page, url, rel: page.rel, class: 'page-link', data: { controller: "turbo" }
+- else
+  %li.page-item
+    = link_to page, url, rel: page.rel, class: 'page-link', data: { controller: "turbo" }

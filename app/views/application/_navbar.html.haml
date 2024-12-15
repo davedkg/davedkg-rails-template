@@ -16,7 +16,7 @@
           .icon-box.md.rounded-4.fw-bold.bg-primary-subtle.text-primary
             %i.bi.bi-person.fs-3
         .dropdown-menu.dropdown-menu-end.shadow-lg
-          %a.dropdown-item.d-flex.align-items-center{href: "profile.html"}
+          = link_to user_path(current_user), class: "dropdown-item d-flex align-items-center" do
             %i.bi.bi-person.fs-4.me-2>
             My Profile
           .mx-3.my-2.d-grid
