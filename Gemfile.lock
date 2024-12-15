@@ -149,6 +149,8 @@ GEM
       railties (>= 5.0.0)
     faker (3.5.1)
       i18n (>= 1.8.11, < 2)
+    fasterer (0.11.0)
+      ruby_parser (>= 3.19.1)
     fugit (1.11.1)
       et-orbi (~> 1, >= 1.2.11)
       raabro (~> 1.4)
@@ -344,6 +346,9 @@ GEM
       rubocop-performance
       rubocop-rails
     ruby-progressbar (1.13.0)
+    ruby_parser (3.21.1)
+      racc (~> 1.5)
+      sexp_processor (~> 4.16)
     rubyzip (2.3.2)
     securerandom (0.4.0)
     selenium-webdriver (4.27.0)
@@ -352,6 +357,7 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sexp_processor (4.17.3)
     solid_cable (3.0.4)
       actioncable (>= 7.2)
       activejob (>= 7.2)
@@ -423,6 +429,7 @@ DEPENDENCIES
   debug
   factory_bot_rails (~> 6.4.4)
   faker (~> 3.5.1)
+  fasterer (~> 0.11.0)
   importmap-rails (~> 2.0.3)
   jbuilder (~> 2.13.0)
   kamal

@@ -24,6 +24,7 @@ group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", "~> 6.2.2", require: false
   gem "factory_bot_rails", "~> 6.4.4"
+  gem "fasterer", "~> 0.11.0", require: false
   gem "pry-byebug", "~> 3.10.1"
   gem "reek", "~> 6.3.0", require: false
   gem "rspec-rails", "~> 7.0.0"
