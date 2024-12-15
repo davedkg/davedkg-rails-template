@@ -23,6 +23,8 @@ gem "thruster", require: false
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
+  gem "factory_bot_rails", "~> 6.4.4"
+  gem "rspec-rails", "~> 7.0.0"
   gem "rubocop-rails-omakase", require: false
 end
 
@@ -31,6 +33,8 @@ group :development do
 end
 
 group :test do
+  gem "faker", "~> 3.5.1"
+
   gem "capybara"
   gem "selenium-webdriver"
 end
