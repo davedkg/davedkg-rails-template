@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    = render 'head'
+  %body
+    .page-wrapper
+      .auth-container
+        .d-flex.justify-content-center
+          .auth-box
+            %h4.mb-4= page_title
+            = render 'splash/flash'
+            = yield

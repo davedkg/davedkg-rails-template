@@ -1,4 +1,6 @@
 class PasswordsController < Devise::PasswordsController
+  layout "splash"
+
   private
 
   def page_title_hash

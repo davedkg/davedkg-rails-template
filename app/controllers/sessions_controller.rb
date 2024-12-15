@@ -1,4 +1,6 @@
 class SessionsController < Devise::SessionsController
+  layout "splash"
+
   private
 
   def page_title

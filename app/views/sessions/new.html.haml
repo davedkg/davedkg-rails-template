@@ -1,0 +1,10 @@
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  = f.error_notification
+  = f.input :email, autofocus: true, autocomplete: "email"
+  = f.input :password
+  .d-flex.justify-content-between.mb-2
+    = f.input :remember_me, as: :boolean
+    %div.pt-1
+      = link_to "Forgot password?", new_password_path(resource_name), class: "text-decoration-underline"
+  .d-grid.gap-2
+    = f.button :submit, "Sign In", data: { "disable-with": "Signing In..." }
