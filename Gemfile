@@ -18,6 +18,7 @@ gem "devise", "~> 4.9.4"
 gem "devise_invitable", "~> 2.0.0"
 gem "haml-rails", "~> 2.0"
 gem "paranoia", "~> 3.0.0"
+gem "pundit", "~> 2.4.0"
 gem "simple_form", "~> 5.3.1"
 
 gem "bootsnap", require: false
@@ -41,6 +42,7 @@ end
 
 group :test do
   gem "faker", "~> 3.5.1"
+  gem "pundit-matchers", "~> 3.1.2"
 
   gem "capybara"
   gem "selenium-webdriver"
