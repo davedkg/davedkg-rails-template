@@ -20,7 +20,7 @@ class UsersController < ApplicationController
     @user.skip_password_validation = true
 
     if @user.valid? && @user.invite!
-      redirect_to user_path(@user, format: :html), notice: "User was successfully invited."
+      redirect_to @user, notice: "User was successfully invited."
     else
       render :new, status: :unprocessable_entity
     end
@@ -28,7 +28,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(permitted_attributes(@user))
-      redirect_to user_path(@user), notice: "User was successfully updated.", status: :see_other
+      redirect_to @user, notice: "User was successfully updated.", status: :see_other
     else
       render "update_user_failed"
     end
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   def update_password
     if @user.update(permitted_attributes(@user))
       bypass_sign_in(@user)
-      redirect_to user_path(@user), notice: "Password was successfully updated."
+      redirect_to @user, notice: "Password was successfully updated."
     else
       render "update_password_failed"
     end
