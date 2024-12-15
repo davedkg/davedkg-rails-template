@@ -9,5 +9,6 @@
         .app-container
           = render 'navbar'
           .app-body
+            = render 'flash'
             = yield
     = turbo_frame_tag :modal

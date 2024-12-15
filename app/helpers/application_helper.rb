@@ -2,9 +2,9 @@ module ApplicationHelper
   include Stimulusable
 
   MODAL_SIZES = {
-    xl: 'modal-xl',
-    large: 'modal-lg',
-    small: 'modal-sm'
+    xl: "modal-xl",
+    large: "modal-lg",
+    small: "modal-sm"
   }.freeze
 
   def modal_size_class(modal_size)
@@ -25,6 +25,13 @@ module ApplicationHelper
     end
   end
 
+  def simple_form_for(record, options = {}, &)
+    data = options[:data] || {}
+    add_stimulus_controller(data, "form")
+    options[:data] = data
+    super
+  end
+
   private
 
   def merge_html_options(html_options)
@@ -32,8 +39,8 @@ module ApplicationHelper
 
     html_options.delete(:modal)
     html_options[:data] ||= {}
-    html_options[:data]['controller'] = 'turbo'
-    html_options[:data]['turbo-prefetch'] = false
+    html_options[:data]["controller"] = "turbo"
+    html_options[:data]["turbo-prefetch"] = false
 
     html_options
   end
