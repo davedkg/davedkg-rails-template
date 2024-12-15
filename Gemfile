@@ -14,7 +14,11 @@ gem "solid_cache", "~> 1.0.6"
 gem "solid_queue", "~> 1.1.0"
 gem "solid_cable", "~> 3.0.4"
 
+gem "devise", "~> 4.9.4"
+gem "devise_invitable", "~> 2.0.0"
+gem "haml-rails", "~> 2.0"
 gem "paranoia", "~> 3.0.0"
+gem "simple_form", "~> 5.3.1"
 
 gem "bootsnap", require: false
 gem "kamal", require: false

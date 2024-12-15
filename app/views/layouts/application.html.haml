@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title= content_for(:title) || "Template"
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
+    %meta{:content => "yes", :name => "mobile-web-app-capable"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :head
+    %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
+    %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
+    %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
+    = stylesheet_link_tag :app, "data-turbo-track": "reload"
+    = javascript_importmap_tags
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+  %body
+    = yield
