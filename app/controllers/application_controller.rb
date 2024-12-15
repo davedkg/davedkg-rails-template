@@ -13,12 +13,11 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
 
   def root
-    redirect_to dashboard_path # FIXME: uncomment when pundit is integrated
-    # if policy(:dashboard).show?
-    #   redirect_to dashboard_path
-    # else
-    #   redirect_to user_path(current_user)
-    # end
+    if policy(:dashboard).show?
+      redirect_to dashboard_path
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   private
