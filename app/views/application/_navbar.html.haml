@@ -1,0 +1,23 @@
+.app-header.d-flex.align-items-center
+  .d-flex
+    %button.toggle-sidebar{ data: { action: "sidebar-toggle#toggle" } }
+      %i.bi.bi-list.lh-1
+    %button.pin-sidebar{ data: { action: "sidebar-toggle#pin" } }
+      %i.bi.bi-list.lh-1
+  .app-brand-sm.d-lg-none.d-flex
+    = link_to root_path do
+      = image_tag 'icon.svg', height: "30px", class: "logo"
+  %h5.m-0.ms-2.fw-semibold= page_title
+  .header-actions
+    .bg-white.p-2.rounded-4.d-flex.align-items-center
+      .dropdown.ms-2
+        %a#userSettings.dropdown-toggle.user-settings{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#!", role: "button"}
+          %span.me-2.text-truncate.d-lg-block.d-none= current_user.name
+          .icon-box.md.rounded-4.fw-bold.bg-primary-subtle.text-primary
+            %i.bi.bi-person.fs-3
+        .dropdown-menu.dropdown-menu-end.shadow-lg
+          %a.dropdown-item.d-flex.align-items-center{href: "profile.html"}
+            %i.bi.bi-person.fs-4.me-2>
+            My Profile
+          .mx-3.my-2.d-grid
+            = link_to "Sign Out", destroy_user_session_path, class: "btn btn-warning", data: { turbo_method: :delete }

@@ -2,5 +2,11 @@
 %html
   %head
     = render 'head'
-  %body
-    = yield
+  %body{ data: { controller: "sidebar-toggle" } }
+    .page-wrapper{ data: { sidebar_toggle_target: "pageWrapper" } }
+      .main-container
+        = render 'sidebar'
+        .app-container
+          = render 'navbar'
+          .app-body
+            = yield
