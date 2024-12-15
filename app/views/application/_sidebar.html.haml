@@ -7,7 +7,7 @@
   .sidebarMenuScroll
     %ul.sidebar-menu
       - if policy(:dashboard).show?
-        %li.active.current-page
+        %li{ class: active_sidebar_tab_for_path(dashboard_path) }
           = link_to dashboard_path do
             %i.bi.bi-bar-chart-line
             %span.menu-text Dashboard
