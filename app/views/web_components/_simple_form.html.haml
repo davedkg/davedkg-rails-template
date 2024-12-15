@@ -1,0 +1,96 @@
+- collection = 3.times.map { |i| ["option text #{i}", i] }
+
+= simple_form_for :form do |f|
+
+  .card.mb-4
+    .card-header
+      %h4.card-title Checkboxes
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute, collection: collection, as: :check_boxes"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  collection: collection, as: :check_boxes, required: false
+          = f.input :disabled, collection: collection, as: :check_boxes, required: false, disabled: true
+          = f.input :valid,    collection: collection, as: :check_boxes, required: false, valid: true
+          = f.input :invalid,  collection: collection, as: :check_boxes, required: false, error: "Invalid message"
+
+  .card.mb-4
+    .card-header
+      %h4.card-title File
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute, as: :file"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  as: :file, required: false
+          = f.input :disabled, as: :file, required: false, disabled: true
+          = f.input :valid,    as: :file, required: false, valid: true
+          = f.input :invalid,  as: :file, required: false, error: "Invalid message"
+      .p
+        %code= "= f.input :attribute, as: :file"
+
+  .card.mb-4
+    .card-header
+      %h4.card-title Radio Group
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute, collection: collection, as: :radio_buttons"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  collection: collection, as: :radio_buttons, required: false
+          = f.input :disabled, collection: collection, as: :radio_buttons, required: false, disabled: true
+          = f.input :valid,    collection: collection, as: :radio_buttons, required: false, valid: true
+          = f.input :invalid,  collection: collection, as: :radio_buttons, required: false, error: "Invalid message"
+
+  .card.mb-4
+    .card-header
+      %h4.card-title Single Select
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute, collection: collection"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  collection: collection, required: false
+          = f.input :disabled, collection: collection, required: false, disabled: true
+          = f.input :valid,    collection: collection, required: false, valid: true
+          = f.input :invalid,  collection: collection, required: false, error: "Invalid message"
+
+  .card.mb-4
+    .card-header
+      %h5.card-title Text
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  placeholder: "start typing here...", required: false
+          = f.input :disabled, placeholder: "start typing here...", required: false, disabled: true
+          = f.input :valid,    placeholder: "start typing here...", required: false, valid: true
+          = f.input :invalid,  placeholder: "start typing here...", required: false, error: "Invalid message"
+
+  .card.mb-4
+    .card-header
+      %h5.card-title Text Area
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute, as: :text"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  as: :text, placeholder: "start typing here...", required: false
+          = f.input :disabled, as: :text, placeholder: "start typing here...", required: false, disabled: true
+          = f.input :valid,    as: :text, placeholder: "start typing here...", required: false, valid: true
+          = f.input :invalid,  as: :text, placeholder: "start typing here...", required: false, error: "Invalid message"
+
+  .card
+    .card-header
+      %h5.card-title Toggle
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :default, as: :boolean"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  as: :boolean, required: false
+          = f.input :disabled, as: :boolean, required: false, disabled: true
+          = f.input :valid,    as: :boolean, required: false, valid: true
+          = f.input :invalid,  as: :boolean, required: false, error: "Invalid message"

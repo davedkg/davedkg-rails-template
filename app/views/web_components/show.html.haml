@@ -1,0 +1,6 @@
+%nav.nav.nav-pills{ role: "tablist" }
+  %li.nav-item{ role: "presentation" }
+    %button#simple-form-tab.nav-link.active{ "aria-controls" => "simple-form-tab-pane", "aria-selected" => "true", "data-bs-target" => "#simple-form-tab-pane", "data-bs-toggle" => "tab", role: "tab", type: "button" } Simple Form
+.tab-content.mt-4
+  #simple-form-tab-pane.tab-pane.fade.show.active{ role: "tabpanel", aria_labelledby: "simple-form-tab", tabindex: "0" }
+    = render 'simple_form'
