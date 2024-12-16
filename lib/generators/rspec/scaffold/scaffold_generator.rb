@@ -1,11 +1,11 @@
-require 'generators/rspec'
-require 'rails/generators/resource_helpers'
+require "generators/rspec"
+require "rails/generators/resource_helpers"
 
 module Rspec
   module Generators
     class ScaffoldGenerator < Base
       include ::Rails::Generators::ResourceHelpers
-      source_paths << File.expand_path('../helper/templates', __dir__)
+      source_paths << File.expand_path("../helper/templates", __dir__)
       argument :attributes, type: :array, default: [], banner: "field:type field:type"
 
       class_option :orm, desc: "ORM used to generate the controller"
@@ -28,9 +28,9 @@ module Rspec
         return unless options[:controller_specs]
 
         if options[:api]
-          template 'api_controller_spec.rb', template_file(folder: 'controllers', suffix: '_controller')
+          template "api_controller_spec.rb", template_file(folder: "controllers", suffix: "_controller")
         else
-          template 'controller_spec.rb', template_file(folder: 'controllers', suffix: '_controller')
+          template "controller_spec.rb", template_file(folder: "controllers", suffix: "_controller")
         end
       end
 
@@ -38,15 +38,15 @@ module Rspec
         return unless options[:request_specs]
 
         if options[:api]
-          template 'api_request_spec.rb', template_file(folder: 'requests')
+          template "api_request_spec.rb", template_file(folder: "requests")
         else
-          template 'requests/DELETE_object_spec.rb', target_path('requests', name.underscore.pluralize, "DELETE_#{name.underscore.singularize}_spec.rb")
-          template 'requests/GET_edit_object_spec.rb', target_path('requests', name.underscore.pluralize, "EDIT_edit_#{name.underscore.singularize}_spec.rb")
-          template 'requests/GET_new_object_spec.rb', target_path('requests', name.underscore.pluralize, "GET_new_#{name.underscore.singularize}_spec.rb")
-          template 'requests/GET_object_spec.rb', target_path('requests', name.underscore.pluralize, "GET_#{name.underscore.singularize}_spec.rb")
-          template 'requests/GET_objects_spec.rb', target_path('requests', name.underscore.pluralize, "GET_#{name.underscore.pluralize}_spec.rb")
-          template 'requests/PATCH_object_spec.rb', target_path('requests', name.underscore.pluralize, "PATCH_#{name.underscore.singularize}_spec.rb")
-          template 'requests/POST_objects_spec.rb', target_path('requests', name.underscore.pluralize, "POST_#{name.underscore.pluralize}_spec.rb")
+          template "requests/DELETE_object_spec.rb", target_path("requests", name.underscore.pluralize, "DELETE_#{name.underscore.singularize}_spec.rb")
+          template "requests/GET_edit_object_spec.rb", target_path("requests", name.underscore.pluralize, "EDIT_edit_#{name.underscore.singularize}_spec.rb")
+          template "requests/GET_new_object_spec.rb", target_path("requests", name.underscore.pluralize, "GET_new_#{name.underscore.singularize}_spec.rb")
+          template "requests/GET_object_spec.rb", target_path("requests", name.underscore.pluralize, "GET_#{name.underscore.singularize}_spec.rb")
+          template "requests/GET_objects_spec.rb", target_path("requests", name.underscore.pluralize, "GET_#{name.underscore.pluralize}_spec.rb")
+          template "requests/PATCH_object_spec.rb", target_path("requests", name.underscore.pluralize, "PATCH_#{name.underscore.singularize}_spec.rb")
+          template "requests/POST_objects_spec.rb", target_path("requests", name.underscore.pluralize, "POST_#{name.underscore.pluralize}_spec.rb")
         end
       end
 
@@ -64,11 +64,11 @@ module Rspec
         return unless options[:routing_specs]
 
         template_file = target_path(
-          'routing',
+          "routing",
           controller_class_path,
           "#{controller_file_name}_routing_spec.rb"
         )
-        template 'routing_spec.rb', template_file
+        template "routing_spec.rb", template_file
       end
 
     protected
@@ -125,7 +125,7 @@ module Rspec
         end
       end
 
-      def template_file(folder:, suffix: '')
+      def template_file(folder:, suffix: "")
         target_path(folder, controller_class_path, "#{controller_file_name}#{suffix}_spec.rb")
       end
 

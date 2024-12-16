@@ -1,8 +1,6 @@
-# frozen_string_literal: true
+require "rails_helper"
 
-require 'rails_helper'
-
-describe 'DELETE user_path' do
+describe "DELETE user_path" do
   subject(:request) { delete user_path(record) }
 
   let(:user) { create(:user) }
@@ -12,22 +10,22 @@ describe 'DELETE user_path' do
     sign_in user
   end
 
-  context 'when role is user' do
-    it 'returns not_found status' do
+  context "when role is user" do
+    it "returns not_found status" do
       request
       expect(response).to have_http_status(:not_found)
     end
   end
 
-  context 'when role is admin' do
+  context "when role is admin" do
     let(:user) { create(:user, :admin) }
 
-    it 'returns redirect status' do
+    it "returns redirect status" do
       request
       expect(response).to have_http_status(:redirect)
     end
 
-    it 'deletes the record' do
+    it "deletes the record" do
       expect do
         request
       end.to(change { record.reload.deleted_at })

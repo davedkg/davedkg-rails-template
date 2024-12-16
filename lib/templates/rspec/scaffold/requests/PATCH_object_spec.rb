@@ -1,8 +1,6 @@
-# frozen_string_literal: true
+require "rails_helper"
 
-require 'rails_helper'
-
-describe 'PATCH user_path' do
+describe "PATCH user_path" do
   subject(:request) { patch user_path(record), params: { user: user_params } }
 
   let(:user_params) { attributes_for(:user) }
@@ -13,21 +11,21 @@ describe 'PATCH user_path' do
     sign_in user
   end
 
-  context 'when role is user' do
-    it 'returns not_found status' do
+  context "when role is user" do
+    it "returns not_found status" do
       request
       expect(response).to have_http_status(:not_found)
     end
 
-    context 'when record is me' do
+    context "when record is me" do
       let(:record) { user }
 
-      it 'returns redirect status' do
+      it "returns redirect status" do
         request
         expect(response).to have_http_status(:redirect)
       end
 
-      it 'updates record' do
+      it "updates record" do
         expect do
           request
         end.to(change { record.reload.updated_at })
@@ -35,10 +33,10 @@ describe 'PATCH user_path' do
     end
   end
 
-  context 'when role is admin' do
+  context "when role is admin" do
     let(:user) { create(:user, :admin) }
 
-    it 'returns not_found status' do
+    it "returns not_found status" do
       request
       expect(response).to have_http_status(:not_found)
     end

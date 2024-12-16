@@ -1,8 +1,6 @@
-# frozen_string_literal: true
+require "rails_helper"
 
-require 'rails_helper'
-
-describe 'GET users_path' do
+describe "GET users_path" do
   subject(:request) { get users_path }
 
   let(:user) { create(:user) }
@@ -12,16 +10,16 @@ describe 'GET users_path' do
     request
   end
 
-  context 'when role is user' do
-    it 'returns not_found status' do
+  context "when role is user" do
+    it "returns not_found status" do
       expect(response).to have_http_status(:not_found)
     end
   end
 
-  context 'when role is admin' do
+  context "when role is admin" do
     let(:user) { create(:user, :admin) }
 
-    it 'returns ok status' do
+    it "returns ok status" do
       expect(response).to have_http_status(:ok)
     end
   end
