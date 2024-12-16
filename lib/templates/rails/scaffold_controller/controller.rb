@@ -1,0 +1,58 @@
+<% module_namespacing do -%>
+class <%= controller_class_name %>Controller < ApplicationController
+  before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
+
+  breadcrumb -> { page_title_hash[:index] }, :<%= plural_table_name %>_path, except: [ :index ], if: -> { policy(<%= class_name %>).index? }
+  breadcrumb -> { page_title_hash[:show] }, -> { <%= singular_table_name %>_path(@<%= singular_table_name %>) }, only: %i[edit update], if: -> { policy(@<%= singular_table_name %>).show? }
+
+  def index
+    @<%= plural_table_name %> = authorize policy_scope(<%= class_name %>).page(params[:page])
+  end
+
+  def show
+  end
+
+  def new
+    @<%= singular_table_name %> = authorize <%= orm_class.build(class_name) %>
+  end
+
+  def edit
+  end
+
+  def create
+    @<%= singular_table_name %> = authorize <%= orm_class.build(class_name) %>
+    @<%= singular_table_name %>.attributes = permitted_attributes(@<%= singular_table_name %>)
+
+    if @<%= orm_instance.save %>
+      redirect_to <%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= %("#{singular_table_name.titleize} was successfully created.") %>
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def update
+    if @<%= singular_table_name %>.update(permitted_attributes(@<%= singular_table_name %>))
+      redirect_to <%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= %("#{singular_table_name.titleize} was successfully updated.") %>
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @<%= orm_instance.destroy %>
+    redirect_to <%= index_helper %>_path(format: :html), notice: <%= %("#{singular_table_name.titleize} was successfully destroyed.") %>
+  end
+
+  private
+
+  def set_<%= singular_table_name %>
+    @<%= singular_table_name %> = authorize policy_scope(<%= class_name %>).find(params.expect(:id))
+  end
+
+  def page_title_hash
+    super.merge({
+                  show: "<%= singular_table_name.titleize %>"
+                })
+  end
+end
+<% end -%>

@@ -1,0 +1,27 @@
+.card.mb-3
+  .card-body
+    .row
+      .col.d-flex.align-items-center
+        %h3.mb-0.text-secondary-emphasis= page_title
+      .col.d-flex.justify-content-end.align-items-center
+        .d-flex.gap-2
+          - if policy(<%= class_name %>).new?
+            = link_to new_<%= singular_table_name %>_path, class: "btn btn-primary fw-semibold" do
+              %i.bi.bi-plus
+              .d-none.d-sm-inline
+                <%= singular_table_name.titleize %>
+
+.card
+  .card-body
+    .table-responsive
+      %table.table.table-striped
+        %thead
+          %tr
+          <%- attributes.each do |attribute| -%>
+            %th <%= attribute.name.humanize %>
+          <%- end -%>
+            %th &nbsp;
+        %tbody{ id: "<%= plural_table_name %>-table-rows" }
+          = render 'table_rows'
+      %div{ id: "<%= plural_table_name %>-paginator" }
+        = render "paginator"

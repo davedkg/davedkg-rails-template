@@ -9,4 +9,5 @@
   <%- end -%>
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, data: { "disable-with": "Saving..." }
+    = link_to "Cancel", cancel_path, class: "btn btn-secondary ms-2", data: { turbo_frame: "_top" }
