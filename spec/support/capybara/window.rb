@@ -4,17 +4,17 @@ module Capybara
 
     def resize_to_preset(preset)
       dimensions = case preset
-                   when :xs, :extra_small, :sm, :small
-                     [576, 627]
-                   when :md, :medium
-                     [768, 640]
-                   when :lg, :large
-                     [992, 768]
-                   when :xl, :extra_large
-                     [1200, 800]
-                   else
+      when :xs, :extra_small, :sm, :small
+                     [ 576, 627 ]
+      when :md, :medium
+                     [ 768, 640 ]
+      when :lg, :large
+                     [ 992, 768 ]
+      when :xl, :extra_large
+                     [ 1200, 800 ]
+      else
                      raise ArgumentError, "#{preset} is not a valid preset"
-                   end
+      end
       resize_to(*dimensions)
     end
   end
