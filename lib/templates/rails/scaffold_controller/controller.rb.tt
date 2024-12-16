@@ -1,4 +1,4 @@
-<% module_namespacing do -%>
+<% module_namespacing do %>
 class <%= controller_class_name %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
 
@@ -55,4 +55,4 @@ class <%= controller_class_name %>Controller < ApplicationController
                 })
   end
 end
-<% end -%>
+<% end %>
