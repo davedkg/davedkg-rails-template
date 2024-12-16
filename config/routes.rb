@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
+  mount LetterOpenerWeb::Engine, at: "/letter-opener" if Rails.env.development?
+
   # Defines the root path route ("/")
   root "application#root"
 end
