@@ -46,6 +46,7 @@ end
 group :test do
   gem "faker", "~> 3.5.1"
   gem "pundit-matchers", "~> 3.1.2"
+  gem 'rspec_junit_formatter', '~> 0.6.0', require: false
 
   gem "capybara"
   gem "selenium-webdriver"
