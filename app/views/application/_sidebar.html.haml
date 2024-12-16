@@ -1,11 +1,6 @@
 %nav#sidebar.sidebar-wrapper
-  .app-brand.p-3.mt-2
-    = link_to root_path do
-      .d-flex
-        = image_tag 'icon.svg', height: "30px"
-        %h3.ms-2= PLATFORM_TITLE
   .sidebarMenuScroll
-    %ul.sidebar-menu
+    %ul.sidebar-menu.mt-3
       - if policy(:dashboard).show?
         %li{ class: active_sidebar_tab_for_path(dashboard_path) }
           = link_to dashboard_path do

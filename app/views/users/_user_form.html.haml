@@ -4,5 +4,5 @@
     = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
     = f.input :name
     = f.input :time_zone
-    = f.button :submit, "Update", data: { "disable-with": "Updating..." }
+    = f.button :submit, "Update User", data: { "disable-with": "Updating User..." }
     = link_to "Cancel", user_path(@user), class: "btn btn-secondary ms-2", data: { turbo_frame: "_top" }

@@ -40,7 +40,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
 
-    redirect_to users_path(format: :html), notice: "User was successfully destroyed."
+    redirect_to users_path(format: :html), notice: "User was successfully deleted."
   end
 
   def update_password
@@ -61,7 +61,7 @@ class UsersController < ApplicationController
   def send_reset_password_email
     @user.send_reset_password_instructions
 
-    redirect_to @user, notice: "Reset password email was successfully sent."
+    redirect_to @user, notice: "Password reset email was successfully sent."
   end
 
   def enable
