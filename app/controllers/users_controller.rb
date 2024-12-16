@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: %i[index new create]
 
   breadcrumb "Users", :users_path, except: [ :index ], if: -> { policy(User).index? }
-  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update], if: -> { policy(User).show? }
+  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update], if: -> { policy(@user).show? }
 
   def index
     @users = authorize policy_scope(User).order(created_at: :desc).page(params[:page])
