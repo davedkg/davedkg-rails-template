@@ -18,6 +18,7 @@ gem "devise", "~> 4.9.4"
 gem "devise_invitable", "~> 2.0.0"
 gem "haml-rails", "~> 2.0"
 gem "kaminari", "~> 1.2.2"
+gem "loaf", "~> 0.10.0"
 gem "paranoia", "~> 3.0.0"
 gem "pundit", "~> 2.4.0"
 gem "simple_form", "~> 5.3.1"
@@ -27,7 +28,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 group :development, :test do
-  gem 'bullet', "~> 8.0.0"
+  gem "bullet", "~> 8.0.0"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", "~> 6.2.2", require: false
   gem "factory_bot_rails", "~> 6.4.4"

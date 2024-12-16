@@ -1,0 +1,9 @@
+- if 0 != breadcrumb_trail.count
+  %nav.ms-2{ "aria-label" => "breadcrumb" }
+    %ol.breadcrumb
+      - breadcrumb_trail do |crumb|
+        -# - if crumb.current?
+        -#   %span.breadcrumb-item.active{ "aria-current" = > "page" }= crumb.name
+        -# - else
+        %li.breadcrumb-item
+          = link_to crumb.name, crumb.path
