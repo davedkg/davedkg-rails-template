@@ -1,34 +1,23 @@
 require "rails_helper"
 
-describe "DELETE user_path" do
-  subject(:request) { delete user_path(record) }
+describe "DELETE <%= singular_table_name %>_path" do
+  subject(:request) { delete <%= singular_table_name %>_path(record) }
 
   let(:user) { create(:user) }
-  let(:record) { create(:user) }
+  let(:record) { create(:<%= singular_table_name %>) }
 
   before do
     sign_in user
   end
 
-  context "when role is user" do
-    it "returns not_found status" do
-      request
-      expect(response).to have_http_status(:not_found)
-    end
+  it "returns redirect status" do
+    request
+    expect(response).to have_http_status(:redirect)
   end
 
-  context "when role is admin" do
-    let(:user) { create(:user, :admin) }
-
-    it "returns redirect status" do
+  it "deletes the record" do
+    expect do
       request
-      expect(response).to have_http_status(:redirect)
-    end
-
-    it "deletes the record" do
-      expect do
-        request
-      end.to(change { record.reload.deleted_at })
-    end
+    end.to(change { record.reload.deleted_at })
   end
 end

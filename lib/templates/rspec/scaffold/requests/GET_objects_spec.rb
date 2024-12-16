@@ -1,26 +1,17 @@
 require "rails_helper"
 
-describe "GET users_path" do
-  subject(:request) { get users_path }
+describe "GET <%= plural_table_name %>_path" do
+  subject(:request) { get <%= plural_table_name %>_path }
 
   let(:user) { create(:user) }
 
   before do
     sign_in user
+    create(:<%= singular_table_name %>)
     request
   end
 
-  context "when role is user" do
-    it "returns not_found status" do
-      expect(response).to have_http_status(:not_found)
-    end
-  end
-
-  context "when role is admin" do
-    let(:user) { create(:user, :admin) }
-
-    it "returns ok status" do
-      expect(response).to have_http_status(:ok)
-    end
+  it "returns ok status" do
+    expect(response).to have_http_status(:ok)
   end
 end

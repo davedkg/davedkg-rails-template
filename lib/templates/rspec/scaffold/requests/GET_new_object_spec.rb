@@ -1,7 +1,7 @@
 require "rails_helper"
 
-describe "GET new_user_path" do
-  subject(:request) { get new_user_path }
+describe "GET new_<%= singular_table_name %>_path" do
+  subject(:request) { get new_<%= singular_table_name %>_path }
 
   let(:user) { create(:user) }
 
@@ -10,17 +10,7 @@ describe "GET new_user_path" do
     request
   end
 
-  context "when role is user" do
-    it "returns not_found status" do
-      expect(response).to have_http_status(:not_found)
-    end
-  end
-
-  context "when role is admin" do
-    let(:user) { create(:user, :admin) }
-
-    it "returns ok status" do
-      expect(response).to have_http_status(:ok)
-    end
+  it "returns ok status" do
+    expect(response).to have_http_status(:ok)
   end
 end
