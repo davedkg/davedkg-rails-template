@@ -4,7 +4,6 @@ export default class extends Controller {
   static targets = ["pageWrapper"]
 
   toggle() {
-    console.log('toggle')
     this.pageWrapperTarget.classList.toggle("toggled")
   }
 

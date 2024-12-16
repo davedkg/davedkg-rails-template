@@ -15,6 +15,18 @@ module ApplicationHelper
     "#{request.path.start_with?(path) ? 'active current-page' : nil}"
   end
 
+  def active_sidebar_treeview_tab_for_path(path)
+    "#{request.path.start_with?(path) ? 'active' : nil}"
+  end
+
+  def active_sidebar_treeview_menu_for_path(path)
+    "#{request.path.start_with?(path) ? 'menu-open' : nil}"
+  end
+
+  def active_sidebar_treeview_link_for_path(path)
+    "#{request.path.start_with?(path) ? 'active-sub' : nil}"
+  end
+
   def link_to(name = nil, options = nil, html_options = {}, &)
     if block_given?
       html_options = options
