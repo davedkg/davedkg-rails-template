@@ -15,7 +15,7 @@ RSpec.describe 'Dashboard Features', :js do
       end
 
       it 'A user can view the dashboard' do
-        expect(page).to have_content('Dashboard')
+        expect(page).to have_content('Users')
       end
     end
   end
