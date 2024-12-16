@@ -5,6 +5,8 @@ module Haml
     class ScaffoldGenerator < Erb::Generators::ScaffoldGenerator
       source_root File.expand_path("templates", __dir__)
 
+      hook_for :policy, in: :pundit, default: true, type: :boolean
+
       def copy_view_files
         available_views.each do |view|
           filename = filename_with_extensions(view)

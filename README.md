@@ -31,8 +31,6 @@ Custom scaffold generates controller, model, policy, views with corresponding rs
 
 ```bash
 rails g scaffold Object attribute1 attribute2
-rails g pundit:policy Object
-rails g request_specs Object
 ```
 
 ### Custom Rake Tasks
