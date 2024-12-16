@@ -1,13 +1,10 @@
 require "generators/rspec"
-require "rails/generators/actions"
 require "rails/generators/resource_helpers"
 
 module Rspec
   module Generators
     class ScaffoldGenerator < Base
-      include ::Rails::Generators::Actions
       include ::Rails::Generators::ResourceHelpers
-
       source_paths << File.expand_path("../helper/templates", __dir__)
       argument :attributes, type: :array, default: [], banner: "field:type field:type"
 
