@@ -1,6 +1,6 @@
 # davedkg-rails-template
 
-[![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master)
+[![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main)
 
 ## Local Setup
 
@@ -27,7 +27,7 @@ And then find the accept invitation link in the log.
 
 ### Custom Scaffold
 
-Custom scaffold generates controller, model, policy, views with corresponding rspec files
+Custom scaffold generates controller, model, policy, views with corresponding rspec files.
 
 ```bash
 rails g scaffold Object attribute1 attribute2
@@ -42,6 +42,8 @@ rails g scaffold Object attribute1 attribute2
 | fix | Run Auto-correctors for Linters |
 
 ### Development Users
+
+Created when running ```rake development:seed```.
 
 | Email | Password |
 | --- | --- |
