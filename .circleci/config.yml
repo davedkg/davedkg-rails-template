@@ -41,7 +41,7 @@ jobs:
       - ruby/install-deps
       - node/install:
           install-yarn: true
-          node-version: '21.7'
+          node-version: '22.3.0'
       - run:
           name: Wait for DB to Boot
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -79,7 +79,14 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec fasterer
+      - run: bundle exec fasterer -c .fasterer.yml
+  importmap_audit:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bin/importmap audit
 
 workflows:
   version: 2
@@ -99,5 +106,8 @@ workflows:
           requires:
             - build
       - fasterer:
+          requires:
+            - build
+      - importmap_audit:
           requires:
             - build
