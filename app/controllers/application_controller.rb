@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :set_time_zone
-  before_action :set_raven_context
+  before_action :set_sentry_context
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action  :verify_authorized, unless: -> { devise_controller? || application_controller? }
 
@@ -39,11 +39,10 @@ class ApplicationController < ActionController::Base
     Time.zone = current_user.time_zone if current_user
   end
 
-  def set_raven_context
-    return unless defined?(Raven)
+  def set_sentry_context
+    return unless defined?(Sentry)
 
-    Raven.user_context(id: current_user.id) if current_user
-    # Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+    Sentry.set_user(id: current_user.id) if current_user
   end
 
   def render_page_not_found

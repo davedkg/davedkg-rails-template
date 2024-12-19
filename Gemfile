@@ -52,3 +52,9 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+group :production do
+  gem "stackprof", "~> 0.2.26"
+  gem "sentry-ruby", "~> 5.22.1"
+  gem "sentry-rails", "~> 5.22.1"
+end
