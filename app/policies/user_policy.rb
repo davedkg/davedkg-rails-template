@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UserPolicy < ApplicationPolicy
   def index?
     admin?
@@ -30,11 +28,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def send_reset_password_email?
-    admin? && !me? && accepted_invitation? && !locked?
-  end
-
-  def unlock?
-    admin? && !me? && accepted_invitation? && locked?
+    admin? && !me? && accepted_invitation?
   end
 
   def enable?
@@ -55,7 +49,7 @@ class UserPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      if user.admin?
+      if admin?
         scope
       else
         scope.where(id: user.id)
@@ -69,16 +63,8 @@ class UserPolicy < ApplicationPolicy
     user == record
   end
 
-  def admin?
-    user.admin?
-  end
-
   def accepted_invitation?
     record.accepted_invitation?
-  end
-
-  def locked?
-    record.locked?
   end
 
   def enabled?

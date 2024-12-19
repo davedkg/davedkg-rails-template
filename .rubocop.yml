@@ -1,31 +1,8 @@
-require:
-  - rubocop-rails
-  - rubocop-rspec
-  - rubocop-capybara
-  - rubocop-factory_bot
-  - rubocop-rspec_rails
+# Omakase Ruby styling for Rails
+inherit_gem: { rubocop-rails-omakase: rubocop.yml }
 
-AllCops:
-  NewCops: enable
-  Exclude:
-    - 'bin/**/*'
-    - 'config/**/*'
-    - 'db/**/*'
-    - 'lib/generators/**/*'
-    - 'lib/rails/**/*'
-    - 'lib/templates/**/*'
-    - 'vendor/**/*'
-
-Naming/FileName:
-  Exclude:
-    - 'spec/requests/**/*'
-
-Rails/I18nLocaleTexts:
-  Enabled: false
-
-Rails/LexicallyScopedActionFilter:
-  Exclude:
-    - 'app/controllers/invitations_controller.rb'
-
-Style/Documentation:
-  Enabled: false
+# Overwrite or add rules to create your own house style
+#
+# # Use `[a, [b, c]]` not `[ a, [ b, c ] ]`
+# Layout/SpaceInsideArrayLiteralBrackets:
+#   Enabled: false

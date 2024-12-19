@@ -1,22 +1,17 @@
-# frozen_string_literal: true
-
 class User < ApplicationRecord
-  devise :invitable, :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable,
-         :confirmable, :lockable, :trackable,
+  devise :database_authenticatable, :confirmable, :recoverable, :rememberable, :validatable, :invitable,
          validate_on_invite: true
 
   enum :role, {
-    user: 'user',
-    admin: 'admin'
+    user: "user",
+    admin: "admin"
   }
 
   enum :state, {
-    enabled: 'enabled',
-    disabled: 'disabled'
+    enabled: "enabled",
+    disabled: "disabled"
   }
 
-  # :reek:Attribute
   attr_accessor :skip_password_validation
 
   validates :name,      presence: true, on: :update

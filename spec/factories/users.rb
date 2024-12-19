@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 FactoryBot.define do
   factory :user do
     sequence(:name) { |n| "User #{n}" }
@@ -13,11 +11,8 @@ FactoryBot.define do
     end
 
     trait :invitation_not_accepted do
+      confirmed_at { nil }
       invitation_accepted_at { nil }
-    end
-
-    trait :locked do
-      locked_at { Time.zone.now }
     end
 
     trait :disabled do

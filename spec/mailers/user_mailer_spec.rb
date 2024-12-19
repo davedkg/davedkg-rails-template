@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 describe UserMailer do
@@ -27,18 +25,6 @@ describe UserMailer do
 
     it 'contains accept_user_invitation_url' do
       expect(email.body).to have_link(nil, href: accept_user_invitation_url(invitation_token: token))
-    end
-  end
-
-  describe '#unlock_instructions' do
-    subject(:email) { described_class.unlock_instructions(record.id, token) }
-
-    it "sends to user's email" do
-      expect(email.to).to contain_exactly(record.email)
-    end
-
-    it 'contains user_unlock_url' do
-      expect(email.body).to have_link(nil, href: user_unlock_url(unlock_token: token))
     end
   end
 end

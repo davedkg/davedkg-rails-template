@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -43,11 +41,21 @@ class ApplicationPolicy
     end
 
     def resolve
-      raise NotImplementedError, "You must define #resolve in #{self.class}"
+      raise NoMethodError, "You must define #resolve in #{self.class}"
     end
 
     private
 
     attr_reader :user, :scope
+
+    def admin?
+      user.admin?
+    end
+  end
+
+  private
+
+  def admin?
+    user.admin?
   end
 end
