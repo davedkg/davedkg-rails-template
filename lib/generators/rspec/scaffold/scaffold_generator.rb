@@ -1,12 +1,6 @@
 if !Rails.env.development? # HACK: to work with CircleCI
 
-  module Rspec
-    module Generators
-      module Scaffold
-        class ScaffoldGenerator; end
-      end
-    end
-  end
+  class Generators::Rspec::Scaffold::ScaffoldGenerator; end
 
 else
 
