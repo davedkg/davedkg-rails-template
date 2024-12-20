@@ -1,4 +1,4 @@
-if !Rails.env.development?
+if !Rails.env.development? # HACK: to work with CircleCI
 
   module Rspec
     module Generators
