@@ -1,4 +1,3 @@
-require 'generators/rspec'
 require 'rails/generators/resource_helpers'
 
 module Rspec
