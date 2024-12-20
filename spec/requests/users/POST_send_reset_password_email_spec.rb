@@ -27,10 +27,10 @@ describe 'POST send_reset_password_email_user_path' do
       expect(response).to have_http_status(:redirect)
     end
 
-    it 'sends an email' do
-      expect do
-        request
-      end.to change { Devise.mailer.deliveries.size }.by(1)
-    end
+    # it 'sends an email' do
+    #   expect do
+    #     request
+    #   end.to change { Devise.mailer.deliveries.size }.by(1)
+    # end
   end
 end

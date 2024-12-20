@@ -1,11 +1,11 @@
 # davedkg-rails-template
 
-[![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/master)
+[![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main)
 
 ## Local Setup
 
 ```bash
-brew install postgresql redis
+brew install postgresql
 bundle && yarn
 cp .env.sample .env
 bundle exec rake db:setup db:seed
@@ -27,24 +27,23 @@ And then find the accept invitation link in the log.
 
 ### Custom Scaffold
 
-Custom scaffold generates controller, model, policy, views with corresponding rspec files
+Custom scaffold generates controller, model, policy, views with corresponding rspec files.
 
 ```bash
 rails g scaffold Object attribute1 attribute2
-rails g pundit:policy Object
-rails g request_specs Object
 ```
 
-### Development Rake Tasks
+### Custom Rake Tasks
 
 | Task | Description |
 | --- | --- |
 | development:reset | Reset development and test databases, run development:seed, clear out tmp files |
 | development:seed | Create seed data for development enviornment |
 | fix | Run Auto-correctors for Linters |
-| lint | Run All Linters |
 
 ### Development Users
+
+Created when running ```rake development:seed```.
 
 | Email | Password |
 | --- | --- |
@@ -74,7 +73,7 @@ git remote add template git@github.com:davedkg/davedkg-rails-template.git
 ### Merge
 
 ```bash
-git pull template master --allow-unrelated-histories
+git pull template main --allow-unrelated-histories
 ```
 
 ## Deploy to Heroku

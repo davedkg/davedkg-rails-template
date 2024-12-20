@@ -1,14 +1,7 @@
-
 detectors:
   FeatureEnvy:
     enabled: false
-  InstanceVariableAssumption:
-    enabled: false
   IrresponsibleModule:
-    enabled: false
-  TooManyMethods:
-    enabled: false
-  TooManyStatements:
     enabled: false
   UtilityFunction:
     enabled: false
@@ -16,7 +9,4 @@ detectors:
 exclude_paths:
   - config
   - db
-  - lib/generators
-  - lib/rails
-  - lib/templates
   - vendor

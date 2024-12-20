@@ -1,30 +1,32 @@
-# frozen_string_literal: true
-
 module ApplicationHelper
   include Stimulusable
 
   MODAL_SIZES = {
-    xl: 'modal-xl',
-    large: 'modal-lg',
-    small: 'modal-sm'
+    xl: "modal-xl",
+    large: "modal-lg",
+    small: "modal-sm"
   }.freeze
 
   def modal_size_class(modal_size)
     MODAL_SIZES[modal_size]
   end
 
-  def simple_form_for(record, options = {}, &)
-    data = options[:data] || {}
-    add_stimulus_controller(data, 'form')
-    options[:data] = data
-    super
-  end
-
   def active_sidebar_tab_for_path(path)
-    "nav-link mininav-toggle #{request.path.start_with?(path) ? 'active' : nil}"
+    "#{request.path.start_with?(path) ? 'active current-page' : nil}"
   end
 
-  # :reek:DuplicateMethodCall
+  def active_sidebar_treeview_tab_for_path(path)
+    "#{request.path.start_with?(path) ? 'active' : nil}"
+  end
+
+  def active_sidebar_treeview_menu_for_path(path)
+    "#{request.path.start_with?(path) ? 'menu-open' : nil}"
+  end
+
+  def active_sidebar_treeview_link_for_path(path)
+    "#{request.path.start_with?(path) ? 'active-sub' : nil}"
+  end
+
   def link_to(name = nil, options = nil, html_options = {}, &)
     if block_given?
       html_options = options
@@ -35,17 +37,22 @@ module ApplicationHelper
     end
   end
 
+  def simple_form_for(record, options = {}, &)
+    data = options[:data] || {}
+    add_stimulus_controller(data, "form")
+    options[:data] = data
+    super
+  end
+
   private
 
-  # :reek:NilCheck
-  # :reek:DuplicateMethodCall
   def merge_html_options(html_options)
     return html_options if html_options.nil? || html_options[:modal] != true
 
     html_options.delete(:modal)
     html_options[:data] ||= {}
-    html_options[:data]['controller'] = 'turbo'
-    html_options[:data]['turbo-prefetch'] = false
+    html_options[:data]["controller"] = "turbo"
+    html_options[:data]["turbo-prefetch"] = false
 
     html_options
   end

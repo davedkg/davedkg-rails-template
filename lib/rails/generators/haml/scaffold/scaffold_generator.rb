@@ -1,21 +1,21 @@
-# frozen_string_literal: true
-
-require 'rails/generators/erb/scaffold/scaffold_generator'
+require "rails/generators/erb/scaffold/scaffold_generator"
 
 module Haml
   module Generators
     class ScaffoldGenerator < Erb::Generators::ScaffoldGenerator
-      source_root File.expand_path('templates', __dir__)
+      source_root File.expand_path("templates", __dir__)
+
+      hook_for :policy, in: :pundit, default: true, type: :boolean
 
       def copy_view_files
         available_views.each do |view|
           filename = filename_with_extensions(view)
-          template "#{view}.html.haml", File.join('app/views', controller_file_path, filename)
+          template "#{view}.html.haml", File.join("app/views", controller_file_path, filename)
         end
 
         available_turbo_stream_views.each do |view|
-          filename = filename_with_extensions(view, 'turbo_stream')
-          template "#{view}.turbo_stream.haml", File.join('app/views', controller_file_path, filename)
+          filename = filename_with_extensions(view, "turbo_stream")
+          template "#{view}.turbo_stream.haml", File.join("app/views", controller_file_path, filename)
         end
       end
 
@@ -24,8 +24,8 @@ module Haml
       def copy_form_file
         return unless options[:form_builder].nil?
 
-        filename = filename_with_extensions('_form')
-        template '_form.html.haml', File.join('app/views', controller_file_path, filename)
+        filename = filename_with_extensions("_form")
+        template "_form.html.haml", File.join("app/views", controller_file_path, filename)
       end
 
       protected

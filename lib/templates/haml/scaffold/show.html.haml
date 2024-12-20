@@ -1,14 +1,20 @@
-= content_for(:page_actions) do
-  - if policy(@<%= singular_table_name %>).edit?
-    = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-secondary btn-sm me-2" do
-      %i.fa.fa-edit
-      .d-none.d-md-inline
-        Edit
-  - if policy(@<%= singular_table_name %>).destroy?
-    = link_to <%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-danger btn-sm", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this <%= singular_table_name %>?" do
-      %i.fa.fa-trash
-      .d-none.d-md-inline
-        Delete
+.card.mb-3
+  .card-body
+    .row
+      .col.d-flex.align-items-center
+        %h3.mb-0.text-secondary-emphasis= page_title
+      .col.d-flex.justify-content-end.align-items-center
+        .d-flex.gap-2
+          - if policy(@<%= singular_table_name %>).edit?
+            = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-secondary fw-semibold" do
+              %i.bi.bi-pencil
+              .d-none.d-sm-inline
+                Edit
+          - if policy(@<%= singular_table_name %>).destroy?
+            = link_to @<%= singular_table_name %>, class: "btn btn-danger fw-semibold", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this <%= singular_table_name %>?" do
+              %i.bi.bi-trash
+              .d-none.d-sm-inline
+                Delete
 
 .card
   .card-body

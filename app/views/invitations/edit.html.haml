@@ -6,4 +6,5 @@
   = f.input :time_zone
   = f.input :password
   = f.input :password_confirmation
-  = f.button :submit, t("devise.invitations.edit.submit_button"), class: "btn btn-primary w-100 py-8 mb-4 rounded-2", data: { "disable-with": "Accepting Invitation..." }
+  .d-grid.gap-2
+    = f.button :submit, t("devise.invitations.edit.submit_button"), data: { "disable-with": "Accepting Invitation..." }

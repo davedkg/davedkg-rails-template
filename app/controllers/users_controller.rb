@@ -1,13 +1,11 @@
-# frozen_string_literal: true
-
 class UsersController < ApplicationController
   before_action :set_user, except: %i[index new create]
 
-  breadcrumb 'Users', :users_path, except: [:index], if: -> { policy(User).index? }
-  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update]
+  breadcrumb "Users", :users_path, except: [ :index ], if: -> { policy(User).index? }
+  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update], if: -> { policy(@user).show? }
 
   def index
-    @users = authorize policy_scope(User).order(name: :asc).page(params[:page])
+    @users = authorize policy_scope(User).order(created_at: :desc).page(params[:page])
   end
 
   def show; end
@@ -25,7 +23,7 @@ class UsersController < ApplicationController
     @user.skip_password_validation = true
 
     if @user.valid? && @user.invite!
-      redirect_to @user, notice: 'User was successfully invited.'
+      redirect_to @user, notice: "User was successfully invited."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,55 +31,49 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(permitted_attributes(@user))
-      redirect_to @user, notice: 'User was successfully updated.'
+      redirect_to @user, notice: "User was successfully updated.", status: :see_other
     else
-      render 'update_user_failed'
+      render "update_user_failed"
     end
   end
 
   def destroy
     @user.destroy
 
-    redirect_to users_path(format: :html), notice: 'User was successfully deleted.'
+    redirect_to users_path(format: :html), notice: "User was successfully deleted."
   end
 
   def update_password
     if @user.update(permitted_attributes(@user))
       bypass_sign_in(@user)
-      redirect_to @user, notice: 'Password was successfully updated.'
+      redirect_to @user, notice: "Password was successfully updated."
     else
-      render 'update_password_failed'
+      render "update_password_failed"
     end
   end
 
   def resend_invitation_email
     @user.send_invitation
 
-    redirect_to @user, notice: 'Invitation email was sucessfully resent.'
+    redirect_to @user, notice: "Invitation email was sucessfully resent."
   end
 
   def send_reset_password_email
     @user.send_reset_password_instructions
 
-    redirect_to @user, notice: 'Reset password email was successfully sent.'
-  end
-
-  def unlock
-    @user.unlock_access!
-
-    redirect_to @user, notice: 'User was successfully unlocked.'
+    redirect_to @user, notice: "Password reset email was successfully sent."
   end
 
   def enable
     @user.enabled!
 
-    redirect_to @user, notice: 'User was successfully enabled.'
+    redirect_to @user, notice: "User was successfully enabled."
   end
 
   def disable
     @user.disabled!
 
-    redirect_to @user, notice: 'User was successfully disabled.'
+    redirect_to @user, notice: "User was successfully disabled."
   end
 
   private
@@ -92,8 +84,8 @@ class UsersController < ApplicationController
 
   def page_title_hash
     super.merge({
-                  new: 'Invite User',
-                  create: 'Invite User',
+                  new: "Invite User",
+                  create: "Invite User",
                   show: @user&.name || @user&.email
                 })
   end

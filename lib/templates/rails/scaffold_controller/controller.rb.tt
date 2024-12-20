@@ -1,20 +1,22 @@
-<% module_namespacing do -%>
+<% module_namespacing do %>
 class <%= controller_class_name %>Controller < ApplicationController
-  before_action :set_<%= singular_table_name %>, except: %i[ index new create ]
+  before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
 
-  breadcrumb -> { page_title_hash[:index] }, :<%= plural_table_name %>_path, except: [:index], if: -> { policy(<%= class_name %>).index? }
-  breadcrumb -> { page_title_hash[:show] }, -> { <%= singular_table_name %>_path(@<%= singular_table_name %>) }, only: %i[edit update], if: -> { policy(@<%= singular_table_name %>).edit? }
+  breadcrumb -> { page_title_hash[:index] }, :<%= plural_table_name %>_path, except: [ :index ], if: -> { policy(<%= class_name %>).index? }
+  breadcrumb -> { page_title_hash[:show] }, -> { <%= singular_table_name %>_path(@<%= singular_table_name %>) }, only: %i[edit update], if: -> { policy(@<%= singular_table_name %>).show? }
 
   def index
     @<%= plural_table_name %> = authorize policy_scope(<%= class_name %>).page(params[:page])
   end
 
-  def show; end
-
-  def edit; end
+  def show
+  end
 
   def new
     @<%= singular_table_name %> = authorize <%= orm_class.build(class_name) %>
+  end
+
+  def edit
   end
 
   def create
@@ -44,7 +46,7 @@ class <%= controller_class_name %>Controller < ApplicationController
   private
 
   def set_<%= singular_table_name %>
-    @<%= singular_table_name %> = authorize policy_scope(<%= class_name %>).find(params[:id])
+    @<%= singular_table_name %> = authorize policy_scope(<%= class_name %>).find(params.expect(:id))
   end
 
   def page_title_hash
@@ -53,4 +55,4 @@ class <%= controller_class_name %>Controller < ApplicationController
                 })
   end
 end
-<% end -%>
+<% end %>
