@@ -39,10 +39,10 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_15_071844) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
+    t.index ["deleted_at", "confirmation_token"], name: "index_users_on_deleted_at_and_confirmation_token", unique: true
+    t.index ["deleted_at", "email"], name: "index_users_on_deleted_at_and_email", unique: true
+    t.index ["deleted_at", "invitation_token"], name: "index_users_on_deleted_at_and_invitation_token", unique: true
+    t.index ["deleted_at", "reset_password_token"], name: "index_users_on_deleted_at_and_reset_password_token", unique: true
     t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 end
