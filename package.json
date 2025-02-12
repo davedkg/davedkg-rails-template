@@ -7,7 +7,7 @@
     "@popperjs/core": "^2.11.8",
     "autosize": "^6.0.1",
     "bootstrap": "^5.3.3",
-    "esbuild": "^0.21.3",
+    "esbuild": "^0.25.0",
     "sweetalert2": "^11.11.0"
   },
   "scripts": {
