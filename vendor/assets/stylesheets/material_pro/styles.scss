@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+// ------------------------------------
+// Variables
+// ------------------------------------
+@import "./variables/variables";
+@import "./variables/theme_variables";
+@import "./variables/variables-dark";
+
+// ------------------------------------
+// Themecolors
+// ------------------------------------
+@import "./variables/variables-blue";
+// @import "./variables/variables-aqua";
+// @import "./variables/variables-purple";
+// @import "./variables/variables-green";
+// @import "./variables/variables-cyan";
+// @import "./variables/variables-orange";
+
+// Import Bootstrap source files (Required file)
+@import "../../../../node_modules/bootstrap/scss/bootstrap.scss";
+
+// ------------------------------------
+// Layouts
+// ------------------------------------
+@import "./layouts/layouts";
+@import "./layouts/sidebar";
+@import "./layouts/header";
+// @import "./layouts/horizontal";
+@import "./layouts/customizer";
+// @import "./layouts/spinner";
+
+// ------------------------------------
+// Components
+// ------------------------------------
+@import "./components/cards";
+@import "./components/button";
+
+// ------------------------------------
+// Utilities
+// ------------------------------------
+@import "./utilities/icon-size";
+@import "./utilities/icon-hover";
+@import "./utilities/background";
+@import "./utilities/override";
+
+// ------------------------------------
+// RTL
+// ------------------------------------
+// @import "./layouts/rtl";
+
+// ------------------------------------
+// Vendors
+// ------------------------------------
+// @import "./vendors/simplebar";
+// @import "./vendors/animation";
+
+// Tabler Icons style
+// @import "../fonts/tabler-icons/tabler-icons.css";

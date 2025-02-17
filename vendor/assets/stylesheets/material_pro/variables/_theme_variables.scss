@@ -1,0 +1,48 @@
+// ----------------------------------------------
+// Theme Variables Configration
+// ----------------------------------------------
+
+// header
+$headerHeight: 60px;
+$linkSpacer: 15px 15px;
+$linkFontSize: 22px;
+
+
+
+// sidebar
+$sidebar-link-padding: 12px 15px;
+$sidebar-icon-size: 23px;
+$sidebar-first-level-padding: 0 0 10px 0;
+$sidebar-first-level-link-padding: 10px 15px;
+$sidebar-first-level-icon-size: 14px;
+$sidebar-width-full: 260px;
+$sidebar-width-iconbar: 180px;
+$sidebar-width-mini: 72px;
+$sidebar-spacing-x: 0 24px;
+$link-disabled: 0.38;
+
+$boxedWidth: 1300px;
+
+// horizontal
+$horizontal-boxed-page-breadcrumb-container-padding-lg: 20px 10px;
+$horizontal-pagewrapper-padding-top-lg: 200px;
+$horizontal-pagewrapper-padding-top-sm: 115px;
+$sidebar-height: 65px;
+$sidebar-li-width: 260px;
+$sidebar-first-level-width: 400px;
+$horizontal-list-shadow: 0 15px 30px rgb(0 0 0 / 12%);
+
+// #############################
+// Sticky Left & Right Sidebar
+// #############################
+$left-part-width: 260px;
+$right-part-width: calc(100% - 260px);
+$right-part-height: calc(100vh - 129px);
+$topbar-height: 60px;
+
+
+$rtl-sidebar-link-padding: 12px 8px;
+$rtl-minisidebar-link-padding: 14px 12px;
+$rtl-minisidebar-link-first-level-padding: 10px 12px 10px 35px;
+$rtl-sidebar-first-level-link-padding: 10px 20px;
+$nav-cap-padding-rtl: 14px 15px 14px 12px;

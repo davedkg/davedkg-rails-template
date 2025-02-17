@@ -1,0 +1,37 @@
+//
+// using scss variables
+//
+$border-color-dark: #333f55 !default;
+$body-color-dark: #7c8fac !default;
+$body-bg-dark: #192838 !default;
+$link-color-dark: #7c8fac !default;
+$body-secondary-color-dark: rgba($body-color-dark, 1) !default;
+$heading-color: #EAEFF4;
+$primary-bg-subtle-dark: #253662 !default;
+$secondary-bg-subtle-dark: #1c455d !default;
+$success-bg-subtle-dark: #1b3c48 !default;
+$info-bg-subtle-dark: #223662 !default;
+$warning-bg-subtle-dark: #4d3a2a !default;
+$danger-bg-subtle-dark: #4b313d !default;
+$light-bg-subtle-dark: #465670 !default;
+$link-hover-color-dark: $primary !default;
+$bg-dark: #152332 !default;
+$dropdown-dark-link-hover-bg: $primary-bg-subtle-dark !default;
+$text-dark-white:#eaeff4 !default;
+
+//
+// using css variables
+//
+[data-bs-theme="dark"] {
+  .progress {
+    --bs-progress-bg: #1f2a3d !important;
+  }
+
+  --bs-heading-color: #eaeff4 !important;
+  --bs-body-color: rgb(234 239 244 / 60%) !important;
+  --bs-card-subtitle-color: rgb(234 239 244 / 60%) !important;
+  --bs-secondary-color: rgb(234 239 244 / 60%) !important;
+
+  @import "../layouts/dark";
+
+}   

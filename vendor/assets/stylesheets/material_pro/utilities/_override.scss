@@ -1,0 +1,57 @@
+// ----------------------------------------------
+// Position Style
+// ----------------------------------------------
+.z-index-5 {
+    z-index: 5 !important;
+}
+
+// ----------------------------------------------
+// Text  Style
+// ----------------------------------------------
+.text-body-color {
+    color: var(--bs-body-color-rgb);
+}
+
+.title-part-padding {
+    padding: 15px 30px;
+}
+
+.lstick {
+    width: 2px;
+    background: var(--bs-info);
+    height: 30px;
+    margin-left: -20px;
+    margin-right: 18px;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--bs-heading-color) !important;
+    font-weight: 500;
+}
+.display-1,.display-2,.display-3,.display-4,.display-5,.display-6,.display-7{
+    color: var(--bs-heading-color) ;
+    font-weight: 600;
+}
+
+.text-bodycolor {
+    color: $body-color;
+}
+.auth-max-width {
+    width: 100%;
+    max-width: 400px;
+}
+
+.h-n80 {
+    height: calc(100vh - 80px);
+}
