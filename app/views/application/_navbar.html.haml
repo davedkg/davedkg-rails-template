@@ -22,13 +22,13 @@
                 = link_to "Letter Opener", '/letter-opener', class: "dropdown-item", target: "_blank"
               %li
                 = link_to "Web Components", web_components_path, class: "dropdown-item"
-      .d-flex
-        %ul.navbar-nav.mb-2.mb-lg-0
-          %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-              = user_name(current_user)
-            %ul.dropdown-menu.dropdown-menu-end
-              %li
-                = link_to "Profile", user_path(current_user), class: "dropdown-item"
-              %li
-                = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete }
+      %ul.navbar-nav.flex-row.flex-wrap.ms-md-auto
+        = render 'theme_dropdown'
+        %li.nav-item.dropdown
+          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+            = user_name(current_user)
+          %ul.dropdown-menu.dropdown-menu-end
+            %li
+              = link_to "Profile", user_path(current_user), class: "dropdown-item"
+            %li
+              = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete }

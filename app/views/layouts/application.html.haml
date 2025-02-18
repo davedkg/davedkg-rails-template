@@ -2,7 +2,7 @@
 %html
   %head
     = render 'head'
-  %body
+  %body{ data: { bs_theme: "light", controller: "theme" } }
     = render 'navbar'
     .container.body-container
       = render 'flash'

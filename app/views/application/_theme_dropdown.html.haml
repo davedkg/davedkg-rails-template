@@ -1,0 +1,16 @@
+%li.nav-item.dropdown
+  %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+    %i.bi.bi-circle-half{ data: { theme_target: "dropdownToggle" } }
+  %ul.dropdown-menu.dropdown-menu-end
+    %li
+      %a.dropdown-item{ data: { action: "click->theme#changeTheme", theme: "light", theme_target: "light" } }
+        %i.bi.bi-sun-fill
+        Light
+    %li
+      %a.dropdown-item{ data: { action: "click->theme#changeTheme", theme: "dark", theme_target: "dark" } }
+        %i.bi.bi-moon-stars-fill
+        Dark
+    %li
+      %a.dropdown-item.active{ data: { action: "click->theme#changeTheme", theme: "auto", theme_target: "auto"  } }
+        %i.bi.bi-circle-half
+        Auto
