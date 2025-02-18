@@ -1,5 +1,5 @@
 %nav.navbar.navbar-expand-lg.bg-body-tertiary.sticky-top
-  .container-fluid
+  .container
     = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
@@ -22,6 +22,13 @@
                 = link_to "Letter Opener", '/letter-opener', class: "dropdown-item", target: "_blank"
               %li
                 = link_to "Web Components", web_components_path, class: "dropdown-item"
-      %form.d-flex{:role => "search"}
-        %input.form-control.me-2{"aria-label" => "Search", :placeholder => "Search", :type => "search"}/
-        %button.btn.btn-outline-success{:type => "submit"} Search
+      .d-flex
+        %ul.navbar-nav.mb-2.mb-lg-0
+          %li.nav-item.dropdown
+            %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+              = user_name(current_user)
+            %ul.dropdown-menu.dropdown-menu-end
+              %li
+                = link_to "Profile", user_path(current_user), class: "dropdown-item"
+              %li
+                = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete }
