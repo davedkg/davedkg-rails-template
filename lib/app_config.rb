@@ -3,7 +3,6 @@ class AppConfig
     ENV["MAILGUN_DOMAIN"] || ENV["EMAIL_DOMAIN"] || AppConfig.app_domain
   end
 
-  # :reek:DuplicateMethodCall
   def self.app_domain
     if ENV["APP_DOMAIN"]
       ENV["APP_DOMAIN"]

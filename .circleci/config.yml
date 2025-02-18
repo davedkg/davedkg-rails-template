@@ -52,13 +52,6 @@ jobs:
           name: Compile Assets
           command: bundle exec rake assets:precompile
       - ruby/rspec-test
-  reek:
-    executor:
-      name: ruby-executor
-    steps:
-      - checkout
-      - ruby/install-deps
-      - run: bundle exec reek -c .reek.yml
   rubocop:
     executor:
       name: ruby-executor
@@ -96,9 +89,6 @@ workflows:
       - rspec:
           requires:
             - build
-      # - reek:
-      #     requires:
-      #       - build
       - rubocop:
           requires:
             - build
@@ -108,6 +98,6 @@ workflows:
       - fasterer:
           requires:
             - build
-      # - importmap_audit:
-      #     requires:
-      #       - build
+      - importmap_audit:
+          requires:
+            - build
