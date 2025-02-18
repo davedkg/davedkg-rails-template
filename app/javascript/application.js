@@ -18,7 +18,7 @@ Turbo.config.forms.confirm = (message, _element) => {
     swal({
       title: message,
       icon: "warning",
-      buttons: ["No", "Yes"]
+      buttons: ["Cancel", "Yes"]
     })
       .then((result) => {
         resolve(result || false);
