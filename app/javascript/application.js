@@ -18,6 +18,13 @@ Turbo.config.forms.confirm = (message, _element) => {
     Swal.fire({
       title: message,
       showCancelButton: true,
+      theme: 'auto',
+      confirmButtonText: "Yes",
+      cancelButtonText: "No",
+      customClass: {
+        confirmButton: "btn btn-primary",
+        cancelButton: "btn btn-outline-secondary",
+      }
     })
       .then((result) => {
         resolve(result.isConfirmed);
