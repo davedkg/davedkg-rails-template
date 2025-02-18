@@ -80,6 +80,20 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bin/importmap audit
+  importmap_audit:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bin/importmap audit
+  importmap_outdated:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bin/importmap outdated
 
 workflows:
   version: 2
@@ -101,3 +115,8 @@ workflows:
       - importmap_audit:
           requires:
             - build
+          filters: pipeline.git.branch != "main"
+      - importmap_outdated:
+          requires:
+            - build
+          filters: pipeline.git.branch != "main"
