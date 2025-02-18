@@ -7,7 +7,7 @@
         .d-flex.gap-2
           - if policy(<%= class_name %>).new?
             = link_to new_<%= singular_table_name %>_path, class: "btn btn-primary fw-semibold" do
-              %i.bi.bi-plus
+              = material_icon("add")
               .d-none.d-sm-inline
                 <%= singular_table_name.titleize %>
 

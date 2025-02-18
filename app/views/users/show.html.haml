@@ -5,44 +5,44 @@
       %h6.m-0.fw-light= user_status_badge(@user)
     .d-flex.gap-3.text-white.ms-3
       .px-3.d-flex.align-items-center.border-start
-        %i.bi.bi-envelope-open.fs-2.lh-1.me-2
+        = material_icon("contact_mail", class: "fs-2 lh-1 me-2")
         %div
           %h6.mb-1 Email
           %p.m-0.fw-light.small= @user.email
       - if current_user.admin?
         .px-3.d-flex.align-items-center.border-start
-          %i.bi.bi-person-vcard.fs-2.lh-1.me-2
+          = material_icon("shield_person", class: "fs-2 lh-1 me-2")
           %div
             %h6.mb-1 Role
             %p.m-0.fw-light.small= @user.role
     .ms-auto.d-flex.gap-2
       - if policy(@user).edit?
         = link_to edit_user_path(@user), class: "btn btn-secondary fw-semibold" do
-          %i.bi.bi-pencil
+          = material_icon("edit")
           .d-none.d-md-inline.ms-1
             Edit
       - if policy(@user).resend_invitation_email?
         = link_to resend_invitation_email_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to resend this invitation?" do
-          %i.bi.bi-envelope-open
+          = material_icon("mail")
           .d-none.d-md-inline.ms-1
             Invitation
       - if policy(@user).send_reset_password_email?
         = link_to send_reset_password_email_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to send a password reset email?" do
-          %i.bi.bi-envelope-open
+          = material_icon("mail")
           .d-none.d-md-inline.ms-1
             Password Reset
       - if policy(@user).enable?
         = link_to enable_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to enable this user?" do
-          %i.bi.bi-person-check
+          = material_icon("person")
           .d-none.d-md-inline.ms-1
             Enable
       - if policy(@user).disable?
         = link_to disable_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to disable this user?" do
-          %i.bi.bi-person-exclamation
+          = material_icon("person_off")
           .d-none.d-md-inline.ms-1
             Disable
       - if policy(@user).destroy?
         = link_to @user, class: "btn btn-danger fw-semibold", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this user?" do
-          %i.bi.bi-trash
+          = material_icon("delete")
           .d-none.d-md-inline.ms-1
             Delete

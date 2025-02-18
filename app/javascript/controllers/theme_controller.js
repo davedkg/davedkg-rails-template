@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus";
 const BS_THEMES = { light: "light", dark: "dark" }
 const USER_THEMES = { light: "light", dark: "dark", auto: "auto" }
 const USER_THEME_STORAGE_KEY = "USER_THEME"
-const USER_THEME_ICON_CLASSES = { light: "bi-sun-fill", dark: "bi-moon-stars-fill", auto: "bi-circle-half" }
+const USER_THEME_ICONS = { light: "light_mode", dark: "dark_mode", auto: "routine" }
 
 export default class extends Controller {
 
@@ -75,19 +75,15 @@ export default class extends Controller {
   updateDropdownToggleForUserTheme(userTheme) {
     switch(userTheme) {
       case USER_THEMES.light:
-        this.dropdownToggleTarget.classList.add(USER_THEME_ICON_CLASSES.light)
-        this.dropdownToggleTarget.classList.remove(USER_THEME_ICON_CLASSES.dark)
-        this.dropdownToggleTarget.classList.remove(USER_THEME_ICON_CLASSES.auto)
+        this.dropdownToggleTarget.innerHTML = USER_THEME_ICONS.light
         break
       case USER_THEMES.dark:
-        this.dropdownToggleTarget.classList.remove(USER_THEME_ICON_CLASSES.light)
-        this.dropdownToggleTarget.classList.add(USER_THEME_ICON_CLASSES.dark)
-        this.dropdownToggleTarget.classList.remove(USER_THEME_ICON_CLASSES.auto)
+
+      this.dropdownToggleTarget.innerHTML = USER_THEME_ICONS.dark
         break
       case USER_THEMES.auto:
-        this.dropdownToggleTarget.classList.remove(USER_THEME_ICON_CLASSES.light)
-        this.dropdownToggleTarget.classList.remove(USER_THEME_ICON_CLASSES.dark)
-        this.dropdownToggleTarget.classList.add(USER_THEME_ICON_CLASSES.auto)
+
+      this.dropdownToggleTarget.innerHTML = USER_THEME_ICONS.auto
         break
     }
   }

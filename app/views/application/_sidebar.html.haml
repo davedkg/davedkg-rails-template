@@ -1,24 +1,24 @@
 #sidebar.sidebar-container.offcanvas-lg.offcanvas-start{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
   %nav.navbar.d-flex.bg-body-tertiary.ps-3.pb-2
-    %a.btn.btn-light.fw-2{ data: { action: "click->sidebar#hide" } }
-      %i.svg.svg-dock-to-right
+    %a.btn.btn-light{ data: { action: "click->sidebar#hide" } }
+      = material_icon("dock_to_right")
   .d-flex.flex-column.flex-grow-1.bg-body-tertiary
     %ul.nav.nav-pills.flex-column.mb-auto.px-3
       - if policy(:dashboard).show?
         %li.nav-item
           = link_to dashboard_path, { class: "nav-link d-flex #{active_for_path(dashboard_path)}" } do
-            %i.bi.me-2.bi-speedometer2
-            Dashboard
+            = material_icon("speed")
+            .ms-1 Dashboard
       - if policy(User).index?
         %li.nav-item
           = link_to users_path, { class: "nav-link d-flex #{active_for_path(users_path)}" } do
-            %i.bi.me-2.bi-people
-            Users
+            = material_icon("group")
+            .ms-1 Users
       - if Rails.env.development?
         %li.nav-item
           %button.btn.btn-toggle.d-flex{ data: { bs_target: "#development-collapse", bs_toggle: "collapse" }, "aria-expanded" => "false" }
-            %i.bi.me-2.bi-code-square
-            Development
+            = material_icon("developer_mode")
+            .ms-1 Development
           #development-collapse.collapse{:style => ""}
             %ul.list-unstyled.fw-normal.pb-1.small
               %li
@@ -30,9 +30,9 @@
 
     %ul.nav.nav-pills.flex-column.px-1.py-2
       %li.nav-item.dropdown
-        %a#accountDropdown.dropdown-toggle.nav-link{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
-          %i.bi.me-2.bi-person-circle
-          Account
+        %a#accountDropdown.dropdown-toggle.nav-link.d-flex{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
+          = material_icon("account_circle")
+          .ms-1 Account
         %ul.dropdown-menu.text-small.shadow{"aria-labelledby" => "accountDropdown"}
           %li
             = link_to "Profile", user_path(current_user), class: "dropdown-item"

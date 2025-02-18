@@ -6,6 +6,6 @@
     %td.text-end
       - if policy(user).show?
         = link_to user_path(user), class: "btn btn-outline-primary btn-sm fw-semibold" do
-          %i.bi.bi-eye
+          = material_icon("visibility")
           .d-none.d-sm-inline
             Show
