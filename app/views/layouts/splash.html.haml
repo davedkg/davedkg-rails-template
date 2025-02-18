@@ -2,13 +2,12 @@
 %html
   %head
     = render 'head'
-  %body.vh-100.d-flex.align-items-center{ data: { bs_theme: "light", controller: "theme" } }
-    .container
-      .row
-        .col-sm-12.col-md-8.offset-md-2.col-lg-6.offset-lg-3.col-xl-4.offset-xl-4
-          .card
-            .card-body
-              %h4.card-title= page_title
-              %h6.card-subtitle.text-body-secondary.mb-3= PLATFORM_TITLE
-              = render 'splash/flash'
-              = yield
+  %body{ data: { bs_theme: "light", controller: "theme" } }
+    .container.vh-100.d-flex.align-items-center.justify-content-center
+      .card{ style: "max-width: 400px; width: 400px" }
+        .card-body
+          .text-center
+            %h4.card-title= page_title
+            %h6.card-subtitle.text-body-secondary.mb-3= PLATFORM_TITLE
+          = render 'splash/flash'
+          = yield
