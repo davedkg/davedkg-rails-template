@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def active_for_path(path)
-    request.path.start_with?(path) ? 'active' : nil
+    request.path.start_with?(path) ? "active" : nil
   end
 
   def link_to(name = nil, options = nil, html_options = {}, &)
