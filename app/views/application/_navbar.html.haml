@@ -1,7 +1,5 @@
 %nav.navbar.navbar-expand-lg.sticky-top
   .container-fluid
     = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
-    %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
-      %span.navbar-toggler-icon
     %ul.navbar-nav.flex-row.flex-wrap.ms-md-auto
       = render 'theme_dropdown'

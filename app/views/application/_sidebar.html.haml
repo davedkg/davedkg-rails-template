@@ -1,6 +1,6 @@
-#sidebar.sidebar-container.offcanvas-lg.offcanvas-start.d-flex.flex-column.hide{"aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
-  %nav.navbar.d-flex.bg-body-tertiary.ps-3
-    %button.btn.btn-outline-secondary.fw-2
+#sidebar.sidebar-container.offcanvas-lg.offcanvas-start{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
+  %nav.navbar.d-flex.bg-body-tertiary.ps-3.pb-2
+    %a.btn.btn-outline-secondary.fw-2{ data: { action: "click->sidebar#hide" } }
       %i.bi.bi-layout-sidebar
   .d-flex.flex-column.flex-grow-1.bg-body-tertiary
     %ul.nav.nav-pills.flex-column.mb-auto.px-3
