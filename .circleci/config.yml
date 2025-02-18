@@ -115,8 +115,10 @@ workflows:
       - importmap_audit:
           requires:
             - build
-          filters: pipeline.git.branch != "main"
+          filters: |
+            pipeline.git.branch != "main"
       - importmap_outdated:
           requires:
             - build
-          filters: pipeline.git.branch != "main"
+          filters: |
+            pipeline.git.branch != "main"
