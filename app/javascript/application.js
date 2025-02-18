@@ -22,7 +22,7 @@ Turbo.config.forms.confirm = (message, _element) => {
       confirmButtonText: "Yes",
       cancelButtonText: "No",
       customClass: {
-        confirmButton: "btn btn-primary",
+        confirmButton: "btn btn-outline-primary",
         cancelButton: "btn btn-outline-secondary",
       }
     })
