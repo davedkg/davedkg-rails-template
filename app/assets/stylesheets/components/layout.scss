@@ -21,7 +21,7 @@ body {
 }
 
 .sidebar-container {
-  flex: 0 0 $sidebar-width;
+  overflow-x: hidden;
   width: $sidebar-width;
 }
 

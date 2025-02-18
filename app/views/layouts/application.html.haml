@@ -3,7 +3,7 @@
   %head
     = render 'head'
   %body{ data: { bs_theme: "light", controller: "theme sidebar" } }
-    .main-container
+    .main-container{ data: { sidebar_target: "main" } }
       = render 'sidebar'
       .body-container
         = render 'navbar'
