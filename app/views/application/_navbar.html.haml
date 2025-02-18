@@ -1,4 +1,4 @@
-%nav.navbar.navbar-expand-lg.bg-light
+%nav.navbar.navbar-expand-lg.bg-body-tertiary.sticky-top
   .container-fluid
     = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
@@ -17,9 +17,9 @@
               Development
             %ul.dropdown-menu
               %li
-                = link_to "Email Previews", '/rails/mailers', class: "dropdown-item"
+                = link_to "Email Previews", '/rails/mailers', class: "dropdown-item", target: "_blank"
               %li
-                = link_to "Letter Opener", '/letter-opener', class: "dropdown-item"
+                = link_to "Letter Opener", '/letter-opener', class: "dropdown-item", target: "_blank"
               %li
                 = link_to "Web Components", web_components_path, class: "dropdown-item"
       %form.d-flex{:role => "search"}
