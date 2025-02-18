@@ -1,3 +1,5 @@
+return if Rails.env.test?
+
 require "rails/generators/erb/scaffold/scaffold_generator"
 
 module Haml
