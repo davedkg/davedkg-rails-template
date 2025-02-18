@@ -5,21 +5,20 @@
 .sidebar-container {
   display: flex;
   flex-direction: column;
-  position: relative;
   transition: all 0.3s ease;
 
   .nav-link {
     color: var(--bs-btn-color);
   }
 
-  &.hide {
-    width: 0;
-    z-index: -10;
-  }
+  @include media-breakpoint-up(lg) {
+    & {
+      position: relative;
+    }
 
-  @include media-breakpoint-down(md) {
     &.hide {
-      display: flex;
+      width: 0;
+      z-index: -10;
     }
   }
 }

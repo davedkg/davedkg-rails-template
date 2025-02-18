@@ -1,7 +1,17 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
 .sidebar-hidden .navbar-sizebar-toggle {
   display: block;
 }
 
 .navbar-sizebar-toggle {
   display: none;
+}
+
+@include media-breakpoint-down(md) {
+  .sidebar-shown .navbar-sizebar-toggle {
+    display: block;
+  }
 }
