@@ -1,5 +1,8 @@
-#sidebar.sidebar-container.offcanvas-lg.offcanvas-start.d-flex{"aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
-  .d-flex.flex-column.flex-grow-1.py-2.bg-body-tertiary
+#sidebar.sidebar-container.offcanvas-lg.offcanvas-start.d-flex.flex-column.hide{"aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
+  %nav.navbar.d-flex.bg-body-tertiary.ps-3
+    %button.btn.btn-outline-secondary.fw-2
+      %i.bi.bi-layout-sidebar
+  .d-flex.flex-column.flex-grow-1.bg-body-tertiary
     %ul.nav.nav-pills.flex-column.mb-auto.px-3
       - if policy(:dashboard).show?
         %li.nav-item
