@@ -11,7 +11,7 @@ module ApplicationHelper
     MODAL_SIZES[modal_size]
   end
 
-  def material_icon(name, options={})
+  def material_icon(name, options = {})
     content_tag(:span, name, class: "material-symbols-#{options[:type] || 'outlined'} #{options[:class]}", data: options[:data])
   end
 
