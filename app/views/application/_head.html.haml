@@ -9,6 +9,8 @@
 %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
 %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
 %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
+:javascript
+  window.process = { env: { NODE_ENV: 'production'} }
 = stylesheet_link_tag :app, "data-turbo-track": "reload"
 = javascript_importmap_tags
 = stylesheet_link_tag "application", "data-turbo-track": "reload"

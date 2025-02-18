@@ -11,7 +11,7 @@ module ApplicationHelper
     MODAL_SIZES[modal_size]
   end
 
-  def active_sidebar_tab_for_path(path)
+  def active_for_path(path)
     request.path.start_with?(path) ? 'active' : nil
   end
 

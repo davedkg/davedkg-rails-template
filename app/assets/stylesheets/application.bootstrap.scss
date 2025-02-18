@@ -1,2 +1,9 @@
 @use 'bootstrap/scss/bootstrap';
 @use 'bootstrap-icons/font/bootstrap-icons';
+
+$body-container-vertical-padding: 1rem;
+
+.body-container {
+  padding-bottom: $body-container-vertical-padding;
+  padding-top: $body-container-vertical-padding;
+}

@@ -1,14 +1,10 @@
 !!!
-%html{ data: { bs_theme: "light", color_theme: "Blue_Theme", layout: "vertical" } , dir: "ltr", lang: "en" }
+%html
   %head
     = render 'head'
   %body
-    #main-wrapper
-      = render 'sidebar'
-      .page-wrapper
-        = render 'navbar'
-        .body-wrapper
-          .container-fluid
-            = render 'flash'
-            = yield
+    = render 'navbar'
+    .container.body-container
+      = render 'flash'
+      = yield
     = turbo_frame_tag :modal
