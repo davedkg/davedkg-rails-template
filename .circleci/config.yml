@@ -105,11 +105,11 @@ workflows:
       - fasterer:
           requires:
             - build
-      # - importmap_audit:
-      #     requires:
-      #       - build
-      #     filters: |
-      #       pipeline.git.branch != "main"
+      - importmap_audit:
+          requires:
+            - build
+          filters: |
+            pipeline.git.branch != "main"
       - importmap_outdated:
           requires:
             - build

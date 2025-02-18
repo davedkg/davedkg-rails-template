@@ -8,4 +8,5 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "@popperjs/core", to: "bootstrap.bundle.min.js", preload: true
 pin "bootstrap", to: "bootstrap.bundle.min.js", preload: true
 pin "autosize" # @6.0.1
-pin "sweetalert2" # @11.17.2
+pin "sweetalert" # @2.1.2
+pin "process" # @2.1.0

@@ -1,0 +1,15 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+.swal-footer {
+  text-align: center;
+}
+
+.swal-button.swal-button--confirm {
+  background-color: var(--bs-primary);
+
+  &:hover {
+    background-color: var(--bs-primary);
+  }
+}

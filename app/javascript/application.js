@@ -2,7 +2,7 @@
 import "@hotwired/turbo-rails"
 import "@popperjs/core"
 import * as bootstrap from "bootstrap"
-import Swal from "sweetalert2"
+import swal from "sweetalert"
 
 import "controllers"
 
@@ -15,19 +15,13 @@ document.addEventListener("turbo:frame-missing", (event) => {
 
 Turbo.config.forms.confirm = (message, _element) => {
   return new Promise((resolve, reject) => {
-    Swal.fire({
+    swal({
       title: message,
-      showCancelButton: true,
-      theme: 'auto',
-      confirmButtonText: "Yes",
-      cancelButtonText: "No",
-      customClass: {
-        confirmButton: "btn btn-outline-primary",
-        cancelButton: "btn btn-outline-secondary",
-      }
+      icon: "warning",
+      buttons: ["No", "Yes"]
     })
       .then((result) => {
-        resolve(result.isConfirmed);
+        resolve(result || false);
       })
       .catch((error) => {
         reject(error);
