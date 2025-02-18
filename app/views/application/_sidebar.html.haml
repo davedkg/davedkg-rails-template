@@ -6,12 +6,12 @@
     %ul.nav.nav-pills.flex-column.mb-auto.px-3
       - if policy(:dashboard).show?
         %li.nav-item
-          = link_to dashboard_path, { class: "nav-link #{active_sidebar_for_path(dashboard_path)}" } do
+          = link_to dashboard_path, { class: "nav-link #{active_for_path(dashboard_path)}" } do
             %i.bi.me-2.bi-speedometer2
             Dashboard
       - if policy(User).index?
         %li.nav-item
-          = link_to users_path, { class: "nav-link #{active_sidebar_for_path(users_path)}" } do
+          = link_to users_path, { class: "nav-link #{active_for_path(users_path)}" } do
             %i.bi.me-2.bi-people
             Users
       - if Rails.env.development?
