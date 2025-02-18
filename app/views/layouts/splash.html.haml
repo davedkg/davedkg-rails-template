@@ -2,11 +2,13 @@
 %html
   %head
     = render 'head'
-  %body
-    .page-wrapper
-      .auth-container
-        .d-flex.justify-content-center
-          .auth-box
-            %h4.mb-4= page_title
-            = render 'splash/flash'
-            = yield
+  %body.vh-100.d-flex.align-items-center
+    .container
+      .row
+        .col-sm-12.col-md-8.offset-md-2.col-lg-6.offset-lg-3.col-xl-4.offset-xl-4
+          .card
+            .card-body
+              %h4.card-title= page_title
+              %h6.card-subtitle.text-body-secondary.mb-3= PLATFORM_TITLE
+              = render 'splash/flash'
+              = yield

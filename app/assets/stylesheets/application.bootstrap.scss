@@ -7,3 +7,11 @@ $body-container-vertical-padding: 1rem;
   padding-bottom: $body-container-vertical-padding;
   padding-top: $body-container-vertical-padding;
 }
+
+a {
+  text-decoration: none;
+
+  &:not(.btn):hover {
+    text-decoration: underline;
+  }
+}
