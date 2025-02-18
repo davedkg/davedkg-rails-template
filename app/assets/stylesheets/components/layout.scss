@@ -1,6 +1,32 @@
-$body-container-vertical-padding: 1rem;
+$sidebar-width: 280px;
+$navbar-height: 60px;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: calc(100% - $navbar-height);
+  overflow-y: none;
+  padding: 0;
+}
+
+.sidebar-container {
+  flex: 0 0 $sidebar-width;
+  width: $sidebar-width;
+}
 
 .body-container {
-  padding-bottom: $body-container-vertical-padding;
-  padding-top: $body-container-vertical-padding;
+  flex: 1;
+  overflow-y: scroll;
+  padding: 1rem;
 }

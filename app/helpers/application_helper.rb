@@ -11,6 +11,10 @@ module ApplicationHelper
     MODAL_SIZES[modal_size]
   end
 
+  def active_sidebar_for_path(path)
+    request.path.start_with?(path) ? "active" : "link-dark"
+  end
+
   def active_for_path(path)
     request.path.start_with?(path) ? "active" : nil
   end
