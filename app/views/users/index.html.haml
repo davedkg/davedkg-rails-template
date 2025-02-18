@@ -11,15 +11,14 @@
               User
 
 .card
-  .card-body
-    .table-responsive
-      %table.table.table-striped
-        %thead
-          %tr
-            %th Name
-            %th.d-none.d-md-table-cell State
-            %th &nbsp;
-        %tbody{ id: "users-table-rows" }
-          = render 'users'
-      %div{ id: "users-paginator" }
-        = render "paginator"
+  .table-responsive.table-with-out-card-body
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th.d-none.d-md-table-cell State
+          %th &nbsp;
+      %tbody{ id: "users-table-rows" }
+        = render 'users'
+    %div{ id: "users-paginator" }
+      = render "paginator"
