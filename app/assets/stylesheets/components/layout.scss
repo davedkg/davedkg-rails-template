@@ -1,4 +1,4 @@
-$sidebar-width: 280px;
+$sidebar-width: 250px;
 $navbar-height: 60px;
 
 html,
@@ -26,7 +26,13 @@ body {
 }
 
 .body-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.scrollable-body-container {
   flex: 1;
   overflow-y: scroll;
-  padding: 1rem;
+  padding: 0 1rem 1rem;
 }

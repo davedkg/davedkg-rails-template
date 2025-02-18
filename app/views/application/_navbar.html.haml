@@ -1,34 +1,7 @@
-%nav.navbar.navbar-expand-lg.bg-body-tertiary.sticky-top
+%nav.navbar.navbar-expand-lg.sticky-top
   .container-fluid
     = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
     %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
       %span.navbar-toggler-icon
-    #navbarSupportedContent.collapse.navbar-collapse
-      %ul.navbar-nav.me-auto.mb-2.mb-lg-0
-        - if policy(:dashboard).show?
-          %li.nav-item
-            = link_to "Dashboard", dashboard_path, class: "nav-link #{active_for_path(dashboard_path)}"
-        - if policy(User).index?
-          %li.nav-item
-            = link_to "Users", users_path, class: "nav-link #{active_for_path(users_path)}"
-        - if Rails.env.development?
-          %li.nav-item.dropdown
-            %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-              Development
-            %ul.dropdown-menu
-              %li
-                = link_to "Email Previews", '/rails/mailers', class: "dropdown-item", target: "_blank"
-              %li
-                = link_to "Letter Opener", '/letter-opener', class: "dropdown-item", target: "_blank"
-              %li
-                = link_to "Web Components", web_components_path, class: "dropdown-item"
-      %ul.navbar-nav.flex-row.flex-wrap.ms-md-auto
-        = render 'theme_dropdown'
-        %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-            = user_name(current_user)
-          %ul.dropdown-menu.dropdown-menu-end
-            %li
-              = link_to "Profile", user_path(current_user), class: "dropdown-item"
-            %li
-              = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete }
+    %ul.navbar-nav.flex-row.flex-wrap.ms-md-auto
+      = render 'theme_dropdown'

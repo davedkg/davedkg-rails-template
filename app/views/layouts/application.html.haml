@@ -3,11 +3,12 @@
   %head
     = render 'head'
   %body{ data: { bs_theme: "light", controller: "theme" } }
-    = render 'navbar'
-    .container-fluid.main-container
+    .main-container
       = render 'sidebar'
       .body-container
-        = render 'flash'
-        = render 'breadcrumbs'
-        = yield
+        = render 'navbar'
+        .scrollable-body-container
+          = render 'flash'
+          = render 'breadcrumbs'
+          = yield
     = turbo_frame_tag :modal
