@@ -1,7 +1,943 @@
-.app-header.d-flex.align-items-center
-  .d-flex
-    %button.toggle-sidebar{ data: { action: "sidebar-toggle#toggle" } }
-      %i.bi.bi-list.lh-1
-    %button.pin-sidebar{ data: { action: "sidebar-toggle#pin" } }
-      %i.bi.bi-list.lh-1
-  %h5.m-0.ms-2.fw-semibold= page_title
+%header.topbar.rounded-0.border-0.bg-primary
+  .with-vertical
+    / ----------------------------------
+    / Start Vertical Layout Header
+    / ----------------------------------
+    %nav.navbar.navbar-expand-lg.px-lg-0.px-3.py-0
+      .d-none.d-lg-block
+        .brand-logo.d-flex.align-items-center.justify-content-between
+          %a.text-nowrap.logo-img.d-flex.align-items-center.gap-2{:href => "./main/index.html"}
+            %b.logo-icon
+              / You can put here icon as well // <i class="wi wi-sunset"></i> //
+              / Dark Logo icon
+              %img.dark-logo{:alt => "homepage", :src => "./assets/images/logos/logo-light-icon.svg"}/
+              / Light Logo icon
+              %img.light-logo{:alt => "homepage", :src => "./assets/images/logos/logo-light-icon.svg"}/
+            / End Logo icon
+            / Logo text
+            %span.logo-text
+              / dark Logo text
+              %img.dark-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-light-text.svg"}/
+              / Light Logo text
+              %img.light-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-light-text.svg"}/
+      %ul.navbar-nav.gap-2
+        %li.nav-item.nav-icon-hover-bg.rounded-circle
+          %a#headerCollapse.nav-link.nav-icon-hover.sidebartoggler{:href => "javascript:void(0)"}
+            %iconify-icon{:icon => "solar:list-bold"}
+        / -------------------------------
+        / start notification Dropdown
+        / -------------------------------
+        %li.nav-item.d-none.d-lg-block.search-box.nav-icon-hover-bg.rounded-circle
+          %a.nav-link.nav-icon-hover.d-none.d-md-flex.waves-effect.waves-dark{"data-bs-target" => "#exampleModal", "data-bs-toggle" => "modal", :href => "javascript:void(0)"}
+            %iconify-icon{:icon => "solar:magnifer-linear"}
+        %li.nav-item.d-none.d-lg-block.dropdown.nav-icon-hover-bg.rounded-circle
+          %a#drop2.nav-link.nav-icon-hover{"aria-expanded" => "false", "aria-haspopup" => "true", :href => "javascript:void(0)"}
+            %iconify-icon{:icon => "solar:widget-3-line-duotone"}
+          .dropdown-menu.dropdown-menu-nav.dropdown-menu-animate-up.py-0.overflow-hidden{"aria-labelledby" => "drop2"}
+            .row.align-items-center
+              .col-8
+                .ps-3.pt-3
+                  .border-bottom
+                    .row
+                      .col-6
+                        .position-relative
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-chat.html"}
+                            .bg-primary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-primary.fs-5{:icon => "solar:chat-line-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Chat Application
+                              %span.fs-3.d-block.text-muted New messages arrived
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-invoice.html"}
+                            .bg-secondary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-secondary.fs-5{:icon => "solar:bill-list-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Invoice App
+                              %span.fs-3.d-block.text-muted Get latest invoice
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-contact2.html"}
+                            .bg-success-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-success.fs-5{:icon => "solar:bedside-table-2-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Contact Application
+                              %span.fs-3.d-block.text-muted 2 Unsaved Contacts
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-email.html"}
+                            .bg-warning-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-warning.fs-5{:icon => "solar:letter-unread-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Email App
+                              %span.fs-3.d-block.text-muted Get new emails
+                      .col-6
+                        .position-relative
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/page-user-profile.html"}
+                            .bg-danger-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-danger.fs-5{:icon => "solar:cart-large-2-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary User Profile
+                              %span.fs-3.d-block.text-muted learn more information
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-calendar.html"}
+                            .bg-primary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-primary.fs-5{:icon => "solar:calendar-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Calendar App
+                              %span.fs-3.d-block.text-muted Get dates
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-contact.html"}
+                            .bg-secondary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-secondary.fs-5{:icon => "solar:bedside-table-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Contact List Table
+                              %span.fs-3.d-block.text-muted Add new contact
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-notes.html"}
+                            .bg-success-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-success.fs-5{:icon => "solar:palette-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Notes Application
+                              %span.fs-3.d-block.text-muted To-do and Daily tasks
+                  .row.align-items-center.py-3.pb-1
+                    .col-8
+                      %a.text-dark.d-flex.align-items-center.lh-1.fs-3.bg-hover-primary{:href => "./main/page-faq.html"}
+                        %i.ti.ti-help.fs-6.me-2>
+                        Frequently Asked Questions
+                    .col-4
+                      .d-flex.justify-content-end.pe-4
+                        %button.btn.btn-primary.rounded-pill.fs-3 Check
+              .col-4.ms-n7
+                .position-relative.p-3.border-start.h-100
+                  %h5.fs-5.mb-9.fw-semibold Quick Links
+                  %ul
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/page-pricing.html"} Pricing Page
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/authentication-login.html"} Authentication Design
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/authentication-register.html"} Register Now
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/authentication-error.html"} 404 Error Page
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/app-notes.html"} Notes App
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/page-user-profile.html"} User Application
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/page-account-settings.html"} Account Settings
+      .d-block.d-lg-none
+        .brand-logo.d-flex.align-items-center.justify-content-between
+          %a.text-nowrap.logo-img.d-flex.align-items-center.gap-2{:href => "./main/index.html"}
+            %b.logo-icon
+              / You can put here icon as well // <i class="wi wi-sunset"></i> //
+              / Dark Logo icon
+              %img.dark-logo{:alt => "homepage", :src => "./assets/images/logos/logo-light-icon.svg"}/
+              / Light Logo icon
+              %img.light-logo{:alt => "homepage", :src => "./assets/images/logos/logo-light-icon.svg"}/
+            / End Logo icon
+            / Logo text
+            %span.logo-text
+              / dark Logo text
+              %img.dark-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-light-text.svg"}/
+              / Light Logo text
+              %img.light-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-light-text.svg"}/
+      %ul.navbar-nav.flex-row.gap-2.align-items-center.justify-content-center.d-flex.d-lg-none
+        %li.nav-item.dropdown.nav-icon-hover-bg.rounded-circle
+          %a.navbar-toggler.nav-link.text-white.nav-icon-hover.border-0{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :href => "javascript:void(0)"}
+            %span
+              %i.ti.ti-dots.fs-7
+      #navbarNav.collapse.navbar-collapse.justify-content-end
+        .d-flex.align-items-center.justify-content-between.py-2.py-lg-0
+          %ul.navbar-nav.flex-row.align-items-center.justify-content-center.d-flex.d-lg-none
+            %li.nav-item.dropdown
+              %a.nav-link.d-flex.d-lg-none.align-items-center.justify-content-center{"aria-controls" => "offcanvasWithBothOptions", "data-bs-target" => "#mobilenavbar", "data-bs-toggle" => "offcanvas", :href => "javascript:void(0)", :type => "button"}
+                %iconify-icon{:icon => "solar:menu-dots-circle-linear"}
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle
+              %a#drop2.nav-link.nav-icon-hover.waves-effect.waves-dark{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %iconify-icon{:icon => "solar:bell-bing-line-duotone"}
+                .notify
+                  %span.heartbit
+                  %span.point
+              .dropdown-menu.py-0.content-dd.dropdown-menu-animate-up.overflow-hidden{"aria-labelledby" => "drop2"}
+                .py-3.px-4.bg-primary
+                  .mb-0.fs-6.fw-medium.text-white Notifications
+                  .mb-0.fs-2.fw-medium.text-white You have 4 Notifications
+                .message-body{"data-simplebar" => ""}
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-primary-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-primary
+                      %iconify-icon{:icon => "solar:widget-3-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Launch Admin
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-secondary-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-secondary
+                      %iconify-icon{:icon => "solar:calendar-mark-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Event today
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-danger-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-danger
+                      %iconify-icon{:icon => "solar:settings-minimalistic-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Settings
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-warning-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-warning
+                      %iconify-icon{:icon => "solar:link-circle-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Luanch Admin
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-success-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center
+                      %i.feather-sm.fill-white.text-success{"data-feather" => "calendar"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Event today
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-info-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center
+                      %i.feather-sm.fill-white.text-info{"data-feather" => "settings"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Settings
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                .p-3
+                  %a.d-flex.btn.btn-primary.align-items-center.justify-content-center.gap-2{:href => "javascript:void(0);"}
+                    %span Check all Notifications
+                    %iconify-icon.iconify-sm{:icon => "solar:alt-arrow-right-outline"}
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle
+              %a#drop2.nav-link.nav-icon-hover{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %iconify-icon{:icon => "solar:inbox-line-line-duotone"}
+                .notify
+                  %span.heartbit
+                  %span.point
+              .dropdown-menu.py-0.content-dd.dropdown-menu-animate-up.overflow-hidden{"aria-labelledby" => "drop2"}
+                .py-3.px-4.bg-secondary
+                  .mb-0.fs-6.fw-medium.text-white Messages
+                  .mb-0.fs-2.fw-medium.text-white You have 5 new messages
+                .message-body{"data-simplebar" => ""}
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-2.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Mathew Anderson
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-3.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Bianca Anderson
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-4.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Andrew Johnson
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-5.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Miyra Strokes
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-6.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Mark, Stoinus & Rishvi..
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-7.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Eliga Rush
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                .p-3
+                  %a.d-flex.btn.btn-secondary.align-items-center.justify-content-center.gap-2{:href => "javascript:void(0);"}
+                    %span Check all Messages
+                    %iconify-icon.iconify-sm{:icon => "solar:alt-arrow-right-outline"}
+          %ul.navbar-nav.gap-2.flex-row.ms-auto.align-items-center.justify-content-center
+            / -------------------------------
+            / start language Dropdown
+            / -------------------------------
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle
+              %a#drop2.nav-link{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-en.svg", :width => "20px"}/
+              .dropdown-menu.dropdown-menu-end.dropdown-menu-animate-up{"aria-labelledby" => "drop2"}
+                .message-body
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-en.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 English
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-cn.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 Chinese
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-fr.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 French
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-sa.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 Arabic
+            / -------------------------------
+            / end language Dropdown
+            / -------------------------------
+            %li.nav-item.nav-icon-hover-bg.rounded-circle
+              %a.nav-link.nav-icon-hover.moon.dark-layout{:href => "javascript:void(0)"}
+                %iconify-icon.moon{:icon => "solar:moon-line-duotone"}
+              %a.nav-link.nav-icon-hover.sun.light-layout{:href => "javascript:void(0)"}
+                %iconify-icon.sun{:icon => "solar:sun-2-line-duotone"}
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle.d-none.d-lg-block
+              %a#drop2.nav-link.nav-icon-hover.waves-effect.waves-dark{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %iconify-icon{:icon => "solar:bell-bing-line-duotone"}
+                .notify
+                  %span.heartbit
+                  %span.point
+              .dropdown-menu.py-0.content-dd.dropdown-menu-animate-up.overflow-hidden.dropdown-menu-end{"aria-labelledby" => "drop2"}
+                .py-3.px-4.bg-primary
+                  .mb-0.fs-6.fw-medium.text-white Notifications
+                  .mb-0.fs-2.fw-medium.text-white You have 4 Notifications
+                .message-body{"data-simplebar" => ""}
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-primary-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-primary
+                      %iconify-icon{:icon => "solar:widget-3-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Launch Admin
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-secondary-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-secondary
+                      %iconify-icon{:icon => "solar:calendar-mark-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Event today
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-danger-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-danger
+                      %iconify-icon{:icon => "solar:settings-minimalistic-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Settings
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-warning-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-warning
+                      %iconify-icon{:icon => "solar:link-circle-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Luanch Admin
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-success-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center
+                      %i.feather-sm.fill-white.text-success{"data-feather" => "calendar"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Event today
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-info-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center
+                      %i.feather-sm.fill-white.text-info{"data-feather" => "settings"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Settings
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                .p-3
+                  %a.d-flex.btn.btn-primary.align-items-center.justify-content-center.gap-2{:href => "javascript:void(0);"}
+                    %span Check all Notifications
+                    %iconify-icon.iconify-sm{:icon => "solar:alt-arrow-right-outline"}
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle.d-none.d-lg-block
+              %a#drop2.nav-link.nav-icon-hover{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %iconify-icon{:icon => "solar:inbox-line-line-duotone"}
+                .notify
+                  %span.heartbit
+                  %span.point
+              .dropdown-menu.py-0.content-dd.dropdown-menu-animate-up.dropdown-menu-end.overflow-hidden{"aria-labelledby" => "drop2"}
+                .py-3.px-4.bg-secondary
+                  .mb-0.fs-6.fw-medium.text-white Messages
+                  .mb-0.fs-2.fw-medium.text-white You have 5 new messages
+                .message-body{"data-simplebar" => ""}
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-2.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Mathew Anderson
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-3.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Bianca Anderson
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-4.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Andrew Johnson
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-5.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Miyra Strokes
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-6.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Mark, Stoinus & Rishvi..
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-7.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Eliga Rush
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                .p-3
+                  %a.d-flex.btn.btn-secondary.align-items-center.justify-content-center.gap-2{:href => "javascript:void(0);"}
+                    %span Check all Messages
+                    %iconify-icon.iconify-sm{:icon => "solar:alt-arrow-right-outline"}
+            / -------------------------------
+            / end notification Dropdown
+            / -------------------------------
+            / -------------------------------
+            / start profile Dropdown
+            / -------------------------------
+            %li.nav-item.hover-dd.dropdown
+              %a#drop2.nav-link.nav-icon-hover{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %img.profile-pic.rounded-circle.round-30{:alt => "user", :src => "./assets/images/profile/user-1.jpg"}/
+              .dropdown-menu.pt-0.content-dd.overflow-hidden.pt-0.dropdown-menu-end.user-dd{"aria-labelledby" => "drop2"}
+                .profile-dropdown.position-relative{"data-simplebar" => ""}
+                  .py-3.border-bottom
+                    .d-flex.align-items-center.px-3
+                      %img.rounded-circle.round-50{:alt => "", :src => "./assets/images/profile/user-1.jpg"}/
+                      .ms-3
+                        %h5.mb-1.fs-4 Markarn Doe
+                        %p.mb-0.fs-2.d-flex.align-items-center.text-muted
+                          markrarn@wrappixel.com
+                  .message-body.pb-3
+                    .px-3.pt-3
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/page-user-profile.html"}
+                          My Profile
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "javascript:void(0)"}
+                          My Projects
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/app-email.html"}
+                          Inbox
+                    %hr/
+                    .px-3
+                      .py-8.px-3.d-flex.justify-content-between.dropdown-item.align-items-center.h6.mb-0.rounded-2.link
+                        %a{:href => "javascript:void(0)"}
+                          Mode
+                        %div
+                          %a.moon.dark-layout{:href => "javascript:void(0)"}
+                            %iconify-icon.moon{:icon => "solar:moon-line-duotone"}
+                          %a.sun.light-layout{:href => "javascript:void(0)"}
+                            %iconify-icon.sun{:icon => "solar:sun-2-line-duotone"}
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/page-account-settings.html"}
+                          Account Settings
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/authentication-login.html"}
+                          Sign Out
+            / -------------------------------
+            / end profile Dropdown
+            / -------------------------------
+    / ----------------------------------
+    / End Vertical Layout Header
+    / ----------------------------------
+    / -------------------------------
+    / apps Dropdown in Small screen
+    / -------------------------------
+    / Mobilenavbar
+    #mobilenavbar.offcanvas.offcanvas-start{"aria-labelledby" => "offcanvasWithBothOptionsLabel", "data-bs-scroll" => "true", :tabindex => "-1"}
+      %nav.sidebar-nav.scroll-sidebar
+        .offcanvas-header.justify-content-between
+          %a.text-nowrap.logo-img.d-block{:href => "./main/index.html"}
+            %b.logo-icon
+              / You can put here icon as well // <i class="wi wi-sunset"></i> //
+              / Dark Logo icon
+              %img{:alt => "homepage", :src => "./assets/images/logos/logo-icon.svg"}/
+            / End Logo icon
+            / Logo text
+            %span.logo-text
+              / dark Logo text
+              %img.dark-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-text.svg"}/
+              / Light Logo text
+              %img.light-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-light-text.svg"}/
+          %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "offcanvas", :type => "button"}
+        .offcanvas-body.h-n80{"data-simplebar" => ""}
+          %ul#sidebarnav
+            %li.sidebar-item
+              %a.sidebar-link.has-arrow.px-1{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %span.d-flex
+                  %iconify-icon.fs-6{:icon => "solar:shield-plus-outline"}
+                %span.hide-menu Apps
+              %ul.collapse.first-level.my-3{"aria-expanded" => "false"}
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/app-chat.html"}
+                    .bg-primary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-primary.fs-5{:icon => "solar:chat-line-linear"}
+                    .d-inline-block
+                      %h6.mb-0 Chat Application
+                      %span.fs-3.d-block.text-muted New messages arrived
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/app-invoice.html"}
+                    .bg-secondary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-secondary.fs-5{:icon => "solar:bill-list-linear"}
+                    .d-inline-block
+                      %h6.mb-0 Invoice App
+                      %span.fs-3.d-block.text-muted Get latest invoice
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/app-contact2.html"}
+                    .bg-success-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-success.fs-5{:icon => "solar:bedside-table-2-linear"}
+                    .d-inline-block
+                      %h6.mb-0 Contact Application
+                      %span.fs-3.d-block.text-muted 2 Unsaved Contacts
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/app-email.html"}
+                    .bg-warning-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-warning.fs-5{:icon => "solar:letter-unread-linear"}
+                    .d-inline-block
+                      %h6.mb-0 Email App
+                      %span.fs-3.d-block.text-muted Get new emails
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/page-user-profile.html"}
+                    .bg-danger-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-danger.fs-5{:icon => "solar:cart-large-2-linear"}
+                    .d-inline-block
+                      %h6.mb-0 User Profile
+                      %span.fs-3.d-block.text-muted learn more information
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/app-calendar.html"}
+                    .bg-primary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-primary.fs-5{:icon => "solar:calendar-linear"}
+                    .d-inline-block
+                      %h6.mb-0 Calendar App
+                      %span.fs-3.d-block.text-muted Get dates
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/app-contact.html"}
+                    .bg-secondary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-secondary.fs-5{:icon => "solar:bedside-table-linear"}
+                    .d-inline-block
+                      %h6.mb-0 Contact List Table
+                      %span.fs-3.d-block.text-muted Add new contact
+                %li.sidebar-item.py-2
+                  %a.d-flex.align-items-center.position-relative{:href => "./main/app-notes.html"}
+                    .bg-success-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                      %iconify-icon.text-success.fs-5{:icon => "solar:palette-linear"}
+                    .d-inline-block
+                      %h6.mb-0 Notes Application
+                      %span.fs-3.d-block.text-muted To-do and Daily tasks
+                %ul.px-8.mt-7.mb-4
+                  %li.sidebar-item.mb-3
+                    %h5.fs-5.fw-semibold Quick Links
+                  %li.sidebar-item.py-2
+                    %a.fs-3{:href => "./main/page-pricing.html"}
+                      Pricing
+                      Page
+                  %li.sidebar-item.py-2
+                    %a.fs-3{:href => "./main/authentication-login.html"} Authentication Design
+                  %li.sidebar-item.py-2
+                    %a.fs-3{:href => "./main/authentication-register.html"} Register Now
+                  %li.sidebar-item.py-2
+                    %a.fs-3{:href => "./main/authentication-error.html"}
+                      404
+                      Error Page
+                  %li.sidebar-item.py-2
+                    %a.fs-3{:href => "./main/app-notes.html"} Notes App
+                  %li.sidebar-item.py-2
+                    %a.fs-3{:href => "./main/page-user-profile.html"}
+                      User
+                      Application
+                  %li.sidebar-item.py-2
+                    %a.fs-3{:href => "./main/page-account-settings.html"} Account Settings
+            %li.sidebar-item
+              %a.sidebar-link.px-1{"aria-expanded" => "false", :href => "./main/app-chat.html"}
+                %span.d-flex
+                  %iconify-icon.fs-6{:icon => "solar:chat-unread-outline"}
+                %span.hide-menu Chat
+            %li.sidebar-item
+              %a.sidebar-link.px-1{"aria-expanded" => "false", :href => "./main/app-calendar.html"}
+                %span.d-flex
+                  %iconify-icon.fs-6{:icon => "solar:calendar-minimalistic-outline"}
+                %span.hide-menu Calendar
+            %li.sidebar-item
+              %a.sidebar-link.px-1{"aria-expanded" => "false", :href => "./main/app-email.html"}
+                %span.d-flex
+                  %iconify-icon.fs-6{:icon => "solar:inbox-unread-outline"}
+                %span.hide-menu Email
+  .app-header.with-horizontal
+    %nav.navbar.navbar-expand-xl.container-fluid
+      %ul.navbar-nav.gap-2.align-items-center
+        %li.nav-item.d-block.d-xl-none
+          %a#sidebarCollapse.nav-link.sidebartoggler.ms-n3{:href => "javascript:void(0)"}
+            %iconify-icon{:icon => "solar:hamburger-menu-line-duotone"}
+        %li.nav-item.d-none.d-xl-block
+          .brand-logo.d-flex.align-items-center.justify-content-between
+            %a.text-nowrap.logo-img.d-flex.align-items-center.gap-2{:href => "./main/index.html"}
+              %b.logo-icon
+                / You can put here icon as well // <i class="wi wi-sunset"></i> //
+                / Dark Logo icon
+                %img.dark-logo{:alt => "homepage", :src => "./assets/images/logos/logo-light-icon.svg"}/
+                / Light Logo icon
+                %img.light-logo{:alt => "homepage", :src => "./assets/images/logos/logo-light-icon.svg"}/
+              / End Logo icon
+              / Logo text
+              %span.logo-text
+                / dark Logo text
+                %img.dark-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-light-text.svg"}/
+                / Light Logo text
+                %img.light-logo.ps-2{:alt => "homepage", :src => "./assets/images/logos/logo-light-text.svg"}/
+        %li.nav-item.d-none.d-lg-block.search-box
+          %a.nav-link.nav-icon-hover.d-none.d-md-flex.waves-effect.waves-dark{"data-bs-target" => "#exampleModal", "data-bs-toggle" => "modal", :href => "javascript:void(0)"}
+            %iconify-icon{:icon => "solar:magnifer-linear"}
+        %li.nav-item.hover-dd.d-none.d-lg-block.dropdown
+          %a#drop2.nav-link.nav-icon-hover{"aria-expanded" => "false", "aria-haspopup" => "true", :href => "javascript:void(0)"}
+            %iconify-icon{:icon => "solar:widget-3-line-duotone"}
+          .dropdown-menu.dropdown-menu-nav.dropdown-menu-animate-up.py-0{"aria-labelledby" => "drop2"}
+            .row.align-items-center
+              .col-8
+                .ps-3.pt-3
+                  .border-bottom
+                    .row
+                      .col-6
+                        .position-relative
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-chat.html"}
+                            .bg-primary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-primary.fs-5{:icon => "solar:chat-line-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Chat Application
+                              %span.fs-3.d-block.text-muted New messages arrived
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-invoice.html"}
+                            .bg-secondary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-secondary.fs-5{:icon => "solar:bill-list-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Invoice App
+                              %span.fs-3.d-block.text-muted Get latest invoice
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-contact2.html"}
+                            .bg-success-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-success.fs-5{:icon => "solar:bedside-table-2-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Contact Application
+                              %span.fs-3.d-block.text-muted 2 Unsaved Contacts
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-email.html"}
+                            .bg-warning-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-warning.fs-5{:icon => "solar:letter-unread-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Email App
+                              %span.fs-3.d-block.text-muted Get new emails
+                      .col-6
+                        .position-relative
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/page-user-profile.html"}
+                            .bg-danger-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-danger.fs-5{:icon => "solar:cart-large-2-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary User Profile
+                              %span.fs-3.d-block.text-muted learn more information
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-calendar.html"}
+                            .bg-primary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-primary.fs-5{:icon => "solar:calendar-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Calendar App
+                              %span.fs-3.d-block.text-muted Get dates
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-contact.html"}
+                            .bg-secondary-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-secondary.fs-5{:icon => "solar:bedside-table-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Contact List Table
+                              %span.fs-3.d-block.text-muted Add new contact
+                          %a.d-flex.align-items-center.pb-9.position-relative{:href => "./main/app-notes.html"}
+                            .bg-success-subtle.rounded-circle.round-40.me-3.p-6.d-flex.align-items-center.justify-content-center
+                              %iconify-icon.text-success.fs-5{:icon => "solar:palette-linear"}
+                            .d-inline-block
+                              %h6.mb-0.bg-hover-primary Notes Application
+                              %span.fs-3.d-block.text-muted To-do and Daily tasks
+                  .row.align-items-center.py-3.pb-1
+                    .col-8
+                      %a.text-dark.d-flex.align-items-center.lh-1.fs-3.bg-hover-primary{:href => "./main/page-faq.html"}
+                        %i.ti.ti-help.fs-6.me-2>
+                        Frequently Asked Questions
+                    .col-4
+                      .d-flex.justify-content-end.pe-4
+                        %button.btn.btn-primary.rounded-pill.fs-3 Check
+              .col-4.ms-n7
+                .position-relative.p-3.border-start.h-100
+                  %h5.fs-5.mb-9.fw-semibold Quick Links
+                  %ul
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/page-pricing.html"} Pricing Page
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/authentication-login.html"} Authentication Design
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/authentication-register.html"} Register Now
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/authentication-error.html"} 404 Error Page
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/app-notes.html"} Notes App
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/page-user-profile.html"} User Application
+                    %li.mb-3
+                      %a.text-dark.bg-hover-primary{:href => "./main/page-account-settings.html"} Account Settings
+      %a.navbar-toggler.nav-icon-hover.p-0.border-0.text-white{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :href => "javascript:void(0)"}
+        %span.p-2
+          %i.ti.ti-dots.fs-7
+      #navbarNav.collapse.navbar-collapse.justify-content-end
+        .d-flex.align-items-center.justify-content-between
+          %ul.navbar-nav.gap-2.flex-row.ms-auto.align-items-center.justify-content-center
+            / -------------------------------
+            / start language Dropdown
+            / -------------------------------
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle
+              %a#drop2.nav-link{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-en.svg", :width => "20px"}/
+              .dropdown-menu.dropdown-menu-end.dropdown-menu-animate-up{"aria-labelledby" => "drop2"}
+                .message-body
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-en.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 English
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-cn.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 Chinese
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-fr.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 French
+                  %a.d-flex.align-items-center.gap-2.py-2.px-4.dropdown-item{:href => "javascript:void(0)"}
+                    .position-relative
+                      %img.round-20{:alt => "", :height => "20px", :src => "./assets/images/svgs/icon-flag-sa.svg", :width => "20px"}/
+                    %p.mb-0.fs-3 Arabic
+            / -------------------------------
+            / end language Dropdown
+            / -------------------------------
+            %li.nav-item.nav-icon-hover-bg.rounded-circle
+              %a.nav-link.nav-icon-hover.moon.dark-layout{:href => "javascript:void(0)"}
+                %iconify-icon.moon{:icon => "solar:moon-line-duotone"}
+              %a.nav-link.nav-icon-hover.sun.light-layout{:href => "javascript:void(0)"}
+                %iconify-icon.sun{:icon => "solar:sun-2-line-duotone"}
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle.d-none.d-lg-block
+              %a#drop2.nav-link.nav-icon-hover.waves-effect.waves-dark{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %iconify-icon{:icon => "solar:bell-bing-line-duotone"}
+                .notify
+                  %span.heartbit
+                  %span.point
+              .dropdown-menu.py-0.content-dd.dropdown-menu-animate-up.dropdown-menu-end.overflow-hidden{"aria-labelledby" => "drop2"}
+                .py-3.px-4.bg-primary
+                  .mb-0.fs-6.fw-medium.text-white Notifications
+                  .mb-0.fs-2.fw-medium.text-white You have 4 Notifications
+                .message-body{"data-simplebar" => ""}
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-primary-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-primary
+                      %iconify-icon{:icon => "solar:widget-3-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Launch Admin
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-secondary-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-secondary
+                      %iconify-icon{:icon => "solar:calendar-mark-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Event today
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-danger-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-danger
+                      %iconify-icon{:icon => "solar:settings-minimalistic-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Settings
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-warning-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center.fs-6.text-warning
+                      %iconify-icon{:icon => "solar:link-circle-line-duotone"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Luanch Admin
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-success-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center
+                      %i.feather-sm.fill-white.text-success{"data-feather" => "calendar"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Event today
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.flex-shrink-0.bg-info-subtle.rounded-circle.round-40.d-flex.align-items-center.justify-content-center
+                      %i.feather-sm.fill-white.text-info{"data-feather" => "settings"}
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Settings
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                .p-3
+                  %a.d-flex.btn.btn-primary.align-items-center.justify-content-center.gap-2{:href => "javascript:void(0);"}
+                    %span Check all Notifications
+                    %iconify-icon.iconify-sm{:icon => "solar:alt-arrow-right-outline"}
+            %li.nav-item.hover-dd.dropdown.nav-icon-hover-bg.rounded-circle.d-none.d-lg-block
+              %a#drop2.nav-link.nav-icon-hover{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %iconify-icon{:icon => "solar:inbox-line-line-duotone"}
+                .notify
+                  %span.heartbit
+                  %span.point
+              .dropdown-menu.py-0.content-dd.dropdown-menu-animate-up.dropdown-menu-end.overflow-hidden{"aria-labelledby" => "drop2"}
+                .py-3.px-4.bg-secondary
+                  .mb-0.fs-6.fw-medium.text-white Messages
+                  .mb-0.fs-2.fw-medium.text-white You have 5 new messages
+                .message-body{"data-simplebar" => ""}
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-2.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Mathew Anderson
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-3.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Bianca Anderson
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-4.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Andrew Johnson
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-5.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Miyra Strokes
+                        %span.fs-2.d-block.text-muted 9:30 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just see the my new admin!
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-6.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Mark, Stoinus & Rishvi..
+                        %span.fs-2.d-block.text-muted 9:10 AM
+                      %span.fs-2.d-block.text-truncate.text-muted Just a reminder that you have event
+                  %a.p-3.d-flex.align-items-center.dropdown-item.gap-3.border-bottom{:href => "javascript:void(0)"}
+                    %span.user-img.position-relative.d-inline-block
+                      %img.rounded-circle.w-100.round-40{:alt => "user", :src => "./assets/images/profile/user-7.jpg"}/
+                      %span.profile-status.bg-success.position-absolute.rounded-circle
+                    .w-80
+                      .d-flex.align-items-center.justify-content-between
+                        %h6.mb-1 Eliga Rush
+                        %span.fs-2.d-block.text-muted 9:08 AM
+                      %span.fs-2.d-block.text-truncate.text-muted You can customize this template as you want
+                .p-3
+                  %a.d-flex.btn.btn-secondary.align-items-center.justify-content-center.gap-2{:href => "javascript:void(0);"}
+                    %span Check all Messages
+                    %iconify-icon.iconify-sm{:icon => "solar:alt-arrow-right-outline"}
+            / -------------------------------
+            / start profile Dropdown
+            / -------------------------------
+            %li.nav-item.hover-dd.dropdown
+              %a#drop2.nav-link.nav-icon-hover{"aria-expanded" => "false", :href => "javascript:void(0)"}
+                %img.profile-pic.rounded-circle{:alt => "user", :src => "./assets/images/profile/user-1.jpg", :width => "30"}/
+              .dropdown-menu.pt-0.content-dd.overflow-hidden.pt-0.dropdown-menu-end.user-dd{"aria-labelledby" => "drop2"}
+                .profile-dropdown.position-relative{"data-simplebar" => ""}
+                  .py-3.border-bottom
+                    .d-flex.align-items-center.px-3
+                      %img.rounded-circle.round-50{:alt => "", :src => "./assets/images/profile/user-1.jpg"}/
+                      .ms-3
+                        %h5.mb-1.fs-4 Markarn Doe
+                        %p.mb-0.fs-2.d-flex.align-items-center.text-muted
+                          markrarn@wrappixel.com
+                  .message-body.pb-3
+                    .px-3.pt-3
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/page-user-profile.html"}
+                          My Profile
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "javascript:void(0)"}
+                          My Projects
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/app-email.html"}
+                          Inbox
+                    %hr/
+                    .px-3
+                      .py-8.px-3.d-flex.justify-content-between.dropdown-item.align-items-center.h6.mb-0.rounded-2.link
+                        %a{:href => "javascript:void(0)"}
+                          Mode
+                        %div
+                          %a.moon.dark-layout{:href => "javascript:void(0)"}
+                            %iconify-icon.moon{:icon => "solar:moon-line-duotone"}
+                          %a.sun.light-layout{:href => "javascript:void(0)"}
+                            %iconify-icon.sun{:icon => "solar:sun-2-line-duotone"}
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/page-account-settings.html"}
+                          Account Settings
+                      .h6.mb-0.dropdown-item.py-8.px-3.rounded-2.link
+                        %a.d-flex.align-items-center{:href => "./main/authentication-login.html"}
+                          Sign Out
+            / -------------------------------
+            / end profile Dropdown
+            / -------------------------------

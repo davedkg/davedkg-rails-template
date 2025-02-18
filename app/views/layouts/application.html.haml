@@ -1,14 +1,14 @@
 !!!
-%html
+%html{ data: { bs_theme: "light", color_theme: "Blue_Theme", layout: "vertical" } , dir: "ltr", lang: "en" }
   %head
     = render 'head'
-  %body{ data: { controller: "sidebar-toggle" } }
-    .page-wrapper{ data: { sidebar_toggle_target: "pageWrapper" } }
-      .main-container
-        = render 'sidebar'
-        .app-container
-          = render 'navbar'
-          .app-body
+  %body
+    #main-wrapper
+      = render 'sidebar'
+      .page-wrapper
+        = render 'navbar'
+        .body-wrapper
+          .container-fluid
             = render 'flash'
             = yield
     = turbo_frame_tag :modal

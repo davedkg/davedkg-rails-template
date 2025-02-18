@@ -1,25 +1,14 @@
-%nav#sidebar.sidebar-wrapper
-  .sidebarMenuScroll
-    %ul.sidebar-menu.mt-3
-      - if policy(:dashboard).show?
-        %li{ class: active_sidebar_tab_for_path(dashboard_path) }
-          = link_to dashboard_path do
-            %i.bi.bi-bar-chart-line
-            %span.menu-text Dashboard
-      - if policy(User).index?
-        %li{ class: active_sidebar_tab_for_path(users_path) }
-          = link_to users_path do
-            %i.bi.bi-people
-            %span.menu-text Users
-      - if Rails.env.development?
-        %li.treeview{ data: { controller: "sidebar-treeview" }, class: active_sidebar_treeview_tab_for_path(web_components_path) }
-          %a{ href: "javascript:void(0);", data: { action: "sidebar-treeview#click" } }
-            %i.bi.bi-code
-            %span.menu-text Development
-          %ul.treeview-menu{ data: { sidebar_treeview_target: "menu" }, class: active_sidebar_treeview_menu_for_path(web_components_path) }
-            %li
-              = link_to "Email Previews", "/rails/mailers", target: "_blank"
-            %li
-              = link_to "Letter Opener", "/letter-opener", target: "_blank"
-            %li
-              = link_to "Web Components", web_components_path, class: active_sidebar_treeview_link_for_path(web_components_path)
+%aside.left-sidebar.with-vertical
+  %div
+    %nav.sidebar-nav.scroll-sidebar{"data-simplebar" => ""}
+      %ul#sidebarnav
+        - if policy(:dashboard).show?
+          %li.sidebar-item
+            = link_to dashboard_path, class: "sidebar-link #{active_sidebar_tab_for_path(dashboard_path)}" do
+              %i.bi.bi-bar-chart-line
+              %span.menu-text Dashboard
+        - if policy(User).index?
+          %li.sidebar-item
+            = link_to users_path, class: "sidebar-link #{active_sidebar_tab_for_path(users_path)}" do
+              %i.bi.bi-people
+              %span.menu-text Users

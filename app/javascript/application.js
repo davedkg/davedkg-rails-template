@@ -1,8 +1,10 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
 import "@hotwired/turbo-rails"
-import "controllers"
+import "@popperjs/core"
 import * as bootstrap from "bootstrap"
-import Swal from "sweetalert2";
+import Swal from "sweetalert2"
+
+import "controllers"
 
 // redirect_to while inside a turbo-frame
 document.addEventListener("turbo:frame-missing", (event) => {

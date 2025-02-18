@@ -8,3 +8,4 @@ pin_all_from "app/javascript/controllers", under: "controllers"
 pin "bootstrap", to: "bootstrap.min.js"
 pin "autosize" # @6.0.1
 pin "sweetalert2" # @11.15.0
+pin "@popperjs/core", to: "@popperjs--core.js" # @2.11.8
