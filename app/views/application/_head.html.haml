@@ -5,6 +5,7 @@
 %meta{:content => "yes", :name => "mobile-web-app-capable"}/
 = csrf_meta_tags
 = csp_meta_tag
+= action_cable_meta_tag
 = yield :head
 %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
 %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
