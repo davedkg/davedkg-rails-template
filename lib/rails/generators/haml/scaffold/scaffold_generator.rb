@@ -1,11 +1,6 @@
 if Rails.env.test?
 
-  module Haml
-    module Generators
-      class ScaffoldGenerator
-      end
-    end
-  end
+  class Rails::Generators::Haml::Scaffold::ScaffoldGenerator; end
 
 else
   require "rails/generators/erb/scaffold/scaffold_generator"
