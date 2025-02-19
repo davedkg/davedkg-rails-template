@@ -13,13 +13,13 @@
 
   .table-responsive.table-with-out-card-body
     %table.table.table-striped
-      %thead
+      %thead.table-group-divider
         %tr
         <%- attributes.each do |attribute| -%>
           %th <%= attribute.name.humanize %>
         <%- end -%>
           %th &nbsp;
-      %tbody{ id: "<%= plural_table_name %>-table-rows" }
+      %tbody.table-group-divider{ id: "<%= plural_table_name %>-table-rows" }
         = render 'table_rows'
     %div{ id: "<%= plural_table_name %>-paginator" }
       = render "paginator"
