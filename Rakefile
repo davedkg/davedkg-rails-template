@@ -5,5 +5,7 @@ require_relative "config/application"
 
 Rails.application.load_tasks
 
-require "rubocop/rake_task"
-RuboCop::RakeTask.new
+if !Rails.env.production?
+  require "rubocop/rake_task"
+  RuboCop::RakeTask.new
+end
