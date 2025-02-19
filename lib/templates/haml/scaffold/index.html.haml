@@ -1,4 +1,4 @@
-.card.mb-3
+.card.bg-body-tertiary
   .card-body
     .row
       .col.d-flex.align-items-center
@@ -11,17 +11,15 @@
               .d-none.d-sm-inline
                 <%= singular_table_name.titleize %>
 
-.card
-  .card-body
-    .table-responsive.table-with-out-card-body
-      %table.table.table-striped
-        %thead
-          %tr
-          <%- attributes.each do |attribute| -%>
-            %th <%= attribute.name.humanize %>
-          <%- end -%>
-            %th &nbsp;
-        %tbody{ id: "<%= plural_table_name %>-table-rows" }
-          = render 'table_rows'
-      %div{ id: "<%= plural_table_name %>-paginator" }
-        = render "paginator"
+  .table-responsive.table-with-out-card-body
+    %table.table.table-striped
+      %thead
+        %tr
+        <%- attributes.each do |attribute| -%>
+          %th <%= attribute.name.humanize %>
+        <%- end -%>
+          %th &nbsp;
+      %tbody{ id: "<%= plural_table_name %>-table-rows" }
+        = render 'table_rows'
+    %div{ id: "<%= plural_table_name %>-paginator" }
+      = render "paginator"
