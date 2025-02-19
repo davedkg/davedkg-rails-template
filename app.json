@@ -38,7 +38,6 @@
   },
   "addons": [
     "heroku-postgresql:hobby-dev",
-    "mailgun:starter",
     "newrelic",
     "sentry"
   ],
