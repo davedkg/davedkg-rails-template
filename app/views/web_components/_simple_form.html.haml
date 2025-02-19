@@ -32,6 +32,32 @@
 
   .card.mb-4
     .card-header
+      %h4.card-title Floating Text
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute, wrapper: :floating_labels_form, placeholder: 'TODO Label'"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  wrapper: :floating_labels_form, required: false, placeholder: "default"
+          = f.input :disabled, wrapper: :floating_labels_form, required: false, disabled: true, placeholder: "disabled"
+          = f.input :valid,    wrapper: :floating_labels_form, required: false, valid: true, placeholder: "valid"
+          = f.input :invalid,  wrapper: :floating_labels_form, required: false, error: "Invalid message", placeholder: "invalid"
+
+  .card.mb-4
+    .card-header
+      %h4.card-title Floating Single Select
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :attribute, collection: collection, wrapper: :floating_labels_select, placeholder: 'TODO Label'"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  collection: collection, wrapper: :floating_labels_select, required: false, placeholder: "default"
+          = f.input :disabled, collection: collection, wrapper: :floating_labels_select, required: false, disabled: true, placeholder: "disabled"
+          = f.input :valid,    collection: collection, wrapper: :floating_labels_select, required: false, valid: true, placeholder: "valid"
+          = f.input :invalid,  collection: collection, wrapper: :floating_labels_select, required: false, error: "Invalid message", placeholder: "invalid"
+
+  .card.mb-4
+    .card-header
       %h4.card-title Radio Group
       %h6.card-subtitle.mt-2
         %code= "= f.input :attribute, collection: collection, as: :radio_buttons"

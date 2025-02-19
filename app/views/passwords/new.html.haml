@@ -1,6 +1,6 @@
 = simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
   = f.error_notification
-  = f.input :email, autofocus: true, autocomplete: "email"
+  = f.input :email, autofocus: true, autocomplete: "email", wrapper: :floating_labels_form, placeholder: 'Email'
   .d-grid.gap-2
     = f.button :submit, "Email Reset Password Instructions", data: { "disable-with": "Emailing Reset Password Instructions..." }
     = link_to "Back to Sign In", new_session_path(resource_name), class: "btn btn-secondary"
