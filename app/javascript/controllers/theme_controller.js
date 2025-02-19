@@ -68,8 +68,14 @@ export default class extends Controller {
 
   updateForUserTheme(userTheme) {
     this.setBsThemeFromUserTheme(userTheme)
-    this.updateDropdownItemsForUserTheme(userTheme)
-    this.updateDropdownToggleForUserTheme(userTheme)
+
+    if (this.hasLightTarget && this.hasDarkTarget && this.hasAuthTarget ) {
+      this.updateDropdownItemsForUserTheme(userTheme)
+    }
+
+    if (this.hasDropdownToggleTarget) {
+      this.updateDropdownToggleForUserTheme(userTheme)
+    }
   }
 
   updateDropdownToggleForUserTheme(userTheme) {
