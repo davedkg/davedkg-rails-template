@@ -7,7 +7,7 @@ orbs:
 executors:
   rails-executor:
     docker:
-      - image: cimg/ruby:3.3.6-browsers
+      - image: cimg/ruby:3.3.7-browsers
       - image: cimg/postgres:16.2
         environment:
           POSTGRES_DB: davedkg_template_test
@@ -21,7 +21,7 @@ executors:
       RAILS_ENV: test
   ruby-executor:
     docker:
-      - image: cimg/ruby:3.3.6-browsers
+      - image: cimg/ruby:3.3.7-browsers
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"

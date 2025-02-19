@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-ruby "3.3.6"
+ruby "3.3.7"
 
 gem "rails", "~> 8.0.1"
 gem "propshaft", "~> 1.1.0"
@@ -41,6 +41,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "foreman", "~> 0.88.1"
   gem "letter_opener_web", "~> 3.0"
   gem "web-console"
 end
