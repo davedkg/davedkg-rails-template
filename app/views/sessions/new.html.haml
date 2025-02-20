@@ -1,6 +1,6 @@
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   = f.error_notification
-  = f.input :email, autofocus: true, autocomplete: "email", wrapper: :floating_labels_form, placeholder: 'Email'
+  = f.input :email, autocomplete: "email", wrapper: :floating_labels_form, placeholder: 'Email'
   = f.input :password, wrapper: :floating_labels_form, placeholder: 'Password'
   .d-flex.justify-content-between.mb-2
     = f.input :remember_me, as: :boolean
