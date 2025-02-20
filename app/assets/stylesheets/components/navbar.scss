@@ -2,6 +2,12 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
+$navbar-height: 60px;
+
+.navbar {
+  height: $navbar-height;
+}
+
 .sidebar-hidden .navbar-sizebar-toggle {
   display: block;
 }
