@@ -2,8 +2,8 @@
 %html
   %head
     = render 'head'
-  %body{ data: { bs_theme: "light", controller: "theme sidebar" } }
-    .main-container.sidebar-shown{ data: { sidebar_target: "main" } }
+  %body.sidebar-shown{ data: { bs_theme: "light", controller: "theme sidebar", sidebar_target: "body" } }
+    .main-container
       = render 'sidebar'
       .body-container
         = render 'navbar'
