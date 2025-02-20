@@ -1,8 +1,0 @@
-= turbo_frame_tag "user-form" do
-  = simple_form_for(@user) do |f|
-    = f.error_notification
-    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-    = f.input :name
-    = f.input :time_zone
-    = f.button :submit, "Update User", data: { "disable-with": "Updating User..." }
-    = link_to "Cancel", user_path(@user), class: "btn btn-secondary ms-2", data: { turbo_frame: "_top" }

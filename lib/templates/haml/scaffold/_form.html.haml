@@ -5,7 +5,7 @@
 
   .form-inputs
   <%- attributes.each do |attribute| -%>
-    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>
+    = f.<%= attribute.reference? ? :association : :input %> :<%= attribute.name %>, wrapper: :floating_labels_form, placeholder: "<%= attribute.name.humanize %>"
   <%- end -%>
 
   .form-actions

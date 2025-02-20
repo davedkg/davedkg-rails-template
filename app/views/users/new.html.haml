@@ -8,7 +8,7 @@
     = simple_form_for(@user) do |f|
       = f.error_notification
       = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
-      = f.input :email
+      = f.input :email, wrapper: :floating_labels_form, placeholder: "Email"
       = f.input :role, collection: User.roles, as: :radio_buttons
       = f.button :submit, "Invite User", data: { "disable-with": "Inviting User..." }
       = link_to "Cancel", users_path, class: "btn btn-secondary ms-2"
