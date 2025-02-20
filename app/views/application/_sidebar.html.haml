@@ -2,28 +2,5 @@
   %nav.navbar.bg-body-tertiary.px-3
     %a.btn.btn-light-dark.btn-navbar{ data: { action: "click->sidebar#hide" } }
       = material_icon("dock_to_right")
-  .d-flex.flex-column.flex-grow-1.bg-body-tertiary.pt-2
-    %ul.nav.nav-pills.flex-column.mb-auto.px-3
-      - if policy(:dashboard).show?
-        %li.nav-item
-          = link_to dashboard_path, { class: "nav-link d-flex #{active_for_path(dashboard_path)}" } do
-            = material_icon("speed")
-            Dashboard
-      - if policy(User).index?
-        %li.nav-item
-          = link_to users_path, { class: "nav-link d-flex #{active_for_path(users_path)}" } do
-            = material_icon("group")
-            Users
-      - if Rails.env.development?
-        %li.nav-item
-          = link_to "javascript:void(0)", { class: "nav-link d-flex", data: { bs_toggle: "collapse", bs_target: "#development-collapse" }, aria: { expended: false, controls: "#development-collapse" } } do
-            = material_icon("developer_mode")
-            Development
-          #development-collapse.collapse.sidebar-collapse
-            %ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
-              %li
-                = link_to "Email Previews", '/rails/mailers', target: "_blank"
-              %li
-                = link_to "Letter Opener", '/letter-opener', target: "_blank"
-              %li
-                = link_to "Web Components", web_components_path
+  .overflow-scroll.d-flex.flex-column.flex-grow-1.bg-body-tertiary.px-3.pb-3.pt-2
+    = render 'sidebar_body'
