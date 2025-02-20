@@ -5,8 +5,10 @@ class <%= controller_class_name %>Controller < ApplicationController
   breadcrumb -> { page_title_hash[:index] }, :<%= plural_table_name %>_path, except: [ :index ], if: -> { policy(<%= class_name %>).index? }
   breadcrumb -> { page_title_hash[:show] }, -> { <%= singular_table_name %>_path(@<%= singular_table_name %>) }, only: %i[edit update], if: -> { policy(@<%= singular_table_name %>).show? }
 
+  PER_PAGE = 10
+
   def index
-    @<%= plural_table_name %> = authorize policy_scope(<%= class_name %>).page(params[:page])
+    @<%= plural_table_name %> = authorize policy_scope(<%= class_name %>).page(params[:page]).per(PER_PAGE)
   end
 
   def show

@@ -3,8 +3,10 @@ class UsersController < ApplicationController
 
   breadcrumb "Users", :users_path, except: [ :index ], if: -> { policy(User).index? }
 
+  PER_PAGE = 10
+
   def index
-    @users = authorize policy_scope(User).order(created_at: :desc).page(params[:page])
+    @users = authorize policy_scope(User).order(created_at: :desc).page(params[:page]).per(PER_PAGE)
   end
 
   def show; end
