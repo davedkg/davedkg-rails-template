@@ -9,6 +9,19 @@
 
   .nav-link {
     color: var(--bs-btn-color);
+
+    span {
+      margin-right: 0.5rem;
+    }
+  }
+
+  .sidebar-collapse a {
+    color: var(--bs-btn-color);
+    display: inline-flex;
+    margin-left: 2.5rem;
+    margin-top: .125rem;
+    padding: .1875rem .5rem;
+    text-decoration: none;
   }
 
   @include media-breakpoint-up(lg) {

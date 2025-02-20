@@ -1,5 +1,5 @@
 #sidebar.sidebar-container.offcanvas-lg.offcanvas-start{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
-  %nav.navbar.d-flex.bg-body-tertiary.px-3
+  %nav.navbar.bg-body-tertiary.px-3
     %a.btn.btn-light-dark.btn-navbar{ data: { action: "click->sidebar#hide" } }
       = material_icon("dock_to_right")
   .d-flex.flex-column.flex-grow-1.bg-body-tertiary.pt-2
@@ -8,35 +8,35 @@
         %li.nav-item
           = link_to dashboard_path, { class: "nav-link d-flex #{active_for_path(dashboard_path)}" } do
             = material_icon("speed")
-            .ms-1 Dashboard
+            Dashboard
       - if policy(User).index?
         %li.nav-item
           = link_to users_path, { class: "nav-link d-flex #{active_for_path(users_path)}" } do
             = material_icon("group")
-            .ms-1 Users
+            Users
       - if Rails.env.development?
         %li.nav-item
-          %button.btn.btn-toggle.d-flex{ data: { bs_target: "#development-collapse", bs_toggle: "collapse" }, "aria-expanded" => "false" }
+          = link_to "javascript:void(0)", { class: "nav-link d-flex", data: { bs_toggle: "collapse", bs_target: "#development-collapse" }, aria: { expended: false, controls: "#development-collapse" } } do
             = material_icon("developer_mode")
-            .ms-1 Development
-          #development-collapse.collapse{:style => ""}
-            %ul.list-unstyled.fw-normal.pb-1.small
+            Development
+          #development-collapse.collapse.sidebar-collapse
+            %ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
               %li
-                = link_to "Email Previews", '/rails/mailers', target: "_blank", class: "link-dark rounded"
+                = link_to "Email Previews", '/rails/mailers', target: "_blank"
               %li
-                = link_to "Letter Opener", '/letter-opener', target: "_blank", class: "link-dark rounded"
+                = link_to "Letter Opener", '/letter-opener', target: "_blank"
               %li
-                = link_to "Web Components", web_components_path, class: "link-dark rounded"
+                = link_to "Web Components", web_components_path
 
-    %ul.nav.nav-pills.flex-column.px-1.py-2
-      %li.nav-item.dropdown
-        %a#accountDropdown.dropdown-toggle.nav-link.d-flex{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
-          = material_icon("account_circle")
-          .ms-1 Account
-        %ul.dropdown-menu.text-small.shadow{"aria-labelledby" => "accountDropdown"}
-          %li
-            = link_to "Profile", user_path(current_user), class: "dropdown-item"
-          %li
-            %hr.dropdown-divider/
-          %li
-            = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete }
+    -# %ul.nav.nav-pills.flex-column.px-1.py-2
+    -#   %li.nav-item.dropdown
+    -#     %a#accountDropdown.dropdown-toggle.nav-link.d-flex{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
+    -#       = material_icon("account_circle")
+    -#       .ms-1 Account
+    -#     %ul.dropdown-menu.text-small.shadow{"aria-labelledby" => "accountDropdown"}
+    -#       %li
+    -#         = link_to "Profile", user_path(current_user), class: "dropdown-item"
+    -#       %li
+    -#         %hr.dropdown-divider/
+    -#       %li
+    -#         = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete }
