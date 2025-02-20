@@ -13,6 +13,10 @@
     span {
       margin-right: 0.5rem;
     }
+
+    &:hover:not(.active) {
+      color: var(--bs-nav-link-hover-color);
+    }
   }
 
   .sidebar-collapse a {
@@ -22,6 +26,10 @@
     margin-top: .125rem;
     padding: .1875rem .5rem;
     text-decoration: none;
+
+    &:hover {
+      color: var(--bs-nav-link-hover-color);
+    }
   }
 
   @include media-breakpoint-up(lg) {
