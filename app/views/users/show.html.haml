@@ -1,43 +1,45 @@
-.p-4.bg-primary.mb-4.rounded-4
-  .d-flex.align-items-center.flex-row.flex-wrap
-    .ms-3.text-white
-      %h5.mb-1= @user.name || "Name?"
-      %h6.m-0.fw-light= user_status_badge(@user)
-    .d-flex.gap-3.text-white.ms-3
-      .px-3.d-flex.align-items-center.border-start
-        = material_icon("contact_mail", class: "fs-2 lh-1 me-2")
-        %div
-          %h6.mb-1 Email
-          %p.m-0.fw-light.small= @user.email
-      - if current_user.admin?
-        .px-3.d-flex.align-items-center.border-start
-          = material_icon("shield_person", class: "fs-2 lh-1 me-2")
-          %div
-            %h6.mb-1 Role
-            %p.m-0.fw-light.small= @user.role
-    .ms-auto.d-flex.gap-2
-      - if policy(@user).resend_invitation_email?
-        = link_to resend_invitation_email_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to resend this invitation?" do
-          = material_icon("mail")
-          .d-none.d-md-inline.ms-1
-            Invitation
-      - if policy(@user).send_reset_password_email?
-        = link_to send_reset_password_email_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to send a password reset email?" do
-          = material_icon("mail")
-          .d-none.d-md-inline.ms-1
-            Password Reset
-      - if policy(@user).enable?
-        = link_to enable_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to enable this user?" do
-          = material_icon("person")
-          .d-none.d-md-inline.ms-1
-            Enable
-      - if policy(@user).disable?
-        = link_to disable_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to disable this user?" do
-          = material_icon("person_off")
-          .d-none.d-md-inline.ms-1
-            Disable
-      - if policy(@user).destroy?
-        = link_to @user, class: "btn btn-danger fw-semibold", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this user?" do
-          = material_icon("delete")
-          .d-none.d-md-inline.ms-1
-            Delete
+.card.bg-body-tertiary.mb-3
+  .card-body
+    %h5.mb-1= @user.name || @user.email
+    %h6.m-0.fw-light= user_status_badge(@user)
+
+.d-flex.justify-content-around.mb-3
+  - if policy(@user).resend_invitation_email?
+    = link_to resend_invitation_email_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to resend this invitation?" do
+      = material_icon("mail")
+      .d-none.d-md-inline.ms-1
+        Invitation
+  - if policy(@user).send_reset_password_email?
+    = link_to send_reset_password_email_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to send a password reset email?" do
+      = material_icon("mail")
+      .d-none.d-md-inline.ms-1
+        Password Reset
+  - if policy(@user).enable?
+    = link_to enable_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to enable this user?" do
+      = material_icon("person")
+      .d-none.d-md-inline.ms-1
+        Enable
+  - if policy(@user).disable?
+    = link_to disable_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to disable this user?" do
+      = material_icon("person_off")
+      .d-none.d-md-inline.ms-1
+        Disable
+  - if policy(@user).destroy?
+    = link_to @user, class: "btn btn-danger fw-semibold", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this user?" do
+      = material_icon("delete")
+      .d-none.d-md-inline.ms-1
+        Delete
+
+.row.g-2
+  .col-sm-12.col-md-6
+    .card.bg-body-tertiary
+      .card-body
+        %dl
+          %dt Name
+          %dd= @user.name || "<missing>"
+          %dt Email
+          %dd= @user.email
+          %dt Role
+          %dd= @user.role
+          %dt State
+          %dd= @user.state
