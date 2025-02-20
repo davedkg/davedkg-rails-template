@@ -3,6 +3,7 @@
     .row
       .col.d-flex.align-items-center
         %h3.mb-0.text-secondary-emphasis= page_title
+        = render 'breadcrumbs'
       .col.d-flex.justify-content-end.align-items-center
         .d-flex.gap-2
           - if policy(@<%= singular_table_name %>).edit?

@@ -1,7 +1,7 @@
 .card.bg-body-tertiary.mb-3
   .card-body
     %h5.mb-1= @user.name || @user.email
-    %h6.m-0.fw-light= user_status_badge(@user)
+    = render 'breadcrumbs'
 
 .d-flex.justify-content-around.mb-3
   - if policy(@user).resend_invitation_email?
@@ -42,4 +42,4 @@
           %dt Role
           %dd= @user.role
           %dt State
-          %dd= @user.state
+          %dd= user_status_badge(@user)
