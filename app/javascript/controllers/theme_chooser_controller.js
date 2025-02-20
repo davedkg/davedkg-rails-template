@@ -6,6 +6,8 @@ const USER_THEME_STORAGE_KEY = "USER_THEME"
 
 export default class extends Controller {
 
+  static targets = [ "light", "dark", "auto" ]
+
   // *** Getters
 
   get bsTheme() {
@@ -31,15 +33,19 @@ export default class extends Controller {
   // *** Lifecycle
 
   connect() {
-    this.prefersDarkColorSchemeMediaQuery.addEventListener('change', this.mediaQueryChanged.bind(this))
-    this.setBsThemeFromUserTheme(this.userTheme)
-  }
-
-  disconnect() {
-    this.prefersDarkColorSchemeMediaQuery.removeEventListener('change', this.mediaQueryChanged.bind(this))
+    this.updateForUserTheme(this.userTheme)
   }
 
   // *** Events
+
+  changeTheme(event) {
+    event.preventDefault()
+
+    const userTheme = event.target.dataset.theme
+
+    this.userTheme = userTheme
+    this.updateForUserTheme(userTheme)
+  }
 
   mediaQueryChanged(event) {
     if (USER_THEMES.auto === this.userTheme) {
@@ -52,6 +58,31 @@ export default class extends Controller {
   }
 
   // *** Helpers
+
+  updateForUserTheme(userTheme) {
+    this.setBsThemeFromUserTheme(userTheme)
+    this.updateDropdownItemsForUserTheme(userTheme)
+  }
+
+  updateDropdownItemsForUserTheme(userTheme) {
+    switch(userTheme) {
+      case USER_THEMES.light:
+        this.lightTarget.classList.add("active")
+        this.darkTarget.classList.remove("active")
+        this.autoTarget.classList.remove("active")
+        break
+      case USER_THEMES.dark:
+        this.lightTarget.classList.remove("active")
+        this.darkTarget.classList.add("active")
+        this.autoTarget.classList.remove("active")
+        break
+      case USER_THEMES.auto:
+        this.lightTarget.classList.remove("active")
+        this.darkTarget.classList.remove("active")
+        this.autoTarget.classList.add("active")
+        break
+    }
+  }
 
   setBsThemeFromUserTheme(userTheme) {
     switch(userTheme) {

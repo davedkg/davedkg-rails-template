@@ -27,16 +27,3 @@
                 = link_to "Letter Opener", '/letter-opener', target: "_blank"
               %li
                 = link_to "Web Components", web_components_path
-
-    -# %ul.nav.nav-pills.flex-column.px-1.py-2
-    -#   %li.nav-item.dropdown
-    -#     %a#accountDropdown.dropdown-toggle.nav-link.d-flex{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#"}
-    -#       = material_icon("account_circle")
-    -#       .ms-1 Account
-    -#     %ul.dropdown-menu.text-small.shadow{"aria-labelledby" => "accountDropdown"}
-    -#       %li
-    -#         = link_to "Profile", user_path(current_user), class: "dropdown-item"
-    -#       %li
-    -#         %hr.dropdown-divider/
-    -#       %li
-    -#         = link_to "Sign Out", destroy_user_session_path, class: "dropdown-item", data: { turbo_method: :delete }

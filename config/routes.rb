@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resource :dashboard, only: [ :show ], controller: :dashboard
+
+  resource :me, only: [ :show, :update ], controller: :me do
+    patch :update_password, on: :collection, path: :password
+  end
+
   resources :users do
     post  "resend-invitation-email",   on: :member
     post  "send-reset-password-email", on: :member
@@ -6,8 +12,6 @@ Rails.application.routes.draw do
     post  "disable",                   on: :member
     patch "update-password",           on: :member
   end
-
-  resource :dashboard, only: [ :show ], controller: :dashboard
 
   devise_for :users, controllers: {
     passwords: "passwords",
