@@ -36,7 +36,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def disable?
-    admin? && !me? && enabled?
+    admin? && !me? && enabled? && accepted_invitation?
   end
 
   def permitted_attributes
