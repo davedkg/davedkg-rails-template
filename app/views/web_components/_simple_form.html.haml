@@ -4,6 +4,19 @@
 
   .card.mb-4
     .card-header
+      %h5.card-title Boolean
+      %h6.card-subtitle.mt-2
+        %code= "= f.input :default, as: :boolean"
+    .card-body
+      .row
+        .col-md-6
+          = f.input :default,  as: :boolean, required: false
+          = f.input :disabled, as: :boolean, required: false, disabled: true
+          = f.input :valid,    as: :boolean, required: false, valid: true
+          = f.input :invalid,  as: :boolean, required: false, error: "Invalid message"
+
+  .card.mb-4
+    .card-header
       %h4.card-title Checkboxes
       %h6.card-subtitle.mt-2
         %code= "= f.input :attribute, collection: collection, as: :check_boxes"
@@ -93,7 +106,7 @@
           = f.input :valid,    placeholder: "start typing here...", required: false, valid: true
           = f.input :invalid,  placeholder: "start typing here...", required: false, error: "Invalid message"
 
-  .card.mb-4
+  .card
     .card-header
       %h5.card-title Text Area
       %h6.card-subtitle.mt-2
@@ -105,16 +118,3 @@
           = f.input :disabled, as: :text, placeholder: "start typing here...", required: false, disabled: true
           = f.input :valid,    as: :text, placeholder: "start typing here...", required: false, valid: true
           = f.input :invalid,  as: :text, placeholder: "start typing here...", required: false, error: "Invalid message"
-
-  .card
-    .card-header
-      %h5.card-title Toggle
-      %h6.card-subtitle.mt-2
-        %code= "= f.input :default, as: :boolean"
-    .card-body
-      .row
-        .col-md-6
-          = f.input :default,  as: :boolean, required: false
-          = f.input :disabled, as: :boolean, required: false, disabled: true
-          = f.input :valid,    as: :boolean, required: false, valid: true
-          = f.input :invalid,  as: :boolean, required: false, error: "Invalid message"
