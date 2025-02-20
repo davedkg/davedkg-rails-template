@@ -8,12 +8,13 @@ $navbar-height: 60px;
   height: $navbar-height;
 }
 
-.sidebar-hidden .navbar-sizebar-toggle {
-  display: block;
-}
-
 .navbar-sizebar-toggle {
   display: none;
+  margin-right: 1rem;
+}
+
+.sidebar-hidden .navbar-sizebar-toggle {
+  display: block;
 }
 
 @include media-breakpoint-down(md) {

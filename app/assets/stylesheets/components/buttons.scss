@@ -3,6 +3,11 @@
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/buttons";
 
+.btn-sidebar-toggle {
+  font-size: 24px;
+  padding: 0.25rem 0.75rem;
+}
+
 @include color-mode(light) {
   .btn-light-dark {
     @extend .btn-light;
