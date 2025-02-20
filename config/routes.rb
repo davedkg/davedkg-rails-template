@@ -5,12 +5,11 @@ Rails.application.routes.draw do
     patch :update_password, on: :collection, path: :password
   end
 
-  resources :users do
+  resources :users, except: [:edit, :update] do
     post  "resend-invitation-email",   on: :member
     post  "send-reset-password-email", on: :member
     post  "enable",                    on: :member
     post  "disable",                   on: :member
-    patch "update-password",           on: :member
   end
 
   devise_for :users, controllers: {

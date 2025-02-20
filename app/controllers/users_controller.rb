@@ -2,7 +2,6 @@ class UsersController < ApplicationController
   before_action :set_user, except: %i[index new create]
 
   breadcrumb "Users", :users_path, except: [ :index ], if: -> { policy(User).index? }
-  breadcrumb -> { @user&.name }, -> { user_path(@user) }, only: %i[edit update], if: -> { policy(@user).show? }
 
   def index
     @users = authorize policy_scope(User).order(created_at: :desc).page(params[:page])
@@ -13,8 +12,6 @@ class UsersController < ApplicationController
   def new
     @user = authorize User.new
   end
-
-  def edit; end
 
   def create
     @user = authorize User.new
@@ -29,27 +26,10 @@ class UsersController < ApplicationController
     end
   end
 
-  def update
-    if @user.update(permitted_attributes(@user))
-      redirect_to @user, notice: "User was successfully updated.", status: :see_other
-    else
-      render "update_user_failed"
-    end
-  end
-
   def destroy
     @user.destroy
 
     redirect_to users_path(format: :html), notice: "User was successfully deleted."
-  end
-
-  def update_password
-    if @user.update(permitted_attributes(@user))
-      bypass_sign_in(@user)
-      redirect_to @user, notice: "Password was successfully updated."
-    else
-      render "update_password_failed"
-    end
   end
 
   def resend_invitation_email

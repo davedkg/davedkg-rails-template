@@ -16,11 +16,6 @@
             %h6.mb-1 Role
             %p.m-0.fw-light.small= @user.role
     .ms-auto.d-flex.gap-2
-      - if policy(@user).edit?
-        = link_to edit_user_path(@user), class: "btn btn-secondary fw-semibold" do
-          = material_icon("edit")
-          .d-none.d-md-inline.ms-1
-            Edit
       - if policy(@user).resend_invitation_email?
         = link_to resend_invitation_email_user_path(@user), class: "btn btn-secondary fw-semibold", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to resend this invitation?" do
           = material_icon("mail")
