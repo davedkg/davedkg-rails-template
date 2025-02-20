@@ -5,9 +5,17 @@ require 'rails_helper'
 describe 'PATCH update_password_me_path' do
   subject(:request) { patch update_password_me_path(format: :turbo_stream), params: { user: user_params } }
 
-  let(:user_params) { attributes_for(:user) }
-  let(:user) { create(:user) }
+  let(:old_user_params) { attributes_for(:user) }
+  let(:new_user_params) { attributes_for(:user) }
+  let(:user) { create(:user, old_user_params) }
   let(:record) { user }
+
+  let(:user_params) do
+    new_user_params.merge(
+      current_password: old_user_params[:password],
+      confirm_password: new_user_params[:password]
+    )
+  end
 
   before do
     sign_in user

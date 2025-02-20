@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     patch :update_password, on: :collection, path: :password
   end
 
-  resources :users, except: [:edit, :update] do
+  resources :users, except: [ :edit, :update ] do
     post  "resend-invitation-email",   on: :member
     post  "send-reset-password-email", on: :member
     post  "enable",                    on: :member

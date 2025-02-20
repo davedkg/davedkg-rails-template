@@ -43,7 +43,7 @@ class UserPolicy < ApplicationPolicy
     if admin? && !me?
       %i[email role]
     else
-      %i[name time_zone password password_confirmation]
+      %i[name time_zone password password_confirmation current_password]
     end
   end
 

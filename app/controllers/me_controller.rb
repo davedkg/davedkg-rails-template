@@ -11,7 +11,7 @@ class MeController < ApplicationController
   end
 
   def update_password
-    if @me.update(permitted_attributes(@me))
+    if @me.update_with_password(permitted_attributes(@me))
       bypass_sign_in(@me)
       flash.now[:notice] = "Password was successfully updated."
     end
