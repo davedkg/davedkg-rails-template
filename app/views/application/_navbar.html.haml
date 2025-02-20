@@ -1,7 +1,8 @@
 %nav.navbar.navbar-expand-lg.sticky-top
   .container-fluid
-    %a.btn.btn-light-dark.btn-sidebar-toggle.navbar-sizebar-toggle{ data: { action: "click->sidebar#show" } }
+    %a.btn.btn-light-dark.btn-navbar.navbar-sizebar-toggle{ data: { action: "click->sidebar#show" } }
       = material_icon("dock_to_right")
     = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
-    %ul.navbar-nav.flex-row.flex-wrap.ms-md-auto
-      = render 'theme_dropdown'
+    .navbar-nav.ms-md-auto
+      = link_to user_path(current_user), class: "btn btn-light-dark btn-navbar" do
+        = material_icon("account_circle")
