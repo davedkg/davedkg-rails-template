@@ -6,7 +6,6 @@
 = csrf_meta_tags
 = csp_meta_tag
 = action_cable_meta_tag
-= yield :head
 %link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
 %link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
 %link{:href => "/icon.png", :rel => "apple-touch-icon"}/
@@ -15,3 +14,5 @@
 = stylesheet_link_tag :app, "data-turbo-track": "reload"
 = javascript_importmap_tags
 = stylesheet_link_tag "application", "data-turbo-track": "reload"
+= turbo_refreshes_with method: :morph, scroll: :reset
+= yield :head
