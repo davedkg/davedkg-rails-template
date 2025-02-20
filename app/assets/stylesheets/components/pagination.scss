@@ -1,0 +1,10 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+.pagination {
+  .page-item:not(.active) a {
+    border: 0;
+    color: var(--bs-btn-color);
+  }
+}
