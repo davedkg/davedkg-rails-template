@@ -8,10 +8,8 @@
   padding: 0.25rem 0.75rem;
 }
 
-@include color-mode(light) {
-  .btn-light-dark {
-    @extend .btn-light;
-  }
+.btn-light-dark {
+  @extend .btn-light;
 }
 
 @include color-mode(dark) {
