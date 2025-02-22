@@ -1,47 +1,70 @@
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
+@import "bootstrap/scss/buttons";
+
+$dark-bg-color: #242424;
 
 .swal-footer {
   text-align: center;
 }
 
-.swal-button.swal-button--confirm {
-  background-color: var(--bs-primary);
+.swal-button {
+  background-color: var(--bs-btn-border-color);
+  border-color: var(--bs-btn-border-color);
+  color: var(--bs-btn-color);
 
-  &:hover {
-    background-color: var(--bs-primary);
+  &:not([disabled]):hover {
+    background-color: var(--bs-btn-hover-border-color);
+    border-color: var(--bs-btn-hover-border-color);
+    color: var(--bs-btn-hover-color);
   }
+
+  &:focus {
+    box-shadow: var(--bs-btn-focus-shadow-rgb);
+  }
+
+  &:active {
+    background-color: var(--bs-btn-active-border-color);
+    border-color: var(--bs-btn-active-border-color);
+    box-shadow: var(--bs-btn-active-shadow);
+    color: var(--bs-btn-active-color);
+  }
+
+  &:disabled {
+    background-color: var(--bs-btn-disabled-border-color);
+    border-color: var(--bs-btn-disabled-border-color);
+    color: var(--bs-btn-disabled-color);
+  }
+}
+
+.swal-button--confirm {
+  @extend .btn-primary;
+}
+
+.swal-button--cancel {
+  @extend .btn-light;
 }
 
 // Taken from: https://github.com/ddasutein/AutoRename/blob/dev/lib/SweetAlert/node_modules/sweetalert/dist/sweetalert.min.js
 @include color-mode(dark) {
+  .swal-button--cancel {
+    @extend .btn-dark;
+  }
+
   .swal-modal,
   .swal-content__textarea {
-    background-color: #242424;
+    background-color: $dark-bg-color;
     color: var(--bs-white);
   }
 
   .swal-icon--success:after,
   .swal-icon--success:before {
-    background: #242424;
+    background: $dark-bg-color;
   }
 
   .swal-icon--success__hide-corners {
-    background-color: #242424;
-  }
-
-  .swal-button:focus {
-    outline: none;
-    box-shadow: 0 0 0 1px #242424, 0 0 0 3px rgba(43, 114, 165, .29)
-  }
-
-  .swal-button--cancel:focus {
-    box-shadow: 0 0 0 1px #242424, 0 0 0 3px rgba(116, 136, 150, .29)
-  }
-
-  .swal-button--danger:focus {
-    box-shadow: 0 0 0 1px #242424, 0 0 0 3px rgba(165, 43, 43, .29)
+    background-color: $dark-bg-color;
   }
 
   .swal-text:first-child,
