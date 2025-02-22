@@ -8,17 +8,17 @@ $navbar-height: 60px;
   height: $navbar-height;
 }
 
-.navbar-sizebar-toggle {
+.navbar-sidebar-toggle {
   display: none;
   margin-right: 0.5rem
 }
 
-.sidebar-hidden .navbar-sizebar-toggle {
+.sidebar-hidden .navbar-sidebar-toggle {
   display: block;
 }
 
-@include media-breakpoint-down(md) {
-  .sidebar-shown .navbar-sizebar-toggle {
+@include media-breakpoint-down(lg) {
+  .navbar-sidebar-toggle {
     display: block;
   }
 }
