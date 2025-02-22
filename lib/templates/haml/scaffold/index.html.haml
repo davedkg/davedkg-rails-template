@@ -6,7 +6,7 @@
       .col.d-flex.justify-content-end.align-items-center
         .d-flex.gap-2
           - if policy(<%= class_name %>).new?
-            = link_to new_<%= singular_table_name %>_path, class: "btn btn-primary" do
+            = link_to new_<%= singular_table_name %>_path, class: "btn btn-light-dark btn-transparent" do
               = material_icon("add")
               .d-none.d-sm-inline
                 <%= singular_table_name.titleize %>
