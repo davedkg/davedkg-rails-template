@@ -3,8 +3,6 @@
 @import "bootstrap/scss/mixins";
 @import "bootstrap/scss/buttons";
 
-$dark-bg-color: #242424;
-
 .swal-footer {
   text-align: center;
 }
@@ -63,17 +61,17 @@ $dark-bg-color: #242424;
 
   .swal-modal,
   .swal-content__textarea {
-    background-color: $dark-bg-color;
+    background-color: var(--bs-body-bg);
     color: var(--bs-white);
   }
 
   .swal-icon--success:after,
   .swal-icon--success:before {
-    background: $dark-bg-color;
+    background: var(--bs-body-bg);
   }
 
   .swal-icon--success__hide-corners {
-    background-color: $dark-bg-color;
+    background-color: var(--bs-body-bg);
   }
 
   .swal-text:first-child,
