@@ -13,3 +13,43 @@
     background-color: var(--bs-primary);
   }
 }
+
+// Taken from: https://github.com/ddasutein/AutoRename/blob/dev/lib/SweetAlert/node_modules/sweetalert/dist/sweetalert.min.js
+@media (prefers-color-scheme: dark) {
+  .swal-modal,
+  .swal-content__textarea {
+    background-color: #242424;
+    color: var(--bs-white);
+  }
+
+  .swal-icon--success:after,
+  .swal-icon--success:before {
+    background: #242424;
+  }
+
+  .swal-icon--success__hide-corners {
+    background-color: #242424;
+  }
+
+  .swal-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 1px #242424, 0 0 0 3px rgba(43, 114, 165, .29)
+  }
+
+  .swal-button--cancel:focus {
+    box-shadow: 0 0 0 1px #242424, 0 0 0 3px rgba(116, 136, 150, .29)
+  }
+
+  .swal-button--danger:focus {
+    box-shadow: 0 0 0 1px #242424, 0 0 0 3px rgba(165, 43, 43, .29)
+  }
+
+  .swal-text:first-child,
+  .swal-text:last-child,
+  .swal-title:first-child,
+  .swal-text,
+  .swal-title:not(:first-child),
+  .swal-title:not(:last-child) {
+    color: var(--bs-white);
+  }
+}
