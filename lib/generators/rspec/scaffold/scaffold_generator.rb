@@ -1,5 +1,5 @@
 if Rails.env.test?
-  class Generatots::Rspec::Scaffold::ScaffoldGenerator; end
+  class Generators::Rspec::Scaffold::ScaffoldGenerator; end
 else
 require "generators/rspec"
 require "rails/generators/resource_helpers"
