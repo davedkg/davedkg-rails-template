@@ -6,7 +6,7 @@
         = render 'breadcrumbs'
       %div
         .dropdown
-          %button.btn.btn-light-dark.dropdown-toggle{ "aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button" }
+          %button.btn.btn-light-dark.btn-transparent.dropdown-toggle{ "aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button" }
             = material_icon("more_vert")
           %ul.dropdown-menu
             - if policy(@user).resend_invitation_email?

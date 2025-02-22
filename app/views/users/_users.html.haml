@@ -5,7 +5,7 @@
       = user_status_badge(user)
     %td.text-end
       - if policy(user).show?
-        = link_to user_path(user), class: "btn btn-secondary btn-sm" do
+        = link_to user_path(user), class: "btn btn-light-dark btn-transparent btn-sm" do
           = material_icon("visibility")
           .d-none.d-sm-inline
             Show

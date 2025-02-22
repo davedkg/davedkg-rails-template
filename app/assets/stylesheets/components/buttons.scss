@@ -8,6 +8,11 @@
   padding: 0.25rem 0.75rem;
 }
 
+.btn-transparent {
+  background-color: transparent;
+  border-color: transparent;
+}
+
 .btn-light-dark {
   @extend .btn-light;
 }

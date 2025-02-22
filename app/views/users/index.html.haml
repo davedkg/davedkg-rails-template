@@ -5,7 +5,7 @@
         %h3.mb-0.text-secondary-emphasis= page_title
       .col.d-flex.justify-content-end.align-items-center
         - if policy(User).new?
-          = link_to new_user_path, class: "btn btn-primary fw-semibold" do
+          = link_to new_user_path, class: "btn btn-primary" do
             = material_icon("add")
             .d-none.d-sm-inline
               User

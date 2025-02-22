@@ -1,6 +1,6 @@
 #sidebar.sidebar-container.offcanvas-lg.offcanvas-start{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
   %nav.navbar.bg-body-tertiary.px-3
-    %a.btn.btn-light-dark.btn-navbar{ data: { action: "click->sidebar#hide" } }
+    %a.btn.btn-light-dark.btn-transparent.btn-navbar{ data: { action: "click->sidebar#hide" } }
       = material_icon("dock_to_right")
   .overflow-scroll.d-flex.flex-column.flex-grow-1.bg-body-tertiary.px-3.pb-3.pt-2
     = render 'sidebar_body'
