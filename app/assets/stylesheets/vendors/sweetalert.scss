@@ -9,6 +9,15 @@ $dark-bg-color: #242424;
   text-align: center;
 }
 
+.swal-icon--warning {
+  border-color: var(--bs-warning); // FIXME: not working
+}
+
+.swal-icon--warning__body,
+.swal-icon--warning__dot {
+  background-color: var(--bs-warning);
+}
+
 .swal-button {
   background-color: var(--bs-btn-border-color);
   border-color: var(--bs-btn-border-color);
@@ -39,7 +48,7 @@ $dark-bg-color: #242424;
 }
 
 .swal-button--confirm {
-  @extend .btn-primary;
+  @extend .btn-warning;
 }
 
 .swal-button--cancel {
