@@ -1,5 +1,6 @@
-require "rspec/rails"
-require 'rails/generators'
+if Rails.env.test?
+  class Generatots::Rspec::Scaffold::ScaffoldGenerator; end
+else
 require "generators/rspec"
 require "rails/generators/resource_helpers"
 
@@ -143,4 +144,5 @@ module Rspec
       end
     end
   end
+end
 end
