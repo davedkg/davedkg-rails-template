@@ -1,8 +1,8 @@
 !!!
-%html
+%html{ data: { bs_theme: "light" } }
   %head
     = render 'head'
-  %body{ data: { bs_theme: "light", controller: "theme" } }
+  %body{ data: { controller: "theme" } }
     .container.vh-100.d-flex.align-items-center.justify-content-center
       .card{ style: "max-width: 400px; width: 400px" }
         .card-body

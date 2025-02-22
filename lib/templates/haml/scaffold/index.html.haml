@@ -12,7 +12,7 @@
                 <%= singular_table_name.titleize %>
 
 .table-responsive.table-with-out-card-body
-  %table.table.table-striped
+  %table.table.table-striped{ id: "<%= plural_table_name %>-table" }
     %thead
       %tr
       <%- attributes.each do |attribute| -%>
