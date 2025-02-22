@@ -1,4 +1,4 @@
-require 'rspec/rails'
+require "rspec/rails"
 require "generators/rspec"
 require "rails/generators/resource_helpers"
 
