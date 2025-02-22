@@ -11,11 +11,11 @@ export default class extends Controller {
   // *** Getters
 
   get bsTheme() {
-    return document.body.dataset.bsTheme
+    return document.documentElement.dataset.bsTheme
   }
 
   set bsTheme(bsTheme) {
-    document.body.dataset.bsTheme = bsTheme
+    document.documentElement.dataset.bsTheme = bsTheme
   }
 
   get userTheme() {

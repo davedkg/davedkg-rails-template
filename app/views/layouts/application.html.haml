@@ -1,14 +1,13 @@
 !!!
-%html
+%html{ data: { bs_theme: "light" } }
   %head
     = render 'head'
-  %body.sidebar-shown{ data: { bs_theme: "light", controller: "theme sidebar", sidebar_target: "body" } }
+  %body.sidebar-shown{ data: { controller: "theme sidebar", sidebar_target: "body" } }
     .main-container
       = render 'sidebar'
       .body-container
         = render 'navbar'
         .scrollable-body-container
           = render 'flash'
-          -# = render 'breadcrumbs'
           = yield
     = turbo_frame_tag :modal
