@@ -16,7 +16,7 @@
                   Edit
             - if policy(@<%= singular_table_name %>).destroy?
               %li
-                = link_to @<%= singular_table_name %>, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this <%= singular_table_name %>?" do
+                = link_to @<%= singular_table_name %>, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive <%= singular_table_name %>?" do
                   = material_icon("delete")
                   Archive
 

@@ -2,7 +2,7 @@
   .card-body
     .d-flex.flex-row.justify-content-between.align-items-center
       %div
-        %h5.mb-1= @user.name || @user.email
+        %h5.mb-1= page_title
         = render 'breadcrumbs'
       %div
         .dropdown
@@ -11,27 +11,27 @@
           %ul.dropdown-menu
             - if policy(@user).resend_invitation_email?
               %li
-                = link_to resend_invitation_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to resend this invitation?" do
+                = link_to resend_invitation_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Resend inivitation for #{user_name(@user)}?" do
                   = material_icon("mail")
                   Invitation
             - if policy(@user).send_reset_password_email?
               %li
-                = link_to send_reset_password_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to send a password reset email?" do
+                = link_to send_reset_password_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Send password reset email for #{user_name(@user)}?" do
                   = material_icon("mail")
                   Password Reset
             - if policy(@user).enable?
               %li
-                = link_to enable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to enable this user?" do
+                = link_to enable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Enable #{user_name(@user)}?" do
                   = material_icon("person")
                   Enable
             - if policy(@user).disable?
               %li
-                = link_to disable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to disable this user?" do
+                = link_to disable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Disable #{user_name(@user)}?" do
                   = material_icon("person_off")
                   Disable
             - if policy(@user).destroy?
               %li
-                = link_to @user, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this user?" do
+                = link_to @user, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive #{user_name(@user)}?" do
                   = material_icon("delete")
                   Archive
             - if policy(@user).edit?
