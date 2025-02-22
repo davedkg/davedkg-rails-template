@@ -20,10 +20,12 @@
                   = material_icon("delete")
                   Archive
 
-.card
-  .card-body
-    %dl
-    <%- attributes.each do |attribute| -%>
-      %dt <%= attribute.name.humanize %>
-      %dd= @<%= singular_table_name %>.<%= attribute.name %>
-    <%- end -%>
+.row.g-2
+  .col-sm-12.col-md-6
+    .card.bg-body-tertiary
+      .card-body
+        %dl
+        <%- attributes.each do |attribute| -%>
+          %dt <%= attribute.name.humanize %>
+          %dd= @<%= singular_table_name %>.<%= attribute.name %>
+        <%- end -%>
