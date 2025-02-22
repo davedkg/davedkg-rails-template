@@ -28,3 +28,8 @@ Turbo.config.forms.confirm = (message, _element) => {
       });
   });
 };
+
+Turbo.StreamActions.scroll_to = function () {
+  const target = this.targetElements[0];
+  target.scrollIntoView({behavior: "smooth"});
+};

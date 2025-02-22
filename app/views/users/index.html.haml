@@ -19,5 +19,5 @@
         %th &nbsp;
     %tbody{ id: "users-table-rows" }
       = render 'users'
-  %div{ id: "users-paginator" }
+  = turbo_frame_tag "users-paginator" do
     = render "paginator"
