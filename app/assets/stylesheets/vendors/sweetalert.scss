@@ -15,7 +15,7 @@
 }
 
 // Taken from: https://github.com/ddasutein/AutoRename/blob/dev/lib/SweetAlert/node_modules/sweetalert/dist/sweetalert.min.js
-@media (prefers-color-scheme: dark) {
+@include color-mode(dark) {
   .swal-modal,
   .swal-content__textarea {
     background-color: #242424;
