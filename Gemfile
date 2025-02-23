@@ -56,7 +56,7 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 9.16.0"
+  gem "newrelic_rpm", "~> 9.17.0"
   gem "stackprof", "~> 0.2.26"
   gem "sentry-ruby", "~> 5.22.1"
   gem "sentry-rails", "~> 5.22.1"
