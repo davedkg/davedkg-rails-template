@@ -7,5 +7,5 @@ RSpec.describe <%= class_name %>Policy, type: :policy do
   let(:record) { create(:<%= singular_table_name %>) }
 
   it { is_expected.to permit_actions(%i[index new create show edit update destroy]) }
-  it { is_expected.to permit_mass_assignment_of(%i[]) }
+  it { is_expected.to permit_mass_assignment_of(%i[<%= attributes.map { |attribute| attribute.name }.join(" ") %>]) }
 end

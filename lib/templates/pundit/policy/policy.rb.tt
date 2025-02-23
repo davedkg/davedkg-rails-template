@@ -21,7 +21,7 @@ class <%= class_name %>Policy < ApplicationPolicy
   end
 
   def permitted_attributes
-    []
+    %i[<%= attributes.map { |attribute| attribute.name }.join(" ") %>]
   end
 
   class Scope < Scope
