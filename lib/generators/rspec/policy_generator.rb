@@ -1,5 +1,5 @@
 if Rails.env.test?
-  class Generators::Rspec::Scaffold::PolicyGenerator; end
+  class Generators::Rspec::PolicyGenerator; end
 else
   module Rspec
     module Generators
