@@ -5,7 +5,7 @@
   <%- end -%>
     %td.text-end
       - if policy(<%= singular_table_name %>).show?
-        = link_to <%= singular_table_name %>, class: "btn btn-light-dark btn-transparent btn-sm" do
+        = link_to <%= singular_table_name %>, class: "btn btn-secondary btn-sm" do
           = material_icon("visibility")
           .d-none.d-sm-inline
             Show
