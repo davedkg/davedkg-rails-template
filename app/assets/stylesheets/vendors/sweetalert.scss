@@ -8,7 +8,7 @@
 }
 
 .swal-icon--warning {
-  border-color: var(--bs-warning); // FIXME: not working
+  border-color: var(--bs-warning) !important;
 }
 
 .swal-icon--warning__body,
