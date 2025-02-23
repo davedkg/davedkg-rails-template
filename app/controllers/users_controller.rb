@@ -31,7 +31,7 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
 
-    redirect_to users_path(format: :html), notice: "User was successfully deleted."
+    redirect_to users_path(format: :html), notice: "User was successfully archived."
   end
 
   def resend_invitation_email
