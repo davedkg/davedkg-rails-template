@@ -1,0 +1,29 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+$navbar-height: 60px;
+
+.navbar {
+  height: $navbar-height;
+}
+
+.navbar-sidebar-toggle {
+  margin-right: 0.5rem
+}
+
+[data-sidebar-toggled="no"] .navbar-sidebar-toggle {
+  display: none;
+}
+
+[data-sidebar-toggled="yes"] .navbar-sidebar-toggle {
+  display: block;
+}
+
+[data-sidebar-toggled="no"] {
+  @include media-breakpoint-down(lg) {
+    .navbar-sidebar-toggle {
+      display: block;
+    }
+  }
+}

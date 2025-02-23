@@ -1,0 +1,12 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+.table-with-out-card-body {
+  border-radius: eval(--bs-card-border-radius);
+  margin-bottom: 1.5rem;
+}
+
+thead {
+  border-top: 1px solid var(--bs-border-color-translucent)
+}

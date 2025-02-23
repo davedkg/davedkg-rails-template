@@ -1,48 +1,55 @@
-= content_for(:page_actions) do
-  - if policy(@user).edit?
-    = link_to edit_user_path(@user), class: "btn btn-secondary btn-sm me-2" do
-      %i.fa.fa-edit
-      .d-none.d-md-inline.ms-1
-        Edit
-  - if policy(@user).unlock?
-    = link_to unlock_user_path(@user), class: "btn btn-secondary btn-sm", "data-turbo-method": :post, confirm: "Are you sure you want to unlock this user?" do
-      %i.fa.fa-lock-open
-      .d-none.d-md-inline.ms-1
-        Unlock
-  - if policy(@user).resend_invitation_email?
-    = link_to resend_invitation_email_user_path(@user), class: "btn btn-secondary btn-sm", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to resend this invitation?" do
-      %i.fa.fa-envelope-open
-      .d-none.d-md-inline
-        Resend Invitation
-  - if policy(@user).send_reset_password_email?
-    = link_to send_reset_password_email_user_path(@user), class: "btn btn-secondary btn-sm", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to send a password reset email?" do
-      %i.fa.fa-envelope-open
-      .d-none.d-md-inline.ms-1
-        Send Password Reset Email
-  - if policy(@user).enable?
-    = link_to enable_user_path(@user), class: "btn btn-secondary btn-sm", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to enable this user?" do
-      %i.fa.fa-user-plus
-      .d-none.d-md-inline.ms-1
-        Enable
-  - if policy(@user).disable?
-    = link_to disable_user_path(@user), class: "btn btn-secondary btn-sm", "data-turbo-method": :post, "data-turbo-confirm": "Are you sure you want to disable this user?" do
-      %i.fa.fa-user-minus
-      .d-none.d-md-inline.ms-1
-        Disable
-  - if policy(@user).destroy?
-    = link_to @user, class: "btn btn-danger btn-sm", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this user?" do
-      %i.fa.fa-trash
-      .d-none.d-md-inline.ms-1
-        Delete
-
-.card
+.card.bg-body-tertiary.mb-3
   .card-body
-    %dl
-      %dt Status
-      %dd= user_status_badge(@user)
-      %dt Name
-      %dd= @user.name || 'n/a'
-      %dt Email
-      %dd= @user.email
-      %dt Role
-      %dd= @user.role
+    .d-flex.flex-row.justify-content-between.align-items-center
+      %div
+        %h5.mb-1= page_title
+        = render 'breadcrumbs'
+      %div
+        .dropdown
+          %button.btn.btn-primary.btn-lg.dropdown-toggle.dropdown-toggle-remove-after{ "aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button" }
+            = material_icon("more_vert")
+          %ul.dropdown-menu
+            - if policy(@user).resend_invitation_email?
+              %li
+                = link_to resend_invitation_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Resend inivitation for #{user_name(@user)}?" do
+                  = material_icon("mail")
+                  Invitation
+            - if policy(@user).send_reset_password_email?
+              %li
+                = link_to send_reset_password_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Send password reset email for #{user_name(@user)}?" do
+                  = material_icon("mail")
+                  Password Reset
+            - if policy(@user).enable?
+              %li
+                = link_to enable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Enable #{user_name(@user)}?" do
+                  = material_icon("person")
+                  Enable
+            - if policy(@user).disable?
+              %li
+                = link_to disable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Disable #{user_name(@user)}?" do
+                  = material_icon("person_off")
+                  Disable
+            - if policy(@user).destroy?
+              %li
+                = link_to @user, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive #{user_name(@user)}?" do
+                  = material_icon("delete")
+                  Archive
+            - if policy(@user).edit?
+              %li
+                = link_to me_path, class: "dropdown-item" do
+                  = material_icon("edit")
+                  Edit
+
+.row.g-2
+  .col-sm-12.col-md-6
+    .card.bg-body-tertiary
+      .card-body
+        %dl.mb-0
+          %dt Status
+          %dd= user_status_badge(@user)
+          %dt Name
+          %dd= @user.name || "<missing>"
+          %dt Email
+          %dd= @user.email
+          %dt Role
+          %dd= @user.role

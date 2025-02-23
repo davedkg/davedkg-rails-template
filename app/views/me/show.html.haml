@@ -1,0 +1,11 @@
+.me-container
+  %nav.nav.me-nav.nav-pills{ role: "tablist" }
+    %li.nav-item{ role: "presentation" }
+      %button#preferences-tab.nav-link.active{ "aria-controls" => "preferences-tab-pane", "aria-selected" => "false", "data-bs-target" => "#preferences-tab-pane", "data-bs-toggle" => "tab", role: "tab", type: "button" } Preferences
+    %li.nav-item{ role: "presentation" }
+      %button#security-tab.nav-link{ "aria-controls" => "security-tab-pane", "aria-selected" => "false", "data-bs-target" => "#security-tab-pane", "data-bs-toggle" => "tab", role: "tab", type: "button" } Security
+  .tab-content.me-body
+    #preferences-tab-pane.tab-pane.fade.show.active{ role: "tabpanel", aria_labelledby: "preferences-tab", tabindex: "1" }
+      = render 'preferences'
+    #security-tab-pane.tab-pane.fade{ role: "tabpanel", aria_labelledby: "security-tab", tabindex: "2" }
+      = render 'security'

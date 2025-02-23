@@ -1,19 +1,31 @@
-= content_for(:page_actions) do
-  - if policy(@<%= singular_table_name %>).edit?
-    = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-secondary btn-sm me-2" do
-      %i.fa.fa-edit
-      .d-none.d-md-inline
-        Edit
-  - if policy(@<%= singular_table_name %>).destroy?
-    = link_to <%= singular_table_name %>_path(@<%= singular_table_name %>), class: "btn btn-danger btn-sm", "data-turbo-method": :delete, "data-turbo-confirm": "Are you sure you want to delete this <%= singular_table_name %>?" do
-      %i.fa.fa-trash
-      .d-none.d-md-inline
-        Delete
-
-.card
+.card.bg-body-tertiary.mb-3
   .card-body
-    %dl
-    <%- attributes.each do |attribute| -%>
-      %dt <%= attribute.name.humanize %>
-      %dd= @<%= singular_table_name %>.<%= attribute.name %>
-    <%- end -%>
+    .d-flex.flex-row.justify-content-between.align-items-center
+      %div
+        %h5.mb-1= page_title
+        = render 'breadcrumbs'
+      %div
+        .dropdown
+          %button.btn.btn-primary.btn-lg.dropdown-toggle.dropdown-toggle-remove-after{ "aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button" }
+            = material_icon("more_vert")
+          %ul.dropdown-menu
+            - if policy(@<%= singular_table_name %>).edit?
+              %li
+                = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "dropdown-item" do
+                  = material_icon("edit")
+                  Edit
+            - if policy(@<%= singular_table_name %>).destroy?
+              %li
+                = link_to @<%= singular_table_name %>, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive <%= singular_table_name %>?" do
+                  = material_icon("delete")
+                  Archive
+
+.row.g-2
+  .col-sm-12.col-md-6
+    .card.bg-body-tertiary
+      .card-body
+        %dl.mb-0
+        <%- attributes.each do |attribute| -%>
+          %dt <%= attribute.name.humanize %>
+          %dd= @<%= singular_table_name %>.<%= attribute.name %>
+        <%- end -%>

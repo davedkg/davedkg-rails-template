@@ -1,27 +1,33 @@
 <% module_namespacing do -%>
-  class <%= class_name %>Policy < ApplicationPolicy
-    def index?
-      true
-    end
+class <%= class_name %>Policy < ApplicationPolicy
+  def index?
+    true
+  end
 
-    def show?
-      true
-    end
+  def show?
+    true
+  end
 
-    def create?
-      true
-    end
+  def create?
+    true
+  end
 
-    def update?
-      true
-    end
+  def update?
+    true
+  end
 
-    def destroy?
-      true
-    end
+  def destroy?
+    true
+  end
 
-    def permitted_attributes
-      []
+  def permitted_attributes
+    %i[<%= attributes.map { |attribute| attribute.name }.join(" ") %>]
+  end
+
+  class Scope < Scope
+    def resolve
+      scope
     end
   end
-  <% end -%>
+end
+<% end -%>

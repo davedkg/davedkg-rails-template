@@ -1,24 +1,13 @@
 !!!
-%html{ data: { bs_theme: "light", scheme: "navy" } }
+%html{ data: { bs_theme: "light" } }
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title= "#{page_title} | #{PLATFORM_TITLE}"
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
-    = csrf_meta_tags
-    = csp_meta_tag
-    %link{:href => "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Ubuntu:wght@400;500;700&display=swap", :rel => "stylesheet", "data-turbo-track": "reload"}/
-    = stylesheet_link_tag "application", "data-turbo-track": "reload"
-    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true
+    = render 'head'
   %body
-    #root.root.front-container
-      %section#content.content
-        .content__boxed.w-100.min-vh-100.d-flex.flex-column.align-items-center.justify-content-center
-          .content__wrap
-            .card.shadow-lg{ style: "width: 400px" }
-              .card-body.p-4
-                .text-center
-                  %h1.h3= PLATFORM_TITLE
-                  %p= page_title
-                = render 'splash/flash'
-                = yield
-                = render 'splash/links'
+    .container.vh-100.d-flex.align-items-center.justify-content-center
+      .card{ style: "max-width: 400px; width: 400px" }
+        .card-body
+          .text-center
+            %h4.card-title= page_title
+            %h6.card-subtitle.text-body-secondary.mb-3= PLATFORM_TITLE
+          = render 'flash'
+          = yield

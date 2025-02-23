@@ -1,1 +1,9 @@
-&nbsp;
+.row
+  .col-lg-4.col-md-6.col-sm-12
+    .card.bg-body-tertiary
+      .card-body
+        .text-center
+          .mb-2
+            = material_icon("group", class: "text-success dashboard-icon")
+          %h6.mb-2 Total Users
+          %h2.mb-3= User.count

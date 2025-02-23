@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class UserPolicy < ApplicationPolicy
   def index?
     admin?
@@ -30,11 +28,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def send_reset_password_email?
-    admin? && !me? && accepted_invitation? && !locked?
-  end
-
-  def unlock?
-    admin? && !me? && accepted_invitation? && locked?
+    admin? && !me? && accepted_invitation?
   end
 
   def enable?
@@ -42,20 +36,20 @@ class UserPolicy < ApplicationPolicy
   end
 
   def disable?
-    admin? && !me? && enabled?
+    admin? && !me? && enabled? && accepted_invitation?
   end
 
   def permitted_attributes
     if admin? && !me?
       %i[email role]
     else
-      %i[name time_zone password password_confirmation]
+      %i[name time_zone password password_confirmation current_password]
     end
   end
 
   class Scope < Scope
     def resolve
-      if user.admin?
+      if admin?
         scope
       else
         scope.where(id: user.id)
@@ -69,16 +63,8 @@ class UserPolicy < ApplicationPolicy
     user == record
   end
 
-  def admin?
-    user.admin?
-  end
-
   def accepted_invitation?
     record.accepted_invitation?
-  end
-
-  def locked?
-    record.locked?
   end
 
   def enabled?

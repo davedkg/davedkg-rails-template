@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Stimulusable
   def add_stimulus_controller(data, controller)
     data[:controller] = add_stimulus_param_to_params(controller, data[:controller])
@@ -12,10 +10,10 @@ module Stimulusable
   private
 
   def add_stimulus_param_to_params(param, params)
-    params = (params || '').split
+    params = (params || "").split
 
     params << param unless params.include?(param)
 
-    params.join(' ')
+    params.join(" ")
   end
 end

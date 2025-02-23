@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 class Seeder
   def self.create_users
-    users_file = Rails.root.join('db/seeds/users.json').read
+    users_file = Rails.root.join("lib", "development", "seeds", "users.json").read
     JSON.parse(users_file).each do |user_json|
       build_user(user_json).save
     end
@@ -12,12 +10,12 @@ class Seeder
     time_current = Time.current
 
     User.new(
-      name: user_json['name'],
-      email: user_json['email'],
-      password: user_json['password'],
+      name: user_json["name"],
+      email: user_json["email"],
+      password: user_json["password"],
       confirmed_at: time_current,
       invitation_accepted_at: time_current,
-      role: user_json['role'] || User.roles[:user]
+      role: user_json["role"] || User.roles[:user]
     )
   end
 end

@@ -1,0 +1,85 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "bootstrap/scss/buttons";
+
+.swal-footer {
+  text-align: center;
+}
+
+.swal-icon--warning {
+  border-color: var(--bs-warning) !important;
+}
+
+.swal-icon--warning__body,
+.swal-icon--warning__dot {
+  background-color: var(--bs-warning);
+}
+
+.swal-button {
+  background-color: var(--bs-btn-border-color);
+  border-color: var(--bs-btn-border-color);
+  color: var(--bs-btn-color);
+
+  &:not([disabled]):hover {
+    background-color: var(--bs-btn-hover-border-color);
+    border-color: var(--bs-btn-hover-border-color);
+    color: var(--bs-btn-hover-color);
+  }
+
+  &:focus {
+    box-shadow: var(--bs-btn-focus-shadow-rgb);
+  }
+
+  &:active {
+    background-color: var(--bs-btn-active-border-color);
+    border-color: var(--bs-btn-active-border-color);
+    box-shadow: var(--bs-btn-active-shadow);
+    color: var(--bs-btn-active-color);
+  }
+
+  &:disabled {
+    background-color: var(--bs-btn-disabled-border-color);
+    border-color: var(--bs-btn-disabled-border-color);
+    color: var(--bs-btn-disabled-color);
+  }
+}
+
+.swal-button--confirm {
+  @extend .btn-warning;
+}
+
+.swal-button--cancel {
+  @extend .btn-light;
+}
+
+// Taken from: https://github.com/ddasutein/AutoRename/blob/dev/lib/SweetAlert/node_modules/sweetalert/dist/sweetalert.min.js
+@include color-mode(dark) {
+  .swal-button--cancel {
+    @extend .btn-dark;
+  }
+
+  .swal-modal,
+  .swal-content__textarea {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-white);
+  }
+
+  .swal-icon--success:after,
+  .swal-icon--success:before {
+    background: var(--bs-body-bg);
+  }
+
+  .swal-icon--success__hide-corners {
+    background-color: var(--bs-body-bg);
+  }
+
+  .swal-text:first-child,
+  .swal-text:last-child,
+  .swal-title:first-child,
+  .swal-text,
+  .swal-title:not(:first-child),
+  .swal-title:not(:last-child) {
+    color: var(--bs-white);
+  }
+}

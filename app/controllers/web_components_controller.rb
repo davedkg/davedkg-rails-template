@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class WebComponentsController < ApplicationController
   def show
     authorize :web_components, :show?
@@ -8,11 +6,11 @@ class WebComponentsController < ApplicationController
   def modal
     authorize :web_components, :modal?
 
-    @page_title = 'Modal'
+    @page_title = "Modal"
 
     set_modal_size(size.to_sym) if size
 
-    render layout: 'modal'
+    render layout: "modal"
   end
 
   private

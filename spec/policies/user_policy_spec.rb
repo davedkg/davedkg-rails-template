@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 describe UserPolicy, type: :policy do
@@ -11,8 +9,8 @@ describe UserPolicy, type: :policy do
   context 'when role is user' do
     it { is_expected.to forbid_actions(%i[index new create show edit update destroy]) }
     it { is_expected.to forbid_actions(%i[update_password]) }
-    it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email unlock enable disable]) }
-    it { is_expected.to permit_mass_assignment_of(%i[name time_zone password password_confirmation]) }
+    it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email enable disable]) }
+    it { is_expected.to permit_mass_assignment_of(%i[name time_zone password password_confirmation current_password]) }
 
     context 'when record is me' do
       let(:record) { user }
@@ -29,28 +27,21 @@ describe UserPolicy, type: :policy do
     it { is_expected.to permit_mass_assignment_of(%i[email role]) }
 
     context 'when record has accepted invitation' do
-      it { is_expected.to permit_actions([:send_reset_password_email]) }
-      it { is_expected.to forbid_actions(%i[resend_invitation_email unlock]) }
+      it { is_expected.to permit_actions([ :send_reset_password_email ]) }
+      it { is_expected.to forbid_actions(%i[resend_invitation_email]) }
     end
 
     context 'when record is me' do
       let(:record) { user }
 
-      it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email unlock]) }
+      it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email]) }
     end
 
     context 'when record has not accepted invitation' do
       let(:record) { create(:user, :invitation_not_accepted) }
 
-      it { is_expected.to permit_actions([:resend_invitation_email]) }
-      it { is_expected.to forbid_actions(%i[send_reset_password_email unlock]) }
-    end
-
-    context 'when record is locked' do
-      let(:record) { create(:user, :locked) }
-
-      it { is_expected.to permit_actions([:unlock]) }
-      it { is_expected.to forbid_actions(%i[resend_invitation_email send_reset_password_email]) }
+      it { is_expected.to permit_actions([ :resend_invitation_email ]) }
+      it { is_expected.to forbid_actions(%i[send_reset_password_email disable]) }
     end
 
     context 'when record is disabled' do

@@ -1,6 +1,6 @@
 class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Migration.current_version %>]
   def change
-    create_table :<%= table_name %><%= primary_key_type %> do |t|
+    create_table :<%= table_name %><%= primary_key_type %>, id: :uuid do |t|
 <% attributes.each do |attribute| -%>
 <% if attribute.password_digest? -%>
       t.string :password_digest<%= attribute.inject_options %>
@@ -12,8 +12,8 @@ class <%= migration_class_name %> < ActiveRecord::Migration[<%= ActiveRecord::Mi
       t.<%= attribute.type %> :<%= attribute.name %><%= attribute.inject_options %>
 <% end -%>
 <% end -%>
-      t.datetime :deleted_at, precision: 6
-<% if options[:timestamps] %>
+      t.datetime :deleted_at
+<% if options[:timestamps] -%>
       t.timestamps
 <% end -%>
     end

@@ -1,0 +1,44 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s ease;
+
+  .nav-link {
+    color: var(--bs-btn-color);
+
+    span {
+      margin-right: 0.5rem;
+    }
+
+    &:hover:not(.active) {
+      color: var(--bs-nav-link-hover-color);
+    }
+  }
+
+  .sidebar-collapse a {
+    color: var(--bs-btn-color);
+    display: inline-flex;
+    margin-left: 2.5rem;
+    margin-top: .125rem;
+    padding: .1875rem .5rem;
+    text-decoration: none;
+
+    &:hover {
+      color: var(--bs-nav-link-hover-color);
+    }
+  }
+}
+
+[data-sidebar-toggled="yes"] {
+  @include media-breakpoint-up(lg) {
+    .sidebar-container {
+      position: relative;
+      width: 0;
+      z-index: -10;
+    }
+  }
+}

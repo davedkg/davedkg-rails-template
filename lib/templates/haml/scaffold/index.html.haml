@@ -1,20 +1,25 @@
-- if policy(<%= class_name %>).new?
-  - content_for(:page_actions) do
-    = link_to new_<%= singular_table_name %>_path, class: "btn btn-success btn-lg fw-semibold" do
-      %i.fa.fa-plus
-      .d-none.d-sm-inline
-        <%= singular_table_name.titleize %>
+.card.bg-body-tertiary.mb-3
+  .card-body
+    .row
+      .col.d-flex.align-items-center
+        %h3.mb-0.text-secondary-emphasis= page_title
+      .col.d-flex.justify-content-end.align-items-center
+        .d-flex.gap-2
+          - if policy(<%= class_name %>).new?
+            = link_to new_<%= singular_table_name %>_path, class: "btn btn-primary btn-lg" do
+              = material_icon("add")
+              .d-none.d-sm-inline
+                <%= singular_table_name.titleize %>
 
-.card
-  .table-responsive
-    %table.table.table-striped
-      %thead
-        %tr
-        <%- attributes.each do |attribute| -%>
-          %th <%= attribute.name.humanize %>
-        <%- end -%>
-          %th &nbsp;
-      %tbody{ id: "<%= plural_table_name %>-table-rows" }
-        = render 'table_rows'
-    %div{ id: "<%= plural_table_name %>-paginator" }
-      = render "paginator"
+.table-responsive.table-with-out-card-body
+  %table.table.table-striped{ id: "<%= plural_table_name %>-table" }
+    %thead
+      %tr
+      <%- attributes.each do |attribute| -%>
+        %th <%= attribute.name.humanize %>
+      <%- end -%>
+        %th &nbsp;
+    %tbody{ id: "<%= plural_table_name %>-table-rows" }
+      = render 'table_rows'
+  = turbo_frame_tag "<%= plural_table_name %>-paginator" do
+    = render "paginator"

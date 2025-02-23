@@ -2,3 +2,4 @@
   = render 'users'
 = turbo_stream.update "users-paginator" do
   = render "paginator"
+= turbo_stream.action(:scroll_to, "users-table")

@@ -1,17 +1,17 @@
-# frozen_string_literal: true
-
 class ApplicationController < ActionController::Base
-  include PageTitleable
   include Pundit::Authorization
+  include PageTitleable
 
-  rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
-  rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
+  allow_browser versions: :modern
 
   before_action :authenticate_user!
   before_action :set_time_zone
-  before_action :set_raven_context
+  before_action :set_sentry_context
   before_action :configure_permitted_parameters, if: :devise_controller?
   after_action  :verify_authorized, unless: -> { devise_controller? || application_controller? }
+
+  rescue_from Pundit::NotAuthorizedError,   with: :render_page_not_found
+  rescue_from ActiveRecord::RecordNotFound, with: :render_page_not_found
 
   def root
     if policy(:dashboard).show?
@@ -23,35 +23,32 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # rubocop:disable Naming/AccessorMethodName
   def set_modal_size(modal_size)
     @modal_size = modal_size
-  end
-  # rubocop:enable Naming/AccessorMethodName
-
-  def application_controller?
-    params[:controller] == 'application'
   end
 
   def prevent_action
     redirect_to root_path
   end
 
+  def application_controller?
+    "application" == params[:controller]
+  end
+
   def set_time_zone
     Time.zone = current_user.time_zone if current_user
   end
 
-  def set_raven_context
-    return unless defined?(Raven)
+  def set_sentry_context
+    return unless defined?(Sentry)
 
-    Raven.user_context(id: current_user.id) if current_user
-    Raven.extra_context(params: params.to_unsafe_h, url: request.url)
+    Sentry.set_user(id: current_user.id) if current_user
   end
 
   def render_page_not_found
     respond_to do |format|
       format.html do
-        render file: Rails.public_path.join('404.html'), layout: false, status: :not_found
+        render file: Rails.public_path.join("404.html"), layout: false, status: :not_found
       end
       format.any do
         head :not_found

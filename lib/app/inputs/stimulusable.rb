@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 module Inputs
   module Stimulusable
     include ::Stimulusable

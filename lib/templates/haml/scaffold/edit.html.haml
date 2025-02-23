@@ -1,3 +1,8 @@
-.card.mb-4
+.card.bg-body-tertiary.mb-3
+  .card-body
+    %h5.mb-1= page_title
+    = render 'breadcrumbs'
+
+.card.bg-body-tertiary
   .card-body
     = render 'form', cancel_path: <%= singular_table_name %>_path(@<%= singular_table_name %>)

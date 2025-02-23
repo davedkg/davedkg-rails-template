@@ -1,0 +1,8 @@
+= turbo_frame_tag "me-form" do
+  = render 'flash'
+  = simple_form_for(@me, url: { action: :update }) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+    = f.input :name, wrapper: :floating_labels_form, label: "Name"
+    = f.input :time_zone, wrapper: :floating_labels_form, label: "Time Zone"
+    = f.button :submit, "Update", data: { "disable-with": "Updating..." }

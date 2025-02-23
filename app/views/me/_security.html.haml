@@ -1,0 +1,11 @@
+.card.bg-body-tertiary.mb-3
+  .card-header
+    %h5.card-title Password
+  .card-body
+    = render 'password_form'
+
+.card.bg-body-tertiary
+  .card-header
+    %h5.card-title Session
+  .card-body
+    = link_to "Sign Out", destroy_user_session_path, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to sign out?" }

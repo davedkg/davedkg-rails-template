@@ -1,58 +1,6 @@
-%nav#mainnav-container.mainnav
-  .mainnav__inner
-    .mainnav__top-content.scrollable-content.pb-5
-      .mainnav__widget.my-3.hv-outline-parent
-        .mininav-toggle.text-center.py-2
-          %img.mainnav__avatar.img-md.rounded-circle.hv-oc{:alt => "Profile Picture", :src => image_path("user.svg")}/
-        .mininav-content.collapse.d-mn-max
-          .arrow{"data-popper-arrow" => ""}
-          .d-grid
-            %button.mainnav-widget-toggle.d-block.btn.border-0.p-2.collapsed{"aria-controls" => "usernav", "aria-expanded" => "false", "data-bs-target" => "#usernav", "data-bs-toggle" => "collapse"}
-              %span.dropdown-toggle.d-flex.justify-content-center.align-items-center
-                %h6.mb-0.me-3= current_user.name
-              %small.text-body-secondary= current_user.email
-            #usernav.nav.flex-column.collapse
-              = link_to user_path(current_user), class: "nav-link" do
-                %i.pli-user.fs-5.me-2
-                %span.ms-1 Profile
-              = link_to destroy_user_session_path, class: "nav-link", data: { turbo_method: :delete } do
-                %i.pli-unlock.fs-5.me-2
-                %span.ms-1 Sign out
-
-      .mainnav__categoriy
-        .mainnav__categoriy.py-3
-          %ul.mainnav__menu.nav.flex-column
-            - if policy(:dashboard).show?
-              %li.nav-item
-                = link_to dashboard_path, class: active_sidebar_tab_for_path(dashboard_path) do
-                  %i.fa.fa-tachometer-alt.fs-5.me-2
-                  %span.nav-label.ms-1 Dashboard
-        - if current_user.admin?
-          .mainnav__categoriy.py-3
-            %h6.mainnav__caption.fw-bold Admin
-            %ul.mainnav__menu.nav.flex-column
-              - if policy(User).index?
-                %li.nav-item
-                  = link_to users_path, class: active_sidebar_tab_for_path(users_path) do
-                    %i.fa.fa-users.fs-5.me-2
-                    %span.nav-label.ms-1 Users
-        - if Rails.env.development?
-          .mainnav__categoriy.py-3
-            %h6.mainnav__caption.fw-bold Development
-            %ul.mainnav__menu.nav.flex-column
-              %li.nav-item
-                = link_to '/rails/mailers', class: "nav-link mininav-toggle", target: "_blank" do
-                  %i.fa.fa-envelope.fs-5.me-2
-                  %span.nav-label.ms-1 Email Previews
-              %li.nav-item
-                = link_to '/letter-opener', class: "nav-link mininav-toggle", target: "_blank" do
-                  %i.fa.fa-inbox.fs-5.me-2
-                  %span.nav-label.ms-1 Letter Opener
-              %li.nav-item
-                = link_to '/sidekiq', class: "nav-link mininav-toggle", target: "_blank" do
-                  %i.fa.fa-trowel-bricks.fs-5.me-2
-                  %span.nav-label.ms-1 Sidekiq
-              %li.nav-item
-                = link_to web_components_path, class: active_sidebar_tab_for_path(web_components_path) do
-                  %i.fa.fa-code.fs-5.me-2
-                  %span.nav-label.ms-1 Web Components
+#sidebar.sidebar-container.offcanvas-lg.offcanvas-start.hide{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
+  %nav.navbar.bg-body-tertiary.px-3
+    %a.btn.btn-light-dark.btn-transparent.btn-navbar{ data: { action: "click->sidebar#toggle" } }
+      = material_icon("dock_to_right")
+  .overflow-scroll.d-flex.flex-column.flex-grow-1.bg-body-tertiary.px-3.pb-3.pt-2
+    = render 'sidebar_body'

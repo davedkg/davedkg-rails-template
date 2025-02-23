@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 RSpec.describe 'Dashboard Features', :js do
@@ -17,7 +15,7 @@ RSpec.describe 'Dashboard Features', :js do
       end
 
       it 'A user can view the dashboard' do
-        expect(page).to have_content('Dashboard')
+        expect(page).to have_content('Users')
       end
     end
   end

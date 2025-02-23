@@ -1,0 +1,22 @@
+@use 'bootstrap/scss/bootstrap';
+@use 'material-symbols/outlined';
+
+@use 'vendors/material_symbols';
+@use 'vendors/sweetalert';
+
+@use 'components/anchors';
+@use 'components/breadcrumbs';
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/dls';
+@use 'components/dropdowns';
+@use 'components/inputs';
+@use 'components/layout';
+@use 'components/nav';
+@use 'components/navbar';
+@use 'components/pagination';
+@use 'components/sidebar';
+@use 'components/tables';
+
+@use 'pages/dashboard';
+@use 'pages/me';

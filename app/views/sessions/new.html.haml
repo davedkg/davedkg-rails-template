@@ -1,7 +1,10 @@
 = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   = f.error_notification
-  = f.input :email, autofocus: true, autocomplete: "email"
-  = f.input :password
-  - if devise_mapping.rememberable?
+  = f.input :email, autocomplete: "email", wrapper: :floating_labels_form, placeholder: 'Email'
+  = f.input :password, wrapper: :floating_labels_form, placeholder: 'Password'
+  .d-flex.justify-content-between.mb-2
     = f.input :remember_me, as: :boolean
-  = f.button :submit, "Sign In", class: "btn-primary w-100 py-8 mb-4 rounded-2", data: { "disable-with": "Signing In..." }
+    %div
+      = link_to "Forgot password?", new_password_path(resource_name)
+  .d-grid.gap-2
+    = f.button :submit, "Sign In", data: { "disable-with": "Signing In..." }

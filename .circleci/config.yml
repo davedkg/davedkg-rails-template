@@ -7,23 +7,21 @@ orbs:
 executors:
   rails-executor:
     docker:
-      - image: cimg/ruby:3.3.6-browsers
+      - image: cimg/ruby:3.3.7-browsers
       - image: cimg/postgres:16.2
         environment:
           POSTGRES_DB: davedkg_template_test
           POSTGRES_PASSWORD: ""
           POSTGRES_USER: db_user
-      - image: cimg/redis:6.2.6
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
       PGHOST: 127.0.0.1
       PGUSER: db_user
       RAILS_ENV: test
-      REDIS_URL: redis://127.0.0.1:6379/0
   ruby-executor:
     docker:
-      - image: cimg/ruby:3.3.6-browsers
+      - image: cimg/ruby:3.3.7-browsers
     environment:
       BUNDLE_JOBS: "3"
       BUNDLE_RETRY: "3"
@@ -43,7 +41,7 @@ jobs:
       - ruby/install-deps
       - node/install:
           install-yarn: true
-          node-version: '21.7'
+          node-version: '22.3.0'
       - run:
           name: Wait for DB to Boot
           command: dockerize -wait tcp://localhost:5432 -timeout 1m
@@ -54,13 +52,6 @@ jobs:
           name: Compile Assets
           command: bundle exec rake assets:precompile
       - ruby/rspec-test
-  reek:
-    executor:
-      name: ruby-executor
-    steps:
-      - checkout
-      - ruby/install-deps
-      - run: bundle exec reek -c .reek.yml
   rubocop:
     executor:
       name: ruby-executor
@@ -81,14 +72,21 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec fasterer
-  scss:
+      - run: bundle exec fasterer -c .fasterer.yml
+  importmap_audit:
     executor:
       name: ruby-executor
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec scss-lint --config .scss-lint.yml
+      - run: bin/importmap audit
+  importmap_outdated:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bin/importmap outdated
 
 workflows:
   version: 2
@@ -96,9 +94,6 @@ workflows:
     jobs:
       - build
       - rspec:
-          requires:
-            - build
-      - reek:
           requires:
             - build
       - rubocop:
@@ -110,6 +105,13 @@ workflows:
       - fasterer:
           requires:
             - build
-      - scss:
+      - importmap_audit:
           requires:
             - build
+          filters: |
+            pipeline.git.branch != "main"
+      - importmap_outdated:
+          requires:
+            - build
+          filters: |
+            pipeline.git.branch != "main"

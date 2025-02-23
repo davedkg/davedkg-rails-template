@@ -1,8 +1,14 @@
-.card
+.card.bg-body-tertiary.mb-3
+  .card-body
+    %h5.mb-1= page_title
+    = render 'breadcrumbs'
+
+.card.bg-body-tertiary
   .card-body
     = simple_form_for(@user) do |f|
       = f.error_notification
-      = f.input :email
+      = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+      = f.input :email, wrapper: :floating_labels_form, placeholder: "Email"
       = f.input :role, collection: User.roles, as: :radio_buttons
-      = f.button :submit, "Send Invitation", data: { "disable-with": "Sending Invitation..." }
-      = link_to "Cancel", users_path, class: "btn btn-secondary ms-2"
+      = f.button :submit, "Invite User", data: { "disable-with": "Inviting User..." }
+      = link_to "Back", users_path, class: "btn btn-default ms-2"

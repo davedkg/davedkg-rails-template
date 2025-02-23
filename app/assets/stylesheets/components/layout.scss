@@ -1,0 +1,38 @@
+$sidebar-width: 250px;
+$navbar-height: 60px;
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  height: calc(100% - $navbar-height);
+  overflow-y: none;
+  padding: 0;
+}
+
+.sidebar-container {
+  overflow-x: hidden;
+  width: $sidebar-width;
+}
+
+.body-container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.scrollable-body-container {
+  flex: 1;
+  overflow-y: scroll;
+  padding: 0.5rem 1rem 1rem;
+}
