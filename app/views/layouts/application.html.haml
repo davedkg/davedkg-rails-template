@@ -1,8 +1,8 @@
 !!!
-%html{ data: { bs_theme: "light" } }
+%html{ data: { bs_theme: "light", sidebar_toggled: "no" } }
   %head
     = render 'head'
-  %body.sidebar-shown{ data: { controller: "sidebar", sidebar_target: "body" } }
+  %body
     .main-container
       = render 'sidebar'
       .body-container

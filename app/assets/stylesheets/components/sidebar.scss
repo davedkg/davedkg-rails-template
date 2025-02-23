@@ -31,13 +31,12 @@
       color: var(--bs-nav-link-hover-color);
     }
   }
+}
 
+[data-sidebar-toggled="yes"] {
   @include media-breakpoint-up(lg) {
-    & {
+    .sidebar-container {
       position: relative;
-    }
-
-    &.hide {
       width: 0;
       z-index: -10;
     }
