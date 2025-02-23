@@ -1,9 +1,11 @@
 !!!
 %html{ data: { bs_theme: "light", sidebar_toggled: "no" } }
   %head
+    :javascript
+      document.documentElement.dataset.sidebarToggled = localStorage.getItem("SIDEBAR_TOGGLED") || "no"
     = render 'head'
   %body
-    .main-container
+    .main-container{ data: { controller: "sidebar" } }
       = render 'sidebar'
       .body-container
         = render 'navbar'

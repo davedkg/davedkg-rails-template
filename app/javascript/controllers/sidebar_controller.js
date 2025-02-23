@@ -3,6 +3,8 @@ import { Controller } from "@hotwired/stimulus";
 const TOGGLE_STATES = { Yes: "yes", No: "no" }
 const TOGGLE_STATE_STORAGE_KEY = "SIDEBAR_TOGGLED"
 export default class extends Controller {
+  static targets = [ "sidebar" ]
+
   // *** Getters/Setters
 
   get sidebarToggled() {
@@ -20,5 +22,8 @@ export default class extends Controller {
 
     this.sidebarToggled = newState
     localStorage.setItem(TOGGLE_STATE_STORAGE_KEY, newState)
+
+    this.sidebarTarget.classList.toggle('show')
+    this.sidebarTarget.classList.toggle('hide')
   }
 }

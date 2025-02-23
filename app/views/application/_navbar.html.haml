@@ -1,6 +1,6 @@
 %nav.navbar.navbar-expand-lg.sticky-top
   .container-fluid.px-3
-    %a.btn.btn-light-dark.btn-navbar.btn-transparent.navbar-sidebar-toggle{ data: { controller: "sidebar", action: "click->sidebar#toggle" } }
+    %a.btn.btn-light-dark.btn-navbar.btn-transparent.navbar-sidebar-toggle{ data: { action: "click->sidebar#toggle" } }
       = material_icon("dock_to_right")
     = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
     .navbar-nav.ms-md-auto
