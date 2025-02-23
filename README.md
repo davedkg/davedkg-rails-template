@@ -2,6 +2,14 @@
 
 [![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main)
 
+## Custom Scaffold
+
+Custom scaffold generates controller, model, policy, views with corresponding rspec files.
+
+```bash
+rails g scaffold Object attribute1 attribute2
+```
+
 ## Local Setup
 
 ```bash
@@ -23,15 +31,7 @@ rails c
 tail -200 log/development.log
 ```
 
-And then find the accept invitation link in the log.
-
-### Custom Scaffold
-
-Custom scaffold generates controller, model, policy, views with corresponding rspec files.
-
-```bash
-rails g scaffold Object attribute1 attribute2
-```
+And then find the accept invitation link in the log or use ```rake development:seed``` (see below).
 
 ### Custom Rake Tasks
 
@@ -76,7 +76,7 @@ git remote add template git@github.com:davedkg/davedkg-rails-template.git
 git pull template main --allow-unrelated-histories
 ```
 
-## Deploy to Heroku
+## Heroku
 
 ### Configuring
 
@@ -86,3 +86,7 @@ heroku buildpacks:set --index 1 https://github.com/leoafarias/heroku-buildpack-n
 heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
 heroku config:set APP_DOMAIN www.example.com
 ```
+
+### Solid
+
+Deploying to heroku will automativally enable SolidQueue, SolidCache and SolidCable.
