@@ -2,7 +2,7 @@
 
 = simple_form_for :form do |f|
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h5.card-title Boolean
       %h6.card-subtitle.mt-2
@@ -15,7 +15,7 @@
           = f.input :valid,    as: :boolean, required: false, valid: true
           = f.input :invalid,  as: :boolean, required: false, error: "Invalid message"
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h4.card-title Checkboxes
       %h6.card-subtitle.mt-2
@@ -28,7 +28,7 @@
           = f.input :valid,    collection: collection, as: :check_boxes, required: false, valid: true
           = f.input :invalid,  collection: collection, as: :check_boxes, required: false, error: "Invalid message"
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h4.card-title File
       %h6.card-subtitle.mt-2
@@ -41,7 +41,7 @@
           = f.input :valid,    as: :file, required: false, valid: true
           = f.input :invalid,  as: :file, required: false, error: "Invalid message"
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h4.card-title Floating Text
       %h6.card-subtitle.mt-2
@@ -54,7 +54,7 @@
           = f.input :valid,    wrapper: :floating_labels_form, required: false, valid: true, placeholder: "valid"
           = f.input :invalid,  wrapper: :floating_labels_form, required: false, error: "Invalid message", placeholder: "invalid"
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h4.card-title Floating Single Select
       %h6.card-subtitle.mt-2
@@ -67,7 +67,7 @@
           = f.input :valid,    collection: collection, wrapper: :floating_labels_select, required: false, valid: true, placeholder: "valid"
           = f.input :invalid,  collection: collection, wrapper: :floating_labels_select, required: false, error: "Invalid message", placeholder: "invalid"
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h4.card-title Radio Group
       %h6.card-subtitle.mt-2
@@ -80,7 +80,7 @@
           = f.input :valid,    collection: collection, as: :radio_buttons, required: false, valid: true
           = f.input :invalid,  collection: collection, as: :radio_buttons, required: false, error: "Invalid message"
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h4.card-title Single Select
       %h6.card-subtitle.mt-2
@@ -93,7 +93,7 @@
           = f.input :valid,    collection: collection, required: false, valid: true
           = f.input :invalid,  collection: collection, required: false, error: "Invalid message"
 
-  .card.mb-4
+  .card.bg-body-tertiary.mb-4
     .card-header
       %h5.card-title Text
       %h6.card-subtitle.mt-2
@@ -106,7 +106,7 @@
           = f.input :valid,    placeholder: "start typing here...", required: false, valid: true
           = f.input :invalid,  placeholder: "start typing here...", required: false, error: "Invalid message"
 
-  .card
+  .card.bg-body-tertiary
     .card-header
       %h5.card-title Text Area
       %h6.card-subtitle.mt-2
