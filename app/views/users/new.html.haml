@@ -11,4 +11,4 @@
       = f.input :email, wrapper: :floating_labels_form, placeholder: "Email"
       = f.input :role, collection: User.roles, as: :radio_buttons
       = f.button :submit, "Invite User", data: { "disable-with": "Inviting User..." }
-      = link_to "Back", users_path, class: "btn btn-light-dark btn-transparent ms-2"
+      = link_to "Back", users_path, class: "btn btn-default ms-2"
