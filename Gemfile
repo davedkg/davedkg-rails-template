@@ -32,7 +32,7 @@ gem "thruster", require: false
 group :development, :test do
   gem "bullet", "~> 8.0.0"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "brakeman", "~> 6.2.2", require: false
+  gem "brakeman", "~> 7.0.0", require: false
   gem "factory_bot_rails", "~> 6.4.4"
   gem "fasterer", "~> 0.11.0", require: false
   gem "pry-byebug", "~> 3.10.1"
