@@ -37,7 +37,7 @@ group :development, :test do
   gem "fasterer", "~> 0.11.0", require: false
   gem "pry-byebug", "~> 3.10.1"
   gem "rspec-rails", "~> 7.1.1"
-  gem "rubocop-rails-omakase", "~> 1.0.0", require: false
+  gem "rubocop-rails-omakase", "~> 1.1.0", require: false
 end
 
 group :development do
