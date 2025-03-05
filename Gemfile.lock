@@ -289,7 +289,7 @@ GEM
       rspec-support (~> 3.12)
     raabro (1.4.0)
     racc (1.8.1)
-    rack (3.1.10)
+    rack (3.1.11)
     rack-session (2.1.0)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -446,16 +446,16 @@ GEM
     thruster (0.1.11-x86_64-linux)
     tilt (2.6.0)
     timeout (0.4.3)
-    turbo-rails (2.0.11)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
+    turbo-rails (2.0.13)
+      actionpack (>= 7.1.0)
+      railties (>= 7.1.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
     unicode-display_width (3.1.4)
       unicode-emoji (~> 4.0, >= 4.0.4)
     unicode-emoji (4.0.4)
     uniform_notifier (1.16.0)
-    uri (1.0.2)
+    uri (1.0.3)
     useragent (0.16.11)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -523,7 +523,7 @@ DEPENDENCIES
   stackprof (~> 0.2.26)
   stimulus-rails (~> 1.3.4)
   thruster
-  turbo-rails (~> 2.0.11)
+  turbo-rails (~> 2.0.13)
   tzinfo-data
   web-console
 
