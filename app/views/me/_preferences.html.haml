@@ -6,7 +6,7 @@
 
 .card.bg-body-tertiary
   .card-header
-    %h5.card-title Theme
+    %h5.card-title Browser
   .card-body
     .btn-group{"aria-label" => "Preferences Theme", :role => "group", data: { controller: "theme-chooser" } }
       %button.btn.btn-primary{ data: { action: "click->theme-chooser#changeTheme", theme: "light", theme_chooser_target: "light" }  }
