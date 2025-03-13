@@ -1,4 +1,4 @@
-<% module_namespacing do %>
+<% module_namespacing do -%>
 class <%= controller_class_name %>Controller < ApplicationController
   before_action :set_<%= singular_table_name %>, except: %i[ index new create ]
 
