@@ -14,8 +14,8 @@
   %table.table.table-striped{ id: "users-table" }
     %thead
       %tr
+        %th.d-none.d-md-table-cell{ style: "width: 20px" } State
         %th Name
-        %th.d-none.d-md-table-cell State
         %th &nbsp;
     %tbody{ id: "users-table-rows" }
       = render 'users'
