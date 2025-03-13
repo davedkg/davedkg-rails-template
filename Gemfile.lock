@@ -486,7 +486,7 @@ DEPENDENCIES
   brakeman (~> 7.0.0)
   bullet (~> 8.0.0)
   capybara
-  cssbundling-rails (~> 1.4.1)
+  cssbundling-rails (~> 1.4.2)
   debug
   devise (~> 4.9.4)
   devise_invitable (~> 2.0.0)
