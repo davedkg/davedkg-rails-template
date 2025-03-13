@@ -24,6 +24,5 @@ export default class extends Controller {
     localStorage.setItem(TOGGLE_STATE_STORAGE_KEY, newState)
 
     this.sidebarTarget.classList.toggle('show')
-    this.sidebarTarget.classList.toggle('hide')
   }
 }

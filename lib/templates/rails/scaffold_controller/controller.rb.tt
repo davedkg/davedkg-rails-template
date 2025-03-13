@@ -1,6 +1,6 @@
-<% module_namespacing do %>
+<% module_namespacing do -%>
 class <%= controller_class_name %>Controller < ApplicationController
-  before_action :set_<%= singular_table_name %>, only: %i[ show edit update destroy ]
+  before_action :set_<%= singular_table_name %>, except: %i[ index new create ]
 
   breadcrumb -> { page_title_hash[:index] }, :<%= plural_table_name %>_path, except: [ :index ], if: -> { policy(<%= class_name %>).index? }
   breadcrumb -> { page_title_hash[:show] }, -> { <%= singular_table_name %>_path(@<%= singular_table_name %>) }, only: %i[edit update], if: -> { policy(@<%= singular_table_name %>).show? }

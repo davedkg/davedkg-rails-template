@@ -47,7 +47,7 @@ else
             template "api_request_spec.rb", template_file(folder: "requests")
           else
             template "requests/DELETE_object_spec.rb", target_path("requests", name.underscore.pluralize, "DELETE_#{name.underscore.singularize}_spec.rb")
-            template "requests/GET_edit_object_spec.rb", target_path("requests", name.underscore.pluralize, "EDIT_edit_#{name.underscore.singularize}_spec.rb")
+            template "requests/GET_edit_object_spec.rb", target_path("requests", name.underscore.pluralize, "GET_edit_#{name.underscore.singularize}_spec.rb")
             template "requests/GET_new_object_spec.rb", target_path("requests", name.underscore.pluralize, "GET_new_#{name.underscore.singularize}_spec.rb")
             template "requests/GET_object_spec.rb", target_path("requests", name.underscore.pluralize, "GET_#{name.underscore.singularize}_spec.rb")
             template "requests/GET_objects_spec.rb", target_path("requests", name.underscore.pluralize, "GET_#{name.underscore.pluralize}_spec.rb")

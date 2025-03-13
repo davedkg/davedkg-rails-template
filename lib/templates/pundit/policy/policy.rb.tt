@@ -30,4 +30,4 @@ class <%= class_name %>Policy < ApplicationPolicy
     end
   end
 end
-<% end -%>
+<% end %>
