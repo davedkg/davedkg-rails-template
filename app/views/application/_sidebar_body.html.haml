@@ -1,4 +1,4 @@
-%ul.nav.nav-pills.flex-column
+%ul.nav.nav-pills.flex-column.mx-2.mb-2
   - if policy(:dashboard).show?
     %li.nav-item
       = link_to dashboard_path, { class: "nav-link d-flex #{active_for_path(dashboard_path)}" } do

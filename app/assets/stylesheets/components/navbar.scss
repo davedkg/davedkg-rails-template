@@ -2,14 +2,17 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
-$navbar-height: 60px;
+@import "../variables";
 
 .navbar {
+  background-color: var(--bs-body-bg);
   height: $navbar-height;
 }
 
 .navbar-sidebar-toggle {
-  margin-right: 0.5rem
+  margin-right: 0.5rem;
+  position: relative;
+  top: 0.1rem;
 }
 
 [data-sidebar-toggled="no"] .navbar-sidebar-toggle {
