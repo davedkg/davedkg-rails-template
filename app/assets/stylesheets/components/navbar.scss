@@ -2,7 +2,7 @@
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
-$navbar-height: 60px;
+@import "../variables";
 
 .navbar {
   height: $navbar-height;
