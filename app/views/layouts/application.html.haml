@@ -7,7 +7,8 @@
   %body{ data: { controller: "sidebar" } }
     = render 'sidebar'
     #main
-      = render 'navbar'
-      = render 'flash'
-      = yield
+      .container-fluid
+        = render 'navbar'
+        = render 'flash'
+        = yield
     = turbo_frame_tag :modal
