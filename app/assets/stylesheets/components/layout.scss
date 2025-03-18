@@ -1,37 +1,39 @@
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+
 @import "../variables";
 
-html,
-body {
-  height: 100%;
+$main-padding: 1rem;
+
+#main {
+  padding-left: $main-padding;
+  padding-right: $main-padding;
 }
 
-body {
-  display: flex;
-  flex-direction: column;
+@include media-breakpoint-up(lg) {
+  #sidebar {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: $sidebar-width;
+  }
+
+  #main {
+    padding-left: calc($sidebar-width + $main-padding);
+    transition: padding-left 0.3s ease;
+  }
 }
 
-.main-container {
-  display: flex;
-  flex: 1;
-  flex-direction: row;
-  height: calc(100% - $navbar-height);
-  overflow-y: none;
-  padding: 0;
-}
+[data-sidebar-toggled="yes"] {
+  @include media-breakpoint-up(lg) {
+    #sidebar {
+      width: 0;
+    }
 
-.sidebar-container {
-  overflow-x: hidden;
-  width: $sidebar-width;
-}
-
-.body-container {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-}
-
-.scrollable-body-container {
-  flex: 1;
-  overflow-y: scroll;
-  padding: 0.5rem 1rem 1rem;
+    #main {
+      padding-left: $main-padding;
+    }
+  }
 }

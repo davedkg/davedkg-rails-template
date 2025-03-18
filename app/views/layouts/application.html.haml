@@ -4,12 +4,10 @@
     :javascript
       document.documentElement.dataset.sidebarToggled = localStorage.getItem("SIDEBAR_TOGGLED") || "no"
     = render 'head'
-  %body
-    .main-container{ data: { controller: "sidebar" } }
-      = render 'sidebar'
-      .body-container
-        = render 'navbar'
-        .scrollable-body-container
-          = render 'flash'
-          = yield
+  %body{ data: { controller: "sidebar" } }
+    = render 'sidebar'
+    #main
+      = render 'navbar'
+      = render 'flash'
+      = yield
     = turbo_frame_tag :modal
