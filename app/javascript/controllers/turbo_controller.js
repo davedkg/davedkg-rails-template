@@ -1,5 +1,5 @@
 import { Controller } from "@hotwired/stimulus";
-import { Turbo } from "@hotwired/turbo-rails";
+import { Turbo } from "@hotwired/turbo";
 
 export default class extends Controller {
   initialize() {
