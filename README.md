@@ -73,7 +73,8 @@ git remote add template git@github.com:davedkg/davedkg-rails-template.git
 ### Merge
 
 ```bash
- git merge --allow-unrelated-histories template/main
+git pull template main --allow-unrelated-histories
+git merge --allow-unrelated-histories template/main
 ```
 
 ## Heroku
