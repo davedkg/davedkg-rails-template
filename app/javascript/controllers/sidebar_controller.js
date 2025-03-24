@@ -1,28 +1,32 @@
 import { Controller } from "@hotwired/stimulus";
 
-const TOGGLE_STATES = { Yes: "yes", No: "no" }
-const TOGGLE_STATE_STORAGE_KEY = "SIDEBAR_TOGGLED"
+const SHOW_STATES = { Yes: "yes", No: "no" }
+const SHOW_SIDEBAR_STORAGE_KEY = "SHOW_SIDEBAR"
 export default class extends Controller {
   static targets = [ "sidebar" ]
 
   // *** Getters/Setters
 
-  get sidebarToggled() {
-    return document.documentElement.dataset.sidebarToggled
+  get showSidebar() {
+    return document.documentElement.dataset.showSidebar
   }
 
-  set sidebarToggled(sidebarToggled) {
-    document.documentElement.dataset.sidebarToggled = sidebarToggled
+  set showSidebar(showSidebar) {
+    document.documentElement.dataset.showSidebar = showSidebar
   }
 
   // *** Events
 
   toggle() {
-    const newState = TOGGLE_STATES.Yes === this.sidebarToggled ? TOGGLE_STATES.No : TOGGLE_STATES.Yes
+    const newState = SHOW_STATES.Yes === this.showSidebar ? SHOW_STATES.No : SHOW_STATES.Yes
 
-    this.sidebarToggled = newState
-    localStorage.setItem(TOGGLE_STATE_STORAGE_KEY, newState)
+    this.showSidebar = newState
+    localStorage.setItem(SHOW_SIDEBAR_STORAGE_KEY, newState)
 
-    this.sidebarTarget.classList.toggle('show')
+    if (SHOW_STATES.Yes === newState) {
+      this.sidebarTarget.classList.add('show')
+    } else {
+      this.sidebarTarget.classList.remove('show')
+    }
   }
 }

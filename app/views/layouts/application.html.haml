@@ -1,8 +1,8 @@
 !!!
-%html{ data: { bs_theme: "light", sidebar_toggled: "no" } }
+%html{ data: { bs_theme: "light", show_sidebar: "yes" } }
   %head
     :javascript
-      document.documentElement.dataset.sidebarToggled = localStorage.getItem("SIDEBAR_TOGGLED") || "no"
+      document.documentElement.dataset.showSidebar = localStorage.getItem("SHOW_SIDEBAR") || "yes"
     = render 'head'
   %body{ data: { controller: "sidebar" } }
     = render 'sidebar'
