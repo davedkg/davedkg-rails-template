@@ -44,6 +44,9 @@
   "buildpacks": [
     {
       "url": "heroku/ruby"
+    },
+    {
+      "url": "https://github.com/leoafarias/heroku-buildpack-node-modules-cleanup"
     }
   ],
   "image": "heroku/ruby"
