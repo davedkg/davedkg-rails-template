@@ -488,7 +488,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.4.2)
   debug
   devise (~> 4.9.4)
-  devise_invitable (~> 2.0.0)
+  devise_invitable (~> 2.0.10)
   dotenv (~> 3.1.7)
   factory_bot_rails (~> 6.4.4)
   faker (~> 3.5.1)
