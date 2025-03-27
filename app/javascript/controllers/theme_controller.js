@@ -34,6 +34,11 @@ export default class extends Controller {
 
   connect() {
     this.updateForUserTheme(this.userTheme)
+    this.prefersDarkColorSchemeMediaQuery.addEventListener('change', this.mediaQueryChanged.bind(this))
+  }
+
+  disconnect() {
+    this.prefersDarkColorSchemeMediaQuery.removeEventListener('change', this.mediaQueryChanged.bind(this))
   }
 
   // *** Events
