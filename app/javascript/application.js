@@ -1,9 +1,9 @@
 // Configure your import map in config/importmap.rb. Read more: https://github.com/rails/importmap-rails
-import { Turbo } from '@hotwired/turbo'
+import { Turbo } from "@hotwired/turbo"
 import "@popperjs/core"
 import * as bootstrap from "bootstrap"
 import swal from "sweetalert"
-import TurboPower from 'turbo_power'
+import TurboPower from "turbo_power"
 
 import "controllers"
 
