@@ -4,7 +4,7 @@
     :javascript
       document.documentElement.dataset.showSidebar = localStorage.getItem("SHOW_SIDEBAR") || "yes"
     = render 'head'
-  %body{ data: { controller: "sidebar" } }
+  %body{ data: { controller: "sidebar theme" } }
     = render 'sidebar'
     #main
       .container-fluid

@@ -67,19 +67,19 @@ export default class extends Controller {
   updateDropdownItemsForUserTheme(userTheme) {
     switch(userTheme) {
       case USER_THEMES.light:
-        this.lightTarget.classList.add("active")
-        this.darkTarget.classList.remove("active")
-        this.autoTarget.classList.remove("active")
+        if (this.hasLightTarget) this.lightTarget.classList.add("active")
+        if (this.hasDarkTarget) this.darkTarget.classList.remove("active")
+        if (this.hasAutoTarget) this.autoTarget.classList.remove("active")
         break
       case USER_THEMES.dark:
-        this.lightTarget.classList.remove("active")
-        this.darkTarget.classList.add("active")
-        this.autoTarget.classList.remove("active")
+        if (this.hasLightTarget) this.lightTarget.classList.remove("active")
+        if (this.hasDarkTarget) this.darkTarget.classList.add("active")
+        if (this.hasAutoTarget) this.autoTarget.classList.remove("active")
         break
       case USER_THEMES.auto:
-        this.lightTarget.classList.remove("active")
-        this.darkTarget.classList.remove("active")
-        this.autoTarget.classList.add("active")
+        if (this.hasLightTarget) this.lightTarget.classList.remove("active")
+        if (this.hasDarkTarget) this.darkTarget.classList.remove("active")
+        if (this.hasAutoTarget) this.autoTarget.classList.add("active")
         break
     }
   }
