@@ -8,13 +8,13 @@
   .card-header
     %h5.card-title Browser
   .card-body
-    .btn-group{"aria-label" => "Preferences Theme", :role => "group", data: { controller: "theme-chooser" } }
-      %button.btn.btn-primary{ data: { action: "click->theme-chooser#changeTheme", theme: "light", theme_chooser_target: "light" }  }
+    .btn-group{"aria-label" => "Preferences Theme", :role => "group"}
+      %button.btn.btn-primary{ data: { action: "click->theme#changeTheme", theme: "light", theme_target: "light" }  }
         = material_icon("light_mode")
         Light
-      %button.btn.btn-primary{ data: { action: "click->theme-chooser#changeTheme", theme: "dark", theme_chooser_target: "dark" }  }
+      %button.btn.btn-primary{ data: { action: "click->theme#changeTheme", theme: "dark", theme_target: "dark" }  }
         = material_icon("dark_mode")
         Dark
-      %button.btn.btn-primary{ data: { action: "click->theme-chooser#changeTheme", theme: "auto", theme_chooser_target: "auto" }  }
+      %button.btn.btn-primary{ data: { action: "click->theme#changeTheme", theme: "auto", theme_target: "auto" }  }
         = material_icon("routine")
         Auto

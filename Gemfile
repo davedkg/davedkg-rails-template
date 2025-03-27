@@ -24,6 +24,7 @@ gem "loaf", "~> 0.10.0"
 gem "paranoia", "~> 3.0.0"
 gem "pundit", "~> 2.5.0"
 gem "simple_form", "~> 5.3.1"
+gem "turbo_power", "~> 0.7.0"
 
 gem "bootsnap", require: false
 gem "kamal", require: false
@@ -32,6 +33,7 @@ gem "thruster", require: false
 group :development, :test do
   gem "bullet", "~> 8.0.0"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
+  gem "dotenv", "~> 3.1.7"
   gem "brakeman", "~> 7.0.0", require: false
   gem "factory_bot_rails", "~> 6.4.4"
   gem "fasterer", "~> 0.11.0", require: false
