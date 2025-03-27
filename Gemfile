@@ -17,7 +17,7 @@ gem "solid_queue", "~> 1.1.4"
 gem "solid_cable", "~> 3.0.4"
 
 gem "devise", "~> 4.9.4"
-gem "devise_invitable", "~> 2.0.0"
+gem "devise_invitable", "~> 2.0.10"
 gem "haml-rails", "~> 2.0"
 gem "kaminari", "~> 1.2.2"
 gem "loaf", "~> 0.10.0"
