@@ -87,6 +87,14 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bin/importmap outdated
+  coverage:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      - run: curl -L https://qlty-releases.s3.amazonaws.com/qlty/latest/qlty-x86_64-unknown-linux-gnu.tar.xz > qlty.tar.xz
+      - run: tar -xf qlty.tar.xz qlty-x86_64-unknown-linux-gnu/qlty --strip-components 1
+      - run: ./qlty coverage publish coverage/.resultset.json
 
 workflows:
   version: 2
@@ -115,3 +123,6 @@ workflows:
             - build
           filters: |
             pipeline.git.branch != "main"
+      - coverage:
+          requires:
+            - rspec
