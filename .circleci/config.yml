@@ -52,6 +52,12 @@ jobs:
           name: Compile Assets
           command: bundle exec rake assets:precompile
       - ruby/rspec-test
+      - run:
+        name: Upload Coverage
+        command: |
+          curl -L https://qlty-releases.s3.amazonaws.com/qlty/latest/qlty-x86_64-unknown-linux-gnu.tar.xz > qlty.tar.xz
+          tar -xf qlty.tar.xz qlty-x86_64-unknown-linux-gnu/qlty --strip-components 1
+          ./qlty coverage publish coverage/.resultset.json
   rubocop:
     executor:
       name: ruby-executor
@@ -87,14 +93,6 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bin/importmap outdated
-  coverage:
-    executor:
-      name: ruby-executor
-    steps:
-      - checkout
-      - run: curl -L https://qlty-releases.s3.amazonaws.com/qlty/latest/qlty-x86_64-unknown-linux-gnu.tar.xz > qlty.tar.xz
-      - run: tar -xf qlty.tar.xz qlty-x86_64-unknown-linux-gnu/qlty --strip-components 1
-      - run: ./qlty coverage publish coverage/.resultset.json
 
 workflows:
   version: 2
@@ -123,6 +121,3 @@ workflows:
             - build
           filters: |
             pipeline.git.branch != "main"
-      - coverage:
-          requires:
-            - rspec
