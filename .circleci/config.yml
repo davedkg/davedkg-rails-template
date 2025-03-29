@@ -92,6 +92,8 @@ jobs:
       - image: cimg/base:stable
     steps:
       - checkout
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y --no-install-recommends glibc
       - run: curl -L https://qlty-releases.s3.amazonaws.com/qlty/latest/qlty-x86_64-unknown-linux-gnu.tar.xz > qlty.tar.xz
       - run: tar -xf qlty.tar.xz qlty-x86_64-unknown-linux-gnu/qlty --strip-components 1
       - run: ./qlty coverage publish coverage/.resultset.json
