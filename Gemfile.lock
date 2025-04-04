@@ -85,7 +85,7 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.4)
       msgpack (~> 1.2)
-    brakeman (7.0.0)
+    brakeman (7.0.2)
       racc
     builder (3.3.0)
     bullet (8.0.2)
@@ -489,7 +489,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
-  brakeman (~> 7.0.0)
+  brakeman (~> 7.0.2)
   bullet (~> 8.0.2)
   capybara
   cssbundling-rails (~> 1.4.2)
