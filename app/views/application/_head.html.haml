@@ -1,5 +1,5 @@
 :javascript
-  document.documentElement.dataset.bsTheme = ["light", "dark"].includes(localStorage.getItem("USER_THEME")) ? localStorage.getItem("USER_THEME") : window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+  document.documentElement.dataset.bsTheme = ["LIGHT", "DARK"].includes(localStorage.getItem("USER_THEME")) ? localStorage.getItem("USER_THEME") : window.matchMedia('(prefers-color-scheme: dark)').matches ? "DARK" : "LIGHT";
 %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
 %title= "#{page_title} | #{PLATFORM_TITLE}"
 %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/

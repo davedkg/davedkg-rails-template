@@ -19,7 +19,7 @@
   }
 }
 
-[data-show-sidebar="no"] {
+[data-show-sidebar="NO"] {
   @include media-breakpoint-up(lg) {
     #sidebar {
       width: 0;

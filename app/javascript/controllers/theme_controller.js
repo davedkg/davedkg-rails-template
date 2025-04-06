@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus";
 
 const BS_THEMES = { light: "light", dark: "dark" }
-const USER_THEMES = { light: "light", dark: "dark", auto: "auto" }
+const USER_THEMES = { light: "LIGHT", dark: "DARK", auto: "AUTO" }
 const USER_THEME_STORAGE_KEY = "USER_THEME"
 
 export default class extends Controller {
