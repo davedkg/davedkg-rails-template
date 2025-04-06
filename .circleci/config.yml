@@ -57,7 +57,7 @@ jobs:
           command: |
             curl -L https://qlty-releases.s3.amazonaws.com/qlty/latest/qlty-x86_64-unknown-linux-gnu.tar.xz > qlty.tar.xz
             tar -xf qlty.tar.xz qlty-x86_64-unknown-linux-gnu/qlty --strip-components 1
-            ./qlty coverage publish coverage/.resultset.json
+            ./qlty coverage publish coverage/coverage.json
   rubocop:
     executor:
       name: ruby-executor
