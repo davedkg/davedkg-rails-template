@@ -28,7 +28,11 @@ require 'simplecov_json_formatter'
 Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
 SimpleCov.start do
-  formatter SimpleCov::Formatter::JSONFormatter
+  formatter SimpleCov::Formatter::MultiFormatter.new([
+    SimpleCov::Formatter::JSONFormatter,
+    SimpleCov::Formatter::HTMLFormatter
+  ])
+
   add_filter '/spec/'
 end
 
