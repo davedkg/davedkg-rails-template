@@ -15,15 +15,15 @@
   top: 0.1rem;
 }
 
-[data-show-sidebar="yes"] .navbar-sidebar-toggle {
+[data-show-sidebar="YES"] .navbar-sidebar-toggle {
   display: none;
 }
 
-[data-show-sidebar="no"] .navbar-sidebar-toggle {
+[data-show-sidebar="NO"] .navbar-sidebar-toggle {
   display: block;
 }
 
-[data-show-sidebar="yes"] {
+[data-show-sidebar="YES"] {
   @include media-breakpoint-down(lg) {
     .navbar-sidebar-toggle {
       display: block;

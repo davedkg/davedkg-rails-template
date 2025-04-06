@@ -1,6 +1,6 @@
 import { Controller } from "@hotwired/stimulus";
 
-const SHOW_STATES = { Yes: "yes", No: "no" }
+const SHOW_STATES = { Yes: "YES", No: "NO" }
 const SHOW_SIDEBAR_STORAGE_KEY = "SHOW_SIDEBAR"
 export default class extends Controller {
   static targets = [ "sidebar" ]
