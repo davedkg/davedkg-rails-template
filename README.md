@@ -1,7 +1,5 @@
 # davedkg-rails-template
 
-[![Maintainability](https://qlty.sh/badges/fa3e0917-38ae-4cee-ba29-d9ecb33d3d46/maintainability.svg)](https://qlty.sh/gh/davedkg/projects/davedkg-rails-template)
-[![Code Coverage](https://qlty.sh/badges/fa3e0917-38ae-4cee-ba29-d9ecb33d3d46/test_coverage.svg)](https://qlty.sh/gh/davedkg/projects/davedkg-rails-template)
 [![CircleCI](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main.svg?style=shield)](https://circleci.com/gh/davedkg/davedkg-rails-template/tree/main)
 
 ## Custom Scaffold

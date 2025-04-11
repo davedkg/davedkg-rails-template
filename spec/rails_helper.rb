@@ -26,7 +26,8 @@ require 'simplecov'
 #
 Rails.root.glob('spec/support/**/*.rb').sort_by(&:to_s).each { |f| require f }
 
-SimpleCov.start do
+SimpleCov.start 'rails' do
+  add_filter 'lib/generators'
   add_filter 'spec'
 end
 

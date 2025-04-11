@@ -36,9 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sentry_context
-    return unless defined?(Sentry)
-
-    Sentry.set_user(id: current_user.id) if current_user
+    Sentry.set_user(id: current_user.id) if defined?(Sentry) && current_user
   end
 
   def render_page_not_found
