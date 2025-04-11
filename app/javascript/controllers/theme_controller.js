@@ -70,22 +70,22 @@ export default class extends Controller {
   }
 
   updateDropdownItemsForUserTheme(userTheme) {
+    // First remove 'active' class from all targets
+    if (this.hasLightTarget) this.lightTarget.classList.remove('active');
+    if (this.hasDarkTarget) this.darkTarget.classList.remove('active');
+    if (this.hasAutoTarget) this.autoTarget.classList.remove('active');
+
+    // Then add 'active' class only to the selected theme's target
     switch(userTheme) {
       case USER_THEMES.light:
-        if (this.hasLightTarget) this.lightTarget.classList.add("active")
-        if (this.hasDarkTarget) this.darkTarget.classList.remove("active")
-        if (this.hasAutoTarget) this.autoTarget.classList.remove("active")
-        break
+        if (this.hasLightTarget) this.lightTarget.classList.add('active');
+        break;
       case USER_THEMES.dark:
-        if (this.hasLightTarget) this.lightTarget.classList.remove("active")
-        if (this.hasDarkTarget) this.darkTarget.classList.add("active")
-        if (this.hasAutoTarget) this.autoTarget.classList.remove("active")
-        break
+        if (this.hasDarkTarget) this.darkTarget.classList.add('active');
+        break;
       case USER_THEMES.auto:
-        if (this.hasLightTarget) this.lightTarget.classList.remove("active")
-        if (this.hasDarkTarget) this.darkTarget.classList.remove("active")
-        if (this.hasAutoTarget) this.autoTarget.classList.add("active")
-        break
+        if (this.hasAutoTarget) this.autoTarget.classList.add('active');
+        break;
     }
   }
 
