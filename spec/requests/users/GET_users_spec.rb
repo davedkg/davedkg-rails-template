@@ -9,6 +9,8 @@ describe 'GET users_path' do
 
   before do
     sign_in user
+    create(:user, :disabled)
+    create(:user, :invitation_not_accepted)
     request
   end
 

@@ -16,7 +16,9 @@
 
 require 'simplecov'
 SimpleCov.start 'rails' do
-  add_filter 'lib/generators'
+  add_filter 'lib/generators' # custom rails generators
+  add_filter 'lib/app_config.rb' # helper for deploying to heroku
+  add_filter 'lib/seeder.rb' # internal seeder
   add_filter 'spec'
 end
 
