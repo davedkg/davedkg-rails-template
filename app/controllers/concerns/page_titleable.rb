@@ -23,15 +23,7 @@ module PageTitleable
     }
   end
 
-  def page_subtitle_hash
-    {}
-  end
-
   def page_title
     @page_title ||= page_title_hash[params[:action].to_sym]
-  end
-
-  def page_subtitle
-    @page_subtitle ||= page_subtitle_hash[params[:action].to_sym]
   end
 end

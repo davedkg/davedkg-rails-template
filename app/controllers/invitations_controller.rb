@@ -1,5 +1,5 @@
 class InvitationsController < Devise::InvitationsController
-  before_action :prevent_action, only: %i[new create destroy]
+  before_action :render_page_not_found, only: %i[new create destroy]
 
   layout "splash"
 

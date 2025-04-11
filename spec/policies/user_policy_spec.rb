@@ -56,4 +56,24 @@ describe UserPolicy, type: :policy do
       it { is_expected.to forbid_actions(%i[enable]) }
     end
   end
+
+  describe "Scope" do
+    subject(:scope) { UserPolicy::Scope.new(user, User).resolve }
+
+    before do
+      create(:user)
+    end
+
+    it 'returns 1 user' do
+      expect(scope.count).to eq(1)
+    end
+
+    context 'when user is admin' do
+      let(:user) { create(:user, :admin) }
+
+      it 'returns 2 users' do
+        expect(scope.count).to eq(2)
+      end
+    end
+  end
 end

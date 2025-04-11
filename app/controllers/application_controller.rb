@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     if policy(:dashboard).show?
       redirect_to dashboard_path
     else
-      redirect_to user_path(current_user)
+      redirect_to me_path
     end
   end
 
@@ -25,10 +25,6 @@ class ApplicationController < ActionController::Base
 
   def set_modal_size(modal_size)
     @modal_size = modal_size
-  end
-
-  def prevent_action
-    redirect_to root_path
   end
 
   def application_controller?
@@ -40,9 +36,7 @@ class ApplicationController < ActionController::Base
   end
 
   def set_sentry_context
-    return unless defined?(Sentry)
-
-    Sentry.set_user(id: current_user.id) if current_user
+    Sentry.set_user(id: current_user.id) if defined?(Sentry) && current_user
   end
 
   def render_page_not_found
