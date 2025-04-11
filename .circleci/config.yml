@@ -78,7 +78,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec fasterer -c .fasterer.yml
+      - run: bundle exec fasterer
   importmap_audit:
     executor:
       name: ruby-executor
