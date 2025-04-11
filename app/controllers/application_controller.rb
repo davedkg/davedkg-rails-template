@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
     if policy(:dashboard).show?
       redirect_to dashboard_path
     else
-      redirect_to user_path(current_user)
+      redirect_to me_path
     end
   end
 
@@ -25,10 +25,6 @@ class ApplicationController < ActionController::Base
 
   def set_modal_size(modal_size)
     @modal_size = modal_size
-  end
-
-  def prevent_action
-    redirect_to root_path
   end
 
   def application_controller?
