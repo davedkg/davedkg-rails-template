@@ -1,4 +1,4 @@
-DashboardPolicy = Struct.new(:user, :dashboard) do
+class DashboardPolicy < ApplicationPolicy
   def show?
     true
   end
