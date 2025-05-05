@@ -2,5 +2,9 @@
   %nav.navbar.bg-body-tertiary
     %a.btn.btn-light-dark.btn-transparent.btn-navbar.ms-2{ data: { action: "click->sidebar#toggle" } }
       = material_icon("dock_to_right")
-  .overflow-scroll.d-flex.flex-column.flex-grow-1.bg-body-tertiary
-    = render 'sidebar_body'
+  .d-flex.flex-column.flex-grow-1.bg-body-tertiary
+    .overflow-scroll.d-flex.flex-column.flex-grow-1
+      = render 'sidebar_body'
+    .sidebar-footer.d-flex.flex-row.align-items-center
+      .rounded-circle.user-avatar D
+      .username= user_name(current_user)

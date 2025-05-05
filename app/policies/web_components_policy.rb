@@ -1,9 +1,15 @@
-WebComponentsPolicy = Struct.new(:user, :web_components) do
+class WebComponentsPolicy < ApplicationPolicy
   def show?
-    user.admin?
+    admin?
   end
 
   def modal?
+    admin?
+  end
+
+  private
+
+  def admin?
     user.admin?
   end
 end
