@@ -40,14 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_page_not_found
-    respond_to do |format|
-      format.html do
-        render file: Rails.public_path.join("404.html"), layout: false, status: :not_found
-      end
-      format.any do
-        head :not_found
-      end
-    end
+    render file: Rails.public_path.join("404.html"), layout: false, status: :not_found
   end
 
   ## *** Devise
