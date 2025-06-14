@@ -1,4 +1,4 @@
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)), html: { data: { turbo: false } } do |f|
   = f.error_notification
   = f.input :email, autocomplete: "email", wrapper: :floating_labels_form, placeholder: 'Email'
   = f.input :password, wrapper: :floating_labels_form, placeholder: 'Password'
