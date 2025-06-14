@@ -20,7 +20,7 @@ class MeController < ApplicationController
   private
 
   def set_me
-    @me = authorize current_user
+    @me = authorize current_user, policy_class: MePolicy
   end
 
   def page_title_hash

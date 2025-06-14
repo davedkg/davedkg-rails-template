@@ -17,7 +17,7 @@ rails g scaffold Object attribute1 attribute2
 ```bash
 brew install postgresql
 bundle && yarn
-cp .env.sample .env
+cp .env.template .env
 bundle exec rake db:setup db:seed
 rspec
 foreman start -f Procfile.dev

@@ -3,6 +3,5 @@
     = material_icon("dock_to_right")
   = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
   .navbar-nav.ms-md-auto
-    - if policy(current_user).edit?
-      = link_to me_path, class: "btn btn-light-dark btn-transparent btn-navbar" do
-        = material_icon("account_circle")
+    = link_to me_path, class: "btn btn-light-dark btn-transparent btn-navbar" do
+      = material_icon("account_circle")

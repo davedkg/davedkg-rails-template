@@ -4,19 +4,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def show?
-    admin? || me?
+    admin?
   end
 
   def create?
     admin?
-  end
-
-  def update?
-    me?
-  end
-
-  def update_password?
-    me?
   end
 
   def destroy?

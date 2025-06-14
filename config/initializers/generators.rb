@@ -8,5 +8,6 @@ Rails.application.configure do
     g.helper_specs false
     g.routing_specs false
     g.view_specs false
+    g.orm :active_record, primary_key_type: :uuid
   end
 end
