@@ -14,7 +14,7 @@ gem "jbuilder", "~> 2.13.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache", "~> 1.0.6"
 gem "solid_queue", "~> 1.1.5"
-gem "solid_cable", "~> 3.0.4"
+gem "solid_cable", "~> 3.0.8"
 
 gem "devise", "~> 4.9.4"
 gem "devise_invitable", "~> 2.0.10"
@@ -59,8 +59,8 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 9.18.0"
+  gem "newrelic_rpm", "~> 9.19.0"
   gem "stackprof", "~> 0.2.26"
-  gem "sentry-ruby", "~> 5.23.0"
-  gem "sentry-rails", "~> 5.23.0"
+  gem "sentry-ruby", "~> 5.25.0"
+  gem "sentry-rails", "~> 5.25.0"
 end
