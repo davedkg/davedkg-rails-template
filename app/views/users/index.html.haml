@@ -10,8 +10,8 @@
             .d-none.d-sm-inline
               User
 
-.table-responsive.table-with-out-card-body
-  %table.table.table-striped{ id: "users-table" }
+.table-responsive.table-with-out-card-body{ id: "users-table" }
+  %table.table.table-striped
     %thead
       %tr
         %th.d-none.d-md-table-cell{ style: "width: 20px" } State
@@ -19,5 +19,5 @@
         %th &nbsp;
     %tbody{ id: "users-table-rows" }
       = render 'users'
-  = turbo_frame_tag "users-paginator" do
-    = render "paginator"
+= turbo_frame_tag "users-paginator" do
+  = render "paginator"
