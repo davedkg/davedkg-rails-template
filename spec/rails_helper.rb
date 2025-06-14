@@ -65,4 +65,8 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:each, type: :request) do
+    Rails.application.reload_routes_unless_loaded
+  end
 end
