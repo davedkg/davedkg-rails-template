@@ -13,8 +13,8 @@ gem "cssbundling-rails", "~> 1.4.2"
 gem "jbuilder", "~> 2.13.0"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache", "~> 1.0.6"
-gem "solid_queue", "~> 1.1.4"
-gem "solid_cable", "~> 3.0.4"
+gem "solid_queue", "~> 1.1.5"
+gem "solid_cable", "~> 3.0.8"
 
 gem "devise", "~> 4.9.4"
 gem "devise_invitable", "~> 2.0.10"
@@ -31,14 +31,14 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 group :development, :test do
-  gem "bullet", "~> 8.0.3"
+  gem "bullet", "~> 8.0.5"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.1.8"
   gem "brakeman", "~> 7.0.2", require: false
   gem "factory_bot_rails", "~> 6.4.4"
   gem "fasterer", "~> 0.11.0", require: false
   gem "pry-byebug", "~> 3.11.0"
-  gem "rspec-rails", "~> 7.1.1"
+  gem "rspec-rails", "~> 8.0.0"
   gem "rubocop-rails-omakase", "~> 1.1.0", require: false
 end
 
@@ -59,8 +59,8 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 9.18.0"
+  gem "newrelic_rpm", "~> 9.19.0"
   gem "stackprof", "~> 0.2.26"
-  gem "sentry-ruby", "~> 5.23.0"
-  gem "sentry-rails", "~> 5.23.0"
+  gem "sentry-ruby", "~> 5.25.0"
+  gem "sentry-rails", "~> 5.25.0"
 end

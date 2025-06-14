@@ -6,7 +6,7 @@
 
 ## Custom Scaffold
 
-Custom scaffold generates controller, model, policy, views with corresponding rspec files.
+Custom scaffold generates controller, model, policy, and views with corresponding rspec files.
 
 ```bash
 rails g scaffold Object attribute1 attribute2
@@ -92,4 +92,4 @@ heroku config:set APP_DOMAIN www.example.com
 
 ### Solid
 
-Deploying to heroku will automativally enable SolidQueue, SolidCache and SolidCable.
+Deploying to heroku will automatically enable SolidQueue, SolidCache and SolidCable.
