@@ -29,4 +29,12 @@ describe 'GET root_path' do
       expect(response).to redirect_to(new_user_session_path)
     end
   end
+
+  context 'when user DOES NOT have dashboard access' do
+    before { allow_any_instance_of(DashboardPolicy).to receive(:show?).and_return(false) }
+
+    it 'returns redirect status' do
+      expect(response).to have_http_status(:redirect)
+    end
+  end
 end
