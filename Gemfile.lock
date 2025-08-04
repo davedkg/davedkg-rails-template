@@ -347,7 +347,7 @@ GEM
     rspec-mocks (3.13.5)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.13.0)
-    rspec-rails (8.0.0)
+    rspec-rails (8.0.1)
       actionpack (>= 7.2)
       activesupport (>= 7.2)
       railties (>= 7.2)
@@ -517,7 +517,7 @@ DEPENDENCIES
   pundit (~> 2.5.0)
   pundit-matchers (~> 4.0.0)
   rails (~> 8.0.1)
-  rspec-rails (~> 8.0.0)
+  rspec-rails (~> 8.0.1)
   rspec_junit_formatter (~> 0.6.0)
   rubocop-rails-omakase (~> 1.1.0)
   selenium-webdriver
