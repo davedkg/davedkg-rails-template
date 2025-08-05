@@ -4,7 +4,7 @@ ruby "3.4.4"
 
 gem "rails", "~> 8.0.1"
 gem "propshaft", "~> 1.1.0"
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.6"
 gem "puma", ">= 5.0"
 gem "importmap-rails", "~> 2.1.0"
 gem "turbo-rails", "~> 2.0.11"
