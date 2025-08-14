@@ -38,7 +38,7 @@ group :development, :test do
   gem "factory_bot_rails", "~> 6.5.0"
   gem "fasterer", "~> 0.11.0", require: false
   gem "pry-byebug", "~> 3.11.0"
-  gem "rspec-rails", "~> 8.0.1"
+  gem "rspec-rails", "~> 8.0.2"
   gem "rubocop-rails-omakase", "~> 1.1.0", require: false
 end
 
