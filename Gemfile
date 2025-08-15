@@ -14,7 +14,7 @@ gem "jbuilder", "~> 2.14.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache", "~> 1.0.6"
 gem "solid_queue", "~> 1.2.1"
-gem "solid_cable", "~> 3.0.11"
+gem "solid_cable", "~> 3.0.12"
 
 gem "devise", "~> 4.9.4"
 gem "devise_invitable", "~> 2.0.10"
