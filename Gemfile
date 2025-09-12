@@ -22,7 +22,7 @@ gem "haml-rails", "~> 2.0"
 gem "kaminari", "~> 1.2.2"
 gem "loaf", "~> 0.10.0"
 gem "paranoia", "~> 3.0.0"
-gem "pundit", "~> 2.5.0"
+gem "pundit", "~> 2.5.1"
 gem "simple_form", "~> 5.3.1"
 gem "turbo_power", "~> 0.7.0"
 
