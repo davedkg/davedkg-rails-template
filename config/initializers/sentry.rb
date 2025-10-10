@@ -3,7 +3,7 @@ if ENV["SENTRY_DSN"] && defined?(Sentry)
 
   Sentry.init do |config|
     config.dsn                = ENV["SENTRY_DSN"]
-    config.enable_tracing     = true
+    config.traces_sample_rate = 0.0
     config.breadcrumbs_logger = [ :active_support_logger, :http_logger ]
     config.release            = ENV["HEROKU_RELEASE_VERSION"] if ENV["HEROKU_RELEASE_VERSION"]
 

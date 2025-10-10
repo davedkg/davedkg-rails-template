@@ -88,6 +88,7 @@ heroku buildpacks:add heroku/ruby
 heroku buildpacks:set --index 1 https://github.com/leoafarias/heroku-buildpack-node-modules-cleanup
 heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
 heroku config:set APP_DOMAIN www.example.com
+heroku config:set SOLID_QUEUE_IN_PUMA true
 ```
 
 ### Solid
