@@ -93,3 +93,5 @@ heroku config:set APP_DOMAIN www.example.com
 ### Solid
 
 Deploying to heroku will automatically enable SolidQueue, SolidCache and SolidCable.
+
+Make sure to set SOLID_QUEUE_IN_PUMA=true
