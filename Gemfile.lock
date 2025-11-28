@@ -125,7 +125,7 @@ GEM
     dotenv (3.1.8)
     drb (2.2.3)
     ed25519 (1.4.0)
-    erb (5.0.3)
+    erb (5.1.1)
     erubi (1.13.1)
     et-orbi (1.2.11)
       tzinfo
@@ -406,10 +406,10 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 4.0)
       websocket (~> 1.0)
-    sentry-rails (5.28.0)
+    sentry-rails (5.28.1)
       railties (>= 5.0)
-      sentry-ruby (~> 5.28.0)
-    sentry-ruby (5.28.0)
+      sentry-ruby (~> 5.28.1)
+    sentry-ruby (5.28.1)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     sexp_processor (4.17.3)
@@ -530,7 +530,7 @@ DEPENDENCIES
   rspec_junit_formatter (~> 0.6.0)
   rubocop-rails-omakase (~> 1.1.0)
   selenium-webdriver
-  sentry-rails (~> 5.28.0)
+  sentry-rails (~> 5.28.1)
   sentry-ruby (~> 5.28.0)
   simple_form (~> 5.4.0)
   simplecov (~> 0.22.0)
