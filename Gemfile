@@ -18,12 +18,12 @@ gem "solid_cable", "~> 3.0.12"
 
 gem "devise", "~> 4.9.4"
 gem "devise_invitable", "~> 2.0.10"
-gem "haml-rails", "~> 2.0"
+gem "haml-rails", "~> 3.0"
 gem "kaminari", "~> 1.2.2"
 gem "loaf", "~> 0.10.0"
 gem "paranoia", "~> 3.0.0"
 gem "pundit", "~> 2.5.2"
-gem "simple_form", "~> 5.3.1"
+gem "simple_form", "~> 5.4.0"
 gem "turbo_power", "~> 0.7.0"
 
 gem "bootsnap", require: false
@@ -31,7 +31,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 group :development, :test do
-  gem "bullet", "~> 8.0.5"
+  gem "bullet", "~> 8.1.0"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.1.8"
   gem "brakeman", "~> 7.1.0", require: false
