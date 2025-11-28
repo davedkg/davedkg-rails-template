@@ -413,9 +413,9 @@ GEM
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
     sexp_processor (4.17.3)
-    simple_form (5.3.1)
-      actionpack (>= 5.2)
-      activemodel (>= 5.2)
+    simple_form (5.4.0)
+      actionpack (>= 7.0)
+      activemodel (>= 7.0)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -532,7 +532,7 @@ DEPENDENCIES
   selenium-webdriver
   sentry-rails (~> 5.28.0)
   sentry-ruby (~> 5.28.0)
-  simple_form (~> 5.3.1)
+  simple_form (~> 5.4.0)
   simplecov (~> 0.22.0)
   solid_cable (~> 3.0.12)
   solid_cache (~> 1.0.8)
