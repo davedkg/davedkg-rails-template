@@ -99,7 +99,7 @@ jobs:
     steps:
       - checkout
       - ruby/install-deps
-      - run: bundle exec haml_lint
+      - run: haml-lint
 
 workflows:
   version: 2
