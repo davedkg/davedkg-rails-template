@@ -8,3 +8,4 @@ linters:
 
 exclude:
   - 'lib/**/*.haml'
+  - 'vendor/**/*.haml'
