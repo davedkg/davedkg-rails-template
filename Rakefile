@@ -8,7 +8,4 @@ Rails.application.load_tasks
 if !Rails.env.production?
   require "rubocop/rake_task"
   RuboCop::RakeTask.new
-
-  require 'haml_lint/rake_task'
-  HamlLint::RakeTask.new
 end
