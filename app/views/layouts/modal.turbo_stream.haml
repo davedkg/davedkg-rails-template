@@ -1,6 +1,6 @@
 = turbo_stream.replace :modal do
   = turbo_frame_tag :modal do
-    .modal.fade{ data: { controller: :modal } }
+    .modal.fade{ data: { controller: "remote-modal" } }
       .modal-dialog.modal-dialog-centered{ class: modal_size_class(@modal_size) }
         .modal-content
           .modal-header
