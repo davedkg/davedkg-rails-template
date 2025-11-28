@@ -1,0 +1,10 @@
+linters:
+  InstanceVariables:
+    enabled: false
+  LineLength:
+    enabled: false
+  ViewLength:
+    enabled: false
+
+exclude:
+  - 'lib/**/*.haml'

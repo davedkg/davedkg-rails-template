@@ -93,6 +93,13 @@ jobs:
       - checkout
       - ruby/install-deps
       - run: bin/importmap outdated
+  haml_lint:
+    executor:
+      name: ruby-executor
+    steps:
+      - checkout
+      - ruby/install-deps
+      - run: bundle exec haml_lint
 
 workflows:
   version: 2
@@ -109,6 +116,9 @@ workflows:
           requires:
             - build
       - fasterer:
+          requires:
+            - build
+      - haml_lint:
           requires:
             - build
       - importmap_audit:

@@ -5,6 +5,6 @@
         .modal-content
           .modal-header
             %h5.modal-title= page_title
-            %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+            %button.btn-close{ "aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button" }
           = turbo_frame_tag "modal-content" do
             = yield

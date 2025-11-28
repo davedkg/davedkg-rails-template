@@ -1,4 +1,4 @@
-#sidebar.sidebar-container.offcanvas-lg.offcanvas-start{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", :tabindex => "-1"}
+.sidebar-container.offcanvas-lg.offcanvas-start#sidebar{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", tabindex: "-1" }
   %nav.navbar.bg-body-tertiary
     %a.btn.btn-light-dark.btn-transparent.btn-navbar.ms-2{ data: { action: "click->sidebar#toggle" } }
       = material_icon("dock_to_right")
