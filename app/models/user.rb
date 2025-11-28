@@ -17,11 +17,6 @@ class User < ApplicationRecord
   validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
 
-  def send_invitation
-    self.invitation_sent_at = Time.zone.now
-    deliver_invitation
-  end
-
   def accepted_invitation?
     invitation_accepted_at?
   end

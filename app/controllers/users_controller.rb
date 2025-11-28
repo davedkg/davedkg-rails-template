@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def resend_invitation_email
-    @user.send_invitation
+    @user.invite!
 
     redirect_to @user, notice: "Invitation email was sucessfully resent."
   end
