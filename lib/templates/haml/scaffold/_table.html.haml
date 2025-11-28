@@ -1,0 +1,12 @@
+.table-responsive{ id: "<%= plural_table_name %>-table" }
+  %table.table.table-striped
+    %thead
+      %tr
+      <%- attributes.each do |attribute| -%>
+        %th <%= attribute.name.humanize %>
+      <%- end -%>
+        %th &nbsp;
+    %tbody{ id: "<%= plural_table_name %>-table-rows" }
+      = render 'table_rows'
+  = turbo_frame_tag "<%= plural_table_name %>-paginator" do
+    = render "paginator"

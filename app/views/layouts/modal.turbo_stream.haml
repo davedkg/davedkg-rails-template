@@ -1,10 +1,10 @@
 = turbo_stream.replace :modal do
   = turbo_frame_tag :modal do
-    .modal.fade{ data: { controller: :modal } }
+    .modal.fade{ data: { controller: "remote-modal" } }
       .modal-dialog.modal-dialog-centered{ class: modal_size_class(@modal_size) }
         .modal-content
           .modal-header
             %h5.modal-title= page_title
-            %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button"}
+            %button.btn-close{ "aria-label" => "Close", "data-bs-dismiss" => "modal", :type => "button" }
           = turbo_frame_tag "modal-content" do
             = yield

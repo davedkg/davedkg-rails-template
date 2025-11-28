@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.4.7"
 
-gem "rails", "~> 8.0.3"
+gem "rails", "~> 8.1.1"
 gem "propshaft", "~> 1.3.1"
 gem "pg", "~> 1.6"
 gem "puma", ">= 5.0"
@@ -21,7 +21,7 @@ gem "devise_invitable", "~> 2.0.10"
 gem "haml-rails", "~> 3.0"
 gem "kaminari", "~> 1.2.2"
 gem "loaf", "~> 0.10.0"
-gem "paranoia", "~> 3.0.0"
+gem "paranoia", "~> 3.1.0"
 gem "pundit", "~> 2.5.2"
 gem "simple_form", "~> 5.4.0"
 gem "turbo_power", "~> 0.7.0"
@@ -37,6 +37,7 @@ group :development, :test do
   gem "brakeman", "~> 7.1.0", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
+  gem "haml_lint", "~>  0.67.0"
   gem "pry-byebug", "~> 3.11.0"
   gem "rspec-rails", "~> 8.0.2"
   gem "rubocop-rails-omakase", "~> 1.1.0", require: false

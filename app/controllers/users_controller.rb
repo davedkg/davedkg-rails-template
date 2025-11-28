@@ -24,7 +24,7 @@ class UsersController < ApplicationController
     if @user.valid? && @user.invite!
       redirect_to @user, notice: "User was successfully invited."
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   end
 
   def resend_invitation_email
-    @user.send_invitation
+    @user.invite!
 
     redirect_to @user, notice: "Invitation email was sucessfully resent."
   end

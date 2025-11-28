@@ -34,7 +34,7 @@ else
         protected
 
         def available_views
-          %w[index edit show new _paginator _table_rows]
+          %w[index edit show new _paginator _table_rows _table]
         end
 
         def available_turbo_stream_views

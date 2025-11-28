@@ -1,18 +1,18 @@
 :javascript
   document.documentElement.dataset.bsTheme = ["LIGHT", "DARK"].includes(localStorage.getItem("USER_THEME")) ? localStorage.getItem("USER_THEME").toLowerCase() : window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
-%meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-%title= "#{page_title} | #{PLATFORM_TITLE}"
-%meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
-%meta{:content => "yes", :name => "apple-mobile-web-app-capable"}/
-%meta{:content => "yes", :name => "mobile-web-app-capable"}/
-%meta{content: "#ffffff", media: "(prefers-color-scheme: light)", name: "theme-color"}/
-%meta{content: "#212529", media: "(prefers-color-scheme: dark)", name: "theme-color"}/
+%meta{ content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type" }/
+%title #{page_title} | #{PLATFORM_TITLE}
+%meta{ content: "width=device-width,initial-scale=1", name: "viewport" }/
+%meta{ content: "yes", name: "apple-mobile-web-app-capable" }/
+%meta{ content: "yes", name: "mobile-web-app-capable" }/
+%meta{ content: "#ffffff", media: "(prefers-color-scheme: light)", name: "theme-color" }/
+%meta{ content: "#212529", media: "(prefers-color-scheme: dark)", name: "theme-color" }/
 = csrf_meta_tags
 = csp_meta_tag
 = action_cable_meta_tag
-%link{:href => "/icon.png", :rel => "icon", :type => "image/png"}/
-%link{:href => "/icon.svg", :rel => "icon", :type => "image/svg+xml"}/
-%link{:href => "/icon.png", :rel => "apple-touch-icon"}/
+%link{ href: "/icon.png", rel: "icon", type: "image/png" }/
+%link{ href: "/icon.svg", rel: "icon", type: "image/svg+xml" }/
+%link{ href: "/icon.png", rel: "apple-touch-icon" }/
 :javascript
   window.process = { env: { NODE_ENV: 'production'} }
 = stylesheet_link_tag :app, "data-turbo-track": "reload"

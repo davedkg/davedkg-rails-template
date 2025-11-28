@@ -14,7 +14,7 @@
       = link_to "javascript:void(0)", { class: "nav-link d-flex", data: { bs_toggle: "collapse", bs_target: "#development-collapse" }, aria: { expended: false, controls: "#development-collapse" } } do
         = material_icon("developer_mode")
         Development
-      #development-collapse.collapse.sidebar-collapse
+      .collapse.sidebar-collapse#development-collapse
         %ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small
           %li
             = link_to "Email Previews", '/rails/mailers', target: "_blank"

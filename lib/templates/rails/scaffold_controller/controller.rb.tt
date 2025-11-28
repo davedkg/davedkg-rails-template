@@ -28,7 +28,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     if @<%= orm_instance.save %>
       redirect_to <%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= %("#{singular_table_name.titleize} was successfully created.") %>
     else
-      render :new, status: :unprocessable_entity
+      render :new, status: :unprocessable_content
     end
   end
 
@@ -36,7 +36,7 @@ class <%= controller_class_name %>Controller < ApplicationController
     if @<%= singular_table_name %>.update(permitted_attributes(@<%= singular_table_name %>))
       redirect_to <%= singular_table_name %>_path(@<%= singular_table_name %>), notice: <%= %("#{singular_table_name.titleize} was successfully updated.") %>
     else
-      render :edit, status: :unprocessable_entity
+      render :edit, status: :unprocessable_content
     end
   end
 
