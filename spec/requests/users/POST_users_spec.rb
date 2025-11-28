@@ -42,18 +42,18 @@ describe 'POST users_path' do
     context 'when email is blank' do
       before { user_params[:email] = nil }
 
-      it 'returns unprocessable_entity status' do
+      it 'returns unprocessable_content status' do
         request
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
 
     context 'when email is invalid' do
       before { user_params[:email] = 'invalid' }
 
-      it 'returns unprocessable_entity status' do
+      it 'returns unprocessable_content status' do
         request
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:unprocessable_content)
       end
     end
   end
