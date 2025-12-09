@@ -7,37 +7,37 @@
       %div
         .dropdown
           %button.btn.btn-primary.btn-lg.dropdown-toggle.dropdown-toggle-remove-after{ "aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button" }
-            = material_icon("more_vert")
+            %i.bi.bi-three-dots-vertical
           %ul.dropdown-menu
             - if policy(@user).resend_invitation_email?
               %li
                 = link_to resend_invitation_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Resend inivitation for #{user_name(@user)}?" do
-                  = material_icon("mail")
+                  %i.bi.bi-envelope
                   Invitation
             - if policy(@user).send_reset_password_email?
               %li
                 = link_to send_reset_password_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Send password reset email for #{user_name(@user)}?" do
-                  = material_icon("mail")
+                  %i.bi.bi-envelope
                   Password Reset
             - if policy(@user).enable?
               %li
                 = link_to enable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Enable #{user_name(@user)}?" do
-                  = material_icon("person")
+                  %i.bi.bi-unlock
                   Enable
             - if policy(@user).disable?
               %li
                 = link_to disable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Disable #{user_name(@user)}?" do
-                  = material_icon("person_off")
+                  %i.bi.bi-lock
                   Disable
             - if policy(@user).destroy?
               %li
                 = link_to @user, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive #{user_name(@user)}?" do
-                  = material_icon("delete")
+                  %i.bi.bi-trash
                   Archive
             - if policy(@user).edit?
               %li
                 = link_to me_path, class: "dropdown-item" do
-                  = material_icon("edit")
+                  %i.bi.bi-pencil
                   Edit
 
 .row.g-2
