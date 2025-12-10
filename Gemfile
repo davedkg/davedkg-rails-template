@@ -12,7 +12,7 @@ gem "stimulus-rails", "~> 1.3.4"
 gem "cssbundling-rails", "~> 1.4.2"
 gem "jbuilder", "~> 2.14.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
-gem "solid_cache", "~> 1.0.8"
+gem "solid_cache", "~> 1.0.10"
 gem "solid_queue", "~> 1.2.4"
 gem "solid_cable", "~> 3.0.12"
 
