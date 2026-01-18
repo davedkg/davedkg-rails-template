@@ -11,10 +11,6 @@ module ApplicationHelper
     MODAL_SIZES[modal_size]
   end
 
-  def material_icon(name, options = {})
-    content_tag(:span, name, class: "material-symbols-#{options[:type] || 'outlined'} #{options[:class]}", data: options[:data])
-  end
-
   def active_for_path(path)
     request.path.start_with?(path) ? "active" : nil
   end
@@ -27,13 +23,6 @@ module ApplicationHelper
     else
       super(name, options, merge_html_options(html_options).to_h)
     end
-  end
-
-  def simple_form_for(record, options = {}, &)
-    data = options[:data] || {}
-    add_stimulus_controller(data, "form")
-    options[:data] = data
-    super
   end
 
   private
