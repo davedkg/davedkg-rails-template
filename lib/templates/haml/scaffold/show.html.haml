@@ -7,17 +7,17 @@
       %div
         .dropdown
           %button.btn.btn-primary.btn-lg.dropdown-toggle.dropdown-toggle-remove-after{ "aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button" }
-            = material_icon("more_vert")
+            %i.bi.bi-three-dots-vertical
           %ul.dropdown-menu
             - if policy(@<%= singular_table_name %>).edit?
               %li
                 = link_to edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), class: "dropdown-item" do
-                  = material_icon("edit")
+                  %i.bi.bi-pencil
                   Edit
             - if policy(@<%= singular_table_name %>).destroy?
               %li
                 = link_to @<%= singular_table_name %>, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive <%= singular_table_name %>?" do
-                  = material_icon("delete")
+                  %i.bi.bi-trash
                   Archive
 
 .row.g-2
