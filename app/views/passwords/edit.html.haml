@@ -4,4 +4,4 @@
   = f.input :password, autocomplete: "new-password", wrapper: :floating_labels_form, placeholder: 'Password'
   = f.input :password_confirmation, autocomplete: "new-password", wrapper: :floating_labels_form, placeholder: 'Password Confirmation'
   .d-grid.gap-2
-    = f.button :submit, "Change Password", data: { "disable-with": "Changing Password..." }
+    = f.button :submit, "Change Password", data: { "turbo-submits-with": "Changing Password..." }

@@ -5,4 +5,4 @@
     = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
     = f.input :name, wrapper: :floating_labels_form, label: "Name"
     = f.input :time_zone, wrapper: :floating_labels_form, label: "Time Zone"
-    = f.button :submit, "Update", data: { "disable-with": "Updating..." }
+    = f.button :submit, "Update", data: { "turbo-submits-with": "Updating..." }

@@ -33,7 +33,7 @@ gem "thruster", require: false
 group :development, :test do
   gem "bullet", "~> 8.1.0"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
-  gem "dotenv", "~> 3.1.8"
+  gem "dotenv", "~> 3.2.0"
   gem "brakeman", "~> 7.1.1", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
@@ -50,7 +50,7 @@ group :development do
 end
 
 group :test do
-  gem "faker", "~> 3.5.2"
+  gem "faker", "~> 3.5.3"
   gem "pundit-matchers", "~> 4.0.0"
   gem "rspec_junit_formatter", "~> 0.6.0", require: false
   gem "simplecov", "~> 0.22.0", require: false
@@ -60,7 +60,7 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 9.22.0"
+  gem "newrelic_rpm", "~> 9.24.0"
   gem "stackprof", "~> 0.2.26"
   gem "sentry-ruby", "~> 5.28.1"
   gem "sentry-rails", "~> 5.28.1"
