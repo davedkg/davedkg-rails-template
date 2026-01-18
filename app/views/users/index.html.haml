@@ -6,7 +6,7 @@
       .col.d-flex.justify-content-end.align-items-center
         - if policy(User).new?
           = link_to new_user_path, class: "btn btn-primary btn-lg" do
-            = material_icon("add")
+            %i.bi.bi-plus-lg
             .d-none.d-sm-inline
               User
 

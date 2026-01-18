@@ -55,9 +55,9 @@ export default class extends Controller {
   mediaQueryChanged(event) {
     if (USER_THEMES.auto === this.userTheme) {
       if (event.matches) {
-        this.bsTheme = USER_THEMES.dark
+        this.bsTheme = BS_THEMES.dark
       } else {
-        this.bsTheme = USER_THEMES.light
+        this.bsTheme = BS_THEMES.light
       }
     }
   }

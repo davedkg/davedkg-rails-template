@@ -10,5 +10,5 @@
       = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
       = f.input :email, wrapper: :floating_labels_form, placeholder: "Email"
       = f.input :role, collection: User.roles, as: :radio_buttons
-      = f.button :submit, "Invite User", data: { "disable-with": "Inviting User..." }
+      = f.button :submit, "Invite User", data: { "turbo-submits-with": "Inviting User..." }
       = link_to "Back", users_path, class: "btn btn-default ms-2"
