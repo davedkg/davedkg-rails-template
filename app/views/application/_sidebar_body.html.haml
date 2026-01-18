@@ -2,17 +2,17 @@
   - if policy(:dashboard).show?
     %li.nav-item
       = link_to dashboard_path, { class: "nav-link d-flex #{active_for_path(dashboard_path)}" } do
-        = material_icon("speed")
+        %i.bi.bi-speedometer2.me-2
         Dashboard
   - if policy(User).index?
     %li.nav-item
       = link_to users_path, { class: "nav-link d-flex #{active_for_path(users_path)}" } do
-        = material_icon("group")
+        %i.bi.bi-people.me-2
         Users
   - if Rails.env.development?
     %li.nav-item
       = link_to "javascript:void(0)", { class: "nav-link d-flex", data: { bs_toggle: "collapse", bs_target: "#development-collapse" }, aria: { expended: false, controls: "#development-collapse" } } do
-        = material_icon("developer_mode")
+        %i.bi.bi-code-slash.me-2
         Development
       .collapse.sidebar-collapse#development-collapse
         %ul.btn-toggle-nav.list-unstyled.fw-normal.pb-1.small

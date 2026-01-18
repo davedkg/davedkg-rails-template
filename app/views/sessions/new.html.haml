@@ -7,4 +7,4 @@
     %div
       = link_to "Forgot password?", new_password_path(resource_name)
   .d-grid.gap-2
-    = f.button :submit, "Sign In", data: { "disable-with": "Signing In..." }
+    = f.button :submit, "Sign In", data: { "turbo-submits-with": "Signing In..." }
