@@ -37,7 +37,7 @@ group :development, :test do
   gem "brakeman", "~> 7.1.2", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
-  gem "haml_lint", "~>  0.67.0"
+  gem "haml_lint", "~> 0.69.0"
   gem "pry-byebug", "~> 3.11.0"
   gem "rspec-rails", "~> 8.0.2"
   gem "rubocop-rails-omakase", "~> 1.1.0", require: false
