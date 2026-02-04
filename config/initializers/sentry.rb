@@ -9,8 +9,20 @@ if ENV["SENTRY_DSN"] && defined?(Sentry)
 
     # Filter Params
     filter = ActiveSupport::ParameterFilter.new(Rails.application.config.filter_parameters)
-    config.before_send = lambda do |event, hint|
-      filter.filter(event.to_hash)
+    config.before_send = lambda do |event, _hint|
+      if event.extra
+        event.extra = filter.filter(event.extra)
+      end
+      if event.user
+        event.user = filter.filter(event.user)
+      end
+      if event.contexts
+        event.contexts = filter.filter(event.contexts)
+      end
+      if event.request&.data
+        event.request.data = filter.filter(event.request.data)
+      end
+      event
     end
   end
 end
