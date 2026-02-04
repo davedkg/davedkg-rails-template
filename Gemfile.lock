@@ -164,7 +164,7 @@ GEM
       sysexits (~> 1.1)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
-    importmap-rails (2.2.2)
+    importmap-rails (2.2.3)
       actionpack (>= 6.0.0)
       activesupport (>= 6.0.0)
       railties (>= 6.0.0)
@@ -521,7 +521,7 @@ DEPENDENCIES
   foreman (~> 0.90.0)
   haml-rails (~> 3.0)
   haml_lint (~> 0.67.0)
-  importmap-rails (~> 2.2.2)
+  importmap-rails (~> 2.2.3)
   jbuilder (~> 2.14.1)
   kamal
   kaminari (~> 1.2.2)
