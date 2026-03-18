@@ -9,13 +9,6 @@ import "controllers"
 
 TurboPower.initialize(Turbo.StreamActions)
 
-// redirect_to while inside a turbo-frame
-document.addEventListener("turbo:frame-missing", (event) => {
-  const { detail: { response, visit } } = event;
-  event.preventDefault();
-  visit(response.url);
-});
-
 Turbo.config.forms.confirm = (message, _element) => {
   return new Promise((resolve, reject) => {
     swal({
