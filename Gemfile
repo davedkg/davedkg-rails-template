@@ -16,7 +16,7 @@ gem "solid_cache", "~> 1.0.10"
 gem "solid_queue", "~> 1.3.1"
 gem "solid_cable", "~> 3.0.12"
 
-gem "devise", "~> 4.9.4"
+gem "devise", "~> 5.0.3"
 gem "devise_invitable", "~> 2.0.10"
 gem "haml-rails", "~> 3.0"
 gem "kaminari", "~> 1.2.2"
@@ -34,7 +34,7 @@ group :development, :test do
   gem "bullet", "~> 8.1.0"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.2.0"
-  gem "brakeman", "~> 7.1.2", require: false
+  gem "brakeman", "~> 8.0.2", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
   gem "haml_lint", "~> 0.69.0"
