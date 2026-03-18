@@ -60,7 +60,6 @@ Created when running ```rake development:seed```.
 | config/initializers/constants.rb | PLATFORM_NAME |
 | config/application.rb | Rails::Application module name |
 | config/database.yml | database names |
-| .ruby-gemset | gemset name |
 | README.md | project title |
 | app.json | name, description, reposiitory |
 
