@@ -13,7 +13,7 @@ gem "cssbundling-rails", "~> 1.4.2"
 gem "jbuilder", "~> 2.14.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache", "~> 1.0.10"
-gem "solid_queue", "~> 1.3.1"
+gem "solid_queue", "~> 1.4.0"
 gem "solid_cable", "~> 3.0.12"
 
 gem "devise", "~> 5.0.3"
@@ -37,7 +37,7 @@ group :development, :test do
   gem "brakeman", "~> 8.0.2", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
-  gem "haml_lint", "~> 0.69.0"
+  gem "haml_lint", "~> 0.72.0"
   gem "pry-byebug", "~> 3.12.0"
   gem "rspec-rails", "~> 8.0.2"
   gem "rubocop-rails-omakase", "~> 1.1.0", require: false
@@ -60,8 +60,8 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 10.1.0"
+  gem "newrelic_rpm", "~> 10.2.0"
   gem "stackprof", "~> 0.2.26"
-  gem "sentry-ruby", "~> 6.2.0"
-  gem "sentry-rails", "~> 6.2.0"
+  gem "sentry-ruby", "~> 6.5.0"
+  gem "sentry-rails", "~> 6.5.0"
 end
