@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 ruby "3.4.9"
 
-gem "rails", "~> 8.1.1"
+gem "rails", "~> 8.1.3"
 gem "propshaft", "~> 1.3.1"
 gem "pg", "~> 1.6"
 gem "puma", ">= 5.0"
@@ -62,6 +62,6 @@ end
 group :production do
   gem "newrelic_rpm", "~> 10.1.0"
   gem "stackprof", "~> 0.2.26"
-  gem "sentry-ruby", "~> 6.2.0"
-  gem "sentry-rails", "~> 6.2.0"
+  gem "sentry-ruby", "~> 6.5.0"
+  gem "sentry-rails", "~> 6.5.0"
 end
