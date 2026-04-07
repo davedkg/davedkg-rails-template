@@ -157,9 +157,9 @@ GEM
       activesupport (>= 5.1)
       haml (>= 4.0.6)
       railties (>= 5.1)
-    haml_lint (0.72.0)
+    haml_lint (0.73.0)
       haml (>= 5.0)
-      parallel (~> 1.10)
+      parallel (>= 1.10)
       rainbow
       rubocop (>= 1.0)
       sysexits (~> 1.1)
@@ -268,7 +268,7 @@ GEM
       racc (~> 1.4)
     orm_adapter (0.5.0)
     ostruct (0.6.3)
-    parallel (1.27.0)
+    parallel (1.28.0)
     paranoia (3.1.0)
       activerecord (>= 7, < 8.2)
     parser (3.3.11.1)
@@ -353,7 +353,7 @@ GEM
       erb
       psych (>= 4.0.0)
       tsort
-    regexp_parser (2.11.3)
+    regexp_parser (2.12.0)
     reline (0.6.3)
       io-console (~> 0.5)
     responders (3.2.0)
@@ -525,7 +525,7 @@ DEPENDENCIES
   fasterer (~> 0.11.0)
   foreman (~> 0.90.0)
   haml-rails (~> 3.0)
-  haml_lint (~> 0.72.0)
+  haml_lint (~> 0.73.0)
   importmap-rails (~> 2.2.3)
   jbuilder (~> 2.14.1)
   kamal
