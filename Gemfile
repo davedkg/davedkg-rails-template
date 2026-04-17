@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.4.9"
 
 gem "rails", "~> 8.1.1"
-gem "propshaft", "~> 1.3.1"
+gem "propshaft", "~> 1.3.2"
 gem "pg", "~> 1.6"
 gem "puma", ">= 5.0"
 gem "importmap-rails", "~> 2.2.3"
