@@ -31,7 +31,7 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 group :development, :test do
-  gem "bullet", "~> 8.1.0"
+  gem "bullet", "~> 8.1.1"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.2.0"
   gem "brakeman", "~> 8.0.2", require: false
