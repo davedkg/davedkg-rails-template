@@ -31,13 +31,13 @@ gem "kamal", require: false
 gem "thruster", require: false
 
 group :development, :test do
-  gem "bullet", "~> 8.1.0"
+  gem "bullet", "~> 8.1.1"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.2.0"
   gem "brakeman", "~> 8.0.2", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
-  gem "haml_lint", "~> 0.72.0"
+  gem "haml_lint", "~> 0.73.0"
   gem "pry-byebug", "~> 3.12.0"
   gem "rspec-rails", "~> 8.0.2"
   gem "rubocop-rails-omakase", "~> 1.1.0", require: false
@@ -50,7 +50,7 @@ group :development do
 end
 
 group :test do
-  gem "faker", "~> 3.6.0"
+  gem "faker", "~> 3.8.0"
   gem "pundit-matchers", "~> 4.0.0"
   gem "rspec_junit_formatter", "~> 0.6.0", require: false
   gem "simplecov", "~> 0.22.0", require: false
@@ -60,7 +60,7 @@ group :test do
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 10.2.0"
+  gem "newrelic_rpm", "~> 10.4.0"
   gem "stackprof", "~> 0.2.26"
   gem "sentry-ruby", "~> 6.5.0"
   gem "sentry-rails", "~> 6.5.0"
