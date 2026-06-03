@@ -120,7 +120,7 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
-    devise_invitable (2.0.11)
+    devise_invitable (2.0.12)
       actionmailer (>= 5.0)
       devise (>= 4.6)
     diff-lcs (1.6.2)
@@ -294,7 +294,7 @@ GEM
     pry-byebug (3.12.0)
       byebug (~> 13.0)
       pry (>= 0.13, < 0.17)
-    psych (5.3.1)
+    psych (5.4.0)
       date
       stringio
     public_suffix (7.0.5)
@@ -518,7 +518,7 @@ DEPENDENCIES
   cssbundling-rails (~> 1.4.2)
   debug
   devise (~> 5.0.4)
-  devise_invitable (~> 2.0.10)
+  devise_invitable (~> 2.0.12)
   dotenv (~> 3.2.0)
   factory_bot_rails (~> 6.5.1)
   faker (~> 3.8.0)
