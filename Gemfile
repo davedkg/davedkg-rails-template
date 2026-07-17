@@ -18,7 +18,7 @@ gem "solid_cable", "~> 4.0.0"
 
 gem "devise", "~> 5.0.4"
 gem "devise_invitable", "~> 2.0.12"
-gem "haml-rails", "~> 3.0"
+gem "haml-rails", "~> 3.1"
 gem "kaminari", "~> 1.2.2"
 gem "loaf", "~> 0.10.0"
 gem "paranoia", "~> 3.1.0"
