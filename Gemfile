@@ -24,7 +24,7 @@ gem "loaf", "~> 0.10.0"
 gem "paranoia", "~> 3.1.0"
 gem "pundit", "~> 2.5.2"
 gem "simple_form", "~> 5.4.1"
-gem "turbo_power", "~> 0.7.0"
+gem "turbo_power", "~> 0.8.0"
 
 gem "bootsnap", require: false
 gem "kamal", require: false
