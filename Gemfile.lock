@@ -546,7 +546,7 @@ DEPENDENCIES
   rubocop-rails-omakase (~> 1.1.0)
   selenium-webdriver
   sentry-rails (~> 6.6.2)
-  sentry-ruby (~> 6.6.0)
+  sentry-ruby (~> 6.6.2)
   simple_form (~> 5.4.1)
   simplecov (~> 0.22.0)
   solid_cable (~> 4.0.0)
