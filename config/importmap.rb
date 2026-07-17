@@ -10,4 +10,4 @@ pin "bootstrap", to: "bootstrap.bundle.min.js", preload: true
 pin "autosize", preload: true # @6.0.1
 pin "sweetalert", preload: true # @2.1.2
 pin "process", preload: true # @2.1.0
-pin "turbo_power", preload: true # @0.7.1
+pin "turbo_power", preload: true # @0.8.0
