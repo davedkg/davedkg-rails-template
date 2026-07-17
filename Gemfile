@@ -34,7 +34,7 @@ group :development, :test do
   gem "bullet", "~> 8.1.3"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.2.0"
-  gem "brakeman", "~> 8.0.2", require: false
+  gem "brakeman", "~> 8.0.5", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
   gem "haml_lint", "~> 0.73.0"
