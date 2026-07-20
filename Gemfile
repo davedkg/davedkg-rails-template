@@ -53,7 +53,7 @@ group :test do
   gem "faker", "~> 3.8.0"
   gem "pundit-matchers", "~> 4.0.0"
   gem "rspec_junit_formatter", "~> 0.6.0", require: false
-  gem "simplecov", "~> 0.22.0", require: false
+  gem "simplecov", "~> 1.0.2", require: false
 
   gem "capybara"
   gem "selenium-webdriver"
