@@ -13,7 +13,7 @@ gem "cssbundling-rails", "~> 1.4.2"
 gem "jbuilder", "~> 2.15.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache", "~> 1.0.10"
-gem "solid_queue", "~> 1.4.0"
+gem "solid_queue", "~> 1.5.0"
 gem "solid_cable", "~> 4.0.0"
 
 gem "devise", "~> 5.0.4"
