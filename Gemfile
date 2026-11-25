@@ -62,6 +62,6 @@ end
 group :production do
   gem "newrelic_rpm", "~> 10.7.1"
   gem "stackprof", "~> 0.2.26"
-  gem "sentry-ruby", "~> 6.7.0"
-  gem "sentry-rails", "~> 6.7.0"
+  gem "sentry-ruby", "~> 7.3.0"
+  gem "sentry-rails", "~> 7.3.0"
 end
