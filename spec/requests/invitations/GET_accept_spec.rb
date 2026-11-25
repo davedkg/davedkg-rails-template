@@ -5,7 +5,7 @@ describe 'GET accept_user_invitation_path' do
 
   let(:user) { create(:user, :invitation_not_accepted) }
   let(:raw_invitation_token) do
-    user.invite! { |u| u.skip_invitation = true }
+    user.invite!
     user.raw_invitation_token
   end
 

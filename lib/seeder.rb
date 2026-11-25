@@ -14,7 +14,6 @@ class Seeder
       email: user_json["email"],
       password: user_json["password"],
       confirmed_at: time_current,
-      invitation_accepted_at: time_current,
       role: user_json["role"] || User.roles[:user]
     )
   end

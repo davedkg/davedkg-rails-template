@@ -39,13 +39,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
       # t.datetime :locked_at
 
       ## Invitable
-      t.string     :invitation_token
-      t.datetime   :invitation_created_at
-      t.datetime   :invitation_sent_at
-      t.datetime   :invitation_accepted_at
-      t.integer    :invitation_limit
-      t.references :invited_by, polymorphic: true
-      t.integer    :invitations_count, default: 0
+      # Invitation rows live in devise_invitations. These columns describe the inviter.
+      t.integer :invitation_limit
+      t.integer :invitations_count, default: 0
 
       # Paranoidal
       t.datetime :deleted_at
@@ -57,6 +53,5 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
     add_index :users, [ :deleted_at, :reset_password_token ], unique: true
     add_index :users, [ :deleted_at, :confirmation_token ],   unique: true
     # add_index :users, [:delted_at, :unlock_token],         unique: true
-    add_index :users, [ :deleted_at, :invitation_token ],     unique: true
   end
 end
