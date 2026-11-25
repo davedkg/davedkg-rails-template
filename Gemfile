@@ -13,7 +13,7 @@ gem "cssbundling-rails", "~> 1.4.2"
 gem "jbuilder", "~> 2.15.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache", "~> 1.0.10"
-gem "solid_queue", "~> 1.6.0"
+gem "solid_queue", "~> 1.7.0"
 gem "solid_cable", "~> 4.0.2"
 
 gem "devise", "~> 5.0.4"
@@ -34,7 +34,7 @@ group :development, :test do
   gem "bullet", "~> 8.2.0"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.2.0"
-  gem "brakeman", "~> 8.0.5", require: false
+  gem "brakeman", "~> 8.0.6", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
   gem "haml_lint", "~> 0.78.0"
