@@ -1,8 +1,8 @@
 .row
-  .col-lg-4.col-md-6.col-sm-12
-    .card.bg-body-tertiary
+  %div{ class: "lg:col-4 md:col-6 sm:col-12" }
+    .card.bg-1
       .card-body
         .text-center
-          %i.bi.bi-people.text-success.dashboard-icon
+          %i.bi.bi-people.fg-success.dashboard-icon
           %h6.mb-2 Total Users
           %h2.mb-3= User.count

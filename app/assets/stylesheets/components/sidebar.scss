@@ -1,6 +1,5 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
+@use "bootstrap/scss/bootstrap" as *;
+@use "../variables" as *;
 
 .sidebar-container {
   display: flex;
@@ -8,19 +7,19 @@
   transition: all 0.3s ease;
 
   .nav-link {
-    color: var(--bs-btn-color);
+    color: var(--btn-color);
 
     span {
       margin-right: 0.5rem;
     }
 
     &:hover:not(.active) {
-      color: var(--bs-nav-link-hover-color);
+      color: var(--nav-link-hover-color);
     }
   }
 
   .sidebar-collapse a {
-    color: var(--bs-btn-color);
+    color: var(--btn-color);
     display: inline-flex;
     margin-left: 2.5rem;
     margin-top: .125rem;
@@ -28,7 +27,7 @@
     text-decoration: none;
 
     &:hover {
-      color: var(--bs-nav-link-hover-color);
+      color: var(--nav-link-hover-color);
     }
   }
 }
@@ -39,6 +38,23 @@
       position: relative;
       width: 0;
       z-index: -10;
+    }
+  }
+}
+
+@include media-breakpoint-down(lg) {
+  .sidebar-container {
+    background-color: var(--bg-1);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%);
+    width: $sidebar-width;
+    z-index: 1040;
+
+    &.show {
+      transform: none;
     }
   }
 }

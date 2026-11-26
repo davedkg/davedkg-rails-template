@@ -1,7 +1,7 @@
-.sidebar-container.offcanvas-lg.offcanvas-start#sidebar{ data: { sidebar_target: "sidebar" }, "aria-labelledby" => "sidebarLabel", tabindex: "-1" }
-  %nav.navbar.bg-body-tertiary
-    %a.btn.btn-light-dark.btn-transparent.btn-navbar.ms-2{ data: { action: "click->sidebar#toggle" } }
+.sidebar-container#sidebar{ data: { sidebar_target: "sidebar" } }
+  %nav.navbar.bg-1
+    %a.btn.btn-transparent.btn-navbar.ms-2{ data: { action: "click->sidebar#toggle" } }
       %i.bi.bi-layout-sidebar
-  .d-flex.flex-column.flex-grow-1.bg-body-tertiary
+  .d-flex.flex-column.flex-grow-1.bg-1
     .overflow-scroll.d-flex.flex-column.flex-grow-1
       = render 'sidebar_body'

@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'A user can view an modal', type: :feature, js: true do
   SIZE_BUTTONS = [ "Small", "Default", "Large", "Extra Large" ]
-  MODAL_SELECTOR = ".modal"
+  MODAL_SELECTOR = "dialog.dialog"
 
   let(:user) { create(:user, :admin) }
 

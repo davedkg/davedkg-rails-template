@@ -6,9 +6,8 @@
     "yarn": "1.22.22"
   },
   "dependencies": {
-    "@popperjs/core": "^2.11.8",
     "autoprefixer": "^10.4.20",
-    "bootstrap": "^5.3.3",
+    "bootstrap": "6.0.0-alpha.2",
     "bootstrap-icons": "^1.13.1",
     "nodemon": "^3.1.9",
     "postcss": "^8.5.23",
@@ -22,7 +21,11 @@
     "watch:css": "nodemon --watch ./app/assets/stylesheets/ --ext scss --exec \"yarn build:css\""
   },
   "browserslist": [
-    "defaults"
+    "chrome >= 138",
+    "edge >= 138",
+    "firefox >= 147",
+    "safari >= 26",
+    "ios_saf >= 26"
   ],
   "resolutions": {
     "ansi-styles": "7.0.0",

@@ -1,7 +1,7 @@
-%nav.navbar.navbar-expand-lg.sticky-top
-  %a.btn.btn-light-dark.btn-navbar.btn-transparent.navbar-sidebar-toggle{ data: { action: "click->sidebar#toggle" } }
+%nav.navbar.sticky-top{ class: "lg:navbar-expand" }
+  %a.btn.btn-navbar.btn-transparent.navbar-sidebar-toggle{ data: { action: "click->sidebar#toggle" } }
     %i.bi.bi-layout-sidebar
   = link_to PLATFORM_TITLE, root_path, class: "navbar-brand"
-  .navbar-nav.ms-md-auto
-    = link_to me_path, class: "btn btn-light-dark btn-transparent btn-navbar" do
+  .navbar-nav{ class: "md:ms-auto" }
+    = link_to me_path, class: "btn btn-transparent btn-navbar" do
       %i.bi.bi-person-circle

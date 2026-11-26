@@ -1,22 +1,27 @@
-@use 'bootstrap/scss/bootstrap';
-@use 'bootstrap-icons/font/bootstrap-icons';
+@use "theme" as theme;
+@use "bootstrap/scss/bootstrap" with (
+  $colors: theme.$colors,
+  $theme-colors: theme.$theme-colors,
+  $root-tokens: theme.$root-tokens,
+  $radius: theme.$radius
+);
+@use "bootstrap-icons/font/bootstrap-icons";
 
-@use 'vendors/sweetalert';
+@use "vendors/sweetalert";
 
-@use 'components/anchors';
-@use 'components/breadcrumbs';
-@use 'components/buttons';
-@use 'components/cards';
-@use 'components/dls';
-@use 'components/dropdowns';
-@use 'components/inputs';
-@use 'components/layout';
-@use 'components/nav';
-@use 'components/navbar';
-@use 'components/pagination';
-@use 'components/sidebar';
-@use 'components/tables';
+@use "components/anchors";
+@use "components/breadcrumbs";
+@use "components/buttons";
+@use "components/cards";
+@use "components/dls";
+@use "components/inputs";
+@use "components/layout";
+@use "components/nav";
+@use "components/navbar";
+@use "components/pagination";
+@use "components/sidebar";
+@use "components/tables";
 
-@use 'pages/dashboard';
-@use 'pages/me';
-@use 'pages/splash';
+@use "pages/dashboard";
+@use "pages/me";
+@use "pages/splash";

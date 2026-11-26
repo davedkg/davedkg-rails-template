@@ -3,4 +3,4 @@
   = f.input :email, autocomplete: "email", wrapper: :floating_labels_form, placeholder: 'Email'
   .d-grid.gap-2
     = f.button :submit, "Email Reset Password Instructions", data: { "turbo-submits-with": "Emailing Reset Password Instructions..." }
-    = link_to "Back to Sign In", new_session_path(resource_name), class: "btn btn-default"
+    = link_to "Back to Sign In", new_session_path(resource_name), class: "btn btn-outline theme-secondary"

@@ -1,0 +1,20 @@
+// Brand file. This is the file a product app edits.
+//
+// $colors "blue" rebuilds the blue scale. Primary reads those tokens, so
+// buttons, links, focus rings, and both color modes follow this hue.
+//
+// $theme-colors replaces one semantic color. Pass that color's whole map:
+// base, fg, fg-emphasis, bg, bg-subtle, bg-muted, border, focus-ring, contrast.
+//
+// $root-tokens key --body-font-family sets the type stack.
+// $radius sets the radius scale and generates --radius-1 through --radius-9.
+
+$colors: (
+  "blue": oklch(60% 0.24 240)
+);
+
+$theme-colors: ();
+
+$root-tokens: ();
+
+$radius: 0.5rem;
