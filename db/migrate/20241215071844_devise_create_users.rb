@@ -39,13 +39,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
       # t.datetime :locked_at
 
       ## Invitable
-      t.string     :invitation_token
-      t.datetime   :invitation_created_at
-      t.datetime   :invitation_sent_at
-      t.datetime   :invitation_accepted_at
-      t.integer    :invitation_limit
-      t.references :invited_by, polymorphic: true
-      t.integer    :invitations_count, default: 0
+      # Invitation rows live in devise_invitations. These columns describe the inviter.
+      t.integer :invitation_limit
+      t.integer :invitations_count, default: 0
 
       # Paranoidal
       t.datetime :deleted_at
@@ -56,7 +52,28 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
     add_index :users, [ :deleted_at, :email ],                unique: true
     add_index :users, [ :deleted_at, :reset_password_token ], unique: true
     add_index :users, [ :deleted_at, :confirmation_token ],   unique: true
-    # add_index :users, [:delted_at, :unlock_token],         unique: true
-    add_index :users, [ :deleted_at, :invitation_token ],     unique: true
+    # add_index :users, [ :deleted_at, :unlock_token ],       unique: true
+
+    create_table :devise_invitations, id: :uuid do |t|
+      t.string :invitation_token
+      t.datetime :invitation_created_at
+      t.datetime :invitation_sent_at
+      t.datetime :invitation_accepted_at
+      t.datetime :superseded_at
+      t.string :superseded_reason
+      t.datetime :revoked_at
+      t.datetime :resource_created_at
+      t.json :invite_key, null: false, default: {}
+      t.string :invite_key_digest, null: false
+      t.references :invitable, polymorphic: true, type: :uuid, index: false
+      t.references :invited_by, polymorphic: true, type: :uuid, index: false
+      t.datetime :deleted_at
+      t.timestamps
+    end
+
+    add_index :devise_invitations, [ :deleted_at, :invitation_token ], unique: true
+    add_index :devise_invitations, [ :deleted_at, :invitable_type, :invitable_id ]
+    add_index :devise_invitations, [ :deleted_at, :invited_by_type, :invited_by_id ]
+    add_index :devise_invitations, [ :deleted_at, :invitable_type, :invite_key_digest ]
   end
 end

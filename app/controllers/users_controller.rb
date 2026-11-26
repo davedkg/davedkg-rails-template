@@ -18,10 +18,9 @@ class UsersController < ApplicationController
   def create
     @user = authorize User.new
     @user.attributes               = permitted_attributes(@user)
-    @user.invited_by               = current_user
     @user.skip_password_validation = true
 
-    if @user.valid? && @user.invite!
+    if @user.valid? && @user.invite!(current_user)
       redirect_to @user, notice: "User was successfully invited."
     else
       render :new, status: :unprocessable_content

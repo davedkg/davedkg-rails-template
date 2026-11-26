@@ -7,7 +7,7 @@ describe 'PATCH user_invitation_path' do
   let(:user_params) { { password:, invitation_token: raw_invitation_token } }
   let(:password) { user.password }
   let(:raw_invitation_token) do
-    user.invite! { |u| u.skip_invitation = true }
+    user.invite!
     user.raw_invitation_token
   end
 

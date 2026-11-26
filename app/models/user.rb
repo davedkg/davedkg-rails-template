@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :confirmable, :recoverable, :rememberable, :validatable, :invitable,
-         validate_on_invite: true
+         validate_on_invite: true, create_resource_on_invitation: true
 
   enum :role, {
     user: "user",
@@ -16,10 +16,6 @@ class User < ApplicationRecord
 
   validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
-
-  def accepted_invitation?
-    invitation_accepted_at?
-  end
 
   ## *** Devise Overrides
 

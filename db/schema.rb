@@ -14,35 +14,51 @@ ActiveRecord::Schema[8.1].define(version: 2024_12_15_071844) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
-  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.datetime "confirmation_sent_at"
-    t.string "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "created_at", null: false
+  create_table "devise_invitations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "invitation_token"
+    t.datetime "invitation_created_at"
+    t.datetime "invitation_sent_at"
+    t.datetime "invitation_accepted_at"
+    t.datetime "superseded_at"
+    t.string "superseded_reason"
+    t.datetime "revoked_at"
+    t.datetime "resource_created_at"
+    t.json "invite_key", default: {}, null: false
+    t.string "invite_key_digest", null: false
+    t.string "invitable_type"
+    t.uuid "invitable_id"
+    t.string "invited_by_type"
+    t.uuid "invited_by_id"
     t.datetime "deleted_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["deleted_at", "invitable_type", "invitable_id"], name: "idx_on_deleted_at_invitable_type_invitable_id_c3f6c5e9ea"
+    t.index ["deleted_at", "invitable_type", "invite_key_digest"], name: "idx_on_deleted_at_invitable_type_invite_key_digest_3650eb2c27"
+    t.index ["deleted_at", "invitation_token"], name: "index_devise_invitations_on_deleted_at_and_invitation_token", unique: true
+    t.index ["deleted_at", "invited_by_type", "invited_by_id"], name: "idx_on_deleted_at_invited_by_type_invited_by_id_560086d12f"
+  end
+
+  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.datetime "invitation_accepted_at"
-    t.datetime "invitation_created_at"
-    t.integer "invitation_limit"
-    t.datetime "invitation_sent_at"
-    t.string "invitation_token"
-    t.integer "invitations_count", default: 0
-    t.bigint "invited_by_id"
-    t.string "invited_by_type"
     t.string "name"
-    t.datetime "remember_created_at"
-    t.datetime "reset_password_sent_at"
-    t.string "reset_password_token"
-    t.string "role", default: "user", null: false
     t.string "state", default: "enabled", null: false
+    t.string "role", default: "user", null: false
     t.string "time_zone", default: "Eastern Time (US & Canada)", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
     t.string "unconfirmed_email"
+    t.integer "invitation_limit"
+    t.integer "invitations_count", default: 0
+    t.datetime "deleted_at"
+    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["deleted_at", "confirmation_token"], name: "index_users_on_deleted_at_and_confirmation_token", unique: true
     t.index ["deleted_at", "email"], name: "index_users_on_deleted_at_and_email", unique: true
-    t.index ["deleted_at", "invitation_token"], name: "index_users_on_deleted_at_and_invitation_token", unique: true
     t.index ["deleted_at", "reset_password_token"], name: "index_users_on_deleted_at_and_reset_password_token", unique: true
-    t.index ["invited_by_type", "invited_by_id"], name: "index_users_on_invited_by"
   end
 end
