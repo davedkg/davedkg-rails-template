@@ -27,7 +27,6 @@ gem "simple_form", "~> 5.4.1"
 gem "turbo_power", "~> 0.8.0"
 
 gem "bootsnap", require: false
-gem "prism", "~> 2.1.0"
 gem "kamal", require: false
 gem "thruster", require: false
 
