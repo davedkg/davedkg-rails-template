@@ -25,6 +25,20 @@
     "defaults"
   ],
   "resolutions": {
-    "minimatch": "11.0.9"
+    "ansi-styles": "7.0.0",
+    "balanced-match": "5.0.0",
+    "binary-extensions": "3.2.0",
+    "chokidar": "6.0.0",
+    "emoji-regex": "11.0.0",
+    "glob-parent": "7.0.0",
+    "has-flag": "5.0.1",
+    "ignore-by-default": "2.1.0",
+    "is-binary-path": "3.0.0",
+    "minimatch": "11.0.9",
+    "nanoid": "6.0.2",
+    "node-addon-api": "8.9.2",
+    "string-width": "9.0.0",
+    "supports-color": "11.0.0",
+    "wrap-ansi": "10.0.2"
   }
 }
