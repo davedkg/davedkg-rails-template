@@ -1,48 +1,41 @@
-.card.bg-body-tertiary.mb-3
+.card.bg-1.mb-3
   .card-body
     .d-flex.flex-row.justify-content-between.align-items-center
       %div
         %h5.mb-1= page_title
         = render 'breadcrumbs'
       %div
-        .dropdown
-          %button.btn.btn-primary.btn-lg.dropdown-toggle.dropdown-toggle-remove-after{ "aria-expanded" => "false", "data-bs-toggle" => "dropdown", :type => "button" }
-            %i.bi.bi-three-dots-vertical
-          %ul.dropdown-menu
-            - if policy(@user).resend_invitation_email?
-              %li
-                = link_to resend_invitation_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Resend inivitation for #{user_name(@user)}?" do
-                  %i.bi.bi-envelope
-                  Invitation
-            - if policy(@user).send_reset_password_email?
-              %li
-                = link_to send_reset_password_email_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Send password reset email for #{user_name(@user)}?" do
-                  %i.bi.bi-envelope
-                  Password Reset
-            - if policy(@user).enable?
-              %li
-                = link_to enable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Enable #{user_name(@user)}?" do
-                  %i.bi.bi-unlock
-                  Enable
-            - if policy(@user).disable?
-              %li
-                = link_to disable_user_path(@user), class: "dropdown-item", "data-turbo-method": :post, "data-turbo-confirm": "Disable #{user_name(@user)}?" do
-                  %i.bi.bi-lock
-                  Disable
-            - if policy(@user).destroy?
-              %li
-                = link_to @user, class: "dropdown-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive #{user_name(@user)}?" do
-                  %i.bi.bi-trash
-                  Archive
-            - if policy(@user).edit?
-              %li
-                = link_to me_path, class: "dropdown-item" do
-                  %i.bi.bi-pencil
-                  Edit
+        %button.btn.btn-solid.theme-primary.btn-lg{ "aria-expanded" => "false", "data-bs-toggle" => "menu", type: "button" }
+          %i.bi.bi-three-dots-vertical
+        .menu
+          - if policy(@user).resend_invitation_email?
+            = link_to resend_invitation_email_user_path(@user), class: "menu-item", "data-turbo-method": :post, "data-turbo-confirm": "Resend inivitation for #{user_name(@user)}?" do
+              %i.bi.bi-envelope
+              Invitation
+          - if policy(@user).send_reset_password_email?
+            = link_to send_reset_password_email_user_path(@user), class: "menu-item", "data-turbo-method": :post, "data-turbo-confirm": "Send password reset email for #{user_name(@user)}?" do
+              %i.bi.bi-envelope
+              Password Reset
+          - if policy(@user).enable?
+            = link_to enable_user_path(@user), class: "menu-item", "data-turbo-method": :post, "data-turbo-confirm": "Enable #{user_name(@user)}?" do
+              %i.bi.bi-unlock
+              Enable
+          - if policy(@user).disable?
+            = link_to disable_user_path(@user), class: "menu-item", "data-turbo-method": :post, "data-turbo-confirm": "Disable #{user_name(@user)}?" do
+              %i.bi.bi-lock
+              Disable
+          - if policy(@user).destroy?
+            = link_to @user, class: "menu-item", "data-turbo-method": :delete, "data-turbo-confirm": "Archive #{user_name(@user)}?" do
+              %i.bi.bi-trash
+              Archive
+          - if policy(@user).edit?
+            = link_to me_path, class: "menu-item" do
+              %i.bi.bi-pencil
+              Edit
 
 .row.g-2
-  .col-sm-12.col-md-6
-    .card.bg-body-tertiary
+  %div{ class: "sm:col-12 md:col-6" }
+    .card.bg-1
       .card-body
         %dl.mb-0
           %dt Status

@@ -1,11 +1,8 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-
-@import "../variables";
+@use "bootstrap/scss/bootstrap" as *;
+@use "../variables" as *;
 
 .navbar {
-  background-color: var(--bs-body-bg);
+  background-color: var(--bg-body);
   height: $navbar-height;
 }
 

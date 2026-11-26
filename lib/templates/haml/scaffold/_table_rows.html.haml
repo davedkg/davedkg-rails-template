@@ -5,7 +5,7 @@
   <%- end -%>
     %td.text-end
       - if policy(<%= singular_table_name %>).show?
-        = link_to <%= singular_table_name %>, class: "btn btn-secondary btn-sm" do
+        = link_to <%= singular_table_name %>, class: "btn btn-outline theme-secondary btn-sm" do
           %i.bi.bi-eye
-          .d-none.d-sm-inline
+          .d-none{ class: "sm:d-inline" }
             Show

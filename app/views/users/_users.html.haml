@@ -1,11 +1,11 @@
 - @users.each do |user|
   %tr
-    %td.d-none.d-md-table-cell
+    %td.d-none{ class: "md:d-table-cell" }
       = user_status_badge(user)
     %td= user_name(user)
     %td.text-end
       - if policy(user).show?
-        = link_to user_path(user), class: "btn btn-secondary btn-sm" do
+        = link_to user_path(user), class: "btn btn-outline theme-secondary btn-sm" do
           %i.bi.bi-eye
-          .d-none.d-sm-inline
+          .d-none{ class: "sm:d-inline" }
             Show

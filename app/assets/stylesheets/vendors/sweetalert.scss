@@ -1,85 +1,61 @@
-@import "bootstrap/scss/functions";
-@import "bootstrap/scss/variables";
-@import "bootstrap/scss/mixins";
-@import "bootstrap/scss/buttons";
-
 .swal-footer {
   text-align: center;
 }
 
 .swal-icon--warning {
-  border-color: var(--bs-warning) !important;
+  border-color: var(--warning-base) !important;
 }
 
 .swal-icon--warning__body,
 .swal-icon--warning__dot {
-  background-color: var(--bs-warning);
+  background-color: var(--warning-base);
 }
 
 .swal-button {
-  background-color: var(--bs-btn-border-color);
-  border-color: var(--bs-btn-border-color);
-  color: var(--bs-btn-color);
+  background-color: var(--bg-2);
+  border-color: var(--border-color);
+  color: var(--fg-body);
 
   &:not([disabled]):hover {
-    background-color: var(--bs-btn-hover-border-color);
-    border-color: var(--bs-btn-hover-border-color);
-    color: var(--bs-btn-hover-color);
+    background-color: var(--bg-3);
+    border-color: var(--border-color);
+    color: var(--fg-body);
   }
 
   &:focus {
-    box-shadow: var(--bs-btn-focus-shadow-rgb);
-  }
-
-  &:active {
-    background-color: var(--bs-btn-active-border-color);
-    border-color: var(--bs-btn-active-border-color);
-    box-shadow: var(--bs-btn-active-shadow);
-    color: var(--bs-btn-active-color);
+    outline: var(--focus-ring);
   }
 
   &:disabled {
-    background-color: var(--bs-btn-disabled-border-color);
-    border-color: var(--bs-btn-disabled-border-color);
-    color: var(--bs-btn-disabled-color);
+    opacity: 0.65;
   }
 }
 
 .swal-button--confirm {
-  @extend .btn-warning;
+  background-color: var(--warning-bg);
+  border-color: var(--warning-bg);
+  color: var(--warning-contrast);
 }
 
 .swal-button--cancel {
-  @extend .btn-light;
+  background-color: var(--bg-2);
+  border-color: var(--border-color);
+  color: var(--fg-body);
 }
 
-// Taken from: https://github.com/ddasutein/AutoRename/blob/dev/lib/SweetAlert/node_modules/sweetalert/dist/sweetalert.min.js
-@include color-mode(dark) {
-  .swal-button--cancel {
-    @extend .btn-dark;
-  }
+.swal-modal,
+.swal-content__textarea {
+  background-color: var(--bg-body);
+  color: var(--fg-body);
+}
 
-  .swal-modal,
-  .swal-content__textarea {
-    background-color: var(--bs-body-bg);
-    color: var(--bs-white);
-  }
+.swal-icon--success:after,
+.swal-icon--success:before,
+.swal-icon--success__hide-corners {
+  background: var(--bg-body);
+}
 
-  .swal-icon--success:after,
-  .swal-icon--success:before {
-    background: var(--bs-body-bg);
-  }
-
-  .swal-icon--success__hide-corners {
-    background-color: var(--bs-body-bg);
-  }
-
-  .swal-text:first-child,
-  .swal-text:last-child,
-  .swal-title:first-child,
-  .swal-text,
-  .swal-title:not(:first-child),
-  .swal-title:not(:last-child) {
-    color: var(--bs-white);
-  }
+.swal-text,
+.swal-title {
+  color: var(--fg-body);
 }

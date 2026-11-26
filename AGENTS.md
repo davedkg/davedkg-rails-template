@@ -11,7 +11,7 @@ These rules apply while the GitHub repository is `davedkg/davedkg-rails-template
 - Verify here with local RSpec, the linters below, and CircleCI. A Heroku deploy is not a check for this repo.
 - Keep Ruby at `3.4.13` in `.ruby-version`, the `Gemfile`, `Dockerfile` `RUBY_VERSION`, and the CircleCI image `cimg/ruby:3.4.13-browsers`.
 - Keep Node at `24.22.3` in `.nvmrc`, `package.json` `engines.node`, `Dockerfile` `NODE_VERSION`, and CircleCI `node-version`. Keep Yarn at `1.22.22` in `package.json` `engines.yarn`.
-- Keep Gemfile constraints pessimistic (`~> x.y.z`). Keep Bootstrap on 5.x. Keep the Yarn `resolutions` pin `minimatch` at `11.0.9`. Leave `prism` transitive. Keep `marcel`, `diff-lcs`, and `net-ssh` on the versions Rails, RSpec, and Kamal allow.
+- Keep Gemfile constraints pessimistic (`~> x.y.z`). Keep Bootstrap at `6.0.0-alpha.2` in `package.json`. Brand colors, type, and radius live in `app/assets/stylesheets/theme.scss`. Keep the Yarn `resolutions` pin `minimatch` at `11.0.9`. Leave `prism` transitive. Keep `marcel`, `diff-lcs`, and `net-ssh` on the versions Rails, RSpec, and Kamal allow.
 - Bump a major only when asked.
 - Invitation rows live in `devise_invitations`, created inside `db/migrate/20241215071844_devise_create_users.rb`. Extend that migration for a fresh install. A unique index on a paranoid table is composite and starts with `deleted_at`.
 - Run RSpec. `config/ci.rb` still calls `bin/rails test`, and this app has no Minitest suite.

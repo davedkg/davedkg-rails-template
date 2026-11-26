@@ -1,10 +1,11 @@
 import { Controller } from "@hotwired/stimulus";
+import { Dialog } from "bootstrap";
 
 export default class extends Controller {
   connect() {
-    new bootstrap.Modal(this.element).show();
+    new Dialog(this.element).show();
 
-    this.element.addEventListener("hidden.bs.modal", () => {
+    this.element.addEventListener("hidden.bs.dialog", () => {
       this.element.remove();
     });
   }

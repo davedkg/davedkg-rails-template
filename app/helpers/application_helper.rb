@@ -2,9 +2,9 @@ module ApplicationHelper
   include Stimulusable
 
   MODAL_SIZES = {
-    xl: "modal-xl",
-    large: "modal-lg",
-    small: "modal-sm"
+    xl: "dialog-xl",
+    large: "dialog-lg",
+    small: "dialog-sm"
   }.freeze
 
   def modal_size_class(modal_size)

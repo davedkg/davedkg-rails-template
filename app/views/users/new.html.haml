@@ -1,9 +1,9 @@
-.card.bg-body-tertiary.mb-3
+.card.bg-1.mb-3
   .card-body
     %h5.mb-1= page_title
     = render 'breadcrumbs'
 
-.card.bg-body-tertiary
+.card.bg-1
   .card-body
     = simple_form_for(@user) do |f|
       = f.error_notification
@@ -11,4 +11,4 @@
       = f.input :email, wrapper: :floating_labels_form, placeholder: "Email"
       = f.input :role, collection: User.roles, as: :radio_buttons
       = f.button :submit, "Invite User", data: { "turbo-submits-with": "Inviting User..." }
-      = link_to "Back", users_path, class: "btn btn-default ms-2"
+      = link_to "Back", users_path, class: "btn btn-outline theme-secondary ms-2"

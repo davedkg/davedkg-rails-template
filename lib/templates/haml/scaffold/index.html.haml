@@ -1,14 +1,14 @@
-.card.bg-body-tertiary.mb-3
+.card.bg-1.mb-3
   .card-body
     .row
       .col.d-flex.align-items-center
-        %h3.mb-0.text-secondary-emphasis= page_title
+        %h3.mb-0.fg-emphasis-secondary= page_title
       .col.d-flex.justify-content-end.align-items-center
         .d-flex.gap-2
           - if policy(<%= class_name %>).new?
-            = link_to new_<%= singular_table_name %>_path, class: "btn btn-primary btn-lg" do
+            = link_to new_<%= singular_table_name %>_path, class: "btn btn-solid theme-primary btn-lg" do
               %i.bi.bi-plus-lg
-              .d-none.d-sm-inline
+              .d-none{ class: "sm:d-inline" }
                 <%= singular_table_name.titleize %>
 
 = render 'table'
