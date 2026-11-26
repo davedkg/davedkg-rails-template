@@ -83,12 +83,15 @@ git merge --allow-unrelated-histories template/main
 ### Configuring
 
 ```bash
+heroku buildpacks:add heroku/nodejs
 heroku buildpacks:add heroku/ruby
-heroku buildpacks:set --index 1 https://github.com/leoafarias/heroku-buildpack-node-modules-cleanup
+heroku buildpacks:add https://github.com/leoafarias/heroku-buildpack-node-modules-cleanup
 heroku labs:enable runtime-dyno-metadata # Sentry Release Detection, HEROKU_APP_NAME
 heroku config:set APP_DOMAIN www.example.com
 heroku config:set SOLID_QUEUE_IN_PUMA true
 ```
+
+Node **24.22.3** and Yarn **1.22.22** come from `package.json` `engines`. Buildpack order is `heroku/nodejs`, then `heroku/ruby`, then the cleanup buildpack. Cleanup removes `node_modules` after assets compile. `Procfile` defines `web` and `release`.
 
 ### Solid
 
