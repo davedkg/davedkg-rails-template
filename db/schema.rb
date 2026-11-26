@@ -29,11 +29,12 @@ ActiveRecord::Schema[8.1].define(version: 2024_12_15_071844) do
     t.uuid "invitable_id"
     t.string "invited_by_type"
     t.uuid "invited_by_id"
+    t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at", "invitation_token"], name: "index_devise_invitations_on_deleted_at_and_invitation_token", unique: true
     t.index ["invitable_type", "invitable_id"], name: "index_devise_invitations_on_invitable"
     t.index ["invitable_type", "invite_key_digest"], name: "index_devise_invitations_on_type_and_invite_key"
-    t.index ["invitation_token"], name: "index_devise_invitations_on_invitation_token", unique: true
     t.index ["invited_by_type", "invited_by_id"], name: "index_devise_invitations_on_invited_by"
   end
 
