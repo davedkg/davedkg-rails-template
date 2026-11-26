@@ -23,5 +23,8 @@
   },
   "browserslist": [
     "defaults"
-  ]
+  ],
+  "resolutions": {
+    "minimatch": "11.0.9"
+  }
 }
