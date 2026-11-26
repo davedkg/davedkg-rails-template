@@ -16,11 +16,11 @@ class UserPolicy < ApplicationPolicy
   end
 
   def resend_invitation_email?
-    admin? && !me? && !accepted_invitation?
+    admin? && !me? && !record.accepted_or_not_invited?
   end
 
   def send_reset_password_email?
-    admin? && !me? && accepted_invitation?
+    admin? && !me? && record.accepted_or_not_invited?
   end
 
   def enable?
@@ -28,7 +28,7 @@ class UserPolicy < ApplicationPolicy
   end
 
   def disable?
-    admin? && !me? && enabled? && accepted_invitation?
+    admin? && !me? && enabled? && record.accepted_or_not_invited?
   end
 
   def permitted_attributes
@@ -53,10 +53,6 @@ class UserPolicy < ApplicationPolicy
 
   def me?
     user == record
-  end
-
-  def accepted_invitation?
-    record.accepted_invitation?
   end
 
   def enabled?

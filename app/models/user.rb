@@ -17,10 +17,6 @@ class User < ApplicationRecord
   validates :name,      presence: true, on: :update
   validates :time_zone, presence: true, time_zone: true
 
-  def accepted_invitation?
-    accepted_or_not_invited?
-  end
-
   ## *** Devise Overrides
 
   def send_devise_notification(notification, *)

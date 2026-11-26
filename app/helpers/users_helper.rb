@@ -1,6 +1,6 @@
 module UsersHelper
   def user_status_badge(user)
-    if !user.accepted_invitation?
+    if !user.accepted_or_not_invited?
       content_tag(:span, "invited", class: %w[badge bg-secondary-subtle text-info])
     elsif user.disabled?
       content_tag(:span, "disabled", class: %w[badge bg-danger-subtle text-danger])
