@@ -4,7 +4,7 @@ ruby "3.4.13"
 
 gem "rails", "~> 8.1.3"
 gem "propshaft", "~> 1.3.2"
-gem "pg", "~> 1.6"
+gem "pg", "~> 1.7.0"
 gem "puma", ">= 5.0"
 gem "importmap-rails", "~> 2.2.3"
 gem "turbo-rails", "~> 2.0.23"
@@ -14,12 +14,12 @@ gem "jbuilder", "~> 2.15.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "solid_cache", "~> 1.0.10"
 gem "solid_queue", "~> 1.7.0"
-gem "solid_cable", "~> 4.0.2"
+gem "solid_cable", "~> 4.1.0"
 
 gem "devise", "~> 5.0.4"
 gem "devise_invitable", "~> 3.1.0"
 gem "haml-rails", "~> 3.1"
-gem "kaminari", "~> 1.2.2"
+gem "kaminari", "~> 1.3.3"
 gem "loaf", "~> 0.10.0"
 gem "paranoia", "~> 3.1.0"
 gem "pundit", "~> 2.5.2"
@@ -27,19 +27,21 @@ gem "simple_form", "~> 5.4.1"
 gem "turbo_power", "~> 0.8.0"
 
 gem "bootsnap", require: false
+# minitest allows prism < 3, so an open update installs 2.x. Stay on 1.9.
+gem "prism", "~> 1.9.0"
 gem "kamal", require: false
 gem "thruster", require: false
 
 group :development, :test do
-  gem "bullet", "~> 8.2.0"
+  gem "bullet", "~> 8.3.1"
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "dotenv", "~> 3.2.0"
-  gem "brakeman", "~> 8.0.6", require: false
+  gem "brakeman", "~> 8.1.1", require: false
   gem "factory_bot_rails", "~> 6.5.1"
   gem "fasterer", "~> 0.11.0", require: false
   gem "haml_lint", "~> 0.78.0"
   gem "pry-byebug", "~> 3.12.0"
-  gem "rspec-rails", "~> 8.0.2"
+  gem "rspec-rails", "~> 8.1.0"
   gem "rubocop-rails-omakase", "~> 1.1.0", require: false
 end
 
@@ -52,15 +54,15 @@ end
 group :test do
   gem "faker", "~> 3.8.0"
   gem "pundit-matchers", "~> 4.0.0"
-  gem "rspec_junit_formatter", "~> 0.6.0", require: false
-  gem "simplecov", "~> 1.1.1", require: false
+  gem "rspec_junit_formatter", "~> 0.8.0", require: false
+  gem "simplecov", "~> 1.3.2", require: false
 
   gem "capybara"
   gem "selenium-webdriver"
 end
 
 group :production do
-  gem "newrelic_rpm", "~> 10.7.1"
+  gem "newrelic_rpm", "~> 10.9.1"
   gem "stackprof", "~> 0.2.26"
   gem "sentry-ruby", "~> 7.3.0"
   gem "sentry-rails", "~> 7.3.0"
