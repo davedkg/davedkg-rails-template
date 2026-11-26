@@ -65,14 +65,15 @@ class DeviseCreateUsers < ActiveRecord::Migration[8.0]
       t.datetime :resource_created_at
       t.json :invite_key, null: false, default: {}
       t.string :invite_key_digest, null: false
-      t.references :invitable, polymorphic: true, type: :uuid
-      t.references :invited_by, polymorphic: true, type: :uuid
+      t.references :invitable, polymorphic: true, type: :uuid, index: false
+      t.references :invited_by, polymorphic: true, type: :uuid, index: false
       t.datetime :deleted_at
       t.timestamps
     end
 
     add_index :devise_invitations, [ :deleted_at, :invitation_token ], unique: true
-    add_index :devise_invitations, [ :invitable_type, :invite_key_digest ],
-              name: "index_devise_invitations_on_type_and_invite_key"
+    add_index :devise_invitations, [ :deleted_at, :invitable_type, :invitable_id ]
+    add_index :devise_invitations, [ :deleted_at, :invited_by_type, :invited_by_id ]
+    add_index :devise_invitations, [ :deleted_at, :invitable_type, :invite_key_digest ]
   end
 end

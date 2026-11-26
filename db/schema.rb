@@ -32,10 +32,10 @@ ActiveRecord::Schema[8.1].define(version: 2024_12_15_071844) do
     t.datetime "deleted_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["deleted_at", "invitable_type", "invitable_id"], name: "idx_on_deleted_at_invitable_type_invitable_id_c3f6c5e9ea"
+    t.index ["deleted_at", "invitable_type", "invite_key_digest"], name: "idx_on_deleted_at_invitable_type_invite_key_digest_3650eb2c27"
     t.index ["deleted_at", "invitation_token"], name: "index_devise_invitations_on_deleted_at_and_invitation_token", unique: true
-    t.index ["invitable_type", "invitable_id"], name: "index_devise_invitations_on_invitable"
-    t.index ["invitable_type", "invite_key_digest"], name: "index_devise_invitations_on_type_and_invite_key"
-    t.index ["invited_by_type", "invited_by_id"], name: "index_devise_invitations_on_invited_by"
+    t.index ["deleted_at", "invited_by_type", "invited_by_id"], name: "idx_on_deleted_at_invited_by_type_invited_by_id_560086d12f"
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
