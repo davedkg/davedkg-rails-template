@@ -27,8 +27,7 @@ gem "simple_form", "~> 5.4.1"
 gem "turbo_power", "~> 0.8.0"
 
 gem "bootsnap", require: false
-# minitest allows prism < 3, so an open update installs 2.x. Stay on 1.9.
-gem "prism", "~> 1.9.0"
+gem "prism", "~> 2.1.0"
 gem "kamal", require: false
 gem "thruster", require: false
 
